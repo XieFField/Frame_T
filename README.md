@@ -237,7 +237,57 @@ flowchart TD
 
 ```
 
-```
+```scss
+                        ┌─────────────────────────┐
+                        │        FDCAN HW         │
+                        │   (FIFO0, TX FIFO)      │
+                        └───────────┬─────────────┘
+                                    │ RX FIFO 中断
+                                    ▼
+                        ┌─────────────────────────┐
+                        │ fdcan_global_rx_isr()   │
+                        │ (全局C回调，找到bus)   │
+                        └───────────┬─────────────┘
+                                    │ pushRxFromISR()
+                                    ▼
+                        ┌─────────────────────────┐
+                        │     fdCANbus::rxQueue_  │
+                        │   (RtosQueue<CanFrame>) │
+                        └───────────┬─────────────┘
+                                    │
+                       RxTask wakes│ recv() from queue
+                                    ▼
+                        ┌─────────────────────────┐
+                        │   fdCANbus::rxTaskbody  │
+                        │   遍历 motorList_       │
+                        │   motor->matchesFrame() │
+                        │   motor->updateFeedback │
+                        └───────────┬─────────────┘
+                                    │
+                         ┌──────────┴──────────┐
+                         │                     │
+               ┌─────────────────┐   ┌─────────────────┐
+               │   Motor_Base    │   │  Motor_Subclass │
+               │ (base class)    │   │ (DJI_M3508 etc.)│
+               │ updateFeedback()│   │ override packs  │
+               │  getRPM()/...   │   │ specific logic │
+               └─────────────────┘   └─────────────────┘
+                                    ▲
+                                    │ packCommand()
+                                    │
+                        ┌───────────┴────────────┐
+                        │ fdCANbus::schedulerTask│
+                        │ (1kHz 调度)            │
+                        │ 遍历 motorList_        │
+                        │ 收集各 motor packCommand│
+                        │ sendFrame()             │
+                        └───────────┬────────────┘
+                                    │
+                        ┌───────────┴────────────┐
+                        │   FDCAN TX FIFO         │
+                        │   HAL_FDCAN_AddMessage  │
+                        └─────────────────────────┘
+
 
 ```
 
