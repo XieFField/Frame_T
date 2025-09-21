@@ -44,6 +44,7 @@
 "frame_t\bsp_fdcan_driver.o"
 "frame_t\motor_dji.o"
 "frame_t\frame_demo.o"
+"frame_t\setup_configinit.o"
 "frame_t\app_pid.o"
 "frame_t\app_tool.o"
 "frame_t\module_encoder.o"

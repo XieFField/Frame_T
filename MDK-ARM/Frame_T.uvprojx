@@ -728,6 +728,18 @@
         </Group>
         <Group>
           <GroupName>User/Setup</GroupName>
+          <Files>
+            <File>
+              <FileName>Setup_ConfigInit.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\User\Setup\Inc\Setup_ConfigInit.h</FilePath>
+            </File>
+            <File>
+              <FileName>Setup_ConfigInit.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\User\Setup\Src\Setup_ConfigInit.cpp</FilePath>
+            </File>
+          </Files>
         </Group>
         <Group>
           <GroupName>RC10_LIB/APP</GroupName>

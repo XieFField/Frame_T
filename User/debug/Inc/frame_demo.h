@@ -14,6 +14,7 @@
 
 #include "BSP_RTOS.h"
 #include "BSP_fdCAN_Driver.h"
+#include "Setup_ConfigInit.h"
 
 extern "C"
 {
