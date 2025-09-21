@@ -37,13 +37,18 @@
       1. fdCAN提供发送接口给电机类，提供 sendFrame(const CanFrame&) 接口，电机类不会直接调用 HAL。
       2. 在fdCANbus中注册电机,使用Motor_Base指针，这样所有继承Motor_Base的子类都可以注册
       3. fdCAN搬运ISR中的数据包丢到队列，让电机类解析。
-      4. 实现CAN发送频率为1kHz，与回传频率一致。内部带一个 1kHz 调度器任务，统一调度挂载的电机。schedulerTask()：1ms 运行一次，遍历挂载电机，收集 packCommand() 的结果，统一 sendFrame()。
-         1. 1 ms 到时 → 遍历 motorList[]。
-         2. 对每个 motor 调用 motor->packCommand()。
-         3. 子类（例如 DJIMotor）在 packCommand() 中，把当前 target 转换成对应协议的报文（或者写进 group 的缓存）。
-         4. 如果是 DJI 系列，会把同组的 4 个电机合并成一帧；如果是其他电机，就直接返回一帧。
-           
-            
+      4. 实现CAN发送频率为1kHz，与回传频率一致。这通过内部一个1kHz的调度器任务完成，该任务统一调度所有注册到总线上的对象。
+         **调度流程的最终实现**：
+         1. **双注册**: 用户需要将**电机对象本身**（如 `m3508_1`）和**电机组对象**（如 `DJI_Group_1`）都注册到 `fdCANbus`。
+            *   注册电机本身是为了让调度器能调用其 `update()` 方法，并让接收任务能通过 `matchesFrame()` 找到它并调用 `updateFeedback()`。
+            *   注册电机组是为了让调度器能调用其 `packCommand()` 方法来打包发送指令。
+         2. **1kHz定时器中断** 触发，释放 `schedulerTask_` 的信号量。
+         3. `schedulerTask_` 被唤醒，开始执行两轮遍历：
+            *   **第一轮遍历 (Update)**: 遍历 `motorList_`，对每个注册的对象调用 `update()` 方法。此时，`m3508_1->update()` 会被调用，执行PID计算并更新其内部的 `target_current_`。而 `DJI_Group_1->update()` 是空函数，不执行任何操作。
+            *   **第二轮遍历 (Pack & Send)**: 再次遍历 `motorList_`，对每个对象调用 `packCommand()`。此时，`m3508_1->packCommand()` 是空函数。而 `DJI_Group_1->packCommand()` 会被调用，它会访问其成员 `m3508_1` 的 `target_current_` 值，并将其打包成CAN帧。
+         4. `schedulerTask_` 将所有收集到的帧通过 `sendFrame()` 发送出去。
+         这种设计精确地分离了职责：电机对象负责计算，电机组对象负责打包。
+
       5. 成员变量：FDCAN_HandleTypeDef* hfdcan、bus_id、静态数组管理电机指针
       6. 
 
@@ -76,15 +81,19 @@
    
 2. 电机封装的实现
    1. 首先有一个Motor_Base抽象类，作为父类，统一电机所需要的通用接口被后续的子类电机重写。
-   2. 在之后
+   2. **核心设计：接收即转换与尺度统一**
+      *   **接收即转换**: 在 `DJI_Motor::updateFeedback()` 方法中，从CAN总线收到的原始电机转子数据（编码器值、转速）会**立即**通过调用 `virtual float get_GearRatio() const` 函数获得正确的减速比，并被转换为**输出轴尺度**的数据。
+      *   **状态统一**: 转换后，所有存储在 `Motor_Base` 中的成员变量（`rpm_`, `angle_`, `totalAngle_`）都统一为**输出轴的状态**。
+      *   **控制闭环统一**: 所有PID控制环路（在 `update()` 方法中）的目标值（`target_rpm_`）和反馈值（`this->rpm_`）都基于输出轴尺度进行计算，确保了控制的正确性。
+   3. 在之后
       1. DJI
          1. 有DJI_Motor管理单一电机和DJI_Group合帧。
          2. DJI一条CAN上八个电机分上下片帧，id1~4一片，一个canid,5~8一片，一个canid
          3. 之后具体电机需要继承
       2. 其他电机
          1. 继承Motor_Base完成各自的协议。
-   3. 电机发送报文的生成和回收报文的解析在电机类中实现
-   4. 具体实现
+   4. 电机发送报文的生成和回收报文的解析在电机类中实现
+   5. 具体实现
       1. PID作为电机类中的成员，而非电机类继承PID类。
       2. 提供通用接口(Motor_Base抽象层)：
 
@@ -94,7 +103,7 @@
 
         packCommand()（把目标量转成 CAN 报文）
 
-        unpackFeedback()（解析电机返回报文）
+        updateFeedback()（解析电机返回报文）
         在之后由具体电机类完成闭环控制的封装。
       3. 在电机类中把update()[更新电机所要发送参数] ,和packCommand()[打包参数发送]分开
          1. 具体在fdCANbus中的操作
@@ -123,8 +132,8 @@
             1. 只有帧头和上面那个不同
             2. 接收
       5. 线程安全
-         1. fdCANbus的rxTask会调用updateFeedback(写反馈),而schedulerTask会读取这些字段进行packCommand()(读反馈并发送)，因此需要对共享数据做一个保护。
-         2. 做法，目前思路是两种，一是在Motor的反馈和发送中做使用轻量级的互斥量，或者用taskENTER_CRITICAL()做短期保护.
+         1. `rxTask` (接收任务) 和 `schedulerTask` (调度任务) 之间存在数据共享（如 `rpm_`, `angle_`）。`rxTask` 是写入者，`schedulerTask` 是读取者。由于 `schedulerTask` 的优先级更高，并且在当前设计中，数据读取不是原子操作，理论上存在数据竞争的风险（尽管在1kHz的调度频率下实际发生的概率较低）。
+         2. **当前策略**：暂时未加入显式的锁。依赖于FreeRTOS的任务调度和数据类型的原子性（float/int32在32位机上通常是原子读写的）来规避问题。如果未来出现数据不一致的问题，可以考虑在 `updateFeedback` 和 `update` 中对共享数据块使用 `taskENTER_CRITICAL()` / `taskEXIT_CRITICAL()` 进行保护。
       6. matchesFrame 的默认实现与扩展
          1. 此意义在于实现默认行为（比较 id_ 与 isExtended_），并允许子类 override（比如 DJI group 要匹配 group-feedback frame 并分发到成员）。
          2. 其实也可以把matchFrame删了，然后直接调用fdCANbus的matchesFrameDefualt。其实也是实现等价逻辑
