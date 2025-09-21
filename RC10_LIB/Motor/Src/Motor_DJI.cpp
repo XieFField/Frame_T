@@ -233,8 +233,8 @@ void M3508::update()
         //注意：此处不break，继续执行速度环计算
         case SPEED_CONTROL:
         {
-            float motor_rpm = target_rpm_ * GEAR_RATIO; //电机轴转速
-            target_current_ = speed_pid_.pid_calc(motor_rpm, this->rpm_);
+            // 目标值 target_rpm_ 和反馈值 this->rpm_ 都已经是输出轴转速，尺度统一
+            target_current_ = speed_pid_.pid_calc(target_rpm_, this->rpm_);
             //cur = target_current_;
             break;
         }
@@ -311,8 +311,8 @@ void M2006::update()
 
         case SPEED_CONTROL:
         {
-            float motor_rpm_target = target_rpm_ * GEAR_RATIO; //电机轴转速
-            target_current_ = speed_pid_.pid_calc(motor_rpm_target, this->rpm_);
+            // 目标值 target_rpm_ 和反馈值 this->rpm_ 都已经是输出轴转速，尺度统一
+            target_current_ = speed_pid_.pid_calc(target_rpm_, this->rpm_);
             break;
         }
 

@@ -144,6 +144,10 @@ public:
         (void)cf;
     }
 
+    void update() override
+    {
+        //do nothing
+    }
 
 private:
     uint32_t baseTxID_;

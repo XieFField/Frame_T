@@ -18,238 +18,187 @@ attention: Õâ·İÊÖ²áºÜ´ó³Ì¶ÈÊÇAIÉú³ÉµÄ£¬±ÊÕßÖ»¸ºÔğĞŞ¸ÄÆäÖĞ²¿·Ö£¬Èô·¢ÏÖÓĞç¢Â©£¬Çë¼
 
 ### BSP·ÖÖ§
 #### FreeRTOSµÄÊ¹ÓÃ
-ÔÚBSP_RTOS.hÎÄ¼şÖĞ£¬·â×°ÁË»ù±¾µÄRTOSÊ¹ÓÃ£¬Ä¿Ç°ÓĞ»ù±¾µÄÈÎÎñºÍ¶ÓÁĞ
+ÔÚ`BSP_RTOS.h`ÎÄ¼şÖĞ£¬·â×°ÁË»ù±¾µÄRTOSÊ¹ÓÃ£¬Ä¿Ç°ÓĞ»ù±¾µÄÈÎÎñºÍ¶ÓÁĞ¡£
 
-1. Ä¿Ç°RtosTaskµÄÈÎÎñÔËĞĞÓµÓĞÁ½ÖÖÄ£Ê½
-   1. ³¬¼¶Ô¤ÖÆ²ËÄ£Ê½£ºÓÃ»§ÔÚ³õÊ¼»¯Ê±ºòÖ»Ğè¸ø¶¨ÈÎÎñÃû£¬ÒÔ¼°ÊéĞ´Ò»¸ö³õÊ¼»¯º¯ÊıÓÃÓÚ·ÅÖÃstartº¯Êı¼´¿É.(**×¢Òâ£º±ØĞëÔËĞĞstartº¯Êı²ÅÄÜ×¢²áÈÎÎñ£¬¶øÇÒstartº¯Êı±ØĞëÔÚosKernelStart();Ö®Ç°ÔËĞĞ,main.cppÖĞµÄ**)
+1.  **RtosTask ÈÎÎñ·â×°**
+    `RtosTask` ÀàÌá¹©ÁËÁ½ÖÖÈÎÎñÄ£Ê½£¬Í¨¹ı¹¹Ôìº¯ÊıµÄ `period` ²ÎÊıÇø·Ö£º
+    *   **ÖÜÆÚĞÔÈÎÎñ (`period > 0`)**: ÈÎÎñ»áÒÔ `period` Ö¸¶¨µÄTick¼ä¸ô×Ô¶¯Ñ­»·Ö´ĞĞ `loop()` ·½·¨¡£ÊÊÓÃÓÚĞèÒª¹Ì¶¨ÆµÂÊÔËĞĞµÄ¼òµ¥Âß¼­¡£
         ```cpp
-        /*¾ÙÀı*/
-        /*
-            1.ÓÃ»§ĞèÒª×öµÄ£¬Ê¹ÓÃRtosTaskÊµÀı»¯ÈÎÎñ
-            2.ÔÚÄãµÄ³õÊ¼»¯º¯ÊıÖĞ£¬Èç´Ë´¦µÄinit()£¬Ğ´Èëstartº¯Êı£¬Ö¸¶¨ÈÎÎñµÄÓÅÏÈ¼¶¡¢Õ»´óĞ¡
-            3.ÔÚ³¬¼¶Ô¤ÖÆ²ËÄ£Ê½ÏÂ£¬Ö»ĞèÒªÖØĞ´loop£¬Ğ´ÈëÄãÏëÖ´ĞĞµÄÈÎÎñ¼´¿É
-        */
-        class FrameDemo : public RtosTask
-        {
+        class MyPeriodicTask : public RtosTask {
         public:
-            FrameDemo() : RtosTask("FrameDemo") {}
-            void init();
-            void loop() override; 
-            volatile int counter = 0;
+            MyPeriodicTask() : RtosTask("MyTask", 1000) {} // 1000msÖÜÆÚ
+        protected:
+            void loop() override 
+            {
+                // ÕâÀïµÄ´úÂëÃ¿1000msÖ´ĞĞÒ»´Î
+            }
         };
-
-        void FrameDemo::loop()
-        {
-            counter++;
-        }
-
-        void FrameDemo::init()
-        {
-            start(osPriorityNormal, 256);
-        }
-
         ```
-    2. ×Ô¶¨ÒåÄ£Ê½
+    *   **ÊÂ¼şÇı¶¯ÈÎÎñ (`period = 0`)**: ÈÎÎñ´´½¨ºó»áÖ´ĞĞÒ»´Î `run()` ·½·¨¡£`run()` ·½·¨±ØĞë°üº¬Ò»¸öËÀÑ­»· `for(;;)` ºÍÒ»¸ö×èÈûµ÷ÓÃ£¨Èç `vTaskDelay`, `xSemaphoreTake`£©£¬ÓÃÓÚµÈ´ıÍâ²¿ÊÂ¼ş¡£ÊÊÓÃÓÚĞèÒª±»¶¯´¥·¢µÄ¸´ÔÓÈÎÎñ£¬ÀıÈçCAN×ÜÏßµÄµ÷¶ÈºÍ½ÓÊÕÈÎÎñ¡£
         ```cpp
-        /*¾ÙÀı*/
-            /*
-                1.ÓÃ»§ĞèÒª×öµÄ£¬Ê¹ÓÃRtosTaskÊµÀı»¯ÈÎÎñ£¬Í¬Ê±´«Èë¹¹Ôìº¯ÊıµÄµÚ¶ş¸ö²ÎÊı£¬ÑÓ³ÙÊ±¼ä(Ä¬ÈÏÊÇ1)£¬½«ÆäÉèÖÃ0£¬Ôò½øÈë×Ô¶¨ÒåÄ£Ê½
-                2.ÔÚÄãµÄ³õÊ¼»¯º¯ÊıÖĞ£¬Èç´Ë´¦µÄinit()£¬Ğ´Èëstartº¯Êı£¬Ö¸¶¨ÈÎÎñµÄÓÅÏÈ¼¶¡¢Õ»´óĞ¡
-                3.ÔÚ×Ô¶¨ÒåÄ£Ê½ÏÂ£¬ÄãĞèÒª×ÔĞĞÍê³ÉÈÎÎñµÄ¹Ç¼Ü£¬ÖØĞ´run()³ÉÔ±
-            */
-            class FrameDemo : public RtosTask
+        class MyEventTask : public RtosTask {
+        public:
+            MyEventTask() : RtosTask("EventTask", 0) {} // ÊÂ¼şÇı¶¯
+        protected:
+            void run() override 
             {
-            public:
-                FrameDemo() : RtosTask("FrameDemo",0) {}
-                void init();
-                void loop() override; 
-                volatile int counter = 0;
-            };
-
-            void FrameDemo::run()
-            {
-                static int i;
-                for(;;)
+                for(;;) 
                 {
-                    i++;
-                    if(i > 10)
-                    {
-                        counter++;
-                        i = 0;
-                    }
-                    
-                    osDelay(1);
+                    // µÈ´ıĞÅºÅÁ¿»òÆäËûÊÂ¼ş
+                    xSemaphoreTake(mySemaphore, portMAX_DELAY); 
+                    // ´¦ÀíÊÂ¼ş...
                 }
-                
             }
-
-            void FrameDemo::init()
-            {
-                start(osPriorityNormal, 256);
-            }
+        };
         ```
+
+2.  **RtosQueue ¶ÓÁĞ·â×°**
+    ÕâÊÇÒ»¸öÄ£°åÀà£¬¿ÉÒÔ·½±ãµØ´´½¨ºÍÊ¹ÓÃÏß³Ì°²È«µÄ¶ÓÁĞ¡£
+    ```cpp
+    // ´´½¨Ò»¸öÄÜÈİÄÉ8¸öintµÄ¶ÓÁĞ
+    RtosQueue<int> myQueue(8);
+
+    // ÔÚÒ»¸öÈÎÎñÖĞ·¢ËÍÊı¾İ
+    myQueue.send(123);
+
+    // ÔÚÁíÒ»¸öÈÎÎñÖĞ½ÓÊÕÊı¾İ
+    int received_value;
+    if (myQueue.recv(received_value, 100)) { // µÈ´ı100ms
+        // ³É¹¦½ÓÊÕµ½Êı¾İ
+    }
+    ```
+
 ### APP·ÖÖ§
 
 #### APP_tool
-¹¤¾ßÀà
+¹¤¾ßÀà£¬Ìá¹©Èç `constrain`£¨ÏŞ·ù£©µÈÍ¨ÓÃº¯Êı¡£
 
 #### APP_PID
-1. Î»ÖÃÊ½PID
-   1. ²ÉÓÃÁËÌİĞÎ»ı·Ö¡¢Î¢·ÖÏÈĞĞ¡¢»ı·Ö·ÖÀë
-      1. Î¢·ÖÏÈĞĞ£º´«Í³PIDÔÚtarget_setÍ»±äÊ±£¬Î¢·ÖÏî»á²úÉú³å¼¤£»Î¢·ÖÏÈĞĞÓÃÓÚ²»¼ÆËãerrorµÄ±ä»¯ÂÊ£¬¶øÊÇÖ±½Ó¼ÆËãfeedbackµÄ±ä»¯ÂÊ
-        ```cpp
-        // ´«Í³ D Ïî: D = kd * (error - last_error) / dt
-        // Î¢·ÖÏÈĞĞ D Ïî: D = kd * (last_feedback - current_feedback) / dt
-        ```
-      2. ÌİĞÎ»ı·Ö£º ±È¼òµ¥µÄ¾ØĞÎ»ı·Ö£¨I += ki * error * dt£©¸ü¾«È·£¬ÓÈÆäÊÇÔÚ²ÉÑùÊ±¼ä dt ²»ÎÈ¶¨»òÎó²î±ä»¯½Ï¿ìÊ±¡£Ëü¼ÆËãµÄÊÇµ±Ç°Îó²îºÍÉÏ´ÎÎó²î¹¹³ÉµÄÌİĞÎÃæ»ı¡£
-        ```cpp
-        integral_term += ki * (error + last_error) / 2.0f * dt;
-        ```
-      3. »ı·Ö·ÖÀë£º ÔÚÎó²îºÜ´óÊ±£¬ÔİÊ±½ûÓÃ»ı·ÖÀÛ¼Ó£¬·ÀÖ¹»ı·ÖÏî¹ı¿ì±¥ºÍ£¬µ¼ÖÂÏµÍ³³¬µ÷ÑÏÖØ¡£Ö»ÓĞµ±Îó²î½øÈëÒ»¸ö¿É½ÓÊÜµÄ·¶Î§ºó£¬²Å¿ªÊ¼ÀÛ¼Ó»ı·Ö¡£
-        ```cpp
-        if (abs(error) < I_SeparaThreshold_) 
-        {
-            // Ö»ÓĞÔÚÎó²î½ÏĞ¡Ê±²ÅÀÛ¼Ó»ı·Ö
-            integral_term += ...;
-        }
-        ```
+Ìá¹©ÁËÎ»ÖÃÊ½ºÍÔöÁ¿Ê½Á½ÖÖPID¿ØÖÆÆ÷¡£
 
-2. ÔöÁ¿Ê½PID
-    1. ÔöÁ¿Ê½PID¼ÓÈëÁËÎ¢·Ö¸ú×ÙÆ÷(Track_D)£¬×÷ÎªÒ»¸öĞÅºÅÔ¤´¦ÀíÄ£¿é
-       1. ´«Í³PIDÔÚÄ¿±êÖµ·¢Éú½×Ô¾Ê±ºò»á²úÉúÍ»±ä£¬Ê¹ÏµÍ³·¢ÉúÕğµ´¡£
-       2. Ô­Àí£º
-          1. ÊäÈëÒ»¸öÄ¿±êÖµtarget¸øTrack_D
-          2. Track_D²»»áÁ¢¿Ì°Ñtarget½»¸øPID£¬¶øÊÇÔÚÄÚ²¿Ä£ÄâÒ»¸ö¶ş½×¶¯Ì¬ÏµÍ³£¬Éú³ÉÒ»¸öÆ½»¬ÇÒÁ¬ĞøµÄ¹ı¶ÉÇúÏßV1£¬Ê¹µÃV1Æ½»¬±Æ½ütarget¡£
-          3. Track_D½«V1×÷ÎªPIDµÄÊµ¼ÊÄ¿±êÖµ
-       3. Track_DÔÚÊµ¼Ê³¡¾°µÄ×÷ÓÃ£º
-            ÈôÄãÊ¹ÓÃPID¿ØÖÆÆ÷ÈÃ»úÆ÷ÈË´ÓAµ½Bµã
-          1. ÎŞTrack_D: »úÆ÷ÈË»áÃÍµÄÆô¶¯£¬È»ºó¼±É²³µµ½Bµã£¬¶øÇÒ¿ÉÄÜ³¬µ÷£¬²»ÊÇºÜÎÈ¶¨¡£
-          2. ÓĞTrack_D£º»úÆ÷ÈË»á¹æ»®Ò»ÌõÆ½»¬µÄ¼ÓËÙÇúÏß£¬È»ºóÎÈÎÈµ±µ±¼ÓËÙ¡¢ÔÈËÙ¡¢¼õËÙ£¬È»ºó¾«×¼Í£µ½Bµã
-    2. 
-3. ÓÃ»§¸ÃÈçºÎÊ¹ÓÃ£¿
-   1. Î»ÖÃÊ½PID
-        Î±´úÂë
-        ```cpp
-        //init
-        PID_Param_Config param_init = {¡¤¡¤¡¤};// ÉèÖÃ Kp, Ki, Kd µÈ²ÎÊı
-        PID_Position  pid(param_init);
-        float target_pos = 100.0f;
-        motor.set_pos(pid.calc(target_pos, motor.get_pos()));
-        ```
-   2. ÔöÁ¿Ê½PID
-        Î±´úÂë
-        ```cpp
-        // ³õÊ¼»¯
-        PID_Param_Config param_init = { ... }; // ÉèÖÃ Kp, Ki, Kd µÈ²ÎÊı
-        float td_ratio = 0.8f; // ÉèÖÃ¸ú×ÙÎ¢·ÖÆ÷ËÙ¶È£¬0Îª²»Ê¹ÓÃ
-        PID_Incremental pid_speed(param_init, td_ratio);
+1.  **ºËĞÄÉè¼Æ**
+    *   **Î»ÖÃÊ½PID**: ²ÉÓÃÁËÌİĞÎ»ı·Ö¡¢Î¢·ÖÏÈĞĞ¡¢»ı·Ö·ÖÀëµÈ¸Ä½øËã·¨£¬ÊÊÓÃÓÚ´ó²¿·ÖĞèÒª¾«È·Î»ÖÃ¿ØÖÆµÄ³¡¾°¡£
+    *   **ÔöÁ¿Ê½PID**: ¼ÓÈëÁËÎ¢·Ö¸ú×ÙÆ÷(Track_D)£¬ÄÜÓĞĞ§Æ½»¬Ä¿±êÖµµÄ½×Ô¾±ä»¯£¬¼õÉÙÏµÍ³Õğµ´£¬ÊÊÓÃÓÚËÙ¶È¿ØÖÆµÈ³¡¾°¡£
+    *   **¹Ì¶¨²ÉÑùÊ±¼ä**: PID¿ØÖÆÆ÷ÄÚ²¿µÄ `dt` ±»Ó²±àÂëÎª `0.001f` (1ms)¡£ÕâÊÇÒ»¸ö**ºËĞÄÉè¼Æ**£¬ËüÇ¿ÒÀÀµÓÚµ÷ÓÃ `pid_calc` µÄ `update()` ·½·¨±»Ò»¸ö¾«È·µÄ1kHzµ÷¶ÈÆ÷£¨Èç `fdCANbus::schedulerTaskbody`£©Ëùµ÷ÓÃ¡£
 
-        
-        float target_speed = 5000.0f; 
-        float current_speed = motor.get_speed(); // »ñÈ¡µ±Ç°µç»úËÙ¶È
-
-        // pid_calc·µ»ØµÄÊÇ¡°µ±Ç°×ÜÊä³ö¡±£¬¿ÉÒÔÖ±½ÓÊ¹ÓÃ
-        float motor_output = pid_speed.pid_calc(target_speed, current_speed);
-
-        // ½«¼ÆËã½á¹û·¢ËÍ¸øµç»ú
-        motor.set_current(motor_output); // ¼ÙÉèÊÇµçÁ÷»·¿ØÖÆ
-        ```
-
+2.  **ÓÃ»§¸ÃÈçºÎÊ¹ÓÃ£¿**
+    ÔÚµç»úÀà£¨Èç `M3508`£©µÄ `pid_init` º¯ÊıÖĞ³õÊ¼»¯PID²ÎÊı£¬È»ºóÔÚ `update` º¯ÊıÖĞµ÷ÓÃ `pid_calc` ¼´¿É¡£ÓÃ»§ÎŞĞè¹ØĞÄ `dt` µÄ¼ÆËã¡£
+    ```cpp
+    // ÔÚ M3508::update() ÖĞ
+    case SPEED_CONTROL:
+    {
+        // target_rpm_ ºÍ this->rpm_ ¶¼ÊÇÊä³öÖá×ªËÙ£¬³ß¶ÈÍ³Ò»
+        target_current_ = speed_pid_.pid_calc(target_rpm_, this->rpm_);
+        break;
+    }
+    ```
 
 ### Module·ÖÖ§
+´Ë·ÖÖ§Ö÷Òª°üº¬ÓëÌØ¶¨Ó²¼şÄ£¿éÏà¹ØµÄ´úÂë£¬ÀıÈç `Module_Encoder.cpp`£¬Ëü¸ºÔğ½«±àÂëÆ÷µÄÔ­Ê¼Öµ£¨Èç0-8191£©×ª»»ÎªÁ¬ĞøµÄ½Ç¶È£¨-¡Ş, +¡Ş£©ºÍµ¥È¦½Ç¶È£¨[0, 360)£©¡£
 
 ---
 
-### DJI µç»úÊ¹ÓÃÖ¸ÄÏ
+### fdCANbusÈçºÎ¹¤×÷µÄ£¿
 
-±¾Ö¸ÄÏ½«Òıµ¼ÄãÍê³É´ÓÓ²¼ş³õÊ¼»¯µ½ÔÚ RTOS ÈÎÎñÖĞ¿ØÖÆ´ó½®ÏµÁĞµç»ú£¨M3508, M2006, GM6020£©µÄÍêÕûÁ÷³Ì¡£
+`fdCANbus` ÊÇÕû¸öµç»ú¿ØÖÆ¿âµÄÉñ¾­ÖĞÊà¡£Ëü¸ºÔğ´¦Àíµ×²ãµÄCANÍ¨ĞÅ£¬²¢ÒÔ¾«È·µÄÆµÂÊ×Ô¶¯µ÷¶ÈËùÓĞµç»ú¿ØÖÆÈÎÎñ£¬½«ÓÃ»§´Ó·±ËöµÄÊµÊ±¿ØÖÆºÍÓ²¼ş½»»¥ÖĞ½â·Å³öÀ´¡£
 
-#### Éè¼ÆÀíÄî»Ø¹Ë
+#### ºËĞÄ×é¼şÓë¹¤×÷Á÷³Ì
 
-ÔÚ¿ªÊ¼Ö®Ç°£¬Çë¼Ç×¡ RC10_LIB µÄºËĞÄÉè¼Æ£º
+`fdCANbus` ÄÚ²¿Ö÷ÒªÓÉÁ½¸ö²¢ĞĞµÄRTOSÈÎÎñÇı¶¯£º
 
-1.  **·ÖÀëÔ­Ôò**: `fdCANbus` ÊÇÒ»¸ö´¿´âµÄÍ¨ĞÅÍ¨µÀ¡£µç»úµÄËùÓĞ¿ØÖÆÂß¼­£¨PID¼ÆËã£©ºÍĞ­Òé´ò°ü¶¼ÔÚµç»úÀà×ÔÉí (`M3508`, `DJI_Group` µÈ) ÖĞÍê³É¡£
-2.  **×Ô¶¯»¯µ÷¶È**: Äã **²»ĞèÒª** ÊÖ¶¯µ÷ÓÃ PID ¼ÆËã»ò CAN ·¢ËÍº¯Êı¡£`fdCANbus` ÄÚ²¿µÄ `schedulerTask` »áÒÔ 1kHz µÄÆµÂÊ×Ô¶¯Íê³ÉÒÔÏÂ¹¤×÷£º
-    *   µ÷ÓÃËùÓĞÒÑ×¢²áµç»ú£¨»òµç»ú×é£©µÄ `update()` ·½·¨£¬Ö´ĞĞ PID ¿ØÖÆ»·Â·¡£
-    *   µ÷ÓÃ `packCommand()` ·½·¨£¬½«¼ÆËã³öµÄ¿ØÖÆÖ¸Áî´ò°ü³É CAN Ö¡¡£
-    *   ½« CAN Ö¡·¢ËÍ³öÈ¥¡£
-3.  **ÓÃ»§Ö°Ôğ**: ÄãµÄÖ÷Òª¹¤×÷ÊÇÔÚÒ»¸ö¶ÀÁ¢µÄ¿ØÖÆÈÎÎñÖĞ£¬¸ù¾İĞèÒªµ÷ÓÃ `setTargetCurrent()`, `setTargetRPM()`, `setTargetAngle()` À´Éè¶¨Ä¿±êÖµ¼´¿É¡£
+1.  **½ÓÊÕÈÎÎñ (`rxTask_`)**:
+    *   **¹¤×÷**: ÕâÊÇÒ»¸öÊÂ¼şÇı¶¯µÄÈÎÎñ£¬ËüÓÀ¾Ã×èÈû²¢µÈ´ı `rxQueue_` ¶ÓÁĞÖĞµÄĞÂÏûÏ¢¡£
+    *   **Êı¾İÁ÷**:
+        1.  µ±CANÓ²¼ş½ÓÊÕµ½Ò»¸öÊı¾İÖ¡£¬`HAL_FDCAN_RxFifo0Callback` ÖĞ¶Ï·şÎñ³ÌĞò£¨ISR£©±»´¥·¢¡£
+        2.  ISRµ÷ÓÃ `fdcan_global_rx_isr`£¬¸Ãº¯Êı´ÓÓ²¼ş»º³åÇø¶ÁÈ¡Ô­Ê¼CAN±¨ÎÄ¡£
+        3.  Ô­Ê¼±¨ÎÄ±»·â×°³É `CanFrame` ¶ÔÏó£¬²¢±»Á¢¼´ÍÆÈë `rxQueue_` ¶ÓÁĞ¡£
+        4.  `rxTask_` ±»»½ĞÑ£¬´Ó¶ÓÁĞÖĞÈ¡³ö `CanFrame`¡£
+        5.  `rxTask_` ±éÀúËùÓĞÒÑ×¢²áµÄµç»ú£¨`motorList_`£©£¬µ÷ÓÃÃ¿¸öµç»úµÄ `matchesFrame()` ·½·¨À´Ñ°ÕÒ¸Ã±¨ÎÄµÄ¡°Ö÷ÈË¡±¡£
+        6.  Ò»µ©ÕÒµ½Æ¥ÅäµÄµç»ú£¬¾Íµ÷ÓÃÆä `updateFeedback()` ·½·¨£¬½«±¨ÎÄ½»ÓÉµç»ú×ÔĞĞ½âÎö¡£
+
+2.  **µ÷¶ÈÈÎÎñ (`schedulerTask_`)**:
+    *   **¹¤×÷**: ÕâÊÇÒ»¸ö¸ßÓÅÏÈ¼¶µÄ¡¢ÓÉ¶¨Ê±Æ÷¾«È·´¥·¢µÄÖÜÆÚĞÔÈÎÎñ£¬ÆµÂÊÎª1kHz¡£
+    *   **Êı¾İÁ÷**:
+        1.  Ò»¸ö1kHzµÄÓ²¼ş¶¨Ê±Æ÷ÖĞ¶Ï´¥·¢ `fdcan_global_scheduler_tick_isr()`¡£
+        2.  ¸ÃISRÊÍ·Å£¨Give£©Ò»¸öÃûÎª `schedSem_` µÄĞÅºÅÁ¿£¬È»ºóÁ¢¼´ÍË³ö¡£
+        3.  `schedulerTask_` ÔÚÆô¶¯ºó¾ÍÒ»Ö±×èÈûµÈ´ı£¨Take£©Õâ¸öĞÅºÅÁ¿¡£Ò»µ©»ñÈ¡µ½ĞÅºÅÁ¿£¬Ëü¾Í»á±»»½ĞÑ¡£
+        4.  **¸üĞÂ**: ÈÎÎñÊ×ÏÈ±éÀúËùÓĞ×¢²áµÄµç»ú£¨»òµç»ú×é£©£¬²¢µ÷ÓÃËüÃÇµÄ `update()` ·½·¨¡£Õâ»á´¥·¢PID¼ÆËãµÈ¿ØÖÆÂß¼­¡£
+        5.  **´ò°ü**: ½Ó×Å£¬ÈÎÎñÔÙ´Î±éÀúËùÓĞ¶ÔÏó£¬µ÷ÓÃ `packCommand()` ·½·¨À´ÊÕ¼¯ĞèÒª·¢ËÍµÄCANÖ¸ÁîÖ¡¡£
+        6.  **·¢ËÍ**: ×îºó£¬ÈÎÎñ½«ËùÓĞÊÕ¼¯µ½µÄÖ¸ÁîÖ¡Í¨¹ı `sendFrame()` ·½·¨·¢ËÍ³öÈ¥¡£`sendFrame` ÄÚ²¿Ê¹ÓÃ»¥³âËø `tx_mutex_` À´È·±£¶àÈÎÎñ·ÃÎÊCANÓ²¼şµÄÏß³Ì°²È«¡£
+        7.  Íê³ÉÒ»ÂÖµ÷¶Èºó£¬`schedulerTask_` ·µ»ØÑ­»·µÄ¿ªÊ¼£¬ÔÙ´Î×èÈûµÈ´ıÏÂÒ»´ÎµÄĞÅºÅÁ¿£¬´Ó¶øÊµÏÖ¾«È·µÄ1msÖÜÆÚ¡£
+
+#### ¹Ø¼üÉè¼Æ¾ö²ß
+
+*   **ÖĞ¶Ï·şÎñ³ÌĞò£¨ISR£©×îĞ¡»¯**: ISRÖ»×ö×îÉÙµÄ¹¤×÷¡ª¡ª¶ÁÈ¡Êı¾İ²¢½«ÆäÍÆÈë¶ÓÁĞ¡£ËùÓĞºÄÊ±µÄ²Ù×÷£¨Èç±éÀú¡¢Æ¥Åä¡¢½âÎö£©¶¼×ªÒÆµ½ÓÅÏÈ¼¶½ÏµÍµÄ `rxTask_` ÖĞÖ´ĞĞ£¬ÕâÈ·±£ÁËÏµÍ³µÄÊµÊ±ÏìÓ¦ÄÜÁ¦¡£
+*   **·¢ËÍÓë½ÓÊÕ·ÖÀë**: ½ÓÊÕÊÇÍêÈ«Òì²½ºÍÊÂ¼şÇı¶¯µÄ£¬¶ø·¢ËÍÔòÊÇÍ¬²½ºÍÖÜÆÚĞÔµÄ¡£ÕâÖÖÉè¼Æ·ûºÏ¿ØÖÆÏµÍ³µÄµäĞÍÄ£Ê½£º³ÖĞø½ÓÊÕ·´À¡£¬²¢ÒÔ¹Ì¶¨µÄÆµÂÊÊä³ö¿ØÖÆÖ¸Áî¡£
+*   **È«¾ÖÖĞ¶ÏÂ·ÓÉ**: Í¨¹ıÒ»¸öÈ«¾ÖµÄ `g_fdcan_bus_map` Êı×é£¬¿ÉÒÔ½«À´×ÔHAL¿âµÄ¡¢²»Çø·Ö¾ßÌå×ÜÏßµÄC·ç¸ñÖĞ¶Ï»Øµ÷£¬¾«È·µØÂ·ÓÉµ½¶ÔÓ¦µÄ `fdCANbus` C++¶ÔÏóÊµÀıÉÏ¡£ÕâÊ¹µÃ´úÂë¿ÉÒÔÇáËÉÖ§³Ö¶à¸öCAN×ÜÏß¡£
+*   **Ïß³Ì°²È«**: Í¨¹ıÊ¹ÓÃRTOS¶ÓÁĞ£¨`RtosQueue`£©ºÍ»¥³âËø£¨`tx_mutex_`£©£¬`fdCANbus` È·±£ÁËÔÚ¶àÈÎÎñ»·¾³ÏÂÊı¾İ½»»»ºÍÓ²¼ş·ÃÎÊµÄ°²È«ĞÔ¡£
+
+### µç»ú¿âºËĞÄÉè¼ÆÓëÊ¹ÓÃÖ¸ÄÏ
+
+±¾Ö¸ÄÏ½«Òıµ¼ÄãÍê³É´ÓÓ²¼ş³õÊ¼»¯µ½ÔÚ RTOS ÈÎÎñÖĞ¿ØÖÆµç»úµÄÍêÕûÁ÷³Ì¡£
+
+#### ºËĞÄÉè¼ÆË¼Ïë
+
+1.  **Êı¾İ×ª»»Ç°ÖÃ**: ÔÚ `DJI_Motor::updateFeedback` º¯ÊıÖĞ£¬´ÓCAN×ÜÏß½ÓÊÕµ½µÄ**µç»ú×ª×ÓÔ­Ê¼Êı¾İ**£¨×ªËÙ¡¢±àÂëÆ÷Öµ£©»á**Á¢¼´**Í¨¹ıĞéº¯Êı `get_GearRatio()` »ñÈ¡ÕıÈ·µÄ¼õËÙ±È£¬²¢±»×ª»»Îª**¼õËÙºóµÄÊä³öÖáÊı¾İ**¡£
+
+2.  **ÄÚ²¿×´Ì¬Í³Ò»**: ×ª»»Íê³Éºó£¬ËùÓĞ´æ´¢ÔÚ»ùÀà `Motor_Base` ÖĞµÄ³ÉÔ±±äÁ¿£¨`rpm_`, `angle_`, `totalAngle_`£©µÄº¬Òå¶¼Í³Ò»Îª**Êä³öÖáµÄ×´Ì¬**¡£
+
+3.  **¿ØÖÆÓë·´À¡³ß¶ÈÍ³Ò»**: PID¿ØÖÆ»·Â·£¨ÔÚ `update()` ·½·¨ÖĞ£©µÄ**Ä¿±êÖµ**£¨Èç `target_rpm_`£©ºÍ**·´À¡Öµ**£¨Èç `this->rpm_`£©¶¼»ùÓÚ**Êä³öÖáµÄ³ß¶È**½øĞĞ¼ÆËã£¬±£Ö¤ÁË¿ØÖÆµÄÕıÈ·ĞÔ¡£
+
+4.  **µ÷¶È×Ô¶¯»¯**: Äã **²»ĞèÒª** ÊÖ¶¯µ÷ÓÃ PID ¼ÆËã»ò CAN ·¢ËÍº¯Êı¡£`fdCANbus` ÄÚ²¿µÄ `schedulerTask` »áÒÔ 1kHz µÄÆµÂÊ×Ô¶¯Íê³ÉËùÓĞÒÑ×¢²áµç»ú£¨»òµç»ú×é£©µÄ `update()` ºÍ `packCommand()` µ÷ÓÃ¡£
+
+5.  **ÓÃ»§Ö°Ôğ**: ÄãµÄ¹¤×÷·Ç³£¼òµ¥£¬Ö»ĞèÔÚÒ»¸ö¶ÀÁ¢µÄ¿ØÖÆÈÎÎñÖĞ£¬¸ù¾İĞèÒªµ÷ÓÃ `setTargetRPM()`, `setTargetAngle()` µÈº¯ÊıÀ´Éè¶¨**Êä³öÖáµÄÄ¿±êÖµ**¼´¿É¡£
 
 #### µÚÒ»²½£ºÏµÍ³³õÊ¼»¯
 
 ËùÓĞÓ²¼şºÍ¶ÔÏóµÄ³õÊ¼»¯¶¼Ó¦¸ÃÔÚÆô¶¯ RTOS µ÷¶ÈÆ÷ (`osKernelStart()`) Ö®Ç°Íê³É¡£ÍÆ¼öÔÚ `main.cpp` µÄ `USER CODE BEGIN 2` ºÍ `USER CODE END 2` Ö®¼ä£¬»òÕßÒ»¸ö×¨ÃÅµÄ `user_setup.cpp` ÎÄ¼şÖĞ½øĞĞ¡£
 
-ÒÔÏÂÊÇÒ»¸öÍêÕûµÄ³õÊ¼»¯Ê¾Àı£º
-
 ```cpp
 /* main.cpp »ò user_setup.cpp */
 
-#include "fdcan.h" // ÓÉCubeMXÉú³É
 #include "BSP_fdCAN_Driver.h"
 #include "Motor_DJI.h"
 
-// 1. ¶¨ÒåÈ«¾ÖµÄCAN×ÜÏßºÍµç»ú¶ÔÏóÖ¸Õë
-//    Ê¹ÓÃÖ¸ÕëÊÇÎªÁË·½±ãÔÚ²»Í¬ÎÄ¼şÖĞ·ÃÎÊ£¬ÄãÒ²¿ÉÒÔÑ¡ÔñÆäËû·½Ê½¹ÜÀí¶ÔÏó
-fdCANbus* can1_bus_p;
-M3508* m3508_p;
-DJI_Group* group1_4_p;
+// 1. ¶¨ÒåÈ«¾Ö¶ÔÏó
+// ×¢Òâ£ºÕâÀïÖ±½Ó¶¨Òå¶ÔÏó£¬¶ø²»ÊÇÖ¸Õë£¬ÒÔ±ÜÃâ¶¯Ì¬ÄÚ´æ·ÖÅä
+fdCANbus CAN1_Bus(&hfdcan1, 1); // CAN×ÜÏß
+M3508 m3508_1(1, &CAN1_Bus);     // M3508µç»ú, IDÎª1
+DJI_Group DJI_Group_1(0x200, &CAN1_Bus); // DJIµç»ú×é, ·¢ËÍIDÎª0x200
 
 // 2. ´´½¨Ò»¸ö³õÊ¼»¯º¯Êı
 void user_setup()
 {
-    // --- CAN ×ÜÏß³õÊ¼»¯ ---
-    // ²ÎÊı1: FDCAN¾ä±ú (À´×Ôfdcan.h)
-    // ²ÎÊı2: ×ÜÏßID (1, 2, »ò 3)£¬ÓÃÓÚÖĞ¶ÏÂ·ÓÉ
-    fdCANbus can1_bus_p(&hfdcan1, 1);
-
-    // --- µç»úºÍµç»ú×é³õÊ¼»¯ ---
-    // ´´½¨Ò»¸ö M3508 µç»úÊµÀı
-    // ²ÎÊı1: µç»úID (1-4 ¶ÔÓ¦ 0x201-0x204, 5-8 ¶ÔÓ¦ 0x1FF)
-    // ²ÎÊı2: ËùÊôµÄCAN×ÜÏßÖ¸Õë
-    M3508 m3508_p(1, can1_bus_p);
-
-    // ´´½¨Ò»¸ö DJI µç»ú×é (ÓÃÓÚ4ºÏ1´ò°ü)
-    // ²ÎÊı1: »ù´¡·¢ËÍID (0x200 »ò 0x1FF)
-    // ²ÎÊı2: ËùÊôµÄCAN×ÜÏßÖ¸Õë
-    DJI_Group group1_4_p(0x200, can1_bus_p);
+    // --- PID²ÎÊıÅäÖÃ ---£¨AIÉú³ÉµÄ£¬²¢·ÇÍ¨ÓÃ²ÎÊı£©
+    PID_Param_Config speed_pid_params = 
+    {
+        .kp = 10.0f, .ki = 0.5f, .kd = 0.0f,
+        .I_Outlimit = 5000.0f, .isIOutlimit = true,
+        .output_limit = 16000.0f, .deadband = 0.0f
+    };
+    PID_Param_Config angle_pid_params = 
+    {
+        .kp = 0.5f, .ki = 0.0f, .kd = 0.0f,
+        .I_Outlimit = 100.0f, .isIOutlimit = true,
+        .output_limit = 500.0f, .deadband = 0.0f
+    };
+    m3508_1.pid_init(speed_pid_params, 0.0f, angle_pid_params, 30.0f);
 
     // --- ×¢²áÓëÅäÖÃ ---
     // ½«µç»úÌí¼Óµ½µç»ú×é
-    group1_4_p.addMotor(m3508_p);
+    DJI_Group_1.addMotor(&m3508_1);
     // Äã¿ÉÒÔ¼ÌĞøÌí¼Ó¸ü¶àµç»úµ½Õâ¸ö×é...
-    // group1_4_p->addMotor(another_motor_p);
+    // DJI_Group_1.addMotor(&another_motor);
 
-    // ¡¾ÖØÒª¡¿½«µç»ú×é×¢²áµ½CAN×ÜÏß
-    // ×¢Òâ£ºÎÒÃÇ×¢²áµÄÊÇ group1_4_p£¬¶ø²»ÊÇ m3508_p¡£
-    // fdCANbus »á×Ô¶¯µ÷ÓÃ group1_4_p µÄ update ºÍ packCommand ·½·¨¡£
-    can1_bus_p.registerMotor(group1_4_p);
+    // ¡¾ÖØÒª¡¿½«µç»ú±¾ÉíºÍµç»ú×é¶¼×¢²áµ½CAN×ÜÏß
+    // 1. ×¢²áµç»ú±¾Éí£¬Ê¹ÆäÄÜ½ÓÊÕ·´À¡±¨ÎÄ²¢¸üĞÂ×´Ì¬
+    CAN1_Bus.registerMotor(&m3508_1);
+    // 2. ×¢²áµç»ú×é£¬Ê¹ÆäÄÜ±»µ÷¶ÈÆ÷µ÷ÓÃ packCommand() À´´ò°ü·¢ËÍµçÁ÷Ö¸Áî
+    CAN1_Bus.registerMotor(&DJI_Group_1);
 
-    // --- PID ²ÎÊı³õÊ¼»¯ ---
-    // Îª m3508_p ÅäÖÃPID²ÎÊı (AIÉú³ÉµÄ²ÎÊı£¬²»ÒªÖ±½ÓÌ×ÓÃ)
-    PID_Param_Config speed_pid_params = {
-        .kp = 10.0f, 
-        .ki = 1.0f, 
-        .kd = 0.1f,
-        .I_Outlimit = 5000.0f,
-        .isIOutlimit = true,
-        .output_limit = 16384.0f, // M3508 µçÁ÷·¶Î§
-        .deadband = 0.0f
-    };
-    PID_Param_Config angle_pid_params = {
-        .kp = 100.0f, 
-        .ki = 0.5f, 
-        .kd = 0.0f,
-        .I_Outlimit = 300.0f, // Î»ÖÃ»·»ı·ÖÊä³öÏŞÖÆ£¬Í¨³£ÓÃÓÚÏŞÖÆ×î´óËÙ¶È
-        .isIOutlimit = true,
-        .output_limit = 1000.0f, // Î»ÖÃ»·Êä³öÏŞÖÆ£¬ÏŞÖÆ×î´óÄ¿±êËÙ¶È
-        .deadband = 0.1f // ËÀÇø£¬·ÀÖ¹ÔÚÄ¿±ê¸½½üÎ¢Ğ¡¶¶¶¯
-    };
-    // µ÷ÓÃpid_init½øĞĞ³õÊ¼»¯
-    m3508_p.pid_init(speed_pid_params, 0.1f, angle_pid_params, 5.0f);
-
-    // --- Æô¶¯CAN×ÜÏß ---
-    // Õâ»áÆô¶¯CANÓ²¼ş¡¢ÅäÖÃÂË²¨Æ÷²¢Æô¶¯ÄÚ²¿µÄ rxTask ºÍ schedulerTask
-    can1_bus_p.init();
+    // --- Æô¶¯×ÜÏß ---
+    // Õâ»áÆô¶¯CANµÄ½ÓÊÕÖĞ¶ÏºÍ1kHzµÄµ÷¶ÈÈÎÎñ
+    CAN1_Bus.init();
 }
 
 // ÔÚ main() º¯ÊıÖĞµ÷ÓÃ
@@ -257,153 +206,95 @@ int main(void)
 {
     // ... HAL_Init(), SystemClock_Config(), MX_GPIO_Init(), MX_FDCAN1_Init() ...
     
-    /* USER CODE BEGIN 2 */
     user_setup(); // µ÷ÓÃÎÒÃÇµÄ³õÊ¼»¯º¯Êı
-    /* USER CODE END 2 */
-
-    // ... osKernelInitialize(), ´´½¨ÄãµÄ¿ØÖÆÈÎÎñ ...
     
-    osKernelStart(); // Æô¶¯µ÷¶ÈÆ÷
-
+    osKernelInitialize();
+    // ... ´´½¨ÆäËûÓÃ»§ÈÎÎñ ...
+    osKernelStart();
+    
     // ...
 }
 ```
 
-#### µÚ¶ş²½£ºÔÚÈÎÎñÖĞ¿ØÖÆµç»ú
+#### Èç¹ûÄãÏëÍØÕ¹µç»ú£¿
+¼ÙÉèÄãÒªÌí¼ÓÒ»¸ö·ÇDJIµÄ¡¢ÓĞ×Ô¼º¶ÀÌØCANĞ­ÒéµÄµç»ú£¬ÀıÈç MyMotor¡£
 
-ÏÖÔÚ£¬Äã¿ÉÒÔ´´½¨Ò»¸ö»ò¶à¸öÈÎÎñÀ´·¢ËÍ¿ØÖÆÖ¸Áî¡£
+1. ´´½¨ `Motor_MyMotor.h`
 
-1.  **´´½¨¿ØÖÆÈÎÎñÀà**
+```cpp
+#include "Motor_Base.h"
+#include "APP_PID.h" // Èç¹ûĞèÒªPID
 
-    ¼Ì³Ğ `RtosTask` ²¢ÊµÏÖ `loop()` ·½·¨£¨ÒòÎªÕâÊÇÒ»¸öÖÜÆÚĞÔÈÎÎñ£©¡£
-
-    ```cpp
-    /* ÔÚÄãµÄÓÃ»§Ó¦ÓÃ²ã, e.g., User/Control/control_task.h */
-    #include "BSP_RTOS.h"
-    #include "Motor_DJI.h"
-
-    // ÉùÃ÷ÔÚ³õÊ¼»¯´úÂëÖĞ´´½¨µÄÈ«¾Ö¶ÔÏó
-    extern M3508 m3508_p;
-
-    class MyControlTask : public RtosTask
+class MyMotor : public Motor_Base {
+public:
+    // 1. ¹¹Ôìº¯Êı£ºµ÷ÓÃ»ùÀà¹¹Ôìº¯Êı
+    MyMotor(uint32_t id, fdCANbus* bus) 
+        : Motor_Base(id, false, bus) // ¼ÙÉèÊ¹ÓÃ±ê×¼Ö¡
     {
-    public:
-        // ¹¹Ôìº¯Êı£¬ÉèÖÃÈÎÎñÃûºÍÖÜÆÚ (e.g., 10ms -> 100Hz)
-        MyControlTask() : RtosTask("MyCtrl", 10) {}
-
-    protected:
-        // ÖÜÆÚĞÔÖ´ĞĞµÄÑ­»·Ìå
-        void loop() override;
-    };
-    ```
-
-2.  **ÊµÏÖ¿ØÖÆÂß¼­**
-
-    ÔÚ `loop()` ÖĞ£¬Äã¿ÉÒÔ¸ù¾İÏµÍ³×´Ì¬ÇĞ»»µç»úµÄ¿ØÖÆÄ£Ê½²¢Éè¶¨Ä¿±ê¡£
-
-    ```cpp
-    /* ÔÚÄãµÄÓÃ»§Ó¦ÓÃ²ã, e.g., User/Control/control_task.cpp */
-    #include "control_task.h"
-    #include <cmath> // for sin
-
-    void MyControlTask::loop()
-    {
-        // »ñÈ¡µ±Ç°Ê±¼ä´Á£¬ÓÃÓÚ²úÉú±ä»¯µÄÄ¿±êÖµ
-        uint32_t tick = osKernelGetTickCount();
-
-        // --- Ê¾Àı1£ºÎ»ÖÃ¿ØÖÆ ---
-        // ÈÃµç»úÔÚ -90 µ½ 90 ¶ÈÖ®¼äÀ´»Ø°Ú¶¯
-        float target_angle = 90.0f * sin(tick * 0.002f);
-        m3508_p.setTargetAngle(target_angle);
-
-        /*
-        // --- Ê¾Àı2£ºËÙ¶È¿ØÖÆ ---
-        // ÉèÖÃÒ»¸öºã¶¨µÄÄ¿±ê×ªËÙ (RPM)
-        // m3508_p->setTargetRPM(500.0f);
-        */
-
-        /*
-        // --- Ê¾Àı3£ºµçÁ÷¿ØÖÆ ---
-        // ÉèÖÃÒ»¸öºã¶¨µÄÄ¿±êµçÁ÷ (Ampere)
-        // m3508_p->setTargetCurrent(0.5f);
-        */
+        // ³õÊ¼»¯¸Ãµç»úµÄË½ÓĞ³ÉÔ±
     }
-    ```
 
-3.  **´´½¨²¢Æô¶¯ÈÎÎñ**
+    // 2. ¡¾±ØĞë¡¿¸²¸Ç packCommand
+    //    ¸ù¾İ target_current_ µÈÄ¿±êÖµ£¬´ò°ü³É¸Ãµç»úµÄCANÖ¡
+    std::size_t packCommand(CanFrame outFrames[], std::size_t maxFrames) override;
 
-    ×îºó£¬ÔÚ `main.cpp` ÖĞ `osKernelStart()` Ö®Ç°£¬´´½¨ÈÎÎñÊµÀı²¢Æô¶¯Ëü¡£
+    // 3. ¡¾±ØĞë¡¿¸²¸Ç updateFeedback
+    //    ½âÎöÊÕµ½µÄCANÖ¡£¬¸üĞÂ rpm_, angle_ µÈ³ÉÔ±±äÁ¿
+    void updateFeedback(const CanFrame& cf) override;
 
-    ```cpp
-    /* main.cpp */
+    // 4. ¡¾±ØĞë¡¿¸²¸Ç matchesFrame
+    //    ÅĞ¶ÏÊÕµ½µÄCANÖ¡ÊÇ·ñÊôÓÚÕâ¸öµç»ú
+    bool matchesFrame(const CanFrame& cf) const override;
 
-    // ...
-    #include "control_task.h"
+    // 5. ¡¾±ØĞë¡¿¸²¸Ç get_GearRatio
+    //    ·µ»Ø¸Ãµç»úµÄÕæÊµ¼õËÙ±È
+    float get_GearRatio() const override { return 27.0f; } // ¼ÙÉè¼õËÙ±ÈÊÇ27
 
-    MyControlTask my_control_task; // ´´½¨ÈÎÎñÊµÀı
+    // 6. ÊµÏÖ update ·½·¨£¬ÓÃÓÚÖ´ĞĞPID¼ÆËã
+    void update() override;
 
-    int main(void)
-    {
-        // ...
-        user_setup();
-        /* USER CODE BEGIN 2 */
+    // 7. ÊµÏÖ setTarget... µÈ¿ØÖÆ½Ó¿Ú
+    void setTargetRPM(float rpm_set) override;
 
-        // Æô¶¯¿ØÖÆÈÎÎñ
-        my_control_task.start(osPriorityNormal);
+private:
+    // ¸Ãµç»úµÄË½ÓĞ³ÉÔ±£¬ÈçPID¿ØÖÆÆ÷
+    PID_Incremental speed_pid_;
+};
+```
 
-        /* USER CODE END 2 */
-        
-        osKernelStart();
-        // ...
-    }
-    ```
+2. ÔÚ `Motor_MyMotor.cpp` ÖĞÊµÏÖ¹¦ÄÜ
+```cpp
+#include "Motor_MyMotor.h"
 
-#### µÚÈı²½£ºÁ¬½Ó¶¨Ê±Æ÷ÖĞ¶Ï (ÒÆÖ²Ê±×¢Òâ)
+std::size_t MyMotor::packCommand(CanFrame outFrames[], std::size_t maxFrames) {
+    // ... ¸ù¾İ this->target_current_ ´ò°üCANÖ¡ ...
+    // outFrames[0].ID = 0x123;
+    // outFrames[0].data[0] = ...;
+    return 1; // ·µ»Ø´ò°üµÄÖ¡Êı
+}
 
-**×¢Òâ£ºÔÚµ±Ç°ÏîÄ¿ÖĞ£¬´Ë²½ÖèÒÑ¾­ÓÉ¿ª·¢ÕßÍê³É¡£±¾½ÚÄÚÈİÖ÷ÒªÓÃÓÚÏòºó¼ÌÎ¬»¤Õß»òÏ£Íû½«´Ë¿âÒÆÖ²µ½ÆäËûÏîÄ¿µÄ¿ª·¢ÕßËµÃ÷Æä¹¤×÷Ô­ÀíºÍ±ØÒªÅäÖÃ¡£**
+void MyMotor::updateFeedback(const CanFrame& cf) {
+    // ... ½âÎö cf.data ...
+    // float raw_rpm = ...;
+    // this->rpm_ = raw_rpm / get_GearRatio(); // ×ª»»ÎªÊä³öÖá×ªËÙ
+}
 
-`fdCANbus` µÄ `schedulerTask` ÒÀÀµÒ»¸ö 1kHz µÄĞÅºÅÁ¿À´´¥·¢¡£Õâ¸öĞÅºÅÁ¿ÓÉÒ»¸öÈ«¾ÖÖĞ¶Ïº¯Êı `fdcan_global_scheduler_tick_isr()` ·¢³ö¡£
+bool MyMotor::matchesFrame(const CanFrame& cf) const {
+    // ÅĞ¶ÏÂß¼­£¬ÀıÈç£º
+    return (cf.ID == (0x200 + this->motor_id_));
+}
 
-Òò´Ë£¬ÈÎºÎÊ¹ÓÃ `RC10_LIB` µÄÏîÄ¿¶¼ **±ØĞë** ½«Ò»¸öÓ²¼ş¶¨Ê±Æ÷£¨Èç TIM6, TIM7£©ÅäÖÃÎª 1ms ´¥·¢Ò»´ÎÖĞ¶Ï£¬²¢ÔÚÆäÖĞ¶Ï»Øµ÷º¯ÊıÖĞµ÷ÓÃ `fdcan_global_scheduler_tick_isr()`¡£
+void MyMotor::update() {
+    // ... µ÷ÓÃPID¼ÆËã ...
+    // target_current_ = speed_pid_.pid_calc(target_rpm_, this->rpm_);
+}
 
-##### 1. Ê¹ÓÃ CubeMX ÅäÖÃÒ»¸ö»ù´¡¶¨Ê±Æ÷
-    *   Ñ¡ÔñÒ»¸ö¶¨Ê±Æ÷ (e.g., TIM7)¡£
-    *   ÉèÖÃ `Prescaler` ºÍ `Counter Period` Ê¹ÆäÃ¿ 1ms ²úÉúÒ»´Î¸üĞÂÊÂ¼ş (Update Event)¡£
-        *   ÀıÈç£¬Èç¹û TIM CLK ÊÇ 120MHz£¬¿ÉÒÔÉèÖÃ Prescaler = 120-1, Counter Period = 1000-1¡£
-    *   ÔÚ "NVIC Settings" ±êÇ©Ò³ÖĞ£¬**ÆôÓÃ¸Ã¶¨Ê±Æ÷µÄ¸üĞÂÖĞ¶Ï**¡£
+void MyMotor::setTargetRPM(float rpm_set) {
+    // ... ÉèÖÃÄ¿±êÖµ ...
+    this->target_rpm_ = rpm_set;
+}
+```
+3. ÔÚÓ¦ÓÃ²ãÊ¹ÓÃ ÏñÊ¹ÓÃ `M3508` Ò»Ñù£¬´´½¨ `MyMotor` ¶ÔÏó£¬²¢½«Æä×¢²áµ½ `fdCANbus` ¼´¿É¡£µ÷¶ÈÆ÷»á×Ô¶¯´¦ÀíºóĞøµÄÒ»ÇĞ¡£
 
-##### 2. ÔÚÖĞ¶Ï»Øµ÷ÖĞÌí¼Óµ÷ÓÃ
 
-    ÔÚ `stm32h7xx_it.c` ÎÄ¼şÖĞ£¬ÕÒµ½¶¨Ê±Æ÷µÄÖĞ¶Ï·şÎñº¯Êı `TIMx_IRQHandler`¡£HAL ¿â»áÔÚ´Ëº¯ÊıÖĞµ÷ÓÃÒ»¸öÈõ¶¨ÒåµÄ»Øµ÷º¯Êı `HAL_TIM_PeriodElapsedCallback`¡£ÄãĞèÒªÖØĞ´Õâ¸ö»Øµ÷¡£
-
-    ```c
-
-    // ÒıÈëÎÒÃÇµÄÈ«¾Öµ÷¶Èº¯Êı
-    extern void fdcan_global_scheduler_tick_isr(void);
-
-    /**
-      * @brief  Period elapsed callback in non-blocking mode
-      * @param  htim TIM handle
-      * @retval None
-      */
-    void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
-    {
-      /* USER CODE BEGIN Callback 0 */
-
-      /* USER CODE END Callback 0 */
-      if (htim->Instance == TIM1) { // TIM1 ÊÇ HAL ¿âÄ¬ÈÏµÄ SysTick ¶¨Ê±Æ÷
-        HAL_IncTick();
-      }
-      /* USER CODE BEGIN Callback 1 */
-
-      // Èç¹ûÊÇÓÃÓÚ1kHzµ÷¶ÈµÄ¶¨Ê±Æ÷ (ÔÚµ±Ç°ÏîÄ¿ÖĞÊÇTIM6)
-      if (htim->Instance == TIM6)
-      {
-        fdcan_global_scheduler_tick_isr();
-      }
-
-      /* USER CODE END Callback 1 */
-    }
-    ```
-
-Íê³ÉÒÔÉÏ²½Öèºó£¬ÄãµÄµç»ú¿ØÖÆÏµÍ³¾ÍÍêÕû½¨Á¢ÆğÀ´ÁË¡£±àÒë²¢ÏÂÔØ³ÌĞò£¬µç»úÓ¦¸Ã»á°´ÕÕ `MyControlTask` ÖĞÉè¶¨µÄÂß¼­¿ªÊ¼ÔË¶¯¡£
+   
