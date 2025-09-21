@@ -121,13 +121,15 @@ void fdCANbus::rxTaskbody()
     {
         if (rxQueue_.recv(cf, portMAX_DELAY)) 
         {
+
             for (std::size_t i = 0; i < MAX_MOTORS; ++i) 
             {
                 Motor_Base* m = motorList_[i];
+
                 if (m && m->matchesFrame(cf)) 
                    m->updateFeedback(cf);
-                
             }
+
         }
     }
 }
@@ -140,14 +142,31 @@ void fdCANbus::schedulerTaskbody()
     {
         // 永久阻塞等待，直到被TIM中断的ISR唤醒
         xSemaphoreTake(schedSem_, portMAX_DELAY);
+
+         // 1. 更新所有电机的控制状态
+        for (std::size_t i = 0; i < MAX_MOTORS; ++i)
+        {
+            Motor_Base* m = motorList_[i];
+            if (m) {
+                m->update();
+            }
+        }
+
+        // 2. 打包所有电机的指令
+
         std::size_t frameCnt = 0;
         for (std::size_t i = 0; i < MAX_MOTORS; ++i) 
         {
             Motor_Base* m = motorList_[i];
-            if (!m) continue;
+            if (!m) 
+                continue;
             frameCnt += m->packCommand(&frames_to_send[frameCnt], (sizeof(frames_to_send)/sizeof(frames_to_send[0])) - frameCnt);
-            if (frameCnt >= (sizeof(frames_to_send)/sizeof(frames_to_send[0]))) break;
+
+            if (frameCnt >= (sizeof(frames_to_send)/sizeof(frames_to_send[0]))) 
+                break;
         }
+    
+        // 3. 发送所有打包好的指令
         for (std::size_t j = 0; j < frameCnt; ++j)
             sendFrame(frames_to_send[j]);
     }
@@ -160,6 +179,7 @@ bool fdCANbus::matchesFrameDefault(const CanFrame& cf, uint32_t targetId, bool i
 }
 
 // --- RxTask / SchedTask loop impl & ctor ---
+//构造函数
 fdCANbus::RxTask::RxTask(fdCANbus* parent)
 : RtosTask("fdcan_rx"), parent_(parent) 
 {
@@ -171,6 +191,7 @@ void fdCANbus::RxTask::run()
     parent_->rxTaskbody();
 }
 
+//构造函数
 fdCANbus::SchedTask::SchedTask(fdCANbus* parent)
 : RtosTask("fdcan_sched"), parent_(parent) 
 {

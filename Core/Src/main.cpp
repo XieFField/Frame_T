@@ -51,7 +51,7 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
-
+extern void fdcan_global_scheduler_tick_isr(void);
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -244,7 +244,10 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
     HAL_IncTick();
   }
   /* USER CODE BEGIN Callback 1 */
-
+  if(htim->Instance == TIM6)
+  {
+    fdcan_global_scheduler_tick_isr();
+  }
   /* USER CODE END Callback 1 */
 }
 

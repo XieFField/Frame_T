@@ -341,7 +341,7 @@
               <MiscControls>-finput-charset=UTF-8</MiscControls>
               <Define>USE_PWR_LDO_SUPPLY,USE_HAL_DRIVER,STM32H723xx</Define>
               <Undefine></Undefine>
-              <IncludePath>../Core/Inc;../Drivers/STM32H7xx_HAL_Driver/Inc;../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy;../Middlewares/Third_Party/FreeRTOS/Source/include;../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2;../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F;../Drivers/CMSIS/Device/ST/STM32H7xx/Include;../Drivers/CMSIS/Include;../RC10_LIB/BSP_Driver/Inc;../RC10_LIB/Motor/Inc;../RC10_LIB/APP/Inc;../User/Control/Inc;../User/debug/Inc;../User/Setup/Inc</IncludePath>
+              <IncludePath>../Core/Inc;../Drivers/STM32H7xx_HAL_Driver/Inc;../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy;../Middlewares/Third_Party/FreeRTOS/Source/include;../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2;../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F;../Drivers/CMSIS/Device/ST/STM32H7xx/Include;../Drivers/CMSIS/Include;../RC10_LIB/BSP_Driver/Inc;../RC10_LIB/Motor/Inc;../RC10_LIB/APP/Inc;../User/Control/Inc;../User/debug/Inc;../User/Setup/Inc;..\RC10_LIB\Module\Inc</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -701,6 +701,16 @@
               <FileType>5</FileType>
               <FilePath>..\RC10_LIB\Motor\Inc\Motor_Base.h</FilePath>
             </File>
+            <File>
+              <FileName>Motor_DJI.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\RC10_LIB\Motor\Src\Motor_DJI.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Motor_DJI.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\RC10_LIB\Motor\Inc\Motor_DJI.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -741,6 +751,21 @@
               <FileName>APP_tool.h</FileName>
               <FileType>5</FileType>
               <FilePath>..\RC10_LIB\APP\Inc\APP_tool.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>RC10_LIB/Module</GroupName>
+          <Files>
+            <File>
+              <FileName>Module_Encoder.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\RC10_LIB\Module\Src\Module_Encoder.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Module_Encoder.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\RC10_LIB\Module\Inc\Module_Encoder.h</FilePath>
             </File>
           </Files>
         </Group>

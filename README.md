@@ -1,13 +1,16 @@
 ## RC10_R1_FRAME_TEST 说明书
 
+### 简介
+    此文档重在记录RC10_LIB的设计思路，若是想快速上手RC10_LIB还请移步用户手册。
+    此文档写的还是相对凌乱，大多时候只是用来记录笔者的想法和实现
+
 ### 编码方式
     统一使用GB2312
 ### 命名规范
     在类中的变量统一带_的后缀，形参不带后缀
 
 ### 文件架构
-#### 简介
-    此文档重在记录RC10_LIB的设计思路，若是想快速上手RC10_LIB还请移步用户手册
+
 1. BSP_Driver
     此用于存放最底层驱动，如fdCAN, UASRT, SPI IIC, TIM RTOS等驱动。
     前缀为==BSP_==
@@ -28,17 +31,21 @@
    1. 单路CAN能够混搭标准帧和拓展帧
    2. 使用FIFO接收CAN帧，ISR简化，只搬运报文，不解析，解析放到RTOS任务中进行
    3. fdCanBus创建对象后自动生成对应任务
-   4. 好处：fdCAN 永远是纯通信层，电机逻辑变化不会污染 CAN 驱动。
-   5. ==具体实现==
+   4. 封装了多帧打包，可能有些电机是分多帧发送的，虽然目前还没用的高，不知道以后会不会买这种
+   5. 好处：fdCAN 永远是纯通信层，电机逻辑变化不会污染 CAN 驱动。
+   6. ==具体实现==
       1. fdCAN提供发送接口给电机类，提供 sendFrame(const CanFrame&) 接口，电机类不会直接调用 HAL。
-      2. fdCAN搬运ISR中的数据包丢到队列，让电机类解析。
-      3. 实现CAN发送频率为1kHz，与回传频率一致。内部带一个 1kHz 调度器任务，统一调度挂载的电机。schedulerTask()：1ms 运行一次，遍历挂载电机，收集 packCommand() 的结果，统一 sendFrame()。
+      2. 在fdCANbus中注册电机,使用Motor_Base指针，这样所有继承Motor_Base的子类都可以注册
+      3. fdCAN搬运ISR中的数据包丢到队列，让电机类解析。
+      4. 实现CAN发送频率为1kHz，与回传频率一致。内部带一个 1kHz 调度器任务，统一调度挂载的电机。schedulerTask()：1ms 运行一次，遍历挂载电机，收集 packCommand() 的结果，统一 sendFrame()。
          1. 1 ms 到时 → 遍历 motorList[]。
          2. 对每个 motor 调用 motor->packCommand()。
          3. 子类（例如 DJIMotor）在 packCommand() 中，把当前 target 转换成对应协议的报文（或者写进 group 的缓存）。
          4. 如果是 DJI 系列，会把同组的 4 个电机合并成一帧；如果是其他电机，就直接返回一帧。
-      4. 成员变量：FDCAN_HandleTypeDef* hfdcan、bus_id、静态数组管理电机指针
-      5. 
+           
+            
+      5. 成员变量：FDCAN_HandleTypeDef* hfdcan、bus_id、静态数组管理电机指针
+      6. 
 
         
 
@@ -104,10 +111,17 @@ flowchart TD
    
 2. 电机封装的实现
    1. 首先有一个Motor_Base抽象类，作为父类，统一电机所需要的通用接口被后续的子类电机重写。
-   2. 在Motor_Base后，DJI电机还需一个专属DJI类，因为DJI电机报文的特殊性（一帧CAN发送报文的数据帧包含四个电机电流数据）
+   2. 在之后
+      1. DJI
+         1. 有DJI_Motor管理单一电机和DJI_Group合帧。
+         2. DJI一条CAN上八个电机分上下片帧，id1~4一片，一个canid,5~8一片，一个canid
+         3. 之后具体电机需要继承
+      2. 其他电机
+         1. 继承Motor_Base完成各自的协议。
    3. 电机发送报文的生成和回收报文的解析在电机类中实现
    4. 具体实现
-      1. 提供通用接口(Motor_Base抽象层)：
+      1. PID作为电机类中的成员，而非电机类继承PID类。
+      2. 提供通用接口(Motor_Base抽象层)：
 
         setTargetRPM() / setTargetCurrent() / setTargetAngle()/setTargetTotalAngle()
 
@@ -116,17 +130,44 @@ flowchart TD
         packCommand()（把目标量转成 CAN 报文）
 
         unpackFeedback()（解析电机返回报文）
-      2. DJI_Motor 基类
+        在之后由具体电机类完成闭环控制的封装。
+      3. 在电机类中把update()[更新电机所要发送参数] ,和packCommand()[打包参数发送]分开
+         1. 具体在fdCANbus中的操作
+         2. 1kHz定时器中断触发 -> fdcan_global_scheduler_tick_isr() 释放信号量 schedSem_。
+         3. schedulerTaskbody 从信号量等待中被唤醒。
+         4. schedulerTaskbody 遍历 motorList_，对每个注册的电机调用 m->update()。
+         5. 在 update() 内部，电机根据自身状态（如 ANGLE_CONTROL）执行PID计算，并更新其内部的 target_current_。
+         6. schedulerTaskbody 再次遍历 motorList_，调用 m->packCommand()。
+         7. packCommand()（在 DJI_Group 中实现）读取刚刚由 update() 计算出的 target_current_，并将其打包成CAN帧。
+         8. schedulerTaskbody 将所有打包好的帧通过   sendFrame() 发送出去。
+      4. DJI_Motor 基类
 
         所有 DJI 电机共用的打包协议（4 电机合帧）。
 
         具体型号（M3508、M2006、GM6020）继承这个类，负责具体反馈解析。
+         1. DJI_Motor继承Motor_Base
+               1. 负责保存电机单体的id,解析回传报文`updateFeedback()`，提供接口，不负责Group打包
+               2. M3508/M2006和M6020不在一条CAN上(会浪费bus位置)
+               3. DJI_Motor与DJI_Group
+                  1. DJI_Motor是负责单电机,专注于反馈解析和状态存储
+                  2. DJI_Group负责组帧
+                  3. DJI_Motor被DJI_Group持有和检索。
+         2. 其继承类 M3508/M2006
+            1. 这俩发送接收协议一样，只是最大电流不同。
+         3. GM6020
+            1. 只有帧头和上面那个不同
+            2. 接收
+      5. 线程安全
+         1. fdCANbus的rxTask会调用updateFeedback(写反馈),而schedulerTask会读取这些字段进行packCommand()(读反馈并发送)，因此需要对共享数据做一个保护。
+         2. 做法，目前思路是两种，一是在Motor的反馈和发送中做使用轻量级的互斥量，或者用taskENTER_CRITICAL()做短期保护.
+      6. matchesFrame 的默认实现与扩展
+         1. 此意义在于实现默认行为（比较 id_ 与 isExtended_），并允许子类 override（比如 DJI group 要匹配 group-feedback frame 并分发到成员）。
+         2. 其实也可以把matchFrame删了，然后直接调用fdCANbus的matchesFrameDefualt。其实也是实现等价逻辑
+      7. 做好注册唯一性检查(IMPORTANT!)
+      8. 电机生命周期应该是和单片机运行周期等价，感觉没有做析构的必要。
+      9.  
 
-      3. ExtMotor 基类
 
-        单电机单帧的控制方式（如 VESC、GO-M8010、达妙）。
-
-        各型号实现自己的 packCommand() & unpackFeedback()。
     
 
 
@@ -200,40 +241,6 @@ flowchart TD
     Dispatch --> MotorUpdate["Motor 更新状态\n(角度/速度/电流)"]
 
     %% note: motor may update targets via other control tasks
-
-```
-```
-                +-----------------------------+
-                |        TIMx 定时器          |
-                | (1kHz Update Event / IRQ)   |
-                +-------------+---------------+
-                              |
-                              v
-                   +---------------------+
-                   |  Scheduler Task     |
-                   | (阻塞等待信号量)     |
-                   +----------+----------+
-                              |
-                              v
-          ------------------------------------------------
-          |                      |                       |
-  +-------+------+      +--------+-------+      +--------+-------+
-  |  DJI Group   |      |  DJI Group    |      |  Other Motor   |
-  | (4 Motors)   |      | (4 Motors)    |      | (Single Frame) |
-  +--------------+      +----------------      +-----------------+
-          |                       |                       |
-          v                       v                       v
-    +-----------+           +-----------+           +-----------+
-    | CAN Frame |           | CAN Frame |           | CAN Frame |
-    |  (4x cmd) |           |  (4x cmd) |           | (1x cmd ) |
-    +-----+-----+           +-----+-----+           +-----+-----+
-          \------------------------|-----------------------/
-                                   |
-                            +------+------+
-                            |   fdCANbus   |
-                            | sendFrame()  |
-                            +--------------+
-
 
 ```
 

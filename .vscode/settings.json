@@ -78,6 +78,7 @@
     "type_traits": "cpp",
     "limits": "cpp",
     "cinttypes": "cpp",
-    "typeinfo": "cpp"
+    "typeinfo": "cpp",
+    "cstddef": "cpp"
   }
 }
