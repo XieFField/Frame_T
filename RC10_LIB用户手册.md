@@ -79,7 +79,7 @@ attention: Õâ·ÝÊÖ²áºÜ´ó³Ì¶ÈÊÇAIÉú³ÉµÄ£¬±ÊÕßÖ»¸ºÔðÐÞ¸ÄÆäÖÐ²¿·Ö£¬Èô·¢ÏÖÓÐç¢Â©£¬Çë¼
 1.  **ºËÐÄÉè¼Æ**
     *   **Î»ÖÃÊ½PID**: ²ÉÓÃÁËÌÝÐÎ»ý·Ö¡¢Î¢·ÖÏÈÐÐ¡¢»ý·Ö·ÖÀëµÈ¸Ä½øËã·¨£¬ÊÊÓÃÓÚ´ó²¿·ÖÐèÒª¾«È·Î»ÖÃ¿ØÖÆµÄ³¡¾°¡£
     *   **ÔöÁ¿Ê½PID**: ¼ÓÈëÁËÎ¢·Ö¸ú×ÙÆ÷(Track_D)£¬ÄÜÓÐÐ§Æ½»¬Ä¿±êÖµµÄ½×Ô¾±ä»¯£¬¼õÉÙÏµÍ³Õðµ´£¬ÊÊÓÃÓÚËÙ¶È¿ØÖÆµÈ³¡¾°¡£
-    *   **¹Ì¶¨²ÉÑùÊ±¼ä**: PID¿ØÖÆÆ÷ÄÚ²¿µÄ `dt` ±»Ó²±àÂëÎª `0.001f` (1ms)¡£ÕâÊÇÒ»¸ö**ºËÐÄÉè¼Æ**£¬ËüÇ¿ÒÀÀµÓÚµ÷ÓÃ `pid_calc` µÄ `update()` ·½·¨±»Ò»¸ö¾«È·µÄ1kHzµ÷¶ÈÆ÷£¨Èç `fdCANbus::schedulerTaskbody`£©Ëùµ÷ÓÃ¡£
+    *   **¹Ì¶¨²ÉÑùÊ±¼ä**: PID¿ØÖÆÆ÷ÄÚ²¿µÄ `dt` ±»Ó²±àÂëÎª `0.001f` (1ms)¡£ÕâÊÇÒ»¸ö**ºËÐÄÉè¼Æ**£¬ËüÇ¿ÒÀÀµÓÚµ÷ÓÃ `pid_calc` µÄ `update()` ·½·¨±»Ò»¸ö¾«È·µÄ1kHzµ÷¶ÈÆ÷£¨Èç `fdCANbus::schedulerTaskbody`£©Ëùµ÷ÓÃ¡£ºóÐø»á¿¼ÂÇ°ÑÑî¸çÄÇÌ×ÓÃ±àÂëÖµ¼ÆËãÊ±¼äµÄ´úÂë°á¹ýÀ´£¬¿ÉÒÔÈÃdt¸ü¼Ó¾«È·¡£
 
 2.  **ÓÃ»§¸ÃÈçºÎÊ¹ÓÃ£¿**
     ÔÚµç»úÀà£¨Èç `M3508`£©µÄ `pid_init` º¯ÊýÖÐ³õÊ¼»¯PID²ÎÊý£¬È»ºóÔÚ `update` º¯ÊýÖÐµ÷ÓÃ `pid_calc` ¼´¿É¡£ÓÃ»§ÎÞÐè¹ØÐÄ `dt` µÄ¼ÆËã¡£
