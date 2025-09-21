@@ -145,44 +145,6 @@
     
 
 
-总思维导图(组件/类关系)
-```mermaid
-flowchart TB
-  subgraph RTOS_Wrapper["RTOS 封装"]
-    RT_Task["RtosTask\n(任务基类)"]
-    RT_Topic["RtosTopic\n(Pub/Sub 抽象)"]
-  end
-
-  subgraph fdCANbus_layer["fdCANbus 层 (每路 CAN 一个实例)"]
-    fdCAN["fdCANbus\n- hfdcan\n- bus_id\n- motorList[≤8]\n- rxQueue\n- schedulerTask(1kHz)"]
-    DJIGroup["DJIMotorGroup\n(批量 4-in-1 打包/拆包)"]
-  end
-
-  subgraph Motor_layer["电机层"]
-    Motor["Motor (抽象)\n- packCommand()\n- updateFeedback()\n- targets/status\n- 持有 fdCANbus* (组合)"]
-    DJIMotor["DJIMotor : Motor\n- 属于某组 (group_id)\n- 协议：4 合 1"]
-    OtherMotor["OtherMotor : Motor\n- VESC / Damiao / GO-M8010 Adapter\n- 协议：1 电机 = 1 帧"]
-  end
-
-  %% 关系
-  RT_Task --- RT_Topic
-  fdCAN -->|管理/持有| Motor
-  Motor -->|使用 (has-a)| fdCAN
-  DJIMotor -->|归属| DJIGroup
-  fdCAN -->|可含| DJIGroup
-
-  %% multi-bus hint
-  subgraph BUSES["硬件: 三路 FDCAN（bus1..bus3）"]
-    bus1["fdCANbus (bus1)"]
-    bus2["fdCANbus (bus2)"]
-    bus3["fdCANbus (bus3)"]
-  end
-  bus1 --> fdCAN
-  bus2 --> fdCAN
-  bus3 --> fdCAN
-
-```
-
 运行时序图
 ```mermaid
 flowchart TD
