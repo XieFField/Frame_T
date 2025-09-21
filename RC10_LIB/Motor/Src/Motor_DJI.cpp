@@ -174,7 +174,7 @@ std::size_t DJI_Group::packCommand(CanFrame outFrames[], std::size_t maxFrames)
 /*======================= M3508 =======================*/
 
 M3508::M3508(uint32_t motor_id, fdCANbus* bus)
-    : DJI_Motor(M3508_Type, motor_id, bus)
+    : DJI_Motor(M3508_Type, motor_id, bus) 
 {
     
 }

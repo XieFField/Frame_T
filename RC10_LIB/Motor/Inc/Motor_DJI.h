@@ -64,7 +64,7 @@ public:
                 return (cf.ID == (0x204 + motor_id_));
             
             else
-                return false; // 非法ID
+                return false; // 非法ID 
         }
         if(type_ == M3508_Type || type_ == M2006_Type)//：0x200+驱动器ID 1~8
         {
