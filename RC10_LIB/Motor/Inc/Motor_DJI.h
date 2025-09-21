@@ -144,7 +144,7 @@ public:
         (void )cf;
     } // Group不处理反馈
 
-    
+    void update() override;
 
 private:
     uint32_t baseTxID_;

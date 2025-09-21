@@ -76,6 +76,17 @@ DJI_Group::DJI_Group(uint32_t baseTxId, fdCANbus* bus)
 
     }
 
+void DJI_Group::update() 
+{
+    for(uint8_t i = 0; i < motor_count_; ++i)
+    {
+        if(motors_p[i])
+        {
+            motors_p[i]->update();
+        }
+    }
+}
+
 bool DJI_Group::addMotor(DJI_Motor* motor)
 {
     if(!motor)

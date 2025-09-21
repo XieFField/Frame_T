@@ -49,42 +49,7 @@
 
         
 
-``` mermaid
-flowchart TD
 
-    subgraph Scheduler["fdCANbus 调度任务 (1 kHz, 每条 CAN 一任务)"]
-        T1["周期触发 (1ms)"]
-        T2["遍历 motorList[]"]
-        T3["调用 packCommand()"]
-        T4["组帧 Frame"]
-        T5["调用 sendFrame()"]
-        T1 --> T2 --> T3 --> T4 --> T5
-    end
-
-    subgraph MotorList["电机列表 (静态数组, 最多8个)"]
-        M1["DJI Motor 1..4"] 
-        M2["DJI Motor 5..8"]
-        M3["Other Motor 1"]
-        M4["Other Motor 2"]
-        T2 --> M1
-        T2 --> M2
-        T2 --> M3
-        T2 --> M4
-    end
-
-    subgraph fdCAN["fdCANbus 驱动"]
-        C1["sendFrame()<br/>底层 HAL 发送"]
-        C2["接收中断 ISR 推送队列"]
-        C3["接收任务解析并分发给电机"]
-        T5 --> C1
-        C2 --> C3
-    end
-
-    subgraph MotorUpdate["电机反馈更新"]
-        U1["电机类<br/>updateFeedback(frame)"]
-        C3 --> U1
-    end
-```
 1. FreeRTOS驱动设计
    1. 封成相应的父类，这部分我暂时没想的太多
    2. 任务系统类，提供统一接口来创建和管理任务，绕过CubeMX的配置生成。

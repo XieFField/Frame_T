@@ -183,7 +183,7 @@
         <Ww>
           <count>5</count>
           <WinNumber>1</WinNumber>
-          <ItemText>start_signal</ItemText>
+          <ItemText>start_signal,0x0A</ItemText>
         </Ww>
       </WatchWindow1>
       <Tracepoint>
