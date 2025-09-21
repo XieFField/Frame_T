@@ -16,11 +16,12 @@ extern "C" {
     #include "task.h"
     #include "queue.h"
     #include "semphr.h"
+    
     void ALL_Setup_ConfigInit(void);
 }
 
 #ifdef __cplusplus
-
+#include "frame_demo.h"
 #include <cstdint>
 #include "BSP_CANFrame.h"
 #include "BSP_RTOS.h"
@@ -28,8 +29,9 @@ extern "C" {
 #include "Motor_DJI.h"
 #include "APP_tool.h"
 
-fdCANbus CAN1_Bus;
-DJI_Group group;
+
+
+
 
 
 

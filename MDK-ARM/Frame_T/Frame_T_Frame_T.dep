@@ -1,7 +1,7 @@
 Dependencies for Project 'Frame_T', Target 'Frame_T': (DO NOT MODIFY !)
 CompilerVersion: 6230000::V6.23::ARMCLANG
 F (startup_stm32h723xx.s)(0x68CBC3CD)(--target=arm-arm-none-eabi -mcpu=cortex-m7 -mfpu=fpv5-d16 -mfloat-abi=hard -masm=auto  -Wa,armasm,--diag_suppress=A1950W -c-gdwarf-4 -I ../Core/Inc -I ../Drivers/STM32H7xx_HAL_Driver/Inc -I ../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I ../Drivers/CMSIS/Include-I./RTE/_Frame_T-IC:/Keil_v5/ARM/PACK/ARM/CMSIS/6.1.0/CMSIS/Core/Include-Wa,armasm,--pd,"__UVISION_VERSION SETA 542" -Wa,armasm,--pd,"STM32H723xx SETA 1" -Wa,armasm,--pd,"_RTE_ SETA 1"-o frame_t/startup_stm32h723xx.o)
-F (..\Core\Src\main.cpp)(0x68CF82B0)(-xc++ -std=c++17 --target=arm-arm-none-eabi -mcpu=cortex-m7 -mfpu=fpv5-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar -fno-exceptions-gdwarf-4 -O3 -ffunction-sections -w -I ../Core/Inc -I ../Drivers/STM32H7xx_HAL_Driver/Inc -I ../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I ../Drivers/CMSIS/Include -I ../RC10_LIB/BSP_Driver/Inc -I ../RC10_LIB/Motor/Inc -I ../RC10_LIB/APP/Inc -I ../User/Control/Inc -I ../User/debug/Inc -I ../User/Setup/Inc -I ../RC10_LIB/Module/Inc -finput-charset=UTF-8-I./RTE/_Frame_T-IC:/Keil_v5/ARM/PACK/ARM/CMSIS/6.1.0/CMSIS/Core/Include-D__UVISION_VERSION="542" -DSTM32H723xx -D_RTE_ -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H723xx-o frame_t/main.o -MMD)
+F (..\Core\Src\main.cpp)(0x68CFA20E)(-xc++ -std=c++17 --target=arm-arm-none-eabi -mcpu=cortex-m7 -mfpu=fpv5-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar -fno-exceptions-gdwarf-4 -O3 -ffunction-sections -w -I ../Core/Inc -I ../Drivers/STM32H7xx_HAL_Driver/Inc -I ../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I ../Drivers/CMSIS/Include -I ../RC10_LIB/BSP_Driver/Inc -I ../RC10_LIB/Motor/Inc -I ../RC10_LIB/APP/Inc -I ../User/Control/Inc -I ../User/debug/Inc -I ../User/Setup/Inc -I ../RC10_LIB/Module/Inc -finput-charset=UTF-8-I./RTE/_Frame_T-IC:/Keil_v5/ARM/PACK/ARM/CMSIS/6.1.0/CMSIS/Core/Include-D__UVISION_VERSION="542" -DSTM32H723xx -D_RTE_ -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H723xx-o frame_t/main.o -MMD)
 I (..\Core\Inc\main.h)(0x68C7FD0A)
 I (..\Drivers\STM32H7xx_HAL_Driver\Inc\stm32h7xx_hal.h)(0x689E06BF)
 I (..\Core\Inc\stm32h7xx_hal_conf.h)(0x68C7FD0A)
@@ -47,14 +47,18 @@ I (..\Core\Inc\fdcan.h)(0x68C7FD09)
 I (..\Core\Inc\tim.h)(0x68CA2808)
 I (..\Core\Inc\usart.h)(0x68C7FD09)
 I (..\Core\Inc\gpio.h)(0x68C7FD05)
-I (..\User\debug\Inc\frame_demo.h)(0x68CAAC19)
-I (..\RC10_LIB\BSP_Driver\Inc\BSP_RTOS.h)(0x68CAAD99)
+I (..\User\debug\Inc\frame_demo.h)(0x68CFA76A)
+I (..\RC10_LIB\BSP_Driver\Inc\BSP_RTOS.h)(0x68CFA3E7)
 I (..\Middlewares\Third_Party\FreeRTOS\Source\include\queue.h)(0x689E064A)
 I (..\Middlewares\Third_Party\FreeRTOS\Source\include\semphr.h)(0x689E064A)
-I (..\RC10_LIB\BSP_Driver\Inc\BSP_fdCAN_Driver.h)(0x68CD85B8)
+I (..\RC10_LIB\BSP_Driver\Inc\BSP_fdCAN_Driver.h)(0x68CFA224)
 I (..\RC10_LIB\BSP_Driver\Inc\BSP_CanFrame.h)(0x68CA1ED2)
 I (..\RC10_LIB\APP\Inc\APP_tool.h)(0x68CB83EE)
 I (..\RC10_LIB\Motor\Inc\Motor_Base.h)(0x68CF6B10)
+I (..\RC10_LIB\Motor\Inc\Motor_DJI.h)(0x68CF9DCB)
+I (..\RC10_LIB\APP\Inc\APP_PID.h)(0x68CCD396)
+I (..\RC10_LIB\Module\Inc\Module_Encoder.h)(0x68CE5DD2)
+I (..\User\Setup\Inc\Setup_ConfigInit.h)(0x68CF9B46)
 F (../Core/Src/gpio.c)(0x68CBC3C3)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m7 -mfpu=fpv5-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O3 -ffunction-sections -w -I ../Core/Inc -I ../Drivers/STM32H7xx_HAL_Driver/Inc -I ../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I ../Drivers/CMSIS/Include -I ../RC10_LIB/BSP_Driver/Inc -I ../RC10_LIB/Motor/Inc -I ../RC10_LIB/APP/Inc -I ../User/Control/Inc -I ../User/debug/Inc -I ../User/Setup/Inc -I ../RC10_LIB/Module/Inc -finput-charset=UTF-8-I./RTE/_Frame_T-IC:/Keil_v5/ARM/PACK/ARM/CMSIS/6.1.0/CMSIS/Core/Include-D__UVISION_VERSION="542" -DSTM32H723xx -D_RTE_ -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H723xx-o frame_t/gpio.o -MMD)
 I (..\Core\Inc\gpio.h)(0x68C7FD05)
 I (..\Core\Inc\main.h)(0x68C7FD0A)
@@ -1124,8 +1128,8 @@ I (..\Middlewares\Third_Party\FreeRTOS\Source\portable\RVDS\ARM_CM4F\portmacro.h
 I (..\Middlewares\Third_Party\FreeRTOS\Source\include\mpu_wrappers.h)(0x689E064A)
 I (..\Middlewares\Third_Party\FreeRTOS\Source\include\task.h)(0x689E064A)
 I (..\Middlewares\Third_Party\FreeRTOS\Source\include\list.h)(0x689E064A)
-F (..\RC10_LIB\BSP_Driver\Src\BSP_fdCAN_Driver.cpp)(0x68CF7878)(-xc++ -std=c++17 --target=arm-arm-none-eabi -mcpu=cortex-m7 -mfpu=fpv5-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar -fno-exceptions-gdwarf-4 -O3 -ffunction-sections -w -I ../Core/Inc -I ../Drivers/STM32H7xx_HAL_Driver/Inc -I ../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I ../Drivers/CMSIS/Include -I ../RC10_LIB/BSP_Driver/Inc -I ../RC10_LIB/Motor/Inc -I ../RC10_LIB/APP/Inc -I ../User/Control/Inc -I ../User/debug/Inc -I ../User/Setup/Inc -I ../RC10_LIB/Module/Inc -finput-charset=UTF-8-I./RTE/_Frame_T-IC:/Keil_v5/ARM/PACK/ARM/CMSIS/6.1.0/CMSIS/Core/Include-D__UVISION_VERSION="542" -DSTM32H723xx -D_RTE_ -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H723xx-o frame_t/bsp_fdcan_driver.o -MMD)
-I (..\RC10_LIB\BSP_Driver\Inc\BSP_fdCAN_Driver.h)(0x68CD85B8)
+F (..\RC10_LIB\BSP_Driver\Src\BSP_fdCAN_Driver.cpp)(0x68CFA443)(-xc++ -std=c++17 --target=arm-arm-none-eabi -mcpu=cortex-m7 -mfpu=fpv5-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar -fno-exceptions-gdwarf-4 -O3 -ffunction-sections -w -I ../Core/Inc -I ../Drivers/STM32H7xx_HAL_Driver/Inc -I ../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I ../Drivers/CMSIS/Include -I ../RC10_LIB/BSP_Driver/Inc -I ../RC10_LIB/Motor/Inc -I ../RC10_LIB/APP/Inc -I ../User/Control/Inc -I ../User/debug/Inc -I ../User/Setup/Inc -I ../RC10_LIB/Module/Inc -finput-charset=UTF-8-I./RTE/_Frame_T-IC:/Keil_v5/ARM/PACK/ARM/CMSIS/6.1.0/CMSIS/Core/Include-D__UVISION_VERSION="542" -DSTM32H723xx -D_RTE_ -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H723xx-o frame_t/bsp_fdcan_driver.o -MMD)
+I (..\RC10_LIB\BSP_Driver\Inc\BSP_fdCAN_Driver.h)(0x68CFA224)
 I (..\Core\Inc\fdcan.h)(0x68C7FD09)
 I (..\Core\Inc\main.h)(0x68C7FD0A)
 I (..\Drivers\STM32H7xx_HAL_Driver\Inc\stm32h7xx_hal.h)(0x689E06BF)
@@ -1170,16 +1174,16 @@ I (..\Middlewares\Third_Party\FreeRTOS\Source\include\list.h)(0x689E064A)
 I (..\Middlewares\Third_Party\FreeRTOS\Source\CMSIS_RTOS_V2\cmsis_os2.h)(0x689E064A)
 I (..\RC10_LIB\BSP_Driver\Inc\BSP_CanFrame.h)(0x68CA1ED2)
 I (..\RC10_LIB\APP\Inc\APP_tool.h)(0x68CB83EE)
-I (..\RC10_LIB\BSP_Driver\Inc\BSP_RTOS.h)(0x68CAAD99)
+I (..\RC10_LIB\BSP_Driver\Inc\BSP_RTOS.h)(0x68CFA3E7)
 I (..\Middlewares\Third_Party\FreeRTOS\Source\include\queue.h)(0x689E064A)
 I (..\Middlewares\Third_Party\FreeRTOS\Source\include\semphr.h)(0x689E064A)
 I (..\RC10_LIB\Motor\Inc\Motor_Base.h)(0x68CF6B10)
-F (..\RC10_LIB\BSP_Driver\Inc\BSP_fdCAN_Driver.h)(0x68CD85B8)()
+F (..\RC10_LIB\BSP_Driver\Inc\BSP_fdCAN_Driver.h)(0x68CFA224)()
 F (..\RC10_LIB\BSP_Driver\Inc\BSP_CanFrame.h)(0x68CA1ED2)()
-F (..\RC10_LIB\BSP_Driver\Inc\BSP_RTOS.h)(0x68CAAD99)()
+F (..\RC10_LIB\BSP_Driver\Inc\BSP_RTOS.h)(0x68CFA3E7)()
 F (..\RC10_LIB\Motor\Inc\Motor_Base.h)(0x68CF6B10)()
-F (..\RC10_LIB\Motor\Src\Motor_DJI.cpp)(0x68CF7E39)(-xc++ -std=c++17 --target=arm-arm-none-eabi -mcpu=cortex-m7 -mfpu=fpv5-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar -fno-exceptions-gdwarf-4 -O3 -ffunction-sections -w -I ../Core/Inc -I ../Drivers/STM32H7xx_HAL_Driver/Inc -I ../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I ../Drivers/CMSIS/Include -I ../RC10_LIB/BSP_Driver/Inc -I ../RC10_LIB/Motor/Inc -I ../RC10_LIB/APP/Inc -I ../User/Control/Inc -I ../User/debug/Inc -I ../User/Setup/Inc -I ../RC10_LIB/Module/Inc -finput-charset=UTF-8-I./RTE/_Frame_T-IC:/Keil_v5/ARM/PACK/ARM/CMSIS/6.1.0/CMSIS/Core/Include-D__UVISION_VERSION="542" -DSTM32H723xx -D_RTE_ -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H723xx-o frame_t/motor_dji.o -MMD)
-I (..\RC10_LIB\Motor\Inc\Motor_DJI.h)(0x68CF7EAB)
+F (..\RC10_LIB\Motor\Src\Motor_DJI.cpp)(0x68CFAC2A)(-xc++ -std=c++17 --target=arm-arm-none-eabi -mcpu=cortex-m7 -mfpu=fpv5-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar -fno-exceptions-gdwarf-4 -O3 -ffunction-sections -w -I ../Core/Inc -I ../Drivers/STM32H7xx_HAL_Driver/Inc -I ../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I ../Drivers/CMSIS/Include -I ../RC10_LIB/BSP_Driver/Inc -I ../RC10_LIB/Motor/Inc -I ../RC10_LIB/APP/Inc -I ../User/Control/Inc -I ../User/debug/Inc -I ../User/Setup/Inc -I ../RC10_LIB/Module/Inc -finput-charset=UTF-8-I./RTE/_Frame_T-IC:/Keil_v5/ARM/PACK/ARM/CMSIS/6.1.0/CMSIS/Core/Include-D__UVISION_VERSION="542" -DSTM32H723xx -D_RTE_ -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H723xx-o frame_t/motor_dji.o -MMD)
+I (..\RC10_LIB\Motor\Inc\Motor_DJI.h)(0x68CF9DCB)
 I (..\RC10_LIB\BSP_Driver\Inc\BSP_CanFrame.h)(0x68CA1ED2)
 I (..\RC10_LIB\Motor\Inc\Motor_Base.h)(0x68CF6B10)
 I (..\RC10_LIB\APP\Inc\APP_tool.h)(0x68CB83EE)
@@ -1214,10 +1218,10 @@ I (..\Drivers\STM32H7xx_HAL_Driver\Inc\stm32h7xx_hal_tim_ex.h)(0x689E06BF)
 I (..\Drivers\STM32H7xx_HAL_Driver\Inc\stm32h7xx_hal_uart.h)(0x689E06BE)
 I (..\Drivers\STM32H7xx_HAL_Driver\Inc\stm32h7xx_hal_uart_ex.h)(0x689E06BF)
 I (..\RC10_LIB\Module\Inc\Module_Encoder.h)(0x68CE5DD2)
-F (..\RC10_LIB\Motor\Inc\Motor_DJI.h)(0x68CF7EAB)()
-F (..\User\debug\Src\frame_demo.cpp)(0x68CAAC50)(-xc++ -std=c++17 --target=arm-arm-none-eabi -mcpu=cortex-m7 -mfpu=fpv5-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar -fno-exceptions-gdwarf-4 -O3 -ffunction-sections -w -I ../Core/Inc -I ../Drivers/STM32H7xx_HAL_Driver/Inc -I ../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I ../Drivers/CMSIS/Include -I ../RC10_LIB/BSP_Driver/Inc -I ../RC10_LIB/Motor/Inc -I ../RC10_LIB/APP/Inc -I ../User/Control/Inc -I ../User/debug/Inc -I ../User/Setup/Inc -I ../RC10_LIB/Module/Inc -finput-charset=UTF-8-I./RTE/_Frame_T-IC:/Keil_v5/ARM/PACK/ARM/CMSIS/6.1.0/CMSIS/Core/Include-D__UVISION_VERSION="542" -DSTM32H723xx -D_RTE_ -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H723xx-o frame_t/frame_demo.o -MMD)
-I (..\User\debug\Inc\frame_demo.h)(0x68CAAC19)
-I (..\RC10_LIB\BSP_Driver\Inc\BSP_RTOS.h)(0x68CAAD99)
+F (..\RC10_LIB\Motor\Inc\Motor_DJI.h)(0x68CF9DCB)()
+F (..\User\debug\Src\frame_demo.cpp)(0x68CFAE2C)(-xc++ -std=c++17 --target=arm-arm-none-eabi -mcpu=cortex-m7 -mfpu=fpv5-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar -fno-exceptions-gdwarf-4 -O3 -ffunction-sections -w -I ../Core/Inc -I ../Drivers/STM32H7xx_HAL_Driver/Inc -I ../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I ../Drivers/CMSIS/Include -I ../RC10_LIB/BSP_Driver/Inc -I ../RC10_LIB/Motor/Inc -I ../RC10_LIB/APP/Inc -I ../User/Control/Inc -I ../User/debug/Inc -I ../User/Setup/Inc -I ../RC10_LIB/Module/Inc -finput-charset=UTF-8-I./RTE/_Frame_T-IC:/Keil_v5/ARM/PACK/ARM/CMSIS/6.1.0/CMSIS/Core/Include-D__UVISION_VERSION="542" -DSTM32H723xx -D_RTE_ -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H723xx-o frame_t/frame_demo.o -MMD)
+I (..\User\debug\Inc\frame_demo.h)(0x68CFA76A)
+I (..\RC10_LIB\BSP_Driver\Inc\BSP_RTOS.h)(0x68CFA3E7)
 I (..\Drivers\STM32H7xx_HAL_Driver\Inc\stm32h7xx_hal.h)(0x689E06BF)
 I (..\Core\Inc\stm32h7xx_hal_conf.h)(0x68C7FD0A)
 I (..\Drivers\STM32H7xx_HAL_Driver\Inc\stm32h7xx_hal_rcc.h)(0x689E06BE)
@@ -1260,15 +1264,19 @@ I (..\Middlewares\Third_Party\FreeRTOS\Source\include\list.h)(0x689E064A)
 I (..\Middlewares\Third_Party\FreeRTOS\Source\CMSIS_RTOS_V2\cmsis_os2.h)(0x689E064A)
 I (..\Middlewares\Third_Party\FreeRTOS\Source\include\queue.h)(0x689E064A)
 I (..\Middlewares\Third_Party\FreeRTOS\Source\include\semphr.h)(0x689E064A)
-I (..\RC10_LIB\BSP_Driver\Inc\BSP_fdCAN_Driver.h)(0x68CD85B8)
+I (..\RC10_LIB\BSP_Driver\Inc\BSP_fdCAN_Driver.h)(0x68CFA224)
 I (..\Core\Inc\fdcan.h)(0x68C7FD09)
 I (..\Core\Inc\main.h)(0x68C7FD0A)
 I (..\RC10_LIB\BSP_Driver\Inc\BSP_CanFrame.h)(0x68CA1ED2)
 I (..\RC10_LIB\APP\Inc\APP_tool.h)(0x68CB83EE)
 I (..\RC10_LIB\Motor\Inc\Motor_Base.h)(0x68CF6B10)
-F (..\User\Setup\Inc\Setup_ConfigInit.h)(0x68CF849A)()
-F (..\User\Setup\Src\Setup_ConfigInit.cpp)(0x68CF8444)(-xc++ -std=c++17 --target=arm-arm-none-eabi -mcpu=cortex-m7 -mfpu=fpv5-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar -fno-exceptions-gdwarf-4 -O3 -ffunction-sections -w -I ../Core/Inc -I ../Drivers/STM32H7xx_HAL_Driver/Inc -I ../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I ../Drivers/CMSIS/Include -I ../RC10_LIB/BSP_Driver/Inc -I ../RC10_LIB/Motor/Inc -I ../RC10_LIB/APP/Inc -I ../User/Control/Inc -I ../User/debug/Inc -I ../User/Setup/Inc -I ../RC10_LIB/Module/Inc -finput-charset=UTF-8-I./RTE/_Frame_T-IC:/Keil_v5/ARM/PACK/ARM/CMSIS/6.1.0/CMSIS/Core/Include-D__UVISION_VERSION="542" -DSTM32H723xx -D_RTE_ -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H723xx-o frame_t/setup_configinit.o -MMD)
-I (..\User\Setup\Inc\Setup_ConfigInit.h)(0x68CF849A)
+I (..\RC10_LIB\Motor\Inc\Motor_DJI.h)(0x68CF9DCB)
+I (..\RC10_LIB\APP\Inc\APP_PID.h)(0x68CCD396)
+I (..\RC10_LIB\Module\Inc\Module_Encoder.h)(0x68CE5DD2)
+F (..\User\debug\Inc\frame_demo.h)(0x68CFA76A)()
+F (..\User\Setup\Inc\Setup_ConfigInit.h)(0x68CF9B46)()
+F (..\User\Setup\Src\Setup_ConfigInit.cpp)(0x68CF9BBB)(-xc++ -std=c++17 --target=arm-arm-none-eabi -mcpu=cortex-m7 -mfpu=fpv5-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar -fno-exceptions-gdwarf-4 -O3 -ffunction-sections -w -I ../Core/Inc -I ../Drivers/STM32H7xx_HAL_Driver/Inc -I ../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I ../Drivers/CMSIS/Include -I ../RC10_LIB/BSP_Driver/Inc -I ../RC10_LIB/Motor/Inc -I ../RC10_LIB/APP/Inc -I ../User/Control/Inc -I ../User/debug/Inc -I ../User/Setup/Inc -I ../RC10_LIB/Module/Inc -finput-charset=UTF-8-I./RTE/_Frame_T-IC:/Keil_v5/ARM/PACK/ARM/CMSIS/6.1.0/CMSIS/Core/Include-D__UVISION_VERSION="542" -DSTM32H723xx -D_RTE_ -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H723xx-o frame_t/setup_configinit.o -MMD)
+I (..\User\Setup\Inc\Setup_ConfigInit.h)(0x68CF9B46)
 I (..\Drivers\STM32H7xx_HAL_Driver\Inc\stm32h7xx_hal.h)(0x689E06BF)
 I (..\Core\Inc\stm32h7xx_hal_conf.h)(0x68C7FD0A)
 I (..\Drivers\STM32H7xx_HAL_Driver\Inc\stm32h7xx_hal_rcc.h)(0x689E06BE)
@@ -1311,14 +1319,15 @@ I (..\Middlewares\Third_Party\FreeRTOS\Source\include\list.h)(0x689E064A)
 I (..\Middlewares\Third_Party\FreeRTOS\Source\CMSIS_RTOS_V2\cmsis_os2.h)(0x689E064A)
 I (..\Middlewares\Third_Party\FreeRTOS\Source\include\queue.h)(0x689E064A)
 I (..\Middlewares\Third_Party\FreeRTOS\Source\include\semphr.h)(0x689E064A)
-I (..\RC10_LIB\BSP_Driver\Inc\BSP_CANFrame.h)(0x68CA1ED2)
-I (..\RC10_LIB\BSP_Driver\Inc\BSP_RTOS.h)(0x68CAAD99)
-I (..\RC10_LIB\BSP_Driver\Inc\BSP_fdCAN_Driver.h)(0x68CD85B8)
+I (..\User\debug\Inc\frame_demo.h)(0x68CFA76A)
+I (..\RC10_LIB\BSP_Driver\Inc\BSP_RTOS.h)(0x68CFA3E7)
+I (..\RC10_LIB\BSP_Driver\Inc\BSP_fdCAN_Driver.h)(0x68CFA224)
 I (..\Core\Inc\fdcan.h)(0x68C7FD09)
 I (..\Core\Inc\main.h)(0x68C7FD0A)
+I (..\RC10_LIB\BSP_Driver\Inc\BSP_CanFrame.h)(0x68CA1ED2)
 I (..\RC10_LIB\APP\Inc\APP_tool.h)(0x68CB83EE)
 I (..\RC10_LIB\Motor\Inc\Motor_Base.h)(0x68CF6B10)
-I (..\RC10_LIB\Motor\Inc\Motor_DJI.h)(0x68CF7EAB)
+I (..\RC10_LIB\Motor\Inc\Motor_DJI.h)(0x68CF9DCB)
 I (..\RC10_LIB\APP\Inc\APP_PID.h)(0x68CCD396)
 I (..\RC10_LIB\Module\Inc\Module_Encoder.h)(0x68CE5DD2)
 F (..\RC10_LIB\APP\Src\APP_PID.cpp)(0x68CCCB79)(-xc++ -std=c++17 --target=arm-arm-none-eabi -mcpu=cortex-m7 -mfpu=fpv5-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar -fno-exceptions-gdwarf-4 -O3 -ffunction-sections -w -I ../Core/Inc -I ../Drivers/STM32H7xx_HAL_Driver/Inc -I ../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I ../Drivers/CMSIS/Include -I ../RC10_LIB/BSP_Driver/Inc -I ../RC10_LIB/Motor/Inc -I ../RC10_LIB/APP/Inc -I ../User/Control/Inc -I ../User/debug/Inc -I ../User/Setup/Inc -I ../RC10_LIB/Module/Inc -finput-charset=UTF-8-I./RTE/_Frame_T-IC:/Keil_v5/ARM/PACK/ARM/CMSIS/6.1.0/CMSIS/Core/Include-D__UVISION_VERSION="542" -DSTM32H723xx -D_RTE_ -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H723xx-o frame_t/app_pid.o -MMD)

@@ -45,7 +45,7 @@
 
 /* Private macro -------------------------------------------------------------*/
 /* USER CODE BEGIN PM */
-
+#include "Setup_ConfigInit.h"
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
@@ -71,7 +71,7 @@ void MX_FREERTOS_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-CanTest test_demo(&hfdcan1, 0x001); // CAN1 测试实例
+// CanTest test_demo(&hfdcan1, 0x001); // CAN1 测试实例
 /* USER CODE END 0 */
 
 /**
@@ -112,7 +112,9 @@ int main(void)
   MX_USART1_UART_Init();
   MX_TIM6_Init();
   /* USER CODE BEGIN 2 */
-  test_demo.init(); // 初始化 CAN 测试实例
+  HAL_TIM_Base_Start_IT(&htim6); //启动定时器不然CAN任务不会跑的
+  ALL_Setup_ConfigInit();
+
   /* USER CODE END 2 */
 
   /* Init scheduler */

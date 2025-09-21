@@ -1,5 +1,13 @@
 #include "Motor_DJI.h"
 
+//M3508 and M2006
+     uint32_t send_idLow(){return 0x200;}
+     uint32_t send_idHigh(){return 0x1FF;}
+
+//GM6020
+     uint32_t send_idLow6020() {return 0x1FE;}
+     uint32_t send_idHigh6020() {return 0x2FE;}
+
 DJI_Motor::DJI_Motor(DJI_MotorType type, uint32_t id, fdCANbus *bus)
     : Motor_Base(id, false, bus), type_(type)//, motor_id_(id)
     {}
@@ -7,8 +15,8 @@ DJI_Motor::DJI_Motor(DJI_MotorType type, uint32_t id, fdCANbus *bus)
 void DJI_Motor::updateFeedback(const CanFrame &cf)
 {
     // 解析反馈帧
-    if(cf.DLC != 8)
-        return; // 非法帧长
+//    if(cf.DLC != 8)   //实测，大疆的CAN包我没收到DLC。。。
+//        return; // 非法帧长
 
     const uint8_t* data = cf.data;
     // 解析通用部分
@@ -297,7 +305,7 @@ void M2006::update()
             target_rpm_ = expected_rpm;
             // Fallthrough to speed control
         }
-        
+
         case SPEED_CONTROL:
         {
             float motor_rpm_target = target_rpm_ * GEAR_RATIO; //电机轴转速

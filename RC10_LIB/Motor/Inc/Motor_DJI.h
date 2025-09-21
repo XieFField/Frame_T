@@ -119,6 +119,10 @@ private:
     Encoder encoder_; //编码器实例
 };
 
+uint32_t send_idLow();
+uint32_t send_idHigh();
+uint32_t send_idLow6020();
+uint32_t send_idHigh6020();
 
 //------- DJI_Group ------- 打包命令 -----------------------------
 // 负责打包4电机合帧
@@ -140,13 +144,7 @@ public:
         (void )cf;
     } // Group不处理反馈
 
-    //M3508 and M2006
-    virtual uint32_t send_idLow()const{return 0x200;}
-    virtual uint32_t send_idHigh()const{return 0x1FF;}
-
-//GM6020
-    virtual uint32_t send_idLow6020() const{return 0x1FE;}
-    virtual uint32_t send_idHigh6020() const{return 0x2FE;}
+    
 
 private:
     uint32_t baseTxID_;

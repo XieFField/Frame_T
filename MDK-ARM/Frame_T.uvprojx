@@ -721,6 +721,11 @@
               <FileType>8</FileType>
               <FilePath>..\User\debug\Src\frame_demo.cpp</FilePath>
             </File>
+            <File>
+              <FileName>frame_demo.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\User\debug\Inc\frame_demo.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

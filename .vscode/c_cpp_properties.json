@@ -15,7 +15,8 @@
                 "${workspaceFolder}/Middlewares/Third_Party/FreeRTOS/Source/include",
                 "${workspaceFolder}/Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F",
                 "${workspaceFolder}/RC10_LIB/Motor/Inc",
-                "${workspaceFolder}/User/Setup/Inc"
+                "${workspaceFolder}/User/Setup/Inc",
+                "${workspaceFolder}/RC10_LIB/Module/Inc"
             ],
             "defines": [
                 "_DEBUG",

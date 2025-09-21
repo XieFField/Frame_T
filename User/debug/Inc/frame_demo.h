@@ -14,7 +14,8 @@
 
 #include "BSP_RTOS.h"
 #include "BSP_fdCAN_Driver.h"
-#include "Setup_ConfigInit.h"
+#include "Motor_DJI.h"
+#include "APP_PID.h"
 
 extern "C"
 {
@@ -37,6 +38,16 @@ public:
     CanTest(FDCAN_HandleTypeDef* hfdcan, uint32_t bus_id) : fdCANbus(hfdcan, bus_id) {}
     ~CanTest(){}
     
+};
+
+
+class DJI_MotorDemo: public RtosTask{
+public:
+    DJI_MotorDemo() : RtosTask("DJI_MotorDemo", 1) {}
+    void init();
+    void loop() override;
+    
+private:
 };
 
 #endif // __cplusplus

@@ -215,14 +215,14 @@ void user_setup()
 
     // --- 注册与配置 ---
     // 将电机添加到电机组
-    group1_4_p->addMotor(m3508_p);
+    group1_4_p.addMotor(m3508_p);
     // 你可以继续添加更多电机到这个组...
     // group1_4_p->addMotor(another_motor_p);
 
     // 【重要】将电机组注册到CAN总线
     // 注意：我们注册的是 group1_4_p，而不是 m3508_p。
     // fdCANbus 会自动调用 group1_4_p 的 update 和 packCommand 方法。
-    can1_bus_p->registerMotor(group1_4_p);
+    can1_bus_p.registerMotor(group1_4_p);
 
     // --- PID 参数初始化 ---
     // 为 m3508_p 配置PID参数 (AI生成的参数，不要直接套用)
@@ -245,11 +245,11 @@ void user_setup()
         .deadband = 0.1f // 死区，防止在目标附近微小抖动
     };
     // 调用pid_init进行初始化
-    m3508_p->pid_init(speed_pid_params, 0.1f, angle_pid_params, 5.0f);
+    m3508_p.pid_init(speed_pid_params, 0.1f, angle_pid_params, 5.0f);
 
     // --- 启动CAN总线 ---
     // 这会启动CAN硬件、配置滤波器并启动内部的 rxTask 和 schedulerTask
-    can1_bus_p->init();
+    can1_bus_p.init();
 }
 
 // 在 main() 函数中调用
@@ -283,7 +283,7 @@ int main(void)
     #include "Motor_DJI.h"
 
     // 声明在初始化代码中创建的全局对象
-    extern M3508* m3508_p;
+    extern M3508 m3508_p;
 
     class MyControlTask : public RtosTask
     {
@@ -314,7 +314,7 @@ int main(void)
         // --- 示例1：位置控制 ---
         // 让电机在 -90 到 90 度之间来回摆动
         float target_angle = 90.0f * sin(tick * 0.002f);
-        m3508_p->setTargetAngle(target_angle);
+        m3508_p.setTargetAngle(target_angle);
 
         /*
         // --- 示例2：速度控制 ---

@@ -178,24 +178,17 @@ bool fdCANbus::matchesFrameDefault(const CanFrame& cf, uint32_t targetId, bool i
     return (cf.isextended == isExt) && (cf.ID == targetId);
 }
 
-// --- RxTask / SchedTask loop impl & ctor ---
-//构造函数
-fdCANbus::RxTask::RxTask(fdCANbus* parent)
-: RtosTask("fdcan_rx"), parent_(parent) 
-{
+// --- RxTask / SchedTask 构造函数 ---
+fdCANbus::RxTask::RxTask(fdCANbus* parent) 
+    : RtosTask("CAN_Rx", 0), parent_(parent) {}
 
-}
+fdCANbus::SchedTask::SchedTask(fdCANbus* parent) 
+    : RtosTask("CAN_Sched", 0), parent_(parent) {}
 
+// --- RxTask / SchedTask run ---
 void fdCANbus::RxTask::run() 
 {
     parent_->rxTaskbody();
-}
-
-//构造函数
-fdCANbus::SchedTask::SchedTask(fdCANbus* parent)
-: RtosTask("fdcan_sched"), parent_(parent) 
-{
-    
 }
 
 void fdCANbus::SchedTask::run() 
