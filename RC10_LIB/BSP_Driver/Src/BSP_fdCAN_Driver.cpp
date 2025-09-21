@@ -147,9 +147,9 @@ void fdCANbus::schedulerTaskbody()
         for (std::size_t i = 0; i < MAX_MOTORS; ++i)
         {
             Motor_Base* m = motorList_[i];
-            if (m) {
+            if (m) 
                 m->update();
-            }
+            
         }
 
         // 2. 打包所有电机的指令

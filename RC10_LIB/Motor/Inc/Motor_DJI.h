@@ -139,12 +139,11 @@ public:
 
     std::size_t packCommand(CanFrame outFrames[], std::size_t maxFrames) override;
 
-    void updateFeedback(const CanFrame& cf) override 
+    void updateFeedback(const CanFrame& cf) override
     {
-        (void )cf;
-    } // Group不处理反馈
+        (void)cf;
+    }
 
-    void update() override;
 
 private:
     uint32_t baseTxID_;
@@ -184,10 +183,13 @@ public:
     float getAngle() const override;
     float getTotalAngle() const override;
 
+    void reset_GearRatio(float reset_value){GEAR_RATIO = reset_value;}
+
+    float get_GearRatio() const override { return GEAR_RATIO; }
 private:
     
     ControlMode mode_ = CURRENT_CONTROL;
-    static constexpr float GEAR_RATIO = 19.2032f; // 减速比
+    float GEAR_RATIO = 19.2032f; // 减速比
 
     PID_Incremental speed_pid_;
     PID_Position angle_pid_;
@@ -212,10 +214,11 @@ public:
     float getRPM() const override;
     float getAngle() const override;
     float getTotalAngle() const override;
-
+    float get_GearRatio() const override { return GEAR_RATIO; }
+    void reset_GearRatio(float reset_value){GEAR_RATIO = reset_value;}
 private:
     ControlMode mode_ = CURRENT_CONTROL;
-    static constexpr float GEAR_RATIO = 36.0f;
+    float GEAR_RATIO = 36.0f;
 
     PID_Incremental speed_pid_;
     PID_Position angle_pid_;
@@ -242,7 +245,7 @@ public:
 
 private:
     ControlMode mode_ = CURRENT_CONTROL;
-    static constexpr float GEAR_RATIO = 1.0f;
+    float GEAR_RATIO = 1.0f;
 
     PID_Incremental speed_pid_;
     PID_Position angle_pid_;

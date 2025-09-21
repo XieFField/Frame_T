@@ -52,6 +52,8 @@ public:
     // 帧匹配（默认简单 ID/Ext 匹配）
     virtual bool matchesFrame(const CanFrame& cf) const{};
 
+    virtual float get_GearRatio() const { return GEAR_RATIO; }
+
     // 目标/状态量
     float target_rpm_ = 0.0f; //转速
     float target_current_= 0.0f; //电流
@@ -66,7 +68,7 @@ protected:
     fdCANbus* bus_;
 
     
-
+    float GEAR_RATIO = 1.0f; // 减速比，默认为1
     float rpm_ = 0.0f;
     float current_ = 0.0f;
     float angle_ = 0.0f;

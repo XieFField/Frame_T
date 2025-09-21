@@ -31,11 +31,15 @@ void DJI_Motor::updateFeedback(const CanFrame &cf)
     // this->angle_ = Encoder_to_angle(encoder_raw);
     encoder_.update(encoder_raw);
     //静态类型转化
-    this->rpm_ = static_cast<float>(rpm_raw);
+    this->rpm_ = static_cast<float>(rpm_raw) /  get_GearRatio();
     this->current_ = static_cast<float>(current_raw);
     this->temperature_ = static_cast<float>(temperature_raw);
-    this->angle_ = encoder_.getAngle();
-    this->totalAngle_ = encoder_.getTotalAngle();
+
+    this->totalAngle_ = encoder_.getTotalAngle() / get_GearRatio();
+    this->angle_ = fmodf(this->totalAngle_, 360.0f);
+    if(this->angle_ < 0) 
+        this->angle_ += 360.0f;
+    
 }
 
 float DJI_Motor::virtualCurrent_to_realCurrent(int16_t virtualCurrent)
@@ -76,16 +80,6 @@ DJI_Group::DJI_Group(uint32_t baseTxId, fdCANbus* bus)
 
     }
 
-void DJI_Group::update() 
-{
-    for(uint8_t i = 0; i < motor_count_; ++i)
-    {
-        if(motors_p[i])
-        {
-            motors_p[i]->update();
-        }
-    }
-}
 
 bool DJI_Group::addMotor(DJI_Motor* motor)
 {
@@ -97,11 +91,6 @@ bool DJI_Group::addMotor(DJI_Motor* motor)
 
     if(motor->getID() < 1 || motor->getID() > 8)
         return false; // 不合法ID范围
-
-    
-    
-    
-
 
     DJI_MotorType type = motor->getType();
     uint32_t mid = motor->getID();
@@ -192,17 +181,17 @@ M3508::M3508(uint32_t motor_id, fdCANbus* bus)
 
 float M3508::getAngle() const
 {
-    return angle_ / GEAR_RATIO;
+    return angle_;
 }
 
 float M3508::getTotalAngle() const
 {
-    return totalAngle_ / GEAR_RATIO;
+    return totalAngle_;
 }
 
 float M3508::getRPM() const
 {
-    return rpm_ / GEAR_RATIO;
+    return rpm_;
 }
 
 void M3508::pid_init(const PID_Param_Config& speed_params, float speed_tdRatio, const PID_Param_Config& angle_params, float angle_I_Separa)
@@ -229,6 +218,8 @@ void M3508::setTargetAngle(float angle_set)
     target_angle_ = angle_set;
 }
 
+//volatile float cur = 0;
+
 void M3508::update()
 {
     switch(mode_)
@@ -244,6 +235,7 @@ void M3508::update()
         {
             float motor_rpm = target_rpm_ * GEAR_RATIO; //电机轴转速
             target_current_ = speed_pid_.pid_calc(motor_rpm, this->rpm_);
+            //cur = target_current_;
             break;
         }
         
@@ -269,17 +261,17 @@ M2006::M2006(uint32_t motor_id, fdCANbus* bus)
 
 float M2006::getAngle() const
 {
-    return angle_ / GEAR_RATIO;
+    return angle_;
 }
 
 float M2006::getTotalAngle() const
 {
-    return totalAngle_ / GEAR_RATIO;
+    return totalAngle_;
 }
 
 float M2006::getRPM() const
 {
-    return rpm_ / GEAR_RATIO;
+    return rpm_;
 }
 
 void M2006::pid_init(const PID_Param_Config& speed_params, float speed_tdRatio, const PID_Param_Config& angle_params, float angle_I_Separa)
@@ -381,6 +373,9 @@ void GM6020::update()
         case SPEED_CONTROL:
         {
             // GM6020没有减速比，直接使用目标转速
+            // 目标值是输出轴转速 (target_rpm_)
+            // 反馈值也是输出轴转速 (this->rpm_)
+            // 两者尺度统一，PID可以正确工作
             target_current_ = speed_pid_.pid_calc(target_rpm_, this->rpm_);
             break;
         }

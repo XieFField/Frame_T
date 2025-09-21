@@ -90,7 +90,7 @@ public:
         output_ = 0.0f;
         error_last_ = 0.0f;
         feedback_last_ = 0.0f;
-        
+        isFirst_ = true; // 重置 isFirst_ 标志
     }
 
     /**
@@ -106,10 +106,11 @@ private:
     float P_Term = 0;			/* 比例器输出 */
     float D_Term = 0;			/* 微分器输出 */
     float output_ = 0.0f;     // 输出值
-    float dt = 0.0f;         // 采样时间，单位秒
+    float dt = 0.001f;         // 采样时间，单位秒
     PID_Param_Config params_;
     float I_SeparaThreshold_;
 
+    float error_ = 0.0f;              // 当前误差
     float error_last_ = 0.0f;       // 上次误差
     float feedback_last_ = 0.0f;    // 上次反馈值
 
@@ -149,10 +150,11 @@ public:
             error_ = 0.0f;
             error_last_ = 0.0f;
             error_earlier_ = 0.0f;
+            output_ = 0.0f; // 重置 output_
             output_last_ = 0.0f;
             td_v1_ = 0.0f;
             td_v2_ = 0.0f;
-            
+            isFirst_ = true; // 重置 isFirst_ 标志
         }
 
         /**
@@ -188,7 +190,7 @@ private:
 
     uint32_t last_tick_ = 0;
 
-    float dt = 0.0f; // 采样时间，单位秒
+    float dt = 0.001f; // 采样时间，单位秒
 };
 
 
