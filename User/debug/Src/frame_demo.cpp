@@ -42,6 +42,8 @@ void FrameDemo::init()
 
 void DJI_MotorDemo::loop()
 {
+    debug_uart.printf_DMA("%f,%f\r\n",m3508_1.getRPM(), m3508_1.getTargetRPM());
+    //HAL_UART_Transmit(&huart1, (uint8_t*)"Tick\r\n", 6, HAL_MAX_DELAY);
     if(start_signal == 1)
     {
         m3508_1.setTargetCurrent(500.0f);
@@ -98,5 +100,8 @@ void DJI_MotorDemo::init()
     m3508_1.pid_init(m3508_speed_pid_params, 0.0f, m3508_angle_pid_params, 0.0f);
     CAN1_Bus.init();
     start(osPriorityNormal, 256);
-    debug_uart.printf_DMA("%f,%f\r\n",m3508_1.getRPM(), m3508_1.getTargetRPM());
+    
+    const char *msg = "Hello UART1 on PB6/PB7\r\n";
+    HAL_UART_Transmit(&huart1, (uint8_t*)msg, strlen(msg), HAL_MAX_DELAY);
+    
 }

@@ -48,4 +48,5 @@ frame_t/frame_demo.o: ..\User\debug\Src\frame_demo.cpp \
   ..\RC10_LIB\BSP_Driver\Inc\BSP_CanFrame.h \
   ..\RC10_LIB\APP\Inc\APP_tool.h ..\RC10_LIB\Motor\Inc\Motor_Base.h \
   ..\RC10_LIB\Motor\Inc\Motor_DJI.h ..\RC10_LIB\APP\Inc\APP_PID.h \
-  ..\RC10_LIB\Module\Inc\Module_Encoder.h ..\User\debug\Inc\debug_uart.h
+  ..\RC10_LIB\Module\Inc\Module_Encoder.h \
+  ..\RC10_LIB\APP\Inc\APP_debugTool.h

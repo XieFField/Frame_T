@@ -60,6 +60,7 @@ extern FDCAN_HandleTypeDef hfdcan2;
 extern FDCAN_HandleTypeDef hfdcan3;
 extern TIM_HandleTypeDef htim6;
 extern DMA_HandleTypeDef hdma_usart1_tx;
+extern UART_HandleTypeDef huart1;
 extern TIM_HandleTypeDef htim8;
 
 /* USER CODE BEGIN EV */
@@ -204,6 +205,20 @@ void FDCAN2_IT0_IRQHandler(void)
   /* USER CODE BEGIN FDCAN2_IT0_IRQn 1 */
 
   /* USER CODE END FDCAN2_IT0_IRQn 1 */
+}
+
+/**
+  * @brief This function handles USART1 global interrupt.
+  */
+void USART1_IRQHandler(void)
+{
+  /* USER CODE BEGIN USART1_IRQn 0 */
+
+  /* USER CODE END USART1_IRQn 0 */
+  HAL_UART_IRQHandler(&huart1);
+  /* USER CODE BEGIN USART1_IRQn 1 */
+
+  /* USER CODE END USART1_IRQn 1 */
 }
 
 /**

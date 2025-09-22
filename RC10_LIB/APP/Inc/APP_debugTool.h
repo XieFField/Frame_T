@@ -1,12 +1,13 @@
 /**
- * @file    debug_uart.h
+ * @file    APP_debugTool.h
  * @author  XieFField
  * @brief   用于临时调试用的 UART printf 封装
+ *          之后其他debug工具也可以放进这里面     
  * @version 1.0
  */
 
-#ifndef __DEBUG_UART_H
-#define __DEBUG_UART_H
+#ifndef __APP_DEBUG_TOOL_H
+#define __APP_DEBUG_TOOL_H
 
 #pragma once
 
@@ -24,6 +25,9 @@ extern "C" {
 #include <cstdint>
 #include <cstdio>
 #define SEND_BUF_SIZE 100
+/**
+ * @brief 串口打印调试助手
+ */
 class Debug_Printf {
 public:
     Debug_Printf(UART_HandleTypeDef *huart) : huart_(huart) {}
@@ -41,7 +45,7 @@ public:
         uint8_t len = strlen((char*)Sendbuf);  // 计算实际字符串长度
         if(len > 0)
         {
-            HAL_UART_Transmit_DMA(huart_, Sendbuf, len);  // 通过DMA发送字符串
+            HAL_UART_Transmit(huart_, Sendbuf, len,100);  // 通过发送字符串
         }
     }
 private:

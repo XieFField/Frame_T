@@ -26,7 +26,7 @@ extern "C"
 #include "BSP_fdCAN_Driver.h"
 #include "Motor_DJI.h"
 #include "APP_PID.h"
-#include "debug_uart.h"
+#include "APP_debugTool.h"
 
 class FrameDemo : public RtosTask
 {

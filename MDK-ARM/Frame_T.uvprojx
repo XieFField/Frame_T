@@ -782,11 +782,6 @@
               <FileType>5</FileType>
               <FilePath>..\User\debug\Inc\frame_demo.h</FilePath>
             </File>
-            <File>
-              <FileName>debug_uart.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\User\debug\Inc\debug_uart.h</FilePath>
-            </File>
           </Files>
         </Group>
         <Group>
