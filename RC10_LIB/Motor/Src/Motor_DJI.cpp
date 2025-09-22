@@ -20,7 +20,7 @@ void DJI_Motor::updateFeedback(const CanFrame &cf)
 
     const uint8_t* data = cf.data;
     // 解析通用部分
-
+    
     uint16_t encoder_raw = (data[0] << 8) | data[1];
     int16_t rpm_raw = (data[2] << 8) | data[3];
     int16_t current_raw = (data[4] << 8) | data[5];

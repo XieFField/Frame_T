@@ -767,6 +767,16 @@
               <FileType>5</FileType>
               <FilePath>..\RC10_LIB\Motor\Inc\Motor_DJI.h</FilePath>
             </File>
+            <File>
+              <FileName>Motor_VESC.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\RC10_LIB\Motor\Inc\Motor_VESC.h</FilePath>
+            </File>
+            <File>
+              <FileName>Motor_VESC.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\RC10_LIB\Motor\Src\Motor_VESC.cpp</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

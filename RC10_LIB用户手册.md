@@ -21,6 +21,30 @@ attention: Õâ·ÝÊÖ²áºÜ´ó³Ì¶ÈÊÇAIÉú³ÉµÄ£¬±ÊÕßÖ»¸ºÔðÐÞ¸ÄÆäÖÐ²¿·Ö£¬Èô·¢ÏÖÓÐç¢Â©£¬Çë¼
 2. µ÷ÊÔdebug/demoÀà·ÅÔÚdebug
 3. SetupÓÃÓÚ·Å³õÊ¼»¯ÎÄ¼þ
 
+### RC10_LIBµÄºËÐÄÉè¼ÆÔ­Ôò
+1. ÑÏ¸ñ·Ö²ã£¬Ö°Ôðµ¥Ò»
+   ¿ò¼Ü·ÖÎªÓ²¼þÇý¶¯²ã¡¢Éè±¸Ð­Òé²ã¡¢Ëã·¨²ãºÍÓ¦ÓÃ²ã¡£µ±ÄãÌí¼ÓÐÂ¹¦ÄÜÊ±£¬±ØÐëÃ÷È·Æä¹éÊô¡£
+
+   Ó²¼þÇý¶¯Ö»¸ºÔðÓëÎïÀí×ÜÏßÍ¨ÐÅ¡£
+   Éè±¸Ð­ÒéÖ»¸ºÔð½âÎöºÍ´ò°üÌØ¶¨Éè±¸µÄ±¨ÎÄ¡£
+   Ëã·¨ÊÇ´¿´âµÄÊýÑ§¹¤¾ß¡£
+   Ó¦ÓÃÖ»¸ºÔðÏÂ´ï¸ß²ãÖ¸Áî¡£ Ô­Ôò£º ½ûÖ¹¿ç²ãµ÷ÓÃ£¬±£³Ö¸÷²ã´¿´âÐÔ¡£
+
+2. ÐÅÈÎ×Ô¶¯»¯µ÷¶È£¬·ÖÀë¼ÆËãÓë´ò°ü
+   1. ÀýÈç: fdCANbus ¿ò¼ÜÌá¹©Ò»¸ö¸ßÆµÂÊµÄÖÐÑëµ÷¶ÈÆ÷£¬Ëü»á×Ô¶¯µ÷ÓÃËùÓÐ×¢²áÉè±¸µÄ update() ºÍ packCommand()¡£
+
+   update(): Ö»ÓÃÓÚ¼ÆËã¡£Ö´ÐÐÈçPIDµÈÖÜÆÚÐÔËã·¨£¬¸üÐÂÄÚ²¿×´Ì¬¡£
+   packCommand(): Ö»ÓÃÓÚ´ò°ü¡£¶ÁÈ¡ update() µÄ¼ÆËã½á¹û£¬²¢½«Æä×é×°³É´ý·¢ËÍµÄCAN±¨ÎÄ¡£
+   setTarget...(): Ö»ÓÃÓÚ½ÓÊÕÖ¸Áî¡£ÕâÊÇÄãµÄÇý¶¯Ìá¹©¸øÓ¦ÓÃ²ãµÄ½Ó¿Ú£¬ÓÃÓÚÉèÖÃ¸ß¼¶Ä¿±ê¡£ Ô­Ôò£º ÓÀÔ¶²»ÒªÔÚ packCommand() ÖÐ½øÐÐ¼ÆËã£¬Ò²²»ÒªÔÚ update() ÖÐ×é×°±¨ÎÄ¡£ÏàÐÅµ÷¶ÈÆ÷»á°´ÕýÈ·µÄË³Ðòµ÷ÓÃËüÃÇ¡£
+
+3. ¼Ì³ÐÍ³Ò»½Ó¿Ú£¬ÀûÓÃ¶àÌ¬ÊµÏÖÌØÒìÐÔ
+   ¿ò¼ÜÍ¨¹ýÃæÏò½Ó¿Ú±à³ÌÊµÏÖÀ©Õ¹ÐÔ¡£ËùÓÐÉè±¸Çý¶¯¶¼±ØÐë¼Ì³Ð×ÔÒ»¸ö¹²Í¬µÄ»ùÀà£¨Èç Motor_Base£©¡£
+
+   Í³Ò»¹ÜÀí: µ÷¶ÈÆ÷Ö»Óë»ùÀà½Ó¿Ú½»»¥£¬Ëü²»¹ØÐÄ¾ßÌåÊÇÊ²Ã´Éè±¸¡£
+   Ðéº¯ÊýÊµÏÖ¶àÌ¬: Ê¹ÓÃ virtual º¯Êý£¨Èç get_GearRatio()£©À´ÈÃÃ¿¸ö×ÓÀàÌá¹©×Ô¼º¶ÀÌØµÄÐÅÏ¢»òÐÐÎª¡£ Ô­Ôò£º ÄãµÄÐÂÉè±¸Çý¶¯±ØÐëÊµÏÖ»ùÀàµÄËùÓÐ´¿Ðéº¯Êý£¬²¢ÀûÓÃÐéº¯ÊýÖØÐ´£¨override£©À´ÊµÏÖÆäÌØ¶¨Ð­ÒéºÍ¹¦ÄÜ¡£
+
+4. ÓÃ»§Ê¹ÓÃ½Ó¿ÚµÄ¼ò»¯
+   ½«Ò»ÇÐµÄÖØ¸´ÐÔ¹¤×÷¶¼ÔÚÀàµÄ·â×°ÖÐÊµÏÖ£¬Ê¹µÃÓÃ»§ÔÚ¿ª·¢Ó¦ÓÃ²ãµÄÊ±ºòÎÞÐèÐ´Ì«¶àÈßÔÓÖØ¸´µÄ´úÂë£¬¸ü¸ßÐ§½øÐÐ¿ª·¢¡£
 
 ### BSP·ÖÖ§
 #### FreeRTOSµÄÊ¹ÓÃ
@@ -78,6 +102,9 @@ attention: Õâ·ÝÊÖ²áºÜ´ó³Ì¶ÈÊÇAIÉú³ÉµÄ£¬±ÊÕßÖ»¸ºÔðÐÞ¸ÄÆäÖÐ²¿·Ö£¬Èô·¢ÏÖÓÐç¢Â©£¬Çë¼
 
 #### APP_tool
 ¹¤¾ßÀà£¬Ìá¹©Èç `constrain`£¨ÏÞ·ù£©µÈÍ¨ÓÃº¯Êý¡£
+
+#### APP_debugTool
+Ìá¹©µ÷ÊÔ¹¤¾ß£¬Èç´®¿Ú´òÓ¡Êý¾Ý¡£
 
 #### APP_PID
 Ìá¹©ÁËÎ»ÖÃÊ½ºÍÔöÁ¿Ê½Á½ÖÖPID¿ØÖÆÆ÷¡£
