@@ -159,14 +159,17 @@ using namespace geometry;
 
 void transform_example_2d()
 {
-    // 1. 定义从传感器到机器人中心的变换
+    // 1. 定义一个 Point2D 对象来描述从传感器到机器人中心的位姿
     //    平移 (0.2, 0.1)，旋转 45 度 (PI/4 弧度)
-    HomogeneousTransform2D sensor_to_robot_tf(0.2f, 0.1f, PI / 4.0f);
+    Point2D sensor_pose(0.2f, 0.1f, PI / 4.0f);
 
-    // 2. 定义在传感器坐标系下的点
+    // 2. 使用该位姿对象创建变换矩阵
+    HomogeneousTransform2D sensor_to_robot_tf(sensor_pose);
+
+    // 3. 定义在传感器坐标系下的点
     Point2D point_in_sensor(0.5f, 0.0f);
 
-    // 3. 应用变换，得到在机器人坐标系下的点
+    // 4. 应用变换，得到在机器人坐标系下的点
     Point2D point_in_robot = sensor_to_robot_tf.apply(point_in_sensor);
 
     // point_in_robot.x 和 point_in_robot.y 就是最终结果
@@ -185,20 +188,23 @@ using namespace geometry;
 
 void transform_example_3d()
 {
-    // 1. 定义从相机到世界坐标系的变换
+    // 1. 定义一个 Point3D 对象来描述从相机到世界坐标系的位姿
     //    平移 (1, 2, 0.5)，绕Z轴(yaw)旋转90度 (PI/2)
-    HomogeneousTransform3D camera_to_world_tf(1.0f, 2.0f, 0.5f, 0.0f, 0.0f, PI / 2.0f);
+    Point3D camera_pose(1.0f, 2.0f, 0.5f, 0.0f, 0.0f, PI / 2.0f);
 
-    // 2. 定义在相机坐标系下的一个点
+    // 2. 使用该位姿对象创建变换矩阵
+    HomogeneousTransform3D camera_to_world_tf(camera_pose);
+
+    // 3. 定义在相机坐标系下的一个点
     Point3D point_in_camera(0.0f, 1.0f, 0.0f);
 
-    // 3. 应用变换，得到在世界坐标系下的点
+    // 4. 应用变换，得到在世界坐标系下的点
     Point3D point_in_world = camera_to_world_tf.apply(point_in_camera);
 
-    // 4. 计算逆变换（从世界坐标系到相机坐标系）
+    // 5. 计算逆变换（从世界坐标系到相机坐标系）
     HomogeneousTransform3D world_to_camera_tf = camera_to_world_tf.inverse();
 
-    // 5. 使用逆变换将世界坐标系下的点转换回相机坐标系
+    // 6. 使用逆变换将世界坐标系下的点转换回相机坐标系
     Point3D point_back_in_camera = world_to_camera_tf.apply(point_in_world);
     // 此时 point_back_in_camera 应该约等于 point_in_camera
 }
@@ -408,4 +414,3 @@ void MyMotor::setTargetRPM(float rpm_set) {
 3. 在应用层使用 像使用 `M3508` 一样，创建 `MyMotor` 对象，并将其注册到 `fdCANbus` 即可。调度器会自动处理后续的一切。
 
 
-   

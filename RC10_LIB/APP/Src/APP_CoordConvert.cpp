@@ -20,8 +20,6 @@ HomogeneousTransform2D::HomogeneousTransform2D(const Point2D& pose) : m_matrix{3
 }
 
 
-
-
 // 设置变换矩阵
 void HomogeneousTransform2D::setTransform(const Point2D& pose) 
 {
@@ -44,10 +42,15 @@ void HomogeneousTransform2D::setTranslation(const Point2D& translation)
 // 仅设置旋转部分
 void HomogeneousTransform2D::setRotation(float theta_rad) 
 {
+    float32_t tx = m_data[2];
+    float32_t ty = m_data[5];
     float32_t c, s;
     arm_sin_cos_f32(theta_rad, &s, &c);
     m_data[0] = c; m_data[1] = -s;
     m_data[3] = s; m_data[4] = c;
+    // 保持平移部分不变
+    m_data[2] = tx;
+    m_data[5] = ty;
 }
 
 // 应用变换到2D点
