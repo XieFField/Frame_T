@@ -143,9 +143,9 @@ bool DJI_Group::addMotor(DJI_Motor* motor)
     else 
     {
         if(type != GM6020_Type && containsGM6020)
-            return false; // 不能混用GM6020和其他型号
+            return false; // 不能在同一片上混用GM6020和其他型号
         else if(type == GM6020_Type && !containsGM6020)
-            return false; // 不能混用GM6020和其他型号
+            return false; // 不能在同一片上混用GM6020和其他型号
     }
 
     motors_p[motor_count_] = motor;

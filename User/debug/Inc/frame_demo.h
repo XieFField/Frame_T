@@ -27,6 +27,8 @@ extern "C"
 #include "Motor_DJI.h"
 #include "APP_PID.h"
 #include "APP_debugTool.h"
+#include "APP_CoordConvert.h"
+#include "Motor_VESC.h"
 
 class FrameDemo : public RtosTask
 {

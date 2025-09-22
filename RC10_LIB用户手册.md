@@ -1,6 +1,9 @@
 ## RC10_LIB FrameWorkÓÃ»§ÊÖ²á
 
-RC10_LIB½«Ìá¹©´óÁ¿Ô¤ÖÆ²Ë£¬Ö¼ÔÚÈÃ¶Ôµ×²ãÇý¶¯²»ÊìÏ¤µÄÓÃ»§Ò²ÄÜ³©¿ìÊéÐ´Ó¦ÓÃ²ã´úÂë¡£¶ø±¾ÓÃ»§ÊÖ²áÒ²ÊÇÔ¤ÖÆ²ËµÄÒ»»·£¬Ö¼ÔÚÈÃÓÃ»§¿ÉÒÔ¸ü¿ìÉÏÊÖÊ¹ÓÃRC10_LIB
+ÓÃ»§ÊÖ²á£¿Òà»òËµÊÇRC10_LIBµÄËµÃ÷Êé.
+
+RC10_LIB½«Ìá¹©´óÁ¿Ô¤ÖÆ²Ë£¬Ö¼ÔÚÈÃ¶Ôµ×²ãÇý¶¯²»ÊìÏ¤µÄÓÃ»§Ò²ÄÜ³©¿ìÊéÐ´Ó¦ÓÃ²ã´úÂë¡£
+¶ø±¾ÓÃ»§ÊÖ²áÒ²ÊÇÔ¤ÖÆ²ËµÄÒ»»·£¬Ö¼ÔÚÈÃÓÃ»§¿ÉÒÔ¸ü¿ìÉÏÊÖÊ¹ÓÃRC10_LIB
 
 attention: Õâ·ÝÊÖ²áºÜ´ó³Ì¶ÈÊÇAIÉú³ÉµÄ£¬±ÊÕßÖ»¸ºÔðÐÞ¸ÄÆäÖÐ²¿·Ö£¬Èô·¢ÏÖÓÐç¢Â©£¬Çë¼°Ê±¸æËßÎÒ£¬Íò·Ö¸ÐÐ»¡£
 
@@ -125,6 +128,81 @@ attention: Õâ·ÝÊÖ²áºÜ´ó³Ì¶ÈÊÇAIÉú³ÉµÄ£¬±ÊÕßÖ»¸ºÔðÐÞ¸ÄÆäÖÐ²¿·Ö£¬Èô·¢ÏÖÓÐç¢Â©£¬Çë¼
         break;
     }
     ```
+
+#### APP_CoordConvert
+`APP_CoordConvert` ÊÇÒ»¸ö»ùÓÚ `CMSIS-DSP` ¿âÓÅ»¯µÄ¸ßÐÔÄÜ×ø±ê±ä»»¹¤¾ß£¬ÓÃÓÚ´¦Àí2DºÍ3D¿Õ¼äÖÐµÄÆ½ÒÆºÍÐý×ª¡£
+
+##### ºËÐÄÌØÐÔ
+- **¸ßÐÔÄÜ**: ËùÓÐ¾ØÕóÔËËã¶¼ÓÉ `arm_math.h` ÖÐµÄº¯ÊýÍê³É£¬³ä·ÖÀûÓÃÓ²¼þ¼ÓËÙ¡£
+- **Ò×ÓÚÊ¹ÓÃ**: Ìá¹©ÁË `HomogeneousTransform2D` ºÍ `HomogeneousTransform3D` Á½¸öÀà£¬½Ó¿ÚÇåÎúÖ±¹Û¡£
+- **¹¦ÄÜÍê±¸**: Ö§³ÖÉèÖÃ±ä»»¡¢Ó¦ÓÃ±ä»»¡¢¾ØÕó³Ë·¨£¨±ä»»µþ¼Ó£©ºÍÇóÄæ±ä»»¡£
+
+##### **¡¾ÖØÒªÌáÊ¾¡¿**
+- **½Ç¶Èµ¥Î»**: ËùÓÐº¯ÊýµÄ½Ç¶È²ÎÊý£¨Èç `theta_rad`, `roll_rad`£©¶¼±ØÐëÊ¹ÓÃ **»¡¶È (radians)** ×÷Îªµ¥Î»¡£
+- **ÃüÃû¿Õ¼ä**: ËùÓÐÀàºÍº¯Êý¶¼Î»ÓÚ `geometry` ÃüÃû¿Õ¼äÏÂ¡£
+
+##### 2D±ä»»Ê¹ÓÃÊ¾Àý
+
+¼ÙÉèÓÐÒ»¸ö´«¸ÐÆ÷°²×°ÔÚ»úÆ÷ÈËÉÏ£¬Æä×ø±êÏµÏà¶ÔÓÚ»úÆ÷ÈËÖÐÐÄ×ø±êÏµÓÐÈçÏÂ¹ØÏµ£º
+- ÑØ»úÆ÷ÈËXÖáÆ½ÒÆÁË `0.2` Ã×¡£
+- ÑØ»úÆ÷ÈËYÖáÆ½ÒÆÁË `0.1` Ã×¡£
+- ÄæÊ±ÕëÐý×ªÁË `45` ¶È¡£
+
+ÏÖÔÚ£¬´«¸ÐÆ÷¼ì²âµ½ÁËÒ»¸öÔÚÆä×ÔÉí×ø±êÏµÏÂµÄµã `(0.5, 0.0)`£¬ÎÒÃÇÏëÖªµÀÕâ¸öµãÔÚ»úÆ÷ÈËÖÐÐÄ×ø±êÏµÏÂµÄÎ»ÖÃ¡£
+
+```cpp
+#include "APP_CoordConvert.h"
+#include "arm_math.h" // For PI constant
+
+// Ê¹ÓÃÃüÃû¿Õ¼ä
+using namespace geometry;
+
+void transform_example_2d()
+{
+    // 1. ¶¨Òå´Ó´«¸ÐÆ÷µ½»úÆ÷ÈËÖÐÐÄµÄ±ä»»
+    //    Æ½ÒÆ (0.2, 0.1)£¬Ðý×ª 45 ¶È (PI/4 »¡¶È)
+    HomogeneousTransform2D sensor_to_robot_tf(0.2f, 0.1f, PI / 4.0f);
+
+    // 2. ¶¨ÒåÔÚ´«¸ÐÆ÷×ø±êÏµÏÂµÄµã
+    Point2D point_in_sensor(0.5f, 0.0f);
+
+    // 3. Ó¦ÓÃ±ä»»£¬µÃµ½ÔÚ»úÆ÷ÈË×ø±êÏµÏÂµÄµã
+    Point2D point_in_robot = sensor_to_robot_tf.apply(point_in_sensor);
+
+    // point_in_robot.x ºÍ point_in_robot.y ¾ÍÊÇ×îÖÕ½á¹û
+}
+```
+
+##### 3D±ä»»Ê¹ÓÃÊ¾Àý
+
+¼ÙÉèÏà»ú×ø±êÏµÏà¶ÔÓÚÊÀ½ç×ø±êÏµÆ½ÒÆÁË `(1.0, 2.0, 0.5)`£¬²¢ÇÒÈÆZÖáÐý×ªÁË90¶È¡£
+
+```cpp
+#include "APP_CoordConvert.h"
+#include "arm_math.h"
+
+using namespace geometry;
+
+void transform_example_3d()
+{
+    // 1. ¶¨Òå´ÓÏà»úµ½ÊÀ½ç×ø±êÏµµÄ±ä»»
+    //    Æ½ÒÆ (1, 2, 0.5)£¬ÈÆZÖá(yaw)Ðý×ª90¶È (PI/2)
+    HomogeneousTransform3D camera_to_world_tf(1.0f, 2.0f, 0.5f, 0.0f, 0.0f, PI / 2.0f);
+
+    // 2. ¶¨ÒåÔÚÏà»ú×ø±êÏµÏÂµÄÒ»¸öµã
+    Point3D point_in_camera(0.0f, 1.0f, 0.0f);
+
+    // 3. Ó¦ÓÃ±ä»»£¬µÃµ½ÔÚÊÀ½ç×ø±êÏµÏÂµÄµã
+    Point3D point_in_world = camera_to_world_tf.apply(point_in_camera);
+
+    // 4. ¼ÆËãÄæ±ä»»£¨´ÓÊÀ½ç×ø±êÏµµ½Ïà»ú×ø±êÏµ£©
+    HomogeneousTransform3D world_to_camera_tf = camera_to_world_tf.inverse();
+
+    // 5. Ê¹ÓÃÄæ±ä»»½«ÊÀ½ç×ø±êÏµÏÂµÄµã×ª»»»ØÏà»ú×ø±êÏµ
+    Point3D point_back_in_camera = world_to_camera_tf.apply(point_in_world);
+    // ´ËÊ± point_back_in_camera Ó¦¸ÃÔ¼µÈÓÚ point_in_camera
+}
+```
 
 ### Module·ÖÖ§
 ´Ë·ÖÖ§Ö÷Òª°üº¬ÓëÌØ¶¨Ó²¼þÄ£¿éÏà¹ØµÄ´úÂë£¬ÀýÈç `Module_Encoder.cpp`£¬Ëü¸ºÔð½«±àÂëÆ÷µÄÔ­Ê¼Öµ£¨Èç0-8191£©×ª»»ÎªÁ¬ÐøµÄ½Ç¶È£¨-¡Þ, +¡Þ£©ºÍµ¥È¦½Ç¶È£¨[0, 360)£©¡£

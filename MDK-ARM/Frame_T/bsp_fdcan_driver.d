@@ -42,7 +42,10 @@ frame_t/bsp_fdcan_driver.o: \
   ..\Middlewares\Third_Party\FreeRTOS\Source\include\list.h \
   ..\Middlewares\Third_Party\FreeRTOS\Source\CMSIS_RTOS_V2\cmsis_os2.h \
   ..\RC10_LIB\BSP_Driver\Inc\BSP_CanFrame.h \
-  ..\RC10_LIB\APP\Inc\APP_tool.h ..\RC10_LIB\BSP_Driver\Inc\BSP_RTOS.h \
+  ..\RC10_LIB\APP\Inc\APP_tool.h \
+  ..\Middlewares\ST\ARM\DSP\Inc\arm_math.h \
+  ..\Drivers\CMSIS\Include\cmsis_compiler.h \
+  ..\RC10_LIB\BSP_Driver\Inc\BSP_RTOS.h \
   ..\Middlewares\Third_Party\FreeRTOS\Source\include\queue.h \
   ..\Middlewares\Third_Party\FreeRTOS\Source\include\semphr.h \
   ..\RC10_LIB\Motor\Inc\Motor_Base.h

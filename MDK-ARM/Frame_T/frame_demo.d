@@ -46,7 +46,11 @@ frame_t/frame_demo.o: ..\User\debug\Src\frame_demo.cpp \
   ..\Middlewares\Third_Party\FreeRTOS\Source\include\semphr.h \
   ..\RC10_LIB\BSP_Driver\Inc\BSP_fdCAN_Driver.h ..\Core\Inc\fdcan.h \
   ..\RC10_LIB\BSP_Driver\Inc\BSP_CanFrame.h \
-  ..\RC10_LIB\APP\Inc\APP_tool.h ..\RC10_LIB\Motor\Inc\Motor_Base.h \
-  ..\RC10_LIB\Motor\Inc\Motor_DJI.h ..\RC10_LIB\APP\Inc\APP_PID.h \
-  ..\RC10_LIB\Module\Inc\Module_Encoder.h \
-  ..\RC10_LIB\APP\Inc\APP_debugTool.h
+  ..\RC10_LIB\APP\Inc\APP_tool.h \
+  ..\Middlewares\ST\ARM\DSP\Inc\arm_math.h \
+  ..\Drivers\CMSIS\Include\cmsis_compiler.h \
+  ..\RC10_LIB\Motor\Inc\Motor_Base.h ..\RC10_LIB\Motor\Inc\Motor_DJI.h \
+  ..\RC10_LIB\APP\Inc\APP_PID.h ..\RC10_LIB\Module\Inc\Module_Encoder.h \
+  ..\RC10_LIB\APP\Inc\APP_debugTool.h \
+  ..\RC10_LIB\APP\Inc\APP_CoordConvert.h \
+  ..\RC10_LIB\Motor\Inc\Motor_VESC.h

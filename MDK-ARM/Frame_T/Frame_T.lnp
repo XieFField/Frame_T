@@ -1,4 +1,4 @@
---cpu Cortex-M7.fp.dp
+--cpu Cortex-M7.fp.sp
 "frame_t\startup_stm32h723xx.o"
 "frame_t\main.o"
 "frame_t\gpio.o"
@@ -49,7 +49,9 @@
 "frame_t\setup_configinit.o"
 "frame_t\app_pid.o"
 "frame_t\app_tool.o"
+"frame_t\app_coordconvert.o"
 "frame_t\module_encoder.o"
+"..\Drivers\CMSIS\DSP\Lib\ARM\arm_cortexM7lfsp_math.lib"
 --strict --scatter "Frame_T\Frame_T.sct"
 --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers

@@ -19,6 +19,7 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "cmsis_os.h"
+#include "dma.h"
 #include "fdcan.h"
 #include "tim.h"
 #include "usart.h"
@@ -26,10 +27,6 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
-/*FRAMEDEMO_BEGIN*/
-#include "frame_demo.h"
-/*FRAMEDEMO_END*/
 
 /* USER CODE END Includes */
 
@@ -45,33 +42,26 @@
 
 /* Private macro -------------------------------------------------------------*/
 /* USER CODE BEGIN PM */
-#include "Setup_ConfigInit.h"
+
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
-extern void fdcan_global_scheduler_tick_isr(void);
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 static void MPU_Config(void);
-
-/* USER CODE BEGIN PFP */
-#ifdef __cplusplus
-extern "C"{
-#endif
 void MX_FREERTOS_Init(void);
-    
-#ifdef __cplusplus
-}
-#endif
+/* USER CODE BEGIN PFP */
+
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-// CanTest test_demo(&hfdcan1, 0x001); // CAN1 测试实例
+
 /* USER CODE END 0 */
 
 /**
@@ -94,7 +84,7 @@ int main(void)
   HAL_Init();
 
   /* USER CODE BEGIN Init */
-  MX_DMA_Init();
+
   /* USER CODE END Init */
 
   /* Configure the system clock */
@@ -106,14 +96,13 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
+  MX_DMA_Init();
   MX_FDCAN1_Init();
   MX_FDCAN2_Init();
   MX_FDCAN3_Init();
   MX_USART1_UART_Init();
   MX_TIM6_Init();
   /* USER CODE BEGIN 2 */
-  HAL_TIM_Base_Start_IT(&htim6); //启动定时器不然CAN任务不会跑的
-  ALL_Setup_ConfigInit();
 
   /* USER CODE END 2 */
 
@@ -246,10 +235,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
     HAL_IncTick();
   }
   /* USER CODE BEGIN Callback 1 */
-  if(htim->Instance == TIM6)
-  {
-    fdcan_global_scheduler_tick_isr();
-  }
+
   /* USER CODE END Callback 1 */
 }
 
