@@ -94,7 +94,7 @@ int main(void)
   HAL_Init();
 
   /* USER CODE BEGIN Init */
-
+  MX_DMA_Init();
   /* USER CODE END Init */
 
   /* Configure the system clock */
