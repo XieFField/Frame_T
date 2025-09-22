@@ -54,11 +54,11 @@ public:
 
     virtual float get_GearRatio() const { return GEAR_RATIO; }
 
-    // 目标/状态量
-    float target_rpm_ = 0.0f; //转速
-    float target_current_= 0.0f; //电流
-    float target_angle_ = 0.0f; //角度
-    float target_totalAngle_ = 0.0f; //总角度
+    float getTargetRPM() const { return target_rpm_; }
+    float getTargetCurrent() const { return target_current_; }
+    float getTargetAngle() const { return target_angle_; }
+    float getTargetTotalAngle() const { return target_totalAngle_; }
+    
 
     fdCANbus* bus() const { return bus_; }
     uint32_t getID() const { return motor_id_; }
@@ -67,6 +67,11 @@ protected:
     bool isExtended_;
     fdCANbus* bus_;
 
+    // 目标/状态量
+    float target_rpm_ = 0.0f; //转速
+    float target_current_= 0.0f; //电流
+    float target_angle_ = 0.0f; //角度
+    float target_totalAngle_ = 0.0f; //总角度
     
     float GEAR_RATIO = 1.0f; // 减速比，默认为1
     float rpm_ = 0.0f;

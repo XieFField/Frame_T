@@ -16,6 +16,12 @@ attention: Õâ·ÝÊÖ²áºÜ´ó³Ì¶ÈÊÇAIÉú³ÉµÄ£¬±ÊÕßÖ»¸ºÔðÐÞ¸ÄÆäÖÐ²¿·Ö£¬Èô·¢ÏÖÓÐç¢Â©£¬Çë¼
 3. ²»Òª½«·ÇAPI¼ÓÈëRC10_LIB
 4. ½ûÖ¹Ò»ÇÐ¶¯Ì¬ÄÚ´æ·ÖÅä
 
+### User
+1. »ú¹¹¿ØÖÆÀà·ÅÔÚControl
+2. µ÷ÊÔdebug/demoÀà·ÅÔÚdebug
+3. SetupÓÃÓÚ·Å³õÊ¼»¯ÎÄ¼þ
+
+
 ### BSP·ÖÖ§
 #### FreeRTOSµÄÊ¹ÓÃ
 ÔÚ`BSP_RTOS.h`ÎÄ¼þÖÐ£¬·â×°ÁË»ù±¾µÄRTOSÊ¹ÓÃ£¬Ä¿Ç°ÓÐ»ù±¾µÄÈÎÎñºÍ¶ÓÁÐ¡£

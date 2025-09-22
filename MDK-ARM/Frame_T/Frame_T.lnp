@@ -3,6 +3,7 @@
 "frame_t\main.o"
 "frame_t\gpio.o"
 "frame_t\freertos.o"
+"frame_t\dma.o"
 "frame_t\fdcan.o"
 "frame_t\tim.o"
 "frame_t\usart.o"

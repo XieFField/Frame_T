@@ -11,17 +11,22 @@
 
 #ifdef __cplusplus
 
+extern "C"
+{
+#endif
+    #include "cmsis_os.h"
+    #include "usart.h"
+#ifdef __cplusplus
+}
+#endif
 
+#ifdef __cplusplus
+    
 #include "BSP_RTOS.h"
 #include "BSP_fdCAN_Driver.h"
 #include "Motor_DJI.h"
 #include "APP_PID.h"
-
-extern "C"
-{
-   
-    #include "cmsis_os.h"
-}
+#include "debug_uart.h"
 
 class FrameDemo : public RtosTask
 {
@@ -43,10 +48,10 @@ public:
 
 class DJI_MotorDemo: public RtosTask{
 public:
-    DJI_MotorDemo() : RtosTask("DJI_MotorDemo", 1) {}
+    DJI_MotorDemo() : RtosTask("DJI_MotorDemo", 1), debug_uart(&huart1) {}
     void init();
     void loop() override;
-    
+    Debug_Printf debug_uart;
 private:
 };
 

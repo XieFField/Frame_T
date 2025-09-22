@@ -20,11 +20,15 @@ float PID_Position::pid_calc(float target, float feedback)
     P_Term = params_.kp * error_;
 
     // calc I (梯形积分)
-    if(fabsf(error_) < I_SeparaThreshold_)
+    if(fabsf(error_) < I_SeparaThreshold_ && I_SeparaThreshold_ > 0)
     {
         I_Term += params_.ki * (error_ + error_last_) * dt / 2.0f;
         if(params_.isIOutlimit == true)
             I_Term = constrain(I_Term, -params_.I_Outlimit, params_.I_Outlimit);
+    }
+    else
+    {
+        I_Term = 0;
     }
 
     // calc D (微分先行)

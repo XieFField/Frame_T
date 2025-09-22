@@ -165,7 +165,7 @@ std::size_t DJI_Group::packCommand(CanFrame outFrames[], std::size_t maxFrames)
     std::memset(f.data, 0, 8);
     for(std::size_t i = 0; i < motor_count_; ++i)
     {
-        int16_t current = motors_p[i]->realCurrent_to_virtualCurrent(motors_p[i]->target_current_);
+        int16_t current = motors_p[i]->realCurrent_to_virtualCurrent(motors_p[i]->getTargetCurrent());
         f.data[i*2] = (current >> 8) & 0xFF;
         f.data[i*2 + 1] = current & 0xFF;
     }
