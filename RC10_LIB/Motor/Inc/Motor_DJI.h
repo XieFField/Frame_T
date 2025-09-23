@@ -123,7 +123,7 @@ public:
     }
 
 protected:
-    int anglePid_timePSC = 10; //角度时间分频
+    int anglePid_timePSC = 10; //角度时间分频 默认为 10 即控制频率为100Hz
     int anglePid_timeCnt = 0; //角度时间计数
 
 private:
