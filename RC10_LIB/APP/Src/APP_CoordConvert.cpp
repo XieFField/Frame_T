@@ -136,6 +136,10 @@ void HomogeneousTransform3D::setRotation(float roll_rad, float pitch_rad, float 
     arm_sin_cos_f32(pitch_rad, &sp, &cp);
     arm_sin_cos_f32(yaw_rad, &sy, &cy);
 
+    float32_t tx = m_data[3];
+    float32_t ty = m_data[7];
+    float32_t tz = m_data[11];
+
     // 按照 Z-Y-X 欧拉角顺序构建旋转矩阵
     m_data[0] = cy * cp;
     m_data[1] = cy * sp * sr - sy * cr;
@@ -144,6 +148,10 @@ void HomogeneousTransform3D::setRotation(float roll_rad, float pitch_rad, float 
     m_data[4] = sy * cp;
     m_data[5] = sy * sp * sr + cy * cr;
     m_data[6] = sy * sp * cr - cy * sr;
+
+    m_data[3] = tx;
+    m_data[7] = ty;
+    m_data[11] = tz;
 
     m_data[8]  = -sp;
     m_data[9]  = cp * sr;
