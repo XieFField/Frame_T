@@ -111,6 +111,7 @@ int main(void)
   MX_FDCAN3_Init();
   MX_USART1_UART_Init();
   MX_TIM6_Init();
+  MX_TIM4_Init();
   /* USER CODE BEGIN 2 */
   HAL_TIM_Base_Start_IT(&htim6); //启动定时器不然CAN任务不会跑的
   ALL_Setup_ConfigInit();
@@ -250,6 +251,11 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
   {
     fdcan_global_scheduler_tick_isr();
   }
+  
+    if (htim->Instance == TIM4) // 假设你使用的是 TIM4
+    {
+        TimeStamp::overflowCallback();
+    }
   /* USER CODE END Callback 1 */
 }
 

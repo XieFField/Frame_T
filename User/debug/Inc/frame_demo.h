@@ -29,6 +29,7 @@ extern "C"
 #include "APP_debugTool.h"
 #include "APP_CoordConvert.h"
 #include "Motor_VESC.h"
+#include "BSP_TimeStamp.h"
 
 class FrameDemo : public RtosTask
 {

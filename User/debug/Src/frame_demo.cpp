@@ -39,9 +39,17 @@ void FrameDemo::init()
     start(osPriorityNormal, 256);
 }
 
-
+volatile float delta_time = 0.0f;
+volatile uint64_t last_time = 0;
 void DJI_MotorDemo::loop()
 {
+    uint64_t time_now = TimeStamp::getInstance().getMicroseconds();
+    if(last_time > 0)
+    {
+        delta_time = static_cast<float>(time_now - last_time); 
+        // 可以在这里使用 delta_time 进行其他计算
+    }
+    last_time = time_now;
     debug_uart.printf_DMA("%f,%f\r\n",m3508_1.getRPM(), m3508_1.getTargetRPM());
     //HAL_UART_Transmit(&huart1, (uint8_t*)"Tick\r\n", 6, HAL_MAX_DELAY);
     if(start_signal == 1)
@@ -90,6 +98,7 @@ void DJI_MotorDemo::loop()
     {
         m3508_1.setTargetCurrent(0.0f);
     }
+
 }
 
 void DJI_MotorDemo::init()
@@ -103,6 +112,7 @@ void DJI_MotorDemo::init()
     
     const char *msg = "Hello UART1 on PB6/PB7\r\n";
     HAL_UART_Transmit(&huart1, (uint8_t*)msg, strlen(msg), HAL_MAX_DELAY);
+
     
 }
 

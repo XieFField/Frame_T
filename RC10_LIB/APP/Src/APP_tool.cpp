@@ -40,7 +40,7 @@ void arm_set_identity_f32(arm_matrix_instance_f32 *M)
     uint32_t n = M->numRows;
     uint32_t size = n * n;
 
-    // 先清零
+    // 先清零 uint64_t
     arm_fill_f32(0.0f, M->pData, size);
 
     // 设置对角线为1

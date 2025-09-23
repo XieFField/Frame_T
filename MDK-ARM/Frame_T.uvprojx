@@ -747,6 +747,16 @@
               <FileType>5</FileType>
               <FilePath>..\RC10_LIB\BSP_Driver\Inc\BSP_RTOS.h</FilePath>
             </File>
+            <File>
+              <FileName>BSP_TimeStamp.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\RC10_LIB\BSP_Driver\Src\BSP_TimeStamp.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>BSP_TimeStamp.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\RC10_LIB\BSP_Driver\Inc\BSP_TimeStamp.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
