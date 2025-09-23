@@ -192,7 +192,8 @@ private:
 typedef enum {
     CURRENT_CONTROL, // 开环电流控制
     SPEED_CONTROL,   // 速度闭环控制
-    ANGLE_CONTROL    // 角度闭环控制
+    ANGLE_CONTROL,    // 角度闭环控制
+    TOTAL_ANGLE_CONTROL // 总角度闭环控制
 } ControlMode;
 
 class M3508 : public DJI_Motor {
@@ -206,6 +207,7 @@ public:
     void setTargetCurrent(float current_set) override;
     void setTargetRPM(float rpm_set) override;
     void setTargetAngle(float angle_set) override;
+    void setTargetTotalAngle(float totalAngle_set) override;
 
     void update() override; //周期性更新
 
@@ -238,6 +240,7 @@ public:
     void setTargetCurrent(float current_set) override;
     void setTargetRPM(float rpm_set) override;
     void setTargetAngle(float angle_set) override;
+    void setTargetTotalAngle(float totalAngle_set) override;
 
     void update() override;
 
@@ -266,6 +269,7 @@ public:
     void setTargetCurrent(float current_set) override;
     void setTargetRPM(float rpm_set) override;
     void setTargetAngle(float angle_set) override;
+    void setTargetTotalAngle(float totalAngle_set) override;
 
     void update() override;
 

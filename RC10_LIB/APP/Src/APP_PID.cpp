@@ -23,7 +23,44 @@ float PID_Position::pid_calc(float target, float feedback)
     }
 
     // calc error
-    error_ = target - feedback;
+    if (is_circular_)
+    {
+        
+        if (feedback * target >= 0)
+        {
+            error_ = target - feedback;
+        }
+        else
+        {
+            if (feedback > 0 && target < 0)
+            {
+                float positive = (180.0f - feedback) + (180.0f + target); // 正路径
+                float negative = target - feedback;
+                if (fabsf(positive) <= fabsf(negative))
+                    error_ = positive;
+                
+                else
+                    error_ = negative; // 选择一个较短的路径
+                
+            }
+            else // (feedback < 0 && target > 0)
+            {
+                float positive = target - feedback;
+                float negative = -((180.0f + feedback) + (180.0f - target));
+                if (fabsf(positive) <= fabsf(negative))
+                    error_ = positive;
+                
+                else
+                    error_ = negative; // 选择一个较短的路径
+                
+            }
+        }
+    }
+    else
+        // 线性模式，直接计算误差
+        error_ = target - feedback;
+    
+
 
     if(fabs(error_) < params_.deadband)
         error_ = 0.0f;
@@ -45,13 +82,10 @@ float PID_Position::pid_calc(float target, float feedback)
 
     // calc D (微分先行)
     if (dt_ > 0.0f)
-    {
         D_Term = -params_.kd * (feedback - feedback_last_) / dt_;
-    }
     else
-    {
         D_Term = 0.0f;
-    }
+    
 
     //update history
     error_last_ = error_;

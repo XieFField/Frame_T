@@ -198,7 +198,7 @@ void M3508::pid_init(const PID_Param_Config& speed_params, float speed_tdRatio, 
 {
     speed_pid_.set_params(speed_params, speed_tdRatio);
     angle_pid_.set_params(angle_params, angle_I_Separa);
-}
+    
 
 void M3508::setTargetCurrent(float current_set)
 {
@@ -216,6 +216,15 @@ void M3508::setTargetAngle(float angle_set)
 {
     mode_ = ANGLE_CONTROL;
     target_angle_ = angle_set;
+    angle_pid_.set_as_circular(); //最小路径处理
+}
+
+
+void M3508::setTargetTotalAngle(float totalAngle_set)
+{
+    mode_ = TOTAL_ANGLE_CONTROL;
+    target_totalAngle_ = totalAngle_set;
+    angle_pid_.set_as_linear(); //线性处理
 }
 
 //volatile float cur = 0;
@@ -224,12 +233,12 @@ void M3508::update()
 {
     switch(mode_)
     {
-        case ANGLE_CONTROL:
+        case TOTAL_ANGLE_CONTROL:
         {
             anglePid_timeCnt++;
             if(anglePid_timeCnt >= anglePid_timePSC)
             {
-                float expected_rpm = angle_pid_.pid_calc(target_angle_, getTotalAngle());
+                float expected_rpm = angle_pid_.pid_calc(target_totalAngle_, getTotalAngle());
                 target_rpm_ = expected_rpm;
                 anglePid_timeCnt = 0;
             }
@@ -241,6 +250,19 @@ void M3508::update()
             // 目标值 target_rpm_ 和反馈值 this->rpm_ 都已经是输出轴转速，尺度统一
             target_current_ = speed_pid_.pid_calc(target_rpm_, this->rpm_);
             //cur = target_current_;
+            break;
+        }
+
+        case ANGLE_CONTROL:
+        {
+            anglePid_timeCnt++;
+            if(anglePid_timeCnt >= anglePid_timePSC)
+            {
+                float expected_rpm = angle_pid_.pid_calc(target_angle_, getAngle());
+                target_rpm_ = expected_rpm;
+                anglePid_timeCnt = 0;
+            }
+            target_current_ = speed_pid_.pid_calc(target_rpm_, this->rpm_);
             break;
         }
         
@@ -283,6 +305,7 @@ void M2006::pid_init(const PID_Param_Config& speed_params, float speed_tdRatio, 
 {
     speed_pid_.set_params(speed_params, speed_tdRatio);
     angle_pid_.set_params(angle_params, angle_I_Separa);
+    angle_pid_.set_as_circular(); //最小路径处理
 }
 
 void M2006::setTargetCurrent(float current_set)
@@ -301,13 +324,21 @@ void M2006::setTargetAngle(float angle_set)
 {
     mode_ = ANGLE_CONTROL;
     target_angle_ = angle_set;
+    angle_pid_.set_as_circular(); //最小路径处理
+}
+
+void M2006::setTargetTotalAngle(float totalAngle_set)
+{
+    mode_ = TOTAL_ANGLE_CONTROL;
+    target_totalAngle_ = totalAngle_set;
+    angle_pid_.set_as_linear(); //线性处理
 }
 
 void M2006::update()
 {
     switch(mode_)
     {
-        case ANGLE_CONTROL:
+        case TOTAL_ANGLE_CONTROL:
         {
             anglePid_timeCnt++;
             if(anglePid_timeCnt >= anglePid_timePSC)
@@ -322,6 +353,19 @@ void M2006::update()
         case SPEED_CONTROL:
         {
             // 目标值 target_rpm_ 和反馈值 this->rpm_ 都已经是输出轴转速，尺度统一
+            target_current_ = speed_pid_.pid_calc(target_rpm_, this->rpm_);
+            break;
+        }
+
+        case ANGLE_CONTROL:
+        {
+            anglePid_timeCnt++;
+            if(anglePid_timeCnt >= anglePid_timePSC)
+            {
+                float expected_rpm = angle_pid_.pid_calc(target_angle_, getAngle());
+                target_rpm_ = expected_rpm;
+                anglePid_timeCnt = 0;
+            }
             target_current_ = speed_pid_.pid_calc(target_rpm_, this->rpm_);
             break;
         }
@@ -367,18 +411,27 @@ void GM6020::setTargetAngle(float angle_set)
 {
     mode_ = ANGLE_CONTROL;
     target_angle_ = angle_set;
+    angle_pid_.set_as_circular(); //最小路径处理
+}
+
+void GM6020::setTargetTotalAngle(float totalAngle_set)
+{
+    mode_ = TOTAL_ANGLE_CONTROL;
+    target_totalAngle_ = totalAngle_set;
+    angle_pid_.set_as_linear(); //线性处理
 }
 
 void GM6020::update()
 {
     switch(mode_)
     {
-        case ANGLE_CONTROL:
+        case TOTAL_ANGLE_CONTROL:
         {
             anglePid_timeCnt++;
             if(anglePid_timeCnt >= anglePid_timePSC)
             {
-                float expected_rpm = angle_pid_.pid_calc(target_angle_, getTotalAngle());
+
+                float expected_rpm = angle_pid_.pid_calc(target_totalAngle_, getTotalAngle());
                 target_rpm_ = expected_rpm;
                 anglePid_timeCnt = 0;
             }
@@ -391,6 +444,20 @@ void GM6020::update()
             // 目标值是输出轴转速 (target_rpm_)
             // 反馈值也是输出轴转速 (this->rpm_)
             // 两者尺度统一，PID可以正确工作
+            target_current_ = speed_pid_.pid_calc(target_rpm_, this->rpm_);
+            break;
+        }
+
+        case ANGLE_CONTROL:
+        {
+            anglePid_timeCnt++;
+            if(anglePid_timeCnt >= anglePid_timePSC)
+            {
+
+                float expected_rpm = angle_pid_.pid_calc(target_angle_, getAngle());
+                target_rpm_ = expected_rpm;
+                anglePid_timeCnt = 0;
+            }
             target_current_ = speed_pid_.pid_calc(target_rpm_, this->rpm_);
             break;
         }

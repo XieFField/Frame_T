@@ -101,6 +101,26 @@ public:
      */
     void set_params(const PID_Param_Config& params, float I_SeparaThreshold);
 
+    /**
+     * @brief 将PID设定为循环模式
+     * @param range 循环范围，例如360度
+     * @brief 设置为循环模式的时候，PID会自动选择最近的路径，比如
+     *        350度到10度，会正着走20度，而不是倒着走340度
+     * @param offset 偏移量，默认为0
+     */
+    void set_as_circular()
+    {
+        is_circular_ = true;
+    }
+
+    /**
+     * @brief 将PID设置为单向模式
+     */
+    void set_as_linear()
+    {
+        is_circular_ = false;
+    }
+
     float get_P_Term() const { return P_Term; }
     float get_I_Term() const { return I_Term; }
     float get_D_Term() const { return D_Term; }
@@ -121,6 +141,9 @@ private:
     float dt_ = 0.001f;             // 采样时间，单位秒
     float last_time_s_ = 0.0f;      // 上次调用的时间，单位秒
     bool isFirst_ = true; // 是否为第一次计算
+
+    // 循环设定
+    bool is_circular_ = false;
 };
 
 // 增量式 PID 控制器 加入微分跟踪器
