@@ -117,12 +117,21 @@ public:
 
     DJI_MotorType getType() const { return type_; }
 
+    void reset_AnglePidTimePSC(int reset_value = 0)
+    {
+        anglePid_timePSC = reset_value;
+    }
+
+protected:
+    int anglePid_timePSC = 10; //角度时间分频
+    int anglePid_timeCnt = 0; //角度时间计数
 
 private:
      //1~8
     DJI_MotorType type_;
     int16_t encoder_raw_ = 0; //原始编码器值
 
+    
 
 //common
     virtual uint32_t recv_id() const{return 0x200;}

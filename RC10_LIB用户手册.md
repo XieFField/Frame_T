@@ -5,7 +5,7 @@
 RC10_LIB½«Ìá¹©´óÁ¿Ô¤ÖÆ²Ë£¬Ö¼ÔÚÈÃ¶Ôµ×²ãÇý¶¯²»ÊìÏ¤µÄÓÃ»§Ò²ÄÜ³©¿ìÊéÐ´Ó¦ÓÃ²ã´úÂë¡£
 ¶ø±¾ÓÃ»§ÊÖ²áÒ²ÊÇÔ¤ÖÆ²ËµÄÒ»»·£¬Ö¼ÔÚÈÃÓÃ»§¿ÉÒÔ¸ü¿ìÉÏÊÖÊ¹ÓÃRC10_LIB
 
-attention: Õâ·ÝÊÖ²áºÜ´ó³Ì¶ÈÊÇAIÉú³ÉµÄ£¬±ÊÕßÖ»¸ºÔðÐÞ¸ÄÆäÖÐ²¿·Ö£¬Èô·¢ÏÖÓÐç¢Â©£¬Çë¼°Ê±¸æËßÎÒ£¬Íò·Ö¸ÐÐ»¡£
+**attention**: Õâ·ÝÊÖ²áºÜ´ó³Ì¶ÈÊÇAIÉú³ÉµÄ£¬±ÊÕßÖ»¸ºÔðÐÞ¸ÄÆäÖÐ²¿·Ö£¬Èô·¢ÏÖÓÐç¢Â©£¬Çë¼°Ê±¸æËßÎÒ£¬Íò·Ö¸ÐÐ»¡£
 
 ### ³ÌÐòÖÐÄ¿Ç°Ö´ÐÐµÄÃüÃû¹æ·¶
 1. ÔÚÀàÖÐµÄ±äÁ¿Í³Ò»´ø _ µÄºó×º£¬Èç`rpm_`
@@ -31,14 +31,15 @@ attention: Õâ·ÝÊÖ²áºÜ´ó³Ì¶ÈÊÇAIÉú³ÉµÄ£¬±ÊÕßÖ»¸ºÔðÐÞ¸ÄÆäÖÐ²¿·Ö£¬Èô·¢ÏÖÓÐç¢Â©£¬Çë¼
    Ó²¼þÇý¶¯Ö»¸ºÔðÓëÎïÀí×ÜÏßÍ¨ÐÅ¡£
    Éè±¸Ð­ÒéÖ»¸ºÔð½âÎöºÍ´ò°üÌØ¶¨Éè±¸µÄ±¨ÎÄ¡£
    Ëã·¨ÊÇ´¿´âµÄÊýÑ§¹¤¾ß¡£
-   Ó¦ÓÃÖ»¸ºÔðÏÂ´ï¸ß²ãÖ¸Áî¡£ Ô­Ôò£º ½ûÖ¹¿ç²ãµ÷ÓÃ£¬±£³Ö¸÷²ã´¿´âÐÔ¡£
+   Ó¦ÓÃÖ»¸ºÔðÏÂ´ï¸ß²ãÖ¸Áî¡£ Ô­Ôò£ºÒ»°ãËã·¨²ã²»Éæ¼°ÈÎºÎÓ²¼þÉè±¸¡¢»ù²ãÖ»ÄÜµ÷ÓÃ»ù²ã¡£
 
 2. ÐÅÈÎ×Ô¶¯»¯µ÷¶È£¬·ÖÀë¼ÆËãÓë´ò°ü
    1. ÀýÈç: fdCANbus ¿ò¼ÜÌá¹©Ò»¸ö¸ßÆµÂÊµÄÖÐÑëµ÷¶ÈÆ÷£¬Ëü»á×Ô¶¯µ÷ÓÃËùÓÐ×¢²áÉè±¸µÄ update() ºÍ packCommand()¡£
 
-   update(): Ö»ÓÃÓÚ¼ÆËã¡£Ö´ÐÐÈçPIDµÈÖÜÆÚÐÔËã·¨£¬¸üÐÂÄÚ²¿×´Ì¬¡£
-   packCommand(): Ö»ÓÃÓÚ´ò°ü¡£¶ÁÈ¡ update() µÄ¼ÆËã½á¹û£¬²¢½«Æä×é×°³É´ý·¢ËÍµÄCAN±¨ÎÄ¡£
-   setTarget...(): Ö»ÓÃÓÚ½ÓÊÕÖ¸Áî¡£ÕâÊÇÄãµÄÇý¶¯Ìá¹©¸øÓ¦ÓÃ²ãµÄ½Ó¿Ú£¬ÓÃÓÚÉèÖÃ¸ß¼¶Ä¿±ê¡£ Ô­Ôò£º ÓÀÔ¶²»ÒªÔÚ packCommand() ÖÐ½øÐÐ¼ÆËã£¬Ò²²»ÒªÔÚ update() ÖÐ×é×°±¨ÎÄ¡£ÏàÐÅµ÷¶ÈÆ÷»á°´ÕýÈ·µÄË³Ðòµ÷ÓÃËüÃÇ¡£
+   1. update(): Ö»ÓÃÓÚ¼ÆËã¡£Ö´ÐÐÈçPIDµÈÖÜÆÚÐÔËã·¨£¬¸üÐÂÄÚ²¿×´Ì¬¡£
+   2. packCommand(): Ö»ÓÃÓÚ´ò°ü¡£¶ÁÈ¡ update() µÄ¼ÆËã½á¹û£¬²¢½«Æä×é×°³É´ý·¢ËÍµÄCAN±¨ÎÄ¡£
+   3. setTarget...(): Ö»ÓÃÓÚ½ÓÊÕÖ¸Áî¡£ÕâÊÇÄãµÄÇý¶¯Ìá¹©¸øÓ¦ÓÃ²ãµÄ½Ó¿Ú£¬ÓÃÓÚÉèÖÃ¸ß¼¶Ä¿±ê¡£ 
+   4. Ô­Ôò£º ÓÀÔ¶²»ÒªÔÚ packCommand() ÖÐ½øÐÐ¼ÆËã£¬Ò²²»ÒªÔÚ update() ÖÐ×é×°±¨ÎÄ¡£ÏàÐÅµ÷¶ÈÆ÷»á°´ÕýÈ·µÄË³Ðòµ÷ÓÃËüÃÇ¡£
 
 3. ¼Ì³ÐÍ³Ò»½Ó¿Ú£¬ÀûÓÃ¶àÌ¬ÊµÏÖÌØÒìÐÔ
    ¿ò¼ÜÍ¨¹ýÃæÏò½Ó¿Ú±à³ÌÊµÏÖÀ©Õ¹ÐÔ¡£ËùÓÐÉè±¸Çý¶¯¶¼±ØÐë¼Ì³Ð×ÔÒ»¸ö¹²Í¬µÄ»ùÀà£¨Èç Motor_Base£©¡£
@@ -115,7 +116,7 @@ attention: Õâ·ÝÊÖ²áºÜ´ó³Ì¶ÈÊÇAIÉú³ÉµÄ£¬±ÊÕßÖ»¸ºÔðÐÞ¸ÄÆäÖÐ²¿·Ö£¬Èô·¢ÏÖÓÐç¢Â©£¬Çë¼
 1.  **ºËÐÄÉè¼Æ**
     *   **Î»ÖÃÊ½PID**: ²ÉÓÃÁËÌÝÐÎ»ý·Ö¡¢Î¢·ÖÏÈÐÐ¡¢»ý·Ö·ÖÀëµÈ¸Ä½øËã·¨£¬ÊÊÓÃÓÚ´ó²¿·ÖÐèÒª¾«È·Î»ÖÃ¿ØÖÆµÄ³¡¾°¡£
     *   **ÔöÁ¿Ê½PID**: ¼ÓÈëÁËÎ¢·Ö¸ú×ÙÆ÷(Track_D)£¬ÄÜÓÐÐ§Æ½»¬Ä¿±êÖµµÄ½×Ô¾±ä»¯£¬¼õÉÙÏµÍ³Õðµ´£¬ÊÊÓÃÓÚËÙ¶È¿ØÖÆµÈ³¡¾°¡£
-    *   **¹Ì¶¨²ÉÑùÊ±¼ä**: PID¿ØÖÆÆ÷ÄÚ²¿µÄ `dt` ±»Ó²±àÂëÎª `0.001f` (1ms)¡£ÕâÊÇÒ»¸ö**ºËÐÄÉè¼Æ**£¬ËüÇ¿ÒÀÀµÓÚµ÷ÓÃ `pid_calc` µÄ `update()` ·½·¨±»Ò»¸ö¾«È·µÄ1kHzµ÷¶ÈÆ÷£¨Èç `fdCANbus::schedulerTaskbody`£©Ëùµ÷ÓÃ¡£ºóÐø»á¿¼ÂÇ°ÑÑî¸çÄÇÌ×ÓÃ±àÂëÖµ¼ÆËãÊ±¼äµÄ´úÂë°á¹ýÀ´£¬¿ÉÒÔÈÃdt¸ü¼Ó¾«È·¡£
+    *   **¹Ì¶¨²ÉÑùÊ±¼ä**: PID¿ØÖÆÆ÷ÄÚ²¿µÄ `dt` Ê¹ÓÃÊ±¼ä´Á·½Ê½¼ÆËã£¬µ«Ëü´ó²¿·ÖÊ±ºòµÄÖµÊÇÎª1ms¡£ÕâÊÇÒ»¸ö**ºËÐÄÉè¼Æ**£¬ËüÇ¿ÒÀÀµÓÚµ÷ÓÃ `pid_calc` µÄ `update()` ·½·¨±»Ò»¸ö¾«È·µÄ1kHzµ÷¶ÈÆ÷£¨Èç `fdCANbus::schedulerTaskbody`£©Ëùµ÷ÓÃ¡£ºóÐø»á¿¼ÂÇ°ÑÑî¸çÄÇÌ×ÓÃ±àÂëÖµ¼ÆËãÊ±¼äµÄ´úÂë°á¹ýÀ´£¬¿ÉÒÔÈÃdt¸ü¼Ó¾«È·¡£
 
 2.  **ÓÃ»§¸ÃÈçºÎÊ¹ÓÃ£¿**
     ÔÚµç»úÀà£¨Èç `M3508`£©µÄ `pid_init` º¯ÊýÖÐ³õÊ¼»¯PID²ÎÊý£¬È»ºóÔÚ `update` º¯ÊýÖÐµ÷ÓÃ `pid_calc` ¼´¿É¡£ÓÃ»§ÎÞÐè¹ØÐÄ `dt` µÄ¼ÆËã¡£

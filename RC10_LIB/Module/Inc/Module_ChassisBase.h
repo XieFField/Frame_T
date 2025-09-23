@@ -19,12 +19,15 @@ extern "C" {
 
 #ifdef __cplusplus
 #include <cstdint>
-
-
+#include "APP_tool.h"
+#include "APP_CoordConvert.h"
 
 #endif// __cplusplus
 
 class Chassis_Base{
+public:
+    
+private:
 
 };
 

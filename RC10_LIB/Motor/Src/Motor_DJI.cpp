@@ -226,8 +226,13 @@ void M3508::update()
     {
         case ANGLE_CONTROL:
         {
-            float expected_rpm = angle_pid_.pid_calc(target_angle_, getTotalAngle());
-            target_rpm_ = expected_rpm;
+            anglePid_timeCnt++;
+            if(anglePid_timeCnt >= anglePid_timePSC)
+            {
+                float expected_rpm = angle_pid_.pid_calc(target_angle_, getTotalAngle());
+                target_rpm_ = expected_rpm;
+                anglePid_timeCnt = 0;
+            }
             //自动掉入速度环
         }
         //注意：此处不break，继续执行速度环计算
@@ -304,8 +309,13 @@ void M2006::update()
     {
         case ANGLE_CONTROL:
         {
-            float expected_rpm = angle_pid_.pid_calc(target_angle_, getTotalAngle());
-            target_rpm_ = expected_rpm;
+            anglePid_timeCnt++;
+            if(anglePid_timeCnt >= anglePid_timePSC)
+            {
+                float expected_rpm = angle_pid_.pid_calc(target_angle_, getTotalAngle());
+                target_rpm_ = expected_rpm;
+                anglePid_timeCnt = 0;
+            }
             // Fallthrough to speed control
         }
 
@@ -365,8 +375,13 @@ void GM6020::update()
     {
         case ANGLE_CONTROL:
         {
-            float expected_rpm = angle_pid_.pid_calc(target_angle_, getTotalAngle());
-            target_rpm_ = expected_rpm;
+            anglePid_timeCnt++;
+            if(anglePid_timeCnt >= anglePid_timePSC)
+            {
+                float expected_rpm = angle_pid_.pid_calc(target_angle_, getTotalAngle());
+                target_rpm_ = expected_rpm;
+                anglePid_timeCnt = 0;
+            }
             // Fallthrough to speed control
         }
 
