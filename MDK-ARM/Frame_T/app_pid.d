@@ -31,4 +31,6 @@ frame_t/app_pid.o: ..\RC10_LIB\APP\Src\APP_PID.cpp \
   ..\Drivers\STM32H7xx_HAL_Driver\Inc\stm32h7xx_hal_uart_ex.h \
   ..\RC10_LIB\APP\Inc\APP_tool.h \
   ..\Middlewares\ST\ARM\DSP\Inc\arm_math.h \
-  ..\Drivers\CMSIS\Include\cmsis_compiler.h
+  ..\Drivers\CMSIS\Include\cmsis_compiler.h \
+  ..\RC10_LIB\BSP_Driver\Inc\BSP_TimeStamp.h ..\Core\Inc\tim.h \
+  ..\Core\Inc\main.h

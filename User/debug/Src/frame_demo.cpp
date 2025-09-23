@@ -39,7 +39,7 @@ void FrameDemo::init()
     start(osPriorityNormal, 256);
 }
 
-volatile float delta_time = 0.0f;
+volatile float delta_time = 0.0f; //目前使用的单位是微秒
 volatile uint64_t last_time = 0;
 void DJI_MotorDemo::loop()
 {

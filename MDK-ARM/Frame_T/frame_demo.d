@@ -50,8 +50,9 @@ frame_t/frame_demo.o: ..\User\debug\Src\frame_demo.cpp \
   ..\Middlewares\ST\ARM\DSP\Inc\arm_math.h \
   ..\Drivers\CMSIS\Include\cmsis_compiler.h \
   ..\RC10_LIB\Motor\Inc\Motor_Base.h ..\RC10_LIB\Motor\Inc\Motor_DJI.h \
-  ..\RC10_LIB\APP\Inc\APP_PID.h ..\RC10_LIB\Module\Inc\Module_Encoder.h \
+  ..\RC10_LIB\APP\Inc\APP_PID.h \
+  ..\RC10_LIB\BSP_Driver\Inc\BSP_TimeStamp.h ..\Core\Inc\tim.h \
+  ..\RC10_LIB\Module\Inc\Module_Encoder.h \
   ..\RC10_LIB\APP\Inc\APP_debugTool.h \
   ..\RC10_LIB\APP\Inc\APP_CoordConvert.h \
-  ..\RC10_LIB\Motor\Inc\Motor_VESC.h \
-  ..\RC10_LIB\BSP_Driver\Inc\BSP_TimeStamp.h ..\Core\Inc\tim.h
+  ..\RC10_LIB\Motor\Inc\Motor_VESC.h

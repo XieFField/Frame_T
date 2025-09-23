@@ -4,12 +4,24 @@
 
 float PID_Position::pid_calc(float target, float feedback)
 {
-    if(isFirst_)
+    float current_time_s = TimeStamp::getInstance().getSeconds();
+    dt_ = current_time_s - last_time_s_;
+
+    if (isFirst_)
     {
         isFirst_ = false;
-        error_last_ = error_;
+        // 在第一次计算时，dt 可能非常大或不确定，使用默认值
+        dt_ = 0.001f; 
+        error_last_ = target - feedback; // 初始化上次误差
         feedback_last_ = feedback;
     }
+
+    // 对dt进行异常值处理
+    if (dt_ <= 0.0f || dt_ > 0.1f) // 如果dt小于等于0或大于100ms，则认为异常
+    {
+        dt_ = 0.001f;
+    }
+
     // calc error
     error_ = target - feedback;
 
@@ -22,7 +34,7 @@ float PID_Position::pid_calc(float target, float feedback)
     // calc I (梯形积分)
     if(fabsf(error_) < I_SeparaThreshold_ && I_SeparaThreshold_ > 0)
     {
-        I_Term += params_.ki * (error_ + error_last_) * dt / 2.0f;
+        I_Term += params_.ki * (error_ + error_last_) * dt_ / 2.0f;
         if(params_.isIOutlimit == true)
             I_Term = constrain(I_Term, -params_.I_Outlimit, params_.I_Outlimit);
     }
@@ -32,9 +44,9 @@ float PID_Position::pid_calc(float target, float feedback)
     }
 
     // calc D (微分先行)
-    if (dt > 0.0f)
+    if (dt_ > 0.0f)
     {
-        D_Term = -params_.kd * (feedback - feedback_last_) / dt;
+        D_Term = -params_.kd * (feedback - feedback_last_) / dt_;
     }
     else
     {
@@ -44,6 +56,7 @@ float PID_Position::pid_calc(float target, float feedback)
     //update history
     error_last_ = error_;
     feedback_last_ = feedback;
+    last_time_s_ = current_time_s;
 
     float output = P_Term + I_Term + D_Term;
     output = constrain(output, -params_.output_limit, params_.output_limit);
@@ -64,7 +77,7 @@ void PID_Position::set_params(const PID_Param_Config& params, float I_SeparaThre
 
 //增量式
 
-void PID_Incremental::calc_track_D(float expect)
+void PID_Incremental::calc_track_D(float expect, float dt)
 {
     //二阶跟踪微分
     float fh = -td_ratio_ * td_ratio_ *(td_v1_ - expect) - 2.0f * td_v2_;
@@ -73,21 +86,37 @@ void PID_Incremental::calc_track_D(float expect)
     td_v2_ += fh * dt;
 }
 
+void PID_Incremental::set_params(const PID_Param_Config& params, float td_ratio)
+{
+    params_ = params;
+    td_ratio_ = td_ratio;
+}
+
 float PID_Incremental::pid_calc(float target, float feedback)
 {
+    float current_time_s = TimeStamp::getInstance().getSeconds();
+    dt_ = current_time_s - last_time_s_;
+
     if (isFirst_)
     {
         isFirst_ = false;
-        error_last_ = error_;
-        error_earlier_ = error_;
-        output_last_ = output_;
+        dt_ = 0.001f; // 第一次计算，使用默认dt
+        error_last_ = target - feedback;
+        error_earlier_ = error_last_;
+        output_last_ = 0.0f; // 假设初始输出为0
+    }
+
+    // 对dt进行异常值处理
+    if (dt_ <= 0.0f || dt_ > 0.1f)
+    {
+        dt_ = 0.001f;
     }
     
     //1.如果启用td
     float current_target = target;
     if(td_ratio_ > 0.0f)
     {
-        calc_track_D(target);
+        calc_track_D(target, dt_);
         current_target = td_v1_;
     }
 
@@ -106,9 +135,9 @@ float PID_Incremental::pid_calc(float target, float feedback)
         I_Term = constrain(I_Term, -params_.I_Outlimit, params_.I_Outlimit);
     
     //3.D
-    if (dt > 0.0f)
+    if (dt_ > 0.0f)
     {
-        D_Term = params_.kd * (error_ - 2.0f * error_last_ + error_earlier_) / dt;
+        D_Term = params_.kd * (error_ - 2.0f * error_last_ + error_earlier_) / dt_;
     }
     else
     {
@@ -121,6 +150,7 @@ float PID_Incremental::pid_calc(float target, float feedback)
     error_earlier_ = error_last_;
     error_last_ = error_;
     output_last_ = output_;
+    last_time_s_ = current_time_s;
 
 
     return output_;

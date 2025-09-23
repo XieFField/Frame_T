@@ -34,6 +34,8 @@ extern "C" {
 #include <stdbool.h>
 #include <cmath>
 #include "APP_tool.h"
+#include "BSP_TimeStamp.h"
+
 /*
     ______ _            __  _____  ____________     ______
    /  _/ /( )_____     /  |/  /\ \/ / ____/ __ \   / / / /
@@ -99,14 +101,16 @@ public:
      */
     void set_params(const PID_Param_Config& params, float I_SeparaThreshold);
 
-    float get_dt() const { return dt; } // 获取采样时间
+    float get_P_Term() const { return P_Term; }
+    float get_I_Term() const { return I_Term; }
+    float get_D_Term() const { return D_Term; }
+    float get_dt() const { return dt_; }
 
 private:
     float I_Term = 0;			/* 积分器输出 */
     float P_Term = 0;			/* 比例器输出 */
     float D_Term = 0;			/* 微分器输出 */
     float output_ = 0.0f;     // 输出值
-    float dt = 0.001f;         // 采样时间，单位秒
     PID_Param_Config params_;
     float I_SeparaThreshold_;
 
@@ -114,7 +118,8 @@ private:
     float error_last_ = 0.0f;       // 上次误差
     float feedback_last_ = 0.0f;    // 上次反馈值
 
-    uint32_t last_tick_ = 0;
+    float dt_ = 0.001f;             // 采样时间，单位秒
+    float last_time_s_ = 0.0f;      // 上次调用的时间，单位秒
     bool isFirst_ = true; // 是否为第一次计算
 };
 
@@ -161,15 +166,12 @@ public:
          * @brief 动态修改PID参数
          * @param params 新的PID参数
          */
-        void set_params(const PID_Param_Config& params, float td_ratio)
-        {
-            params_ = params;
-            td_ratio_ = td_ratio;
-        }
+        void set_params(const PID_Param_Config& params, float td_ratio);
 
+        float get_dt() const { return dt_; }
         
 private:
-    void calc_track_D(float expect); //微分跟踪器
+    void calc_track_D(float expect, float dt); //微分跟踪器
     bool isFirst_ = true; // 是否为第一次计算
 
     float error_ = 0.0f, error_last_ = 0.0f, error_earlier_ = 0.0f; // 当前误差，上次误差，上上次误差
@@ -187,10 +189,8 @@ private:
     float td_v1_ = 0.0f; //跟踪的目标位置
     float td_v2_ = 0.0f; //跟踪的目标速度
 
-
-    uint32_t last_tick_ = 0;
-
-    float dt = 0.001f; // 采样时间，单位秒
+    float dt_ = 0.001f;             // 采样时间，单位秒
+    float last_time_s_ = 0.0f;      // 上次调用的时间，单位秒
 };
 
 

@@ -62,8 +62,8 @@ uint64_t TimeStamp::getMicroseconds() const
     // 这是为了处理在读取CNT的瞬间，溢出中断即将发生但还未被处理的情况
     if (__HAL_TIM_GET_FLAG(s_htim_, TIM_FLAG_UPDATE) != RESET)
     {
-        // 如果标志位为1，说明CNT已经翻转，但我们的overflow_val还没来得及+1
-        //之前就是因为64位溢出而导致会出现随机的无穷大
+        // 如果标志位为1，说明CNT已经翻转，但overflow_val还没来得及+1
+        //之前就是因为这里64位溢出而导致会出现随机的无穷大
         // 所以我们再次读取一次，确保拿到最新的值
         overflow_val = s_overflow_count_ + 1;
     }
