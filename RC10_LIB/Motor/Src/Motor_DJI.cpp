@@ -198,7 +198,7 @@ void M3508::pid_init(const PID_Param_Config& speed_params, float speed_tdRatio, 
 {
     speed_pid_.set_params(speed_params, speed_tdRatio);
     angle_pid_.set_params(angle_params, angle_I_Separa);
-    
+}
 
 void M3508::setTargetCurrent(float current_set)
 {

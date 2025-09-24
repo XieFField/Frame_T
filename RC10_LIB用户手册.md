@@ -18,6 +18,9 @@ RC10_LIB将提供大量预制菜，旨在让对底层驱动不熟悉的用户也能畅快书写应用层代码。
 2. 当您在开发没有头绪时候，可以回顾开发手册
 3. 不要将非API加入RC10_LIB
 4. 禁止一切动态内存分配
+5. 一切坐标采用右手系，不符合的就变换为右手系
+6. 此框架内的一切涉及角度角速度的都不要直接使用弧度制
+7. 所有关于角度的，都应当变换为[0,360](匹配PID中的设计)
 
 ### User
 1. 机构控制类放在Control
@@ -217,7 +220,162 @@ void transform_example_3d()
 ```
 
 ### Module分支
-此分支主要包含与特定硬件模块相关的代码，例如 `Module_Encoder.cpp`，它负责将编码器的原始值（如0-8191）转换为连续的角度（-∞, +∞）和单圈角度（[0, 360)）。
+此分支主要包含与特定硬件模块相关的代码，例如 `Module_Encoder.cpp`，它负责将编码器的原始值（如0-8191）转换为连续的角度（-∞, +∞）和单圈角度[0, 360]。
+
+#### Chassis_Base 底盘基类使用指南
+
+`Chassis_Base` 是一个用于构建各种底盘运动学模型的强大基类。它采用C++模板和面向对象的设计，实现了运动学解算与具体电机驱动的完全解耦。
+
+##### 核心设计
+
+- **静态泛型设计**: 使用 `template <std::size_t WheelCount>`，你可以在编译时就确定底盘的轮子数量，所有内存均为静态分配，符合嵌入式系统的高可靠性要求。
+- **职责分离**: `Chassis_Base` 只负责运动学计算。它计算出每个轮子应该达到的目标转速（RPM），然后通过 `setTargetRPM()` 将这个目标传递给已注册的电机对象。实际的电机PID闭环控制和CAN报文发送则由 `fdCANbus` 的调度器自动完成。
+- **坐标系管理**: 内置机器人坐标系和世界坐标系的速度管理。你只需通过 `updateAngleData()` 提供实时的偏航角（yaw），基类就能自动处理两个坐标系之间的速度转换。
+- **独立的更新循环**: `Chassis_Base` 的 `update()` 方法**不会**被 `fdCANbus` 自动调用。你需要在自己的控制任务中，以你期望的频率来调用它。
+
+##### 如何使用 `Chassis_Base`
+
+###### 1. 创建你的底盘子类 (AI生成，不用尽信)
+
+首先，你需要创建一个继承自 `Chassis_Base` 的子类，并实现其纯虚函数。以一个四轮麦克纳姆轮底盘为例：
+
+**`Module_MecanumChassis.h`**
+```cpp
+#include "Module_ChassisBase.h"
+
+class MecanumChassis : public Chassis_Base<4> {
+public:
+    // 构造函数：传入轮子半径、最大RPM和底盘的几何参数
+    MecanumChassis(float wheel_radius, float max_wheel_rpm, float wheel_distance_x, float wheel_distance_y);
+
+protected:
+    // 【必须】实现运动学更新
+    void updateKinematics() override;
+
+    // 【必须】实现逆解：从机器人速度计算轮速
+    void inverseKinematics(const Robot_Twist& twist) override;
+
+    // 【必须】实现正解：从轮速计算机器人速度
+    void forwardKinematics() override;
+
+private:
+    // 麦轮底盘的几何参数
+    const float wheel_distance_x_; // 轮子在X方向上的半间距
+    const float wheel_distance_y_; // 轮子在Y方向上的半间距
+};
+```
+
+**`Module_MecanumChassis.cpp`**
+```cpp
+#include "Module_MecanumChassis.h"
+
+// 构造函数
+MecanumChassis::MecanumChassis(float wheel_radius, float max_wheel_rpm, float wheel_distance_x, float wheel_distance_y)
+    : Chassis_Base<4>(wheel_radius, max_wheel_rpm),
+      wheel_distance_x_(wheel_distance_x),
+      wheel_distance_y_(wheel_distance_y)
+{}
+
+// 运动学更新：先逆解，再正解
+void MecanumChassis::updateKinematics() {
+    inverseKinematics(this->robot_twist_); // 使用经过斜坡处理后的当前速度进行逆解
+    forwardKinematics();                   // 根据实际轮速反馈（如果需要）进行正解
+}
+
+// 逆解实现
+void MecanumChassis::inverseKinematics(const Robot_Twist& twist) {
+    const float lx_plus_ly = wheel_distance_x_ + wheel_distance_y_;
+    const float rad_per_s_to_rpm = 60.0f / (2.0f * PI);
+
+    // 麦克纳姆轮逆解公式
+    float wheel_speed_rad_s[4];
+    wheel_speed_rad_s[0] = (twist.vx - twist.vy - twist.yaw_rate * lx_plus_ly) / wheel_radius_;
+    wheel_speed_rad_s[1] = (twist.vx + twist.vy + twist.yaw_rate * lx_plus_ly) / wheel_radius_;
+    wheel_speed_rad_s[2] = (twist.vx + twist.vy - twist.yaw_rate * lx_plus_ly) / wheel_radius_;
+    wheel_speed_rad_s[3] = (twist.vx - twist.vy + twist.yaw_rate * lx_plus_ly) / wheel_radius_;
+
+    // 将计算出的角速度(rad/s)转换为RPM，并存入目标数组
+    for (int i = 0; i < 4; ++i) {
+        this->wheele_target_rpm_[i] = wheel_speed_rad_s[i] * rad_per_s_to_rpm;
+    }
+}
+
+// 正解实现 (示例，实际可能需要从电机获取真实速度)
+void MecanumChassis::forwardKinematics() {
+    // 这里仅为示例，实际应用中你可能需要从 wheels_[i]->getRPM() 获取真实轮速来计算
+    // 此处暂时留空或基于目标速度进行估算
+}
+```
+
+###### 2. 在应用层集成
+
+在你的 `user_setup` 和控制任务中，将所有部分组合起来。
+
+```cpp
+/* user_setup.cpp 或 main.cpp */
+#include "Module_MecanumChassis.h"
+#include "Motor_DJI.h"
+#include "BSP_fdCAN_Driver.h"
+#include "BSP_IMU.h" // 假设你有一个IMU模块
+
+// --- 全局对象定义 ---
+fdCANbus CAN1_Bus(&hfdcan1, 1);
+M3508 wheel_motors[4] = { M3508(1, &CAN1_Bus), M3508(2, &CAN1_Bus), M3508(3, &CAN1_Bus), M3508(4, &CAN1_Bus) };
+DJI_Group DJI_Group_1(0x200, &CAN1_Bus);
+MecanumChassis my_chassis(0.076f, 450.0f, 0.2f, 0.25f); // 轮半径, 最大RPM, x间距, y间距
+IMU_Class my_imu; // 假设的IMU对象
+
+// --- 初始化函数 ---
+void user_setup() {
+    // 1. 初始化电机和PID
+    for (int i = 0; i < 4; ++i) {
+        wheel_motors[i].pid_init(/* ... */);
+        DJI_Group_1.addMotor(&wheel_motors[i]);
+        CAN1_Bus.registerMotor(&wheel_motors[i]);
+    }
+    CAN1_Bus.registerMotor(&DJI_Group_1);
+    CAN1_Bus.init();
+
+    // 2. 注册轮子到机箱模型
+    // 注意轮子顺序要与你的运动学模型一致
+    my_chassis.registerWheelMotor(0, &wheel_motors[0]); // 右前轮
+    my_chassis.registerWheelMotor(1, &wheel_motors[1]); // 左前轮
+    my_chassis.registerWheelMotor(2, &wheel_motors[2]); // 左后轮
+    my_chassis.registerWheelMotor(3, &wheel_motors[3]); // 右后轮
+
+    // 3. 配置加速度限制 (可选)
+    my_chassis.reset_AccLimitStatus(true); // 启用
+    my_chassis.reset_AccValue(1.0f);       // 1.0 m/s^2
+}
+
+// --- 控制任务 ---
+class ChassisControlTask : public RtosTask {
+public:
+    ChassisControlTask() : RtosTask("ChassisTask", 10) {} // 10ms周期, 100Hz
+
+protected:
+    void loop() override {
+        // 1. 从遥控器或上位机获取目标速度
+        Robot_Twist target_speed;
+        target_speed.vx = remote.getChannel(2); // 假设从遥控器获取前进速度
+        target_speed.vy = remote.getChannel(3); // 假设从遥控器获取平移速度
+        target_speed.yaw_rate = remote.getChannel(0); // 假设从遥控器获取旋转速度
+
+        // 2. 从IMU获取当前姿态
+        Angle_Twist current_angle = my_imu.getAngle();
+        my_chassis.updateAngleData(current_angle);
+
+        // 3. 设置目标速度到机箱模型 (使用世界坐标系)
+        my_chassis.setWorldSpeed(target_speed);
+
+        // 4. 【核心】更新机箱模型
+        // 这会执行运动学解算，并将目标RPM设置给电机
+        my_chassis.update();
+    }
+};
+```
+
+通过以上步骤，你就成功地将一个麦克纳姆轮底盘集成到了RC10_LIB框架中。`Chassis_Base` 负责了复杂的运动学计算和坐标变换，而 `fdCANbus` 则在后台默默地保证了所有电机PID的精确执行。你的控制任务只需要关注“我想让底盘以什么速度移动”这一高层逻辑。
 
 ---
 

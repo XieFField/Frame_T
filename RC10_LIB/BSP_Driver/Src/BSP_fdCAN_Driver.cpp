@@ -93,7 +93,7 @@ bool fdCANbus::sendFrame(const CanFrame& cf)
     tx_header.Identifier = cf.ID;
     tx_header.IdType = (cf.isextended ? FDCAN_EXTENDED_ID : FDCAN_STANDARD_ID);
     tx_header.TxFrameType = FDCAN_DATA_FRAME;
-    tx_header.DataLength = FDCAN_DLC_BYTES_8; // 所有电机都是8字节
+    tx_header.DataLength = FDCAN_DLC_BYTES_8; // 学院目前所有电机都是8字节
     tx_header.ErrorStateIndicator = FDCAN_ESI_ACTIVE;
     tx_header.BitRateSwitch = FDCAN_BRS_OFF;
     tx_header.FDFormat = FDCAN_CLASSIC_CAN;

@@ -4,6 +4,12 @@
     此文档重在记录RC10_LIB的设计思路，若是想快速上手RC10_LIB还请移步用户手册。
     此文档写的还是相对凌乱，大多时候只是用来记录笔者的想法和实现
 
+    一切坐标采用右手系，不符合的就变换为右手系。yaw轴逆时针旋转为正方向(右手定则)
+    可以使用arm_math库进行加速的，尽量使用
+
+    其实这份README也开始大量充斥AI写的东西了，不过这个只是为了其他人想拓展RC10_LIB时候看的
+    
+
 ### RC10_LIB的核心设计原则
 1. 严格分层，职责单一
    框架分为硬件驱动层、设备协议层、算法层和应用层。当你添加新功能时，必须明确其归属。
@@ -165,7 +171,6 @@
          2. 其实也可以把matchFrame删了，然后直接调用fdCANbus的matchesFrameDefualt。其实也是实现等价逻辑
       7. 做好注册唯一性检查(IMPORTANT!)
       8. 电机生命周期应该是和单片机运行周期等价，感觉没有做析构的必要。
-      9.  
 
 
     
@@ -259,6 +264,23 @@ flowchart TD
 
 
 ```
+#### Module层
+1. 底盘基层 Chassis_Base
+   1. **定位**：这是一个纯粹的运动学模型，负责将机器人（世界或机器人坐标系）的目标速度分解为各个轮子的目标转速（逆解），以及将轮子的实际速度合成为机器人的当前速度（正解）。
+   2. **设计哲学**：
+      *   **静态与泛型**：使用C++模板 `template <std::size_t WheelCount>` 实现，允许用户在编译时定义底盘的轮子数量，所有相关数组（如电机指针、目标RPM）都基于此静态分配，完全避免动态内存。
+      *   **接口与实现分离**：`Chassis_Base` 定义了通用的控制流程和接口，但将具体的运动学解算（`inverseKinematics`, `forwardKinematics`）作为纯虚函数，强制子类（如 `MecanumChassis`, `OmniChassis`）根据其特定的几何构型去实现。
+      *   **坐标系管理**：内部同时维护机器人坐标系（`robot_twist_`）和世界坐标系（`world_twist_`）的速度。通过 `updateAngleData` 注入外部姿态数据（通常来自IMU的yaw角），`Chassis_Base` 能够自动处理两个坐标系之间的转换。
+      *   **独立的控制循环**：`Chassis_Base` **不**被 `fdCANbus` 调度器自动调用。它拥有自己的 `update()` 方法，用户需要在自己的控制任务中以期望的频率（例如100Hz）调用此函数。`update()` 负责：
+          1.  计算时间差 `dt_`。
+          2.  应用加速度斜坡（`ramp`）平滑速度变化。
+          3.  调用子类实现的 `updateKinematics()` 来执行核心解算。
+          4.  将最终计算出的各轮目标RPM通过 `setTargetRPM()` 应用到已注册的 `Motor_Base` 对象上。
+   3. **数据流**：
+      1.  **输入**：用户通过 `setWorldSpeed()` 或 `setRobotSpeed()` 设置目标速度，并通过 `updateAngleData()` 提供当前姿态。
+      2.  **处理**：在用户的任务中周期性调用 `update()`。`update()` 函数内部会调用 `updateKinematics()`，而 `updateKinematics()` 通常会调用 `inverseKinematics()` 来计算 `wheele_target_rpm_` 数组，并可能调用 `forwardKinematics()` 来更新 `robot_twist_`。
+      3.  **输出**：`update()` 的最后一步是遍历 `wheels_` 数组，将 `wheele_target_rpm_` 的值设置给对应的电机实例。后续电机的PID闭环和CAN报文打包则由 `fdCANbus` 的1kHz调度器自动完成。
+   4. **注册机制**：通过 `registerWheelMotor()` 方法，将具体的电机实例（`Motor_Base` 指针）与底盘模型的特定轮子索引关联起来，实现了运动学模型与电机驱动的解耦。
 
 
 #### User层

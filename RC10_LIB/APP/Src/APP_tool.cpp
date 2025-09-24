@@ -48,3 +48,23 @@ void arm_set_identity_f32(arm_matrix_instance_f32 *M)
         M->pData[i * n + i] = 1.0f;
     
 }
+
+//斜坡函数
+void ramp(float target, float& current, float max_change_rate, float dt)
+{
+    float error = target - current;
+    float max_change = max_change_rate * dt;
+    current += constrain(error, -max_change, max_change);
+}
+
+//弧度转换为角度函数
+float rad_to_deg(float rad)
+{
+    return rad / PI * 180.0f;
+}
+
+//角度转换为弧度函数
+float deg_to_rad(float deg)
+{
+    return deg / 180.0f * PI;
+}

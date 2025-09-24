@@ -52,6 +52,7 @@
 "frame_t\app_tool.o"
 "frame_t\app_coordconvert.o"
 "frame_t\module_encoder.o"
+"frame_t\module_chassisbase.o"
 "..\Drivers\CMSIS\DSP\Lib\ARM\arm_cortexM7lfsp_math.lib"
 --strict --scatter "Frame_T\Frame_T.sct"
 --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
