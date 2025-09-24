@@ -46,17 +46,18 @@ typedef enum {
 
 //
 /**
- * @brief 大疆电机基类，由于大疆电机协议高度相似，所以这么做
+ * @brief     负责打包4电机合帧
  * @attention 如果你想要在同一路CAN上搭载GM6020和M3508/M2006，请确保GM6020在下片上
- *            而M3508/M2006在上片上。因为M3508/M2006的ID范围是0x201~0x208, 
- *            而GM6020的ID范围是0x204~0x207
+ *            而M3508/M2006在上片上。因为M3508/M2006的ID范围是0x201到0x208, 
+ *            而GM6020的ID范围是0x205到0x211
  */
 class DJI_Motor : public Motor_Base {
 public:
     /**
+     * @brief     负责打包4电机合帧
      * @attention 如果你想要在同一路CAN上搭载GM6020和M3508/M2006，请确保GM6020在下片上
      *            而M3508/M2006在上片上。因为M3508/M2006的ID范围是0x201到0x208, 
-     *            而GM6020的ID范围是0x204到0x207
+     *            而GM6020的ID范围是0x205到0x211
      */
     DJI_Motor(DJI_MotorType type, uint32_t id, fdCANbus *bus);
     ~DJI_Motor(){};
@@ -150,7 +151,7 @@ uint32_t send_idHigh6020();
  * @brief     负责打包4电机合帧
  * @attention 如果你想要在同一路CAN上搭载GM6020和M3508/M2006，请确保GM6020在下片上
  *            而M3508/M2006在上片上。因为M3508/M2006的ID范围是0x201到0x208, 
- *            而GM6020的ID范围是0x204到0x207
+ *            而GM6020的ID范围是0x205到0x211
  */
 class DJI_Group : public Motor_Base {
 public:
