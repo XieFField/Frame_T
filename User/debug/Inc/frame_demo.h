@@ -30,6 +30,7 @@ extern "C"
 #include "APP_CoordConvert.h"
 #include "Motor_VESC.h"
 #include "BSP_TimeStamp.h"
+#include "Module_ChassisBase.h"
 
 class FrameDemo : public RtosTask
 {

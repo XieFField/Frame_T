@@ -2,7 +2,6 @@
 
 fdCANbus CAN1_Bus(&hfdcan1, 1); // CAN1
 DJI_Group DJI_Group_1(send_idLow(), &CAN1_Bus); // µÍÆ¬ 0x200
-
 M3508 m3508_1(1, &CAN1_Bus);
 
 PID_Param_Config m3508_speed_pid_params = {
@@ -112,7 +111,7 @@ void DJI_MotorDemo::init()
     
     const char *msg = "Hello UART1 on PB6/PB7\r\n";
     HAL_UART_Transmit(&huart1, (uint8_t*)msg, strlen(msg), HAL_MAX_DELAY);
-
+    
     
 }
 

@@ -56,4 +56,5 @@ frame_t/main.o: ..\Core\Src\main.cpp ..\Core\Inc\main.h \
   ..\RC10_LIB\APP\Inc\APP_debugTool.h \
   ..\RC10_LIB\APP\Inc\APP_CoordConvert.h \
   ..\RC10_LIB\Motor\Inc\Motor_VESC.h \
+  ..\RC10_LIB\Module\Inc\Module_ChassisBase.h \
   ..\User\Setup\Inc\Setup_ConfigInit.h
