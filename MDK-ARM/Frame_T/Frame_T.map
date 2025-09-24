@@ -5763,7 +5763,7 @@ Removing Unused input sections from the image.
     Removing motor_dji.o(.ARM.exidx.text._ZN9DJI_Motor14updateFeedbackERK8CanFrame), (8 bytes).
     Removing motor_dji.o(.text._ZN9DJI_Motor29virtualCurrent_to_realCurrentEs), (120 bytes).
     Removing motor_dji.o(.ARM.exidx.text._ZN9DJI_Motor29virtualCurrent_to_realCurrentEs), (8 bytes).
-    Removing motor_dji.o(.text._ZN9DJI_Motor29realCurrent_to_virtualCurrentEf), (88 bytes).
+    Removing motor_dji.o(.text._ZN9DJI_Motor29realCurrent_to_virtualCurrentEf), (92 bytes).
     Removing motor_dji.o(.ARM.exidx.text._ZN9DJI_Motor29realCurrent_to_virtualCurrentEf), (8 bytes).
     Removing motor_dji.o(.ARM.exidx.text._ZN9DJI_GroupC2EjP8fdCANbus), (8 bytes).
     Removing motor_dji.o(.ARM.exidx.text._ZN9DJI_Group8addMotorEP9DJI_Motor), (8 bytes).
@@ -6255,7 +6255,7 @@ Removing Unused input sections from the image.
     Removing frame_demo.o(.ARM.exidx.text._ZN13DJI_MotorDemoD2Ev), (8 bytes).
     Removing frame_demo.o(.ARM.exidx.text._ZN13DJI_MotorDemoD0Ev), (8 bytes).
 
-2457 unused section(s) (total 837913 bytes) removed from the image.
+2457 unused section(s) (total 837917 bytes) removed from the image.
 
 ==============================================================================
 
@@ -7020,202 +7020,202 @@ Image Symbol Table
     [Anonymous Symbol]                       0x0800ce48   Section        0  frame_demo.o(.text._ZN13DJI_MotorDemoD2Ev)
     [Anonymous Symbol]                       0x0800ce50   Section        0  app_pid.o(.text._ZN15PID_Incremental10set_paramsERK16PID_Param_Configf)
     [Anonymous Symbol]                       0x0800ce70   Section        0  app_pid.o(.text._ZN15PID_Incremental8pid_calcEff)
-    [Anonymous Symbol]                       0x0800d008   Section        0  motor_dji.o(.text._ZN5M350812setTargetRPMEf)
-    [Anonymous Symbol]                       0x0800d018   Section        0  motor_dji.o(.text._ZN5M350814setTargetAngleEf)
-    [Anonymous Symbol]                       0x0800d030   Section        0  motor_dji.o(.text._ZN5M350816setTargetCurrentEf)
-    [Anonymous Symbol]                       0x0800d040   Section        0  motor_dji.o(.text._ZN5M350819setTargetTotalAngleEf)
-    [Anonymous Symbol]                       0x0800d058   Section        0  motor_dji.o(.text._ZN5M35086updateEv)
-    [Anonymous Symbol]                       0x0800d100   Section        0  motor_dji.o(.text._ZN5M35088pid_initERK16PID_Param_ConfigfS2_f)
-    [Anonymous Symbol]                       0x0800d130   Section        0  motor_dji.o(.text._ZN5M3508C2EjP8fdCANbus)
-    [Anonymous Symbol]                       0x0800d1f0   Section        0  motor_dji.o(.text._ZN5M3508D0Ev)
-    [Anonymous Symbol]                       0x0800d1f8   Section        0  module_encoder.o(.text._ZN7Encoder6updateEt)
-    [Anonymous Symbol]                       0x0800d288   Section        0  frame_demo.o(.text._ZN8RtosTask3runEv)
-    [Anonymous Symbol]                       0x0800d298   Section        0  bsp_fdcan_driver.o(.text._ZN8RtosTask4loopEv)
-    [Anonymous Symbol]                       0x0800d2a0   Section        0  bsp_fdcan_driver.o(.text._ZN8RtosTask9taskEntryEPv)
-    [Anonymous Symbol]                       0x0800d2d0   Section        0  bsp_fdcan_driver.o(.text._ZN8RtosTaskD2Ev)
-    [Anonymous Symbol]                       0x0800d2d8   Section        0  bsp_fdcan_driver.o(.text._ZN8fdCANbus10rxTaskbodyEv)
-    [Anonymous Symbol]                       0x0800d3d0   Section        0  bsp_fdcan_driver.o(.text._ZN8fdCANbus13registerMotorEP10Motor_Base)
-    [Anonymous Symbol]                       0x0800d458   Section        0  bsp_fdcan_driver.o(.text._ZN8fdCANbus17schedulerTaskbodyEv)
-    [Anonymous Symbol]                       0x0800d600   Section        0  bsp_fdcan_driver.o(.text._ZN8fdCANbus4initEv)
-    [Anonymous Symbol]                       0x0800d6b8   Section        0  bsp_fdcan_driver.o(.text._ZN8fdCANbus6RxTask3runEv)
-    [Anonymous Symbol]                       0x0800d6c0   Section        0  bsp_fdcan_driver.o(.text._ZN8fdCANbus6RxTaskC2EPS_)
-    [Anonymous Symbol]                       0x0800d6e8   Section        0  bsp_fdcan_driver.o(.text._ZN8fdCANbus6RxTaskD0Ev)
-    [Anonymous Symbol]                       0x0800d6f0   Section        0  bsp_fdcan_driver.o(.text._ZN8fdCANbus9SchedTask3runEv)
-    [Anonymous Symbol]                       0x0800d6f8   Section        0  bsp_fdcan_driver.o(.text._ZN8fdCANbus9SchedTaskC2EPS_)
-    [Anonymous Symbol]                       0x0800d720   Section        0  bsp_fdcan_driver.o(.text._ZN8fdCANbus9SchedTaskD0Ev)
-    [Anonymous Symbol]                       0x0800d728   Section        0  frame_demo.o(.text._ZN8fdCANbusD2Ev)
-    [Anonymous Symbol]                       0x0800d748   Section        0  motor_dji.o(.text._ZN9DJI_Group11packCommandEP8CanFramej)
-    [Anonymous Symbol]                       0x0800d810   Section        0  motor_dji.o(.text._ZN9DJI_Group14updateFeedbackERK8CanFrame)
-    [Anonymous Symbol]                       0x0800d818   Section        0  motor_dji.o(.text._ZN9DJI_Group6updateEv)
-    [Anonymous Symbol]                       0x0800d820   Section        0  motor_dji.o(.text._ZN9DJI_Group8addMotorEP9DJI_Motor)
-    [Anonymous Symbol]                       0x0800d8c8   Section        0  motor_dji.o(.text._ZN9DJI_GroupC2EjP8fdCANbus)
-    [Anonymous Symbol]                       0x0800d908   Section        0  motor_dji.o(.text._ZN9DJI_GroupD0Ev)
-    [Anonymous Symbol]                       0x0800d910   Section        0  motor_dji.o(.text._ZN9DJI_Motor11packCommandEP8CanFramej)
-    [Anonymous Symbol]                       0x0800d918   Section        0  motor_dji.o(.text._ZN9DJI_Motor14updateFeedbackERK8CanFrame)
-    [Anonymous Symbol]                       0x0800d9b8   Section        0  bsp_timestamp.o(.text._ZN9TimeStamp11getInstanceEv)
-    [Anonymous Symbol]                       0x0800d9f8   Section        0  bsp_timestamp.o(.text._ZN9TimeStamp16overflowCallbackEv)
-    [Anonymous Symbol]                       0x0800da38   Section        0  bsp_timestamp.o(.text._ZN9TimeStamp4initEP17TIM_HandleTypeDef)
-    [Anonymous Symbol]                       0x0800da58   Section        0  motor_dji.o(.text._ZNK10Motor_Base10getCurrentEv)
-    [Anonymous Symbol]                       0x0800da58   Section        0  motor_dji.o(.text._ZNK10Motor_Base13getTotalAngleEv)
-    [Anonymous Symbol]                       0x0800da58   Section        0  motor_dji.o(.text._ZNK10Motor_Base13get_GearRatioEv)
-    [Anonymous Symbol]                       0x0800da58   Section        0  motor_dji.o(.text._ZNK10Motor_Base12matchesFrameERK8CanFrame)
-    [Anonymous Symbol]                       0x0800da60   Section        0  motor_dji.o(.text._ZNK5M350813getTotalAngleEv)
-    [Anonymous Symbol]                       0x0800da60   Section        0  motor_dji.o(.text._ZNK10Motor_Base6getRPMEv)
-    [Anonymous Symbol]                       0x0800da60   Section        0  motor_dji.o(.text._ZNK10Motor_Base8getAngleEv)
-    [Anonymous Symbol]                       0x0800da68   Section        0  motor_dji.o(.text._ZNK5M350813get_GearRatioEv)
-    [Anonymous Symbol]                       0x0800da70   Section        0  motor_dji.o(.text._ZNK5M35086getRPMEv)
-    [Anonymous Symbol]                       0x0800da78   Section        0  motor_dji.o(.text._ZNK5M35088getAngleEv)
-    [Anonymous Symbol]                       0x0800da80   Section        0  motor_dji.o(.text._ZNK9DJI_Motor12matchesFrameERK8CanFrame)
-    [Anonymous Symbol]                       0x0800dad0   Section        0  motor_dji.o(.text._ZNK9DJI_Motor7recv_idEv)
-    [Anonymous Symbol]                       0x0800dad8   Section        0  bsp_timestamp.o(.text._ZNK9TimeStamp10getSecondsEv)
-    [Anonymous Symbol]                       0x0800db48   Section        0  bsp_timestamp.o(.text._ZNK9TimeStamp15getMicrosecondsEv)
-    [Anonymous Symbol]                       0x0800db9e   Section        0  new.cpp.o(.text._ZdlPv)
-    [Anonymous Symbol]                       0x0800dba2   Section        0  new.cpp.o(.text._ZdlPvj)
-    [Anonymous Symbol]                       0x0800dba8   Section        0  bsp_fdcan_driver.o(.text.fdcan_global_rx_isr)
-    [Anonymous Symbol]                       0x0800dc40   Section        0  bsp_fdcan_driver.o(.text.fdcan_global_scheduler_tick_isr)
-    [Anonymous Symbol]                       0x0800dc98   Section        0  main.o(.text.main)
-    [Anonymous Symbol]                       0x0800dd08   Section        0  cmsis_os2.o(.text.osDelay)
-    [Anonymous Symbol]                       0x0800dd28   Section        0  cmsis_os2.o(.text.osKernelInitialize)
-    [Anonymous Symbol]                       0x0800dd58   Section        0  cmsis_os2.o(.text.osKernelStart)
-    [Anonymous Symbol]                       0x0800dd98   Section        0  cmsis_os2.o(.text.osThreadNew)
-    prvAddNewTaskToReadyList                 0x0800de31   Thumb Code   650  tasks.o(.text.prvAddNewTaskToReadyList)
-    [Anonymous Symbol]                       0x0800de30   Section        0  tasks.o(.text.prvAddNewTaskToReadyList)
-    prvIdleTask                              0x0800e0c1   Thumb Code   134  tasks.o(.text.prvIdleTask)
-    [Anonymous Symbol]                       0x0800e0c0   Section        0  tasks.o(.text.prvIdleTask)
-    prvInitialiseNewTask                     0x0800e149   Thumb Code   258  tasks.o(.text.prvInitialiseNewTask)
-    [Anonymous Symbol]                       0x0800e148   Section        0  tasks.o(.text.prvInitialiseNewTask)
-    prvPortStartFirstTask                    0x0800e251   Thumb Code    34  port.o(.text.prvPortStartFirstTask)
-    [Anonymous Symbol]                       0x0800e250   Section        0  port.o(.text.prvPortStartFirstTask)
-    prvTaskExitError                         0x0800e279   Thumb Code    64  port.o(.text.prvTaskExitError)
-    [Anonymous Symbol]                       0x0800e278   Section        0  port.o(.text.prvTaskExitError)
-    prvTimerTask                             0x0800e2b9   Thumb Code   890  timers.o(.text.prvTimerTask)
-    [Anonymous Symbol]                       0x0800e2b8   Section        0  timers.o(.text.prvTimerTask)
-    prvUnlockQueue                           0x0800e639   Thumb Code   122  queue.o(.text.prvUnlockQueue)
-    [Anonymous Symbol]                       0x0800e638   Section        0  queue.o(.text.prvUnlockQueue)
-    [Anonymous Symbol]                       0x0800e6b8   Section        0  heap_4.o(.text.pvPortMalloc)
-    [Anonymous Symbol]                       0x0800e8a0   Section        0  tasks.o(.text.pvTaskIncrementMutexHeldCount)
-    [Anonymous Symbol]                       0x0800e8b8   Section        0  port.o(.text.pxPortInitialiseStack)
-    [Anonymous Symbol]                       0x0800e8e4   Section        0  cxa_guard.cpp.o(.text.unlikely.__cxa_guard_acquire)
-    [Anonymous Symbol]                       0x0800e910   Section        0  cxa_guard.cpp.o(.text.unlikely.__cxa_guard_release)
-    [Anonymous Symbol]                       0x0800e918   Section        0  abort_message.cpp.o(.text.unlikely.abort_message)
-    [Anonymous Symbol]                       0x0800e920   Section        0  list.o(.text.uxListRemove)
-    [Anonymous Symbol]                       0x0800e948   Section        0  cmsis_os2.o(.text.vApplicationGetIdleTaskMemory)
-    [Anonymous Symbol]                       0x0800e968   Section        0  cmsis_os2.o(.text.vApplicationGetTimerTaskMemory)
-    [Anonymous Symbol]                       0x0800e988   Section        0  list.o(.text.vListInitialise)
-    [Anonymous Symbol]                       0x0800e9a0   Section        0  list.o(.text.vListInitialiseItem)
-    [Anonymous Symbol]                       0x0800e9a8   Section        0  list.o(.text.vListInsert)
-    [Anonymous Symbol]                       0x0800ea10   Section        0  list.o(.text.vListInsertEnd)
-    vPortEnableVFP                           0x0800ea31   Thumb Code    14  port.o(.text.vPortEnableVFP)
-    [Anonymous Symbol]                       0x0800ea30   Section        0  port.o(.text.vPortEnableVFP)
-    [Anonymous Symbol]                       0x0800ea48   Section        0  port.o(.text.vPortEnterCritical)
-    [Anonymous Symbol]                       0x0800ea98   Section        0  port.o(.text.vPortExitCritical)
-    [Anonymous Symbol]                       0x0800eac8   Section        0  heap_4.o(.text.vPortFree)
-    [Anonymous Symbol]                       0x0800eba8   Section        0  port.o(.text.vPortSetupTimerInterrupt)
-    [Anonymous Symbol]                       0x0800ebe0   Section        0  port.o(.text.vPortValidateInterruptPriority)
-    [Anonymous Symbol]                       0x0800ec40   Section        0  queue.o(.text.vQueueAddToRegistry)
-    [Anonymous Symbol]                       0x0800ec98   Section        0  queue.o(.text.vQueueDelete)
-    [Anonymous Symbol]                       0x0800ed18   Section        0  queue.o(.text.vQueueWaitForMessageRestricted)
-    [Anonymous Symbol]                       0x0800ed80   Section        0  tasks.o(.text.vTaskDelay)
-    [Anonymous Symbol]                       0x0800ee00   Section        0  tasks.o(.text.vTaskDelete)
-    [Anonymous Symbol]                       0x0800eee8   Section        0  tasks.o(.text.vTaskInternalSetTimeOutState)
-    [Anonymous Symbol]                       0x0800ef00   Section        0  tasks.o(.text.vTaskMissedYield)
-    [Anonymous Symbol]                       0x0800ef10   Section        0  tasks.o(.text.vTaskPlaceOnEventList)
-    [Anonymous Symbol]                       0x0800ef88   Section        0  tasks.o(.text.vTaskPlaceOnEventListRestricted)
-    [Anonymous Symbol]                       0x0800f008   Section        0  tasks.o(.text.vTaskPriorityDisinheritAfterTimeout)
-    [Anonymous Symbol]                       0x0800f0b0   Section        0  tasks.o(.text.vTaskStartScheduler)
-    [Anonymous Symbol]                       0x0800f1a0   Section        0  tasks.o(.text.vTaskSuspendAll)
-    [Anonymous Symbol]                       0x0800f1b0   Section        0  tasks.o(.text.vTaskSwitchContext)
-    [Anonymous Symbol]                       0x0800f278   Section        0  port.o(.text.xPortStartScheduler)
-    [Anonymous Symbol]                       0x0800f408   Section        0  port.o(.text.xPortSysTickHandler)
-    [Anonymous Symbol]                       0x0800f438   Section        0  queue.o(.text.xQueueCreateMutex)
-    [Anonymous Symbol]                       0x0800f4a8   Section        0  queue.o(.text.xQueueGenericCreate)
-    [Anonymous Symbol]                       0x0800f530   Section        0  queue.o(.text.xQueueGenericCreateStatic)
-    [Anonymous Symbol]                       0x0800f610   Section        0  queue.o(.text.xQueueGenericSend)
-    [Anonymous Symbol]                       0x0800f8d0   Section        0  queue.o(.text.xQueueGenericSendFromISR)
-    [Anonymous Symbol]                       0x0800fa18   Section        0  queue.o(.text.xQueueGiveFromISR)
-    [Anonymous Symbol]                       0x0800fad8   Section        0  queue.o(.text.xQueueReceive)
-    [Anonymous Symbol]                       0x0800fd18   Section        0  queue.o(.text.xQueueSemaphoreTake)
-    [Anonymous Symbol]                       0x0800ffa8   Section        0  tasks.o(.text.xTaskCheckForTimeOut)
-    [Anonymous Symbol]                       0x08010048   Section        0  tasks.o(.text.xTaskCreate)
-    [Anonymous Symbol]                       0x080100a8   Section        0  tasks.o(.text.xTaskCreateStatic)
-    [Anonymous Symbol]                       0x08010128   Section        0  tasks.o(.text.xTaskGetSchedulerState)
-    [Anonymous Symbol]                       0x08010148   Section        0  tasks.o(.text.xTaskGetTickCount)
-    [Anonymous Symbol]                       0x08010158   Section        0  tasks.o(.text.xTaskIncrementTick)
-    [Anonymous Symbol]                       0x08010260   Section        0  tasks.o(.text.xTaskPriorityDisinherit)
-    [Anonymous Symbol]                       0x080102f0   Section        0  tasks.o(.text.xTaskPriorityInherit)
-    [Anonymous Symbol]                       0x08010380   Section        0  tasks.o(.text.xTaskRemoveFromEventList)
-    [Anonymous Symbol]                       0x080103f8   Section        0  tasks.o(.text.xTaskResumeAll)
-    [Anonymous Symbol]                       0x080104e8   Section        0  timers.o(.text.xTimerCreateTimerTask)
-    CL$$btod_d2e                             0x0801059c   Section       62  btod.o(CL$$btod_d2e)
-    CL$$btod_d2e_denorm_low                  0x080105da   Section       70  btod.o(CL$$btod_d2e_denorm_low)
-    CL$$btod_d2e_norm_op1                    0x08010620   Section       96  btod.o(CL$$btod_d2e_norm_op1)
-    CL$$btod_div_common                      0x08010680   Section      824  btod.o(CL$$btod_div_common)
-    CL$$btod_e2e                             0x080109b8   Section      220  btod.o(CL$$btod_e2e)
-    CL$$btod_ediv                            0x08010a94   Section       42  btod.o(CL$$btod_ediv)
-    CL$$btod_emul                            0x08010abe   Section       42  btod.o(CL$$btod_emul)
-    CL$$btod_mult_common                     0x08010ae8   Section      580  btod.o(CL$$btod_mult_common)
-    i.__ARM_fpclassify                       0x08010d2c   Section        0  fpclassify.o(i.__ARM_fpclassify)
-    i.__hardfp_fmodf                         0x08010d5c   Section        0  fmodf.o(i.__hardfp_fmodf)
-    i.__mathlib_flt_invalid                  0x08010e0c   Section        0  funder.o(i.__mathlib_flt_invalid)
-    i._is_digit                              0x08010e1c   Section        0  __printf_wp.o(i._is_digit)
-    locale$$code                             0x08010e2c   Section       44  lc_numeric_c.o(locale$$code)
-    locale$$code                             0x08010e58   Section       44  lc_ctype_c.o(locale$$code)
-    $v0                                      0x08010e84   Number         0  dretinf.o(x$fpl$dretinf)
-    x$fpl$dretinf                            0x08010e84   Section       12  dretinf.o(x$fpl$dretinf)
-    $v0                                      0x08010e90   Number         0  f2d.o(x$fpl$f2d)
-    x$fpl$f2d                                0x08010e90   Section       86  f2d.o(x$fpl$f2d)
-    $v0                                      0x08010ee6   Number         0  ffltll_clz.o(x$fpl$ffltll)
-    x$fpl$ffltll                             0x08010ee6   Section       96  ffltll_clz.o(x$fpl$ffltll)
-    $v0                                      0x08010f46   Number         0  fnaninf.o(x$fpl$fnaninf)
-    x$fpl$fnaninf                            0x08010f46   Section      140  fnaninf.o(x$fpl$fnaninf)
-    $v0                                      0x08010fd2   Number         0  fpinit.o(x$fpl$fpinit)
-    x$fpl$fpinit                             0x08010fd2   Section       26  fpinit.o(x$fpl$fpinit)
-    $v0                                      0x08010fec   Number         0  frem_clz.o(x$fpl$frem)
-    x$fpl$frem                               0x08010fec   Section      244  frem_clz.o(x$fpl$frem)
-    $v0                                      0x080110e0   Number         0  printf1.o(x$fpl$printf1)
-    x$fpl$printf1                            0x080110e0   Section        4  printf1.o(x$fpl$printf1)
-    $v0                                      0x080110e4   Number         0  printf2.o(x$fpl$printf2)
-    x$fpl$printf2                            0x080110e4   Section        4  printf2.o(x$fpl$printf2)
-    initial_mbstate                          0x080110e8   Data           8  _printf_wctomb.o(.constdata)
-    .constdata                               0x080110e8   Section        8  _printf_wctomb.o(.constdata)
-    x$fpl$usenofp                            0x080110e8   Section        0  usenofp.o(x$fpl$usenofp)
-    uc_hextab                                0x080110f0   Data          20  _printf_hex_int_ll_ptr.o(.constdata)
-    .constdata                               0x080110f0   Section       40  _printf_hex_int_ll_ptr.o(.constdata)
-    lc_hextab                                0x08011104   Data          20  _printf_hex_int_ll_ptr.o(.constdata)
-    maptable                                 0x08011118   Data          17  __printf_flags_ss_wp.o(.constdata)
-    .constdata                               0x08011118   Section       17  __printf_flags_ss_wp.o(.constdata)
-    lc_hextab                                0x08011129   Data          19  _printf_fp_hex.o(.constdata)
-    .constdata                               0x08011129   Section       38  _printf_fp_hex.o(.constdata)
-    uc_hextab                                0x0801113c   Data          19  _printf_fp_hex.o(.constdata)
-    tenpwrs_x                                0x08011150   Data          60  bigflt0.o(.constdata)
-    .constdata                               0x08011150   Section      148  bigflt0.o(.constdata)
-    tenpwrs_i                                0x0801118c   Data          64  bigflt0.o(.constdata)
-    .L__const.HAL_FDCAN_Init.CvtEltSize      0x080111e4   Data          76  stm32h7xx_hal_fdcan.o(.rodata..L__const.HAL_FDCAN_Init.CvtEltSize)
-    .Lswitch.table.UART_SetConfig.7          0x08011230   Data           6  stm32h7xx_hal_uart.o(.rodata..Lswitch.table.UART_SetConfig.7)
-    .Lswitch.table.UART_SetConfig.9          0x08011236   Data           6  stm32h7xx_hal_uart.o(.rodata..Lswitch.table.UART_SetConfig.9)
-    DLCtoBytes                               0x08011338   Data          16  stm32h7xx_hal_fdcan.o(.rodata.cst16)
-    [Anonymous Symbol]                       0x08011338   Section        0  stm32h7xx_hal_fdcan.o(.rodata.cst16)
-    UARTEx_SetNbDataToProcess.numerator      0x08011348   Data           8  stm32h7xx_hal_uart_ex.o(.rodata.cst8)
-    [Anonymous Symbol]                       0x08011348   Section        0  stm32h7xx_hal_uart_ex.o(.rodata.cst8)
-    UARTEx_SetNbDataToProcess.denominator    0x08011350   Data           8  stm32h7xx_hal_uart_ex.o(.rodata.cst8)
-    [Anonymous Symbol]                       0x0801137c   Section        0  freertos.o(.rodata.str1.1)
-    .L.str.1                                 0x08011388   Data           5  timers.o(.rodata.str1.1)
-    [Anonymous Symbol]                       0x08011388   Section        0  timers.o(.rodata.str1.1)
-    [Anonymous Symbol]                       0x0801138d   Section        0  setup_configinit.o(.rodata.str1.1)
-    .L.str                                   0x0801139b   Data         147  cxa_guard.cpp.o(.rodata.str1.1)
-    [Anonymous Symbol]                       0x0801139b   Section        0  cxa_guard.cpp.o(.rodata.str1.1)
-    locale$$data                             0x08011450   Section       28  lc_numeric_c.o(locale$$data)
-    __lcnum_c_name                           0x08011454   Data           2  lc_numeric_c.o(locale$$data)
-    __lcnum_c_start                          0x0801145c   Data           0  lc_numeric_c.o(locale$$data)
-    __lcnum_c_point                          0x08011468   Data           0  lc_numeric_c.o(locale$$data)
-    __lcnum_c_thousands                      0x0801146a   Data           0  lc_numeric_c.o(locale$$data)
-    __lcnum_c_grouping                       0x0801146b   Data           0  lc_numeric_c.o(locale$$data)
-    __lcnum_c_end                            0x0801146c   Data           0  lc_numeric_c.o(locale$$data)
-    locale$$data                             0x0801146c   Section      272  lc_ctype_c.o(locale$$data)
-    __lcctype_c_name                         0x08011470   Data           2  lc_ctype_c.o(locale$$data)
-    __lcctype_c_start                        0x08011478   Data           0  lc_ctype_c.o(locale$$data)
-    __lcctype_c_end                          0x0801157c   Data           0  lc_ctype_c.o(locale$$data)
-    .init_array                              0x08011580   Section        0  init_aeabi.o(.init_array)
+    [Anonymous Symbol]                       0x0800cfb8   Section        0  motor_dji.o(.text._ZN5M350812setTargetRPMEf)
+    [Anonymous Symbol]                       0x0800cfc8   Section        0  motor_dji.o(.text._ZN5M350814setTargetAngleEf)
+    [Anonymous Symbol]                       0x0800cfe0   Section        0  motor_dji.o(.text._ZN5M350816setTargetCurrentEf)
+    [Anonymous Symbol]                       0x0800cff0   Section        0  motor_dji.o(.text._ZN5M350819setTargetTotalAngleEf)
+    [Anonymous Symbol]                       0x0800d008   Section        0  motor_dji.o(.text._ZN5M35086updateEv)
+    [Anonymous Symbol]                       0x0800d0b0   Section        0  motor_dji.o(.text._ZN5M35088pid_initERK16PID_Param_ConfigfS2_f)
+    [Anonymous Symbol]                       0x0800d0e0   Section        0  motor_dji.o(.text._ZN5M3508C2EjP8fdCANbus)
+    [Anonymous Symbol]                       0x0800d1a0   Section        0  motor_dji.o(.text._ZN5M3508D0Ev)
+    [Anonymous Symbol]                       0x0800d1a8   Section        0  module_encoder.o(.text._ZN7Encoder6updateEt)
+    [Anonymous Symbol]                       0x0800d238   Section        0  frame_demo.o(.text._ZN8RtosTask3runEv)
+    [Anonymous Symbol]                       0x0800d248   Section        0  bsp_fdcan_driver.o(.text._ZN8RtosTask4loopEv)
+    [Anonymous Symbol]                       0x0800d250   Section        0  bsp_fdcan_driver.o(.text._ZN8RtosTask9taskEntryEPv)
+    [Anonymous Symbol]                       0x0800d280   Section        0  bsp_fdcan_driver.o(.text._ZN8RtosTaskD2Ev)
+    [Anonymous Symbol]                       0x0800d288   Section        0  bsp_fdcan_driver.o(.text._ZN8fdCANbus10rxTaskbodyEv)
+    [Anonymous Symbol]                       0x0800d380   Section        0  bsp_fdcan_driver.o(.text._ZN8fdCANbus13registerMotorEP10Motor_Base)
+    [Anonymous Symbol]                       0x0800d408   Section        0  bsp_fdcan_driver.o(.text._ZN8fdCANbus17schedulerTaskbodyEv)
+    [Anonymous Symbol]                       0x0800d5b0   Section        0  bsp_fdcan_driver.o(.text._ZN8fdCANbus4initEv)
+    [Anonymous Symbol]                       0x0800d668   Section        0  bsp_fdcan_driver.o(.text._ZN8fdCANbus6RxTask3runEv)
+    [Anonymous Symbol]                       0x0800d670   Section        0  bsp_fdcan_driver.o(.text._ZN8fdCANbus6RxTaskC2EPS_)
+    [Anonymous Symbol]                       0x0800d698   Section        0  bsp_fdcan_driver.o(.text._ZN8fdCANbus6RxTaskD0Ev)
+    [Anonymous Symbol]                       0x0800d6a0   Section        0  bsp_fdcan_driver.o(.text._ZN8fdCANbus9SchedTask3runEv)
+    [Anonymous Symbol]                       0x0800d6a8   Section        0  bsp_fdcan_driver.o(.text._ZN8fdCANbus9SchedTaskC2EPS_)
+    [Anonymous Symbol]                       0x0800d6d0   Section        0  bsp_fdcan_driver.o(.text._ZN8fdCANbus9SchedTaskD0Ev)
+    [Anonymous Symbol]                       0x0800d6d8   Section        0  frame_demo.o(.text._ZN8fdCANbusD2Ev)
+    [Anonymous Symbol]                       0x0800d6f8   Section        0  motor_dji.o(.text._ZN9DJI_Group11packCommandEP8CanFramej)
+    [Anonymous Symbol]                       0x0800d7c0   Section        0  motor_dji.o(.text._ZN9DJI_Group14updateFeedbackERK8CanFrame)
+    [Anonymous Symbol]                       0x0800d7c8   Section        0  motor_dji.o(.text._ZN9DJI_Group6updateEv)
+    [Anonymous Symbol]                       0x0800d7d0   Section        0  motor_dji.o(.text._ZN9DJI_Group8addMotorEP9DJI_Motor)
+    [Anonymous Symbol]                       0x0800d878   Section        0  motor_dji.o(.text._ZN9DJI_GroupC2EjP8fdCANbus)
+    [Anonymous Symbol]                       0x0800d8b8   Section        0  motor_dji.o(.text._ZN9DJI_GroupD0Ev)
+    [Anonymous Symbol]                       0x0800d8c0   Section        0  motor_dji.o(.text._ZN9DJI_Motor11packCommandEP8CanFramej)
+    [Anonymous Symbol]                       0x0800d8c8   Section        0  motor_dji.o(.text._ZN9DJI_Motor14updateFeedbackERK8CanFrame)
+    [Anonymous Symbol]                       0x0800d968   Section        0  bsp_timestamp.o(.text._ZN9TimeStamp11getInstanceEv)
+    [Anonymous Symbol]                       0x0800d9a8   Section        0  bsp_timestamp.o(.text._ZN9TimeStamp16overflowCallbackEv)
+    [Anonymous Symbol]                       0x0800d9e8   Section        0  bsp_timestamp.o(.text._ZN9TimeStamp4initEP17TIM_HandleTypeDef)
+    [Anonymous Symbol]                       0x0800da08   Section        0  motor_dji.o(.text._ZNK10Motor_Base10getCurrentEv)
+    [Anonymous Symbol]                       0x0800da08   Section        0  motor_dji.o(.text._ZNK10Motor_Base13getTotalAngleEv)
+    [Anonymous Symbol]                       0x0800da08   Section        0  motor_dji.o(.text._ZNK10Motor_Base13get_GearRatioEv)
+    [Anonymous Symbol]                       0x0800da08   Section        0  motor_dji.o(.text._ZNK10Motor_Base12matchesFrameERK8CanFrame)
+    [Anonymous Symbol]                       0x0800da10   Section        0  motor_dji.o(.text._ZNK5M350813getTotalAngleEv)
+    [Anonymous Symbol]                       0x0800da10   Section        0  motor_dji.o(.text._ZNK10Motor_Base6getRPMEv)
+    [Anonymous Symbol]                       0x0800da10   Section        0  motor_dji.o(.text._ZNK10Motor_Base8getAngleEv)
+    [Anonymous Symbol]                       0x0800da18   Section        0  motor_dji.o(.text._ZNK5M350813get_GearRatioEv)
+    [Anonymous Symbol]                       0x0800da20   Section        0  motor_dji.o(.text._ZNK5M35086getRPMEv)
+    [Anonymous Symbol]                       0x0800da28   Section        0  motor_dji.o(.text._ZNK5M35088getAngleEv)
+    [Anonymous Symbol]                       0x0800da30   Section        0  motor_dji.o(.text._ZNK9DJI_Motor12matchesFrameERK8CanFrame)
+    [Anonymous Symbol]                       0x0800da80   Section        0  motor_dji.o(.text._ZNK9DJI_Motor7recv_idEv)
+    [Anonymous Symbol]                       0x0800da88   Section        0  bsp_timestamp.o(.text._ZNK9TimeStamp10getSecondsEv)
+    [Anonymous Symbol]                       0x0800daf8   Section        0  bsp_timestamp.o(.text._ZNK9TimeStamp15getMicrosecondsEv)
+    [Anonymous Symbol]                       0x0800db4e   Section        0  new.cpp.o(.text._ZdlPv)
+    [Anonymous Symbol]                       0x0800db52   Section        0  new.cpp.o(.text._ZdlPvj)
+    [Anonymous Symbol]                       0x0800db58   Section        0  bsp_fdcan_driver.o(.text.fdcan_global_rx_isr)
+    [Anonymous Symbol]                       0x0800dbf0   Section        0  bsp_fdcan_driver.o(.text.fdcan_global_scheduler_tick_isr)
+    [Anonymous Symbol]                       0x0800dc48   Section        0  main.o(.text.main)
+    [Anonymous Symbol]                       0x0800dcb8   Section        0  cmsis_os2.o(.text.osDelay)
+    [Anonymous Symbol]                       0x0800dcd8   Section        0  cmsis_os2.o(.text.osKernelInitialize)
+    [Anonymous Symbol]                       0x0800dd08   Section        0  cmsis_os2.o(.text.osKernelStart)
+    [Anonymous Symbol]                       0x0800dd48   Section        0  cmsis_os2.o(.text.osThreadNew)
+    prvAddNewTaskToReadyList                 0x0800dde1   Thumb Code   650  tasks.o(.text.prvAddNewTaskToReadyList)
+    [Anonymous Symbol]                       0x0800dde0   Section        0  tasks.o(.text.prvAddNewTaskToReadyList)
+    prvIdleTask                              0x0800e071   Thumb Code   134  tasks.o(.text.prvIdleTask)
+    [Anonymous Symbol]                       0x0800e070   Section        0  tasks.o(.text.prvIdleTask)
+    prvInitialiseNewTask                     0x0800e0f9   Thumb Code   258  tasks.o(.text.prvInitialiseNewTask)
+    [Anonymous Symbol]                       0x0800e0f8   Section        0  tasks.o(.text.prvInitialiseNewTask)
+    prvPortStartFirstTask                    0x0800e201   Thumb Code    34  port.o(.text.prvPortStartFirstTask)
+    [Anonymous Symbol]                       0x0800e200   Section        0  port.o(.text.prvPortStartFirstTask)
+    prvTaskExitError                         0x0800e229   Thumb Code    64  port.o(.text.prvTaskExitError)
+    [Anonymous Symbol]                       0x0800e228   Section        0  port.o(.text.prvTaskExitError)
+    prvTimerTask                             0x0800e269   Thumb Code   890  timers.o(.text.prvTimerTask)
+    [Anonymous Symbol]                       0x0800e268   Section        0  timers.o(.text.prvTimerTask)
+    prvUnlockQueue                           0x0800e5e9   Thumb Code   122  queue.o(.text.prvUnlockQueue)
+    [Anonymous Symbol]                       0x0800e5e8   Section        0  queue.o(.text.prvUnlockQueue)
+    [Anonymous Symbol]                       0x0800e668   Section        0  heap_4.o(.text.pvPortMalloc)
+    [Anonymous Symbol]                       0x0800e850   Section        0  tasks.o(.text.pvTaskIncrementMutexHeldCount)
+    [Anonymous Symbol]                       0x0800e868   Section        0  port.o(.text.pxPortInitialiseStack)
+    [Anonymous Symbol]                       0x0800e894   Section        0  cxa_guard.cpp.o(.text.unlikely.__cxa_guard_acquire)
+    [Anonymous Symbol]                       0x0800e8c0   Section        0  cxa_guard.cpp.o(.text.unlikely.__cxa_guard_release)
+    [Anonymous Symbol]                       0x0800e8c8   Section        0  abort_message.cpp.o(.text.unlikely.abort_message)
+    [Anonymous Symbol]                       0x0800e8d0   Section        0  list.o(.text.uxListRemove)
+    [Anonymous Symbol]                       0x0800e8f8   Section        0  cmsis_os2.o(.text.vApplicationGetIdleTaskMemory)
+    [Anonymous Symbol]                       0x0800e918   Section        0  cmsis_os2.o(.text.vApplicationGetTimerTaskMemory)
+    [Anonymous Symbol]                       0x0800e938   Section        0  list.o(.text.vListInitialise)
+    [Anonymous Symbol]                       0x0800e950   Section        0  list.o(.text.vListInitialiseItem)
+    [Anonymous Symbol]                       0x0800e958   Section        0  list.o(.text.vListInsert)
+    [Anonymous Symbol]                       0x0800e9c0   Section        0  list.o(.text.vListInsertEnd)
+    vPortEnableVFP                           0x0800e9e1   Thumb Code    14  port.o(.text.vPortEnableVFP)
+    [Anonymous Symbol]                       0x0800e9e0   Section        0  port.o(.text.vPortEnableVFP)
+    [Anonymous Symbol]                       0x0800e9f8   Section        0  port.o(.text.vPortEnterCritical)
+    [Anonymous Symbol]                       0x0800ea48   Section        0  port.o(.text.vPortExitCritical)
+    [Anonymous Symbol]                       0x0800ea78   Section        0  heap_4.o(.text.vPortFree)
+    [Anonymous Symbol]                       0x0800eb58   Section        0  port.o(.text.vPortSetupTimerInterrupt)
+    [Anonymous Symbol]                       0x0800eb90   Section        0  port.o(.text.vPortValidateInterruptPriority)
+    [Anonymous Symbol]                       0x0800ebf0   Section        0  queue.o(.text.vQueueAddToRegistry)
+    [Anonymous Symbol]                       0x0800ec48   Section        0  queue.o(.text.vQueueDelete)
+    [Anonymous Symbol]                       0x0800ecc8   Section        0  queue.o(.text.vQueueWaitForMessageRestricted)
+    [Anonymous Symbol]                       0x0800ed30   Section        0  tasks.o(.text.vTaskDelay)
+    [Anonymous Symbol]                       0x0800edb0   Section        0  tasks.o(.text.vTaskDelete)
+    [Anonymous Symbol]                       0x0800ee98   Section        0  tasks.o(.text.vTaskInternalSetTimeOutState)
+    [Anonymous Symbol]                       0x0800eeb0   Section        0  tasks.o(.text.vTaskMissedYield)
+    [Anonymous Symbol]                       0x0800eec0   Section        0  tasks.o(.text.vTaskPlaceOnEventList)
+    [Anonymous Symbol]                       0x0800ef38   Section        0  tasks.o(.text.vTaskPlaceOnEventListRestricted)
+    [Anonymous Symbol]                       0x0800efb8   Section        0  tasks.o(.text.vTaskPriorityDisinheritAfterTimeout)
+    [Anonymous Symbol]                       0x0800f060   Section        0  tasks.o(.text.vTaskStartScheduler)
+    [Anonymous Symbol]                       0x0800f150   Section        0  tasks.o(.text.vTaskSuspendAll)
+    [Anonymous Symbol]                       0x0800f160   Section        0  tasks.o(.text.vTaskSwitchContext)
+    [Anonymous Symbol]                       0x0800f228   Section        0  port.o(.text.xPortStartScheduler)
+    [Anonymous Symbol]                       0x0800f3b8   Section        0  port.o(.text.xPortSysTickHandler)
+    [Anonymous Symbol]                       0x0800f3e8   Section        0  queue.o(.text.xQueueCreateMutex)
+    [Anonymous Symbol]                       0x0800f458   Section        0  queue.o(.text.xQueueGenericCreate)
+    [Anonymous Symbol]                       0x0800f4e0   Section        0  queue.o(.text.xQueueGenericCreateStatic)
+    [Anonymous Symbol]                       0x0800f5c0   Section        0  queue.o(.text.xQueueGenericSend)
+    [Anonymous Symbol]                       0x0800f880   Section        0  queue.o(.text.xQueueGenericSendFromISR)
+    [Anonymous Symbol]                       0x0800f9c8   Section        0  queue.o(.text.xQueueGiveFromISR)
+    [Anonymous Symbol]                       0x0800fa88   Section        0  queue.o(.text.xQueueReceive)
+    [Anonymous Symbol]                       0x0800fcc8   Section        0  queue.o(.text.xQueueSemaphoreTake)
+    [Anonymous Symbol]                       0x0800ff58   Section        0  tasks.o(.text.xTaskCheckForTimeOut)
+    [Anonymous Symbol]                       0x0800fff8   Section        0  tasks.o(.text.xTaskCreate)
+    [Anonymous Symbol]                       0x08010058   Section        0  tasks.o(.text.xTaskCreateStatic)
+    [Anonymous Symbol]                       0x080100d8   Section        0  tasks.o(.text.xTaskGetSchedulerState)
+    [Anonymous Symbol]                       0x080100f8   Section        0  tasks.o(.text.xTaskGetTickCount)
+    [Anonymous Symbol]                       0x08010108   Section        0  tasks.o(.text.xTaskIncrementTick)
+    [Anonymous Symbol]                       0x08010210   Section        0  tasks.o(.text.xTaskPriorityDisinherit)
+    [Anonymous Symbol]                       0x080102a0   Section        0  tasks.o(.text.xTaskPriorityInherit)
+    [Anonymous Symbol]                       0x08010330   Section        0  tasks.o(.text.xTaskRemoveFromEventList)
+    [Anonymous Symbol]                       0x080103a8   Section        0  tasks.o(.text.xTaskResumeAll)
+    [Anonymous Symbol]                       0x08010498   Section        0  timers.o(.text.xTimerCreateTimerTask)
+    CL$$btod_d2e                             0x0801054c   Section       62  btod.o(CL$$btod_d2e)
+    CL$$btod_d2e_denorm_low                  0x0801058a   Section       70  btod.o(CL$$btod_d2e_denorm_low)
+    CL$$btod_d2e_norm_op1                    0x080105d0   Section       96  btod.o(CL$$btod_d2e_norm_op1)
+    CL$$btod_div_common                      0x08010630   Section      824  btod.o(CL$$btod_div_common)
+    CL$$btod_e2e                             0x08010968   Section      220  btod.o(CL$$btod_e2e)
+    CL$$btod_ediv                            0x08010a44   Section       42  btod.o(CL$$btod_ediv)
+    CL$$btod_emul                            0x08010a6e   Section       42  btod.o(CL$$btod_emul)
+    CL$$btod_mult_common                     0x08010a98   Section      580  btod.o(CL$$btod_mult_common)
+    i.__ARM_fpclassify                       0x08010cdc   Section        0  fpclassify.o(i.__ARM_fpclassify)
+    i.__hardfp_fmodf                         0x08010d0c   Section        0  fmodf.o(i.__hardfp_fmodf)
+    i.__mathlib_flt_invalid                  0x08010dbc   Section        0  funder.o(i.__mathlib_flt_invalid)
+    i._is_digit                              0x08010dcc   Section        0  __printf_wp.o(i._is_digit)
+    locale$$code                             0x08010ddc   Section       44  lc_numeric_c.o(locale$$code)
+    locale$$code                             0x08010e08   Section       44  lc_ctype_c.o(locale$$code)
+    $v0                                      0x08010e34   Number         0  dretinf.o(x$fpl$dretinf)
+    x$fpl$dretinf                            0x08010e34   Section       12  dretinf.o(x$fpl$dretinf)
+    $v0                                      0x08010e40   Number         0  f2d.o(x$fpl$f2d)
+    x$fpl$f2d                                0x08010e40   Section       86  f2d.o(x$fpl$f2d)
+    $v0                                      0x08010e96   Number         0  ffltll_clz.o(x$fpl$ffltll)
+    x$fpl$ffltll                             0x08010e96   Section       96  ffltll_clz.o(x$fpl$ffltll)
+    $v0                                      0x08010ef6   Number         0  fnaninf.o(x$fpl$fnaninf)
+    x$fpl$fnaninf                            0x08010ef6   Section      140  fnaninf.o(x$fpl$fnaninf)
+    $v0                                      0x08010f82   Number         0  fpinit.o(x$fpl$fpinit)
+    x$fpl$fpinit                             0x08010f82   Section       26  fpinit.o(x$fpl$fpinit)
+    $v0                                      0x08010f9c   Number         0  frem_clz.o(x$fpl$frem)
+    x$fpl$frem                               0x08010f9c   Section      244  frem_clz.o(x$fpl$frem)
+    $v0                                      0x08011090   Number         0  printf1.o(x$fpl$printf1)
+    x$fpl$printf1                            0x08011090   Section        4  printf1.o(x$fpl$printf1)
+    $v0                                      0x08011094   Number         0  printf2.o(x$fpl$printf2)
+    x$fpl$printf2                            0x08011094   Section        4  printf2.o(x$fpl$printf2)
+    initial_mbstate                          0x08011098   Data           8  _printf_wctomb.o(.constdata)
+    .constdata                               0x08011098   Section        8  _printf_wctomb.o(.constdata)
+    x$fpl$usenofp                            0x08011098   Section        0  usenofp.o(x$fpl$usenofp)
+    uc_hextab                                0x080110a0   Data          20  _printf_hex_int_ll_ptr.o(.constdata)
+    .constdata                               0x080110a0   Section       40  _printf_hex_int_ll_ptr.o(.constdata)
+    lc_hextab                                0x080110b4   Data          20  _printf_hex_int_ll_ptr.o(.constdata)
+    maptable                                 0x080110c8   Data          17  __printf_flags_ss_wp.o(.constdata)
+    .constdata                               0x080110c8   Section       17  __printf_flags_ss_wp.o(.constdata)
+    lc_hextab                                0x080110d9   Data          19  _printf_fp_hex.o(.constdata)
+    .constdata                               0x080110d9   Section       38  _printf_fp_hex.o(.constdata)
+    uc_hextab                                0x080110ec   Data          19  _printf_fp_hex.o(.constdata)
+    tenpwrs_x                                0x08011100   Data          60  bigflt0.o(.constdata)
+    .constdata                               0x08011100   Section      148  bigflt0.o(.constdata)
+    tenpwrs_i                                0x0801113c   Data          64  bigflt0.o(.constdata)
+    .L__const.HAL_FDCAN_Init.CvtEltSize      0x08011194   Data          76  stm32h7xx_hal_fdcan.o(.rodata..L__const.HAL_FDCAN_Init.CvtEltSize)
+    .Lswitch.table.UART_SetConfig.7          0x080111e0   Data           6  stm32h7xx_hal_uart.o(.rodata..Lswitch.table.UART_SetConfig.7)
+    .Lswitch.table.UART_SetConfig.9          0x080111e6   Data           6  stm32h7xx_hal_uart.o(.rodata..Lswitch.table.UART_SetConfig.9)
+    DLCtoBytes                               0x080112e8   Data          16  stm32h7xx_hal_fdcan.o(.rodata.cst16)
+    [Anonymous Symbol]                       0x080112e8   Section        0  stm32h7xx_hal_fdcan.o(.rodata.cst16)
+    UARTEx_SetNbDataToProcess.numerator      0x080112f8   Data           8  stm32h7xx_hal_uart_ex.o(.rodata.cst8)
+    [Anonymous Symbol]                       0x080112f8   Section        0  stm32h7xx_hal_uart_ex.o(.rodata.cst8)
+    UARTEx_SetNbDataToProcess.denominator    0x08011300   Data           8  stm32h7xx_hal_uart_ex.o(.rodata.cst8)
+    [Anonymous Symbol]                       0x0801132c   Section        0  freertos.o(.rodata.str1.1)
+    .L.str.1                                 0x08011338   Data           5  timers.o(.rodata.str1.1)
+    [Anonymous Symbol]                       0x08011338   Section        0  timers.o(.rodata.str1.1)
+    [Anonymous Symbol]                       0x0801133d   Section        0  setup_configinit.o(.rodata.str1.1)
+    .L.str                                   0x0801134b   Data         147  cxa_guard.cpp.o(.rodata.str1.1)
+    [Anonymous Symbol]                       0x0801134b   Section        0  cxa_guard.cpp.o(.rodata.str1.1)
+    locale$$data                             0x08011400   Section       28  lc_numeric_c.o(locale$$data)
+    __lcnum_c_name                           0x08011404   Data           2  lc_numeric_c.o(locale$$data)
+    __lcnum_c_start                          0x0801140c   Data           0  lc_numeric_c.o(locale$$data)
+    __lcnum_c_point                          0x08011418   Data           0  lc_numeric_c.o(locale$$data)
+    __lcnum_c_thousands                      0x0801141a   Data           0  lc_numeric_c.o(locale$$data)
+    __lcnum_c_grouping                       0x0801141b   Data           0  lc_numeric_c.o(locale$$data)
+    __lcnum_c_end                            0x0801141c   Data           0  lc_numeric_c.o(locale$$data)
+    locale$$data                             0x0801141c   Section      272  lc_ctype_c.o(locale$$data)
+    __lcctype_c_name                         0x08011420   Data           2  lc_ctype_c.o(locale$$data)
+    __lcctype_c_start                        0x08011428   Data           0  lc_ctype_c.o(locale$$data)
+    __lcctype_c_end                          0x0801152c   Data           0  lc_ctype_c.o(locale$$data)
+    .init_array                              0x08011530   Section        0  init_aeabi.o(.init_array)
     .data                                    0x24000000   Section        4  cxa_finalize.o(.data)
     .data                                    0x24000004   Section        4  atexit_init.o(.data)
     .L_MergedGlobals                         0x24000008   Data           8  stm32h7xx_hal.o(.data..L_MergedGlobals)
@@ -7912,163 +7912,163 @@ Image Symbol Table
     DJI_MotorDemo::~DJI_MotorDemo__deallocating() 0x0800ce41   Thumb Code     6  frame_demo.o(.text._ZN13DJI_MotorDemoD0Ev)
     DJI_MotorDemo::~DJI_MotorDemo__sub_object() 0x0800ce49   Thumb Code     2  frame_demo.o(.text._ZN13DJI_MotorDemoD2Ev)
     PID_Incremental::set_params(PID_Param_Config const&, float) 0x0800ce51   Thumb Code    32  app_pid.o(.text._ZN15PID_Incremental10set_paramsERK16PID_Param_Configf)
-    PID_Incremental::pid_calc(float, float)  0x0800ce71   Thumb Code   392  app_pid.o(.text._ZN15PID_Incremental8pid_calcEff)
-    M3508::setTargetRPM(float)               0x0800d009   Thumb Code    12  motor_dji.o(.text._ZN5M350812setTargetRPMEf)
-    M3508::setTargetAngle(float)             0x0800d019   Thumb Code    18  motor_dji.o(.text._ZN5M350814setTargetAngleEf)
-    M3508::setTargetCurrent(float)           0x0800d031   Thumb Code    12  motor_dji.o(.text._ZN5M350816setTargetCurrentEf)
-    M3508::setTargetTotalAngle(float)        0x0800d041   Thumb Code    18  motor_dji.o(.text._ZN5M350819setTargetTotalAngleEf)
-    M3508::update()                          0x0800d059   Thumb Code   164  motor_dji.o(.text._ZN5M35086updateEv)
-    M3508::pid_init(PID_Param_Config const&, float, PID_Param_Config const&, float) 0x0800d101   Thumb Code    42  motor_dji.o(.text._ZN5M35088pid_initERK16PID_Param_ConfigfS2_f)
-    M3508::M3508(unsigned int, fdCANbus*)    0x0800d131   Thumb Code   186  motor_dji.o(.text._ZN5M3508C2EjP8fdCANbus)
-    M3508::M3508__sub_object(unsigned int, fdCANbus*) 0x0800d131   Thumb Code   186  motor_dji.o(.text._ZN5M3508C2EjP8fdCANbus)
-    M3508::~M3508__deallocating()            0x0800d1f1   Thumb Code     8  motor_dji.o(.text._ZN5M3508D0Ev)
-    Encoder::update(unsigned short)          0x0800d1f9   Thumb Code   140  module_encoder.o(.text._ZN7Encoder6updateEt)
-    RtosTask::run()                          0x0800d289   Thumb Code    14  frame_demo.o(.text._ZN8RtosTask3runEv)
-    RtosTask::loop()                         0x0800d299   Thumb Code     2  bsp_fdcan_driver.o(.text._ZN8RtosTask4loopEv)
-    RtosTask::taskEntry(void*)               0x0800d2a1   Thumb Code    42  bsp_fdcan_driver.o(.text._ZN8RtosTask9taskEntryEPv)
-    RtosTask::~RtosTask__sub_object()        0x0800d2d1   Thumb Code     2  bsp_fdcan_driver.o(.text._ZN8RtosTaskD2Ev)
-    fdCANbus::rxTaskbody()                   0x0800d2d9   Thumb Code   246  bsp_fdcan_driver.o(.text._ZN8fdCANbus10rxTaskbodyEv)
-    fdCANbus::registerMotor(Motor_Base*)     0x0800d3d1   Thumb Code   134  bsp_fdcan_driver.o(.text._ZN8fdCANbus13registerMotorEP10Motor_Base)
-    fdCANbus::schedulerTaskbody()            0x0800d459   Thumb Code   418  bsp_fdcan_driver.o(.text._ZN8fdCANbus17schedulerTaskbodyEv)
-    fdCANbus::init()                         0x0800d601   Thumb Code   182  bsp_fdcan_driver.o(.text._ZN8fdCANbus4initEv)
-    fdCANbus::RxTask::run()                  0x0800d6b9   Thumb Code     6  bsp_fdcan_driver.o(.text._ZN8fdCANbus6RxTask3runEv)
-    fdCANbus::RxTask::RxTask(fdCANbus*)      0x0800d6c1   Thumb Code    28  bsp_fdcan_driver.o(.text._ZN8fdCANbus6RxTaskC2EPS_)
-    fdCANbus::RxTask::RxTask__sub_object(fdCANbus*) 0x0800d6c1   Thumb Code    28  bsp_fdcan_driver.o(.text._ZN8fdCANbus6RxTaskC2EPS_)
-    fdCANbus::RxTask::~RxTask__deallocating() 0x0800d6e9   Thumb Code     6  bsp_fdcan_driver.o(.text._ZN8fdCANbus6RxTaskD0Ev)
-    fdCANbus::SchedTask::run()               0x0800d6f1   Thumb Code     6  bsp_fdcan_driver.o(.text._ZN8fdCANbus9SchedTask3runEv)
-    fdCANbus::SchedTask::SchedTask(fdCANbus*) 0x0800d6f9   Thumb Code    28  bsp_fdcan_driver.o(.text._ZN8fdCANbus9SchedTaskC2EPS_)
-    fdCANbus::SchedTask::SchedTask__sub_object(fdCANbus*) 0x0800d6f9   Thumb Code    28  bsp_fdcan_driver.o(.text._ZN8fdCANbus9SchedTaskC2EPS_)
-    fdCANbus::SchedTask::~SchedTask__deallocating() 0x0800d721   Thumb Code     6  bsp_fdcan_driver.o(.text._ZN8fdCANbus9SchedTaskD0Ev)
-    fdCANbus::~fdCANbus__sub_object()        0x0800d729   Thumb Code    26  frame_demo.o(.text._ZN8fdCANbusD2Ev)
-    DJI_Group::packCommand(CanFrame*, unsigned int) 0x0800d749   Thumb Code   188  motor_dji.o(.text._ZN9DJI_Group11packCommandEP8CanFramej)
-    DJI_Group::updateFeedback(CanFrame const&) 0x0800d811   Thumb Code     2  motor_dji.o(.text._ZN9DJI_Group14updateFeedbackERK8CanFrame)
-    DJI_Group::update()                      0x0800d819   Thumb Code     2  motor_dji.o(.text._ZN9DJI_Group6updateEv)
-    DJI_Group::addMotor(DJI_Motor*)          0x0800d821   Thumb Code   168  motor_dji.o(.text._ZN9DJI_Group8addMotorEP9DJI_Motor)
-    DJI_Group::DJI_Group(unsigned int, fdCANbus*) 0x0800d8c9   Thumb Code    60  motor_dji.o(.text._ZN9DJI_GroupC2EjP8fdCANbus)
-    DJI_Group::DJI_Group__sub_object(unsigned int, fdCANbus*) 0x0800d8c9   Thumb Code    60  motor_dji.o(.text._ZN9DJI_GroupC2EjP8fdCANbus)
-    DJI_Group::~DJI_Group__deallocating()    0x0800d909   Thumb Code     6  motor_dji.o(.text._ZN9DJI_GroupD0Ev)
-    DJI_Motor::packCommand(CanFrame*, unsigned int) 0x0800d911   Thumb Code     4  motor_dji.o(.text._ZN9DJI_Motor11packCommandEP8CanFramej)
-    DJI_Motor::updateFeedback(CanFrame const&) 0x0800d919   Thumb Code   156  motor_dji.o(.text._ZN9DJI_Motor14updateFeedbackERK8CanFrame)
-    TimeStamp::getInstance()                 0x0800d9b9   Thumb Code    62  bsp_timestamp.o(.text._ZN9TimeStamp11getInstanceEv)
-    TimeStamp::overflowCallback()            0x0800d9f9   Thumb Code    58  bsp_timestamp.o(.text._ZN9TimeStamp16overflowCallbackEv)
-    TimeStamp::init(TIM_HandleTypeDef*)      0x0800da39   Thumb Code    30  bsp_timestamp.o(.text._ZN9TimeStamp4initEP17TIM_HandleTypeDef)
-    Motor_Base::getCurrent() const           0x0800da59   Thumb Code     0  motor_dji.o(.text._ZNK10Motor_Base10getCurrentEv)
-    Motor_Base::matchesFrame(CanFrame const&) const 0x0800da59   Thumb Code     0  motor_dji.o(.text._ZNK10Motor_Base12matchesFrameERK8CanFrame)
-    Motor_Base::getTotalAngle() const        0x0800da59   Thumb Code     0  motor_dji.o(.text._ZNK10Motor_Base13getTotalAngleEv)
-    Motor_Base::get_GearRatio() const        0x0800da59   Thumb Code     6  motor_dji.o(.text._ZNK10Motor_Base13get_GearRatioEv)
-    Motor_Base::getRPM() const               0x0800da61   Thumb Code     0  motor_dji.o(.text._ZNK10Motor_Base6getRPMEv)
-    Motor_Base::getAngle() const             0x0800da61   Thumb Code     0  motor_dji.o(.text._ZNK10Motor_Base8getAngleEv)
-    M3508::getTotalAngle() const             0x0800da61   Thumb Code     6  motor_dji.o(.text._ZNK5M350813getTotalAngleEv)
-    M3508::get_GearRatio() const             0x0800da69   Thumb Code     6  motor_dji.o(.text._ZNK5M350813get_GearRatioEv)
-    M3508::getRPM() const                    0x0800da71   Thumb Code     6  motor_dji.o(.text._ZNK5M35086getRPMEv)
-    M3508::getAngle() const                  0x0800da79   Thumb Code     6  motor_dji.o(.text._ZNK5M35088getAngleEv)
-    DJI_Motor::matchesFrame(CanFrame const&) const 0x0800da81   Thumb Code    74  motor_dji.o(.text._ZNK9DJI_Motor12matchesFrameERK8CanFrame)
-    DJI_Motor::recv_id() const               0x0800dad1   Thumb Code     6  motor_dji.o(.text._ZNK9DJI_Motor7recv_idEv)
-    TimeStamp::getSeconds() const            0x0800dad9   Thumb Code   104  bsp_timestamp.o(.text._ZNK9TimeStamp10getSecondsEv)
-    TimeStamp::getMicroseconds() const       0x0800db49   Thumb Code    86  bsp_timestamp.o(.text._ZNK9TimeStamp15getMicrosecondsEv)
-    operator delete(void*)                   0x0800db9f   Thumb Code     4  new.cpp.o(.text._ZdlPv)
-    operator delete(void*, unsigned int)     0x0800dba3   Thumb Code     4  new.cpp.o(.text._ZdlPvj)
-    fdcan_global_rx_isr                      0x0800dba9   Thumb Code   150  bsp_fdcan_driver.o(.text.fdcan_global_rx_isr)
-    fdcan_global_scheduler_tick_isr          0x0800dc41   Thumb Code    82  bsp_fdcan_driver.o(.text.fdcan_global_scheduler_tick_isr)
-    main                                     0x0800dc99   Thumb Code   110  main.o(.text.main)
-    osDelay                                  0x0800dd09   Thumb Code    32  cmsis_os2.o(.text.osDelay)
-    osKernelInitialize                       0x0800dd29   Thumb Code    42  cmsis_os2.o(.text.osKernelInitialize)
-    osKernelStart                            0x0800dd59   Thumb Code    62  cmsis_os2.o(.text.osKernelStart)
-    osThreadNew                              0x0800dd99   Thumb Code   148  cmsis_os2.o(.text.osThreadNew)
-    pvPortMalloc                             0x0800e6b9   Thumb Code   488  heap_4.o(.text.pvPortMalloc)
-    pvTaskIncrementMutexHeldCount            0x0800e8a1   Thumb Code    24  tasks.o(.text.pvTaskIncrementMutexHeldCount)
-    pxPortInitialiseStack                    0x0800e8b9   Thumb Code    44  port.o(.text.pxPortInitialiseStack)
-    __cxa_guard_acquire                      0x0800e8e5   Thumb Code    44  cxa_guard.cpp.o(.text.unlikely.__cxa_guard_acquire)
-    __cxa_guard_release                      0x0800e911   Thumb Code     8  cxa_guard.cpp.o(.text.unlikely.__cxa_guard_release)
-    abort_message                            0x0800e919   Thumb Code     4  abort_message.cpp.o(.text.unlikely.abort_message)
-    uxListRemove                             0x0800e921   Thumb Code    34  list.o(.text.uxListRemove)
-    vApplicationGetIdleTaskMemory            0x0800e949   Thumb Code    26  cmsis_os2.o(.text.vApplicationGetIdleTaskMemory)
-    vApplicationGetTimerTaskMemory           0x0800e969   Thumb Code    28  cmsis_os2.o(.text.vApplicationGetTimerTaskMemory)
-    vListInitialise                          0x0800e989   Thumb Code    22  list.o(.text.vListInitialise)
-    vListInitialiseItem                      0x0800e9a1   Thumb Code     6  list.o(.text.vListInitialiseItem)
-    vListInsert                              0x0800e9a9   Thumb Code    98  list.o(.text.vListInsert)
-    vListInsertEnd                           0x0800ea11   Thumb Code    26  list.o(.text.vListInsertEnd)
-    vPortEnterCritical                       0x0800ea49   Thumb Code    74  port.o(.text.vPortEnterCritical)
-    vPortExitCritical                        0x0800ea99   Thumb Code    46  port.o(.text.vPortExitCritical)
-    vPortFree                                0x0800eac9   Thumb Code   222  heap_4.o(.text.vPortFree)
-    vPortSetupTimerInterrupt                 0x0800eba9   Thumb Code    52  port.o(.text.vPortSetupTimerInterrupt)
-    vPortValidateInterruptPriority           0x0800ebe1   Thumb Code    94  port.o(.text.vPortValidateInterruptPriority)
-    vQueueAddToRegistry                      0x0800ec41   Thumb Code    88  queue.o(.text.vQueueAddToRegistry)
-    vQueueDelete                             0x0800ec99   Thumb Code   126  queue.o(.text.vQueueDelete)
-    vQueueWaitForMessageRestricted           0x0800ed19   Thumb Code   100  queue.o(.text.vQueueWaitForMessageRestricted)
-    vTaskDelay                               0x0800ed81   Thumb Code   128  tasks.o(.text.vTaskDelay)
-    vTaskDelete                              0x0800ee01   Thumb Code   226  tasks.o(.text.vTaskDelete)
-    vTaskInternalSetTimeOutState             0x0800eee9   Thumb Code    18  tasks.o(.text.vTaskInternalSetTimeOutState)
-    vTaskMissedYield                         0x0800ef01   Thumb Code    14  tasks.o(.text.vTaskMissedYield)
-    vTaskPlaceOnEventList                    0x0800ef11   Thumb Code   116  tasks.o(.text.vTaskPlaceOnEventList)
-    vTaskPlaceOnEventListRestricted          0x0800ef89   Thumb Code   122  tasks.o(.text.vTaskPlaceOnEventListRestricted)
-    vTaskPriorityDisinheritAfterTimeout      0x0800f009   Thumb Code   164  tasks.o(.text.vTaskPriorityDisinheritAfterTimeout)
-    vTaskStartScheduler                      0x0800f0b1   Thumb Code   232  tasks.o(.text.vTaskStartScheduler)
-    vTaskSuspendAll                          0x0800f1a1   Thumb Code    16  tasks.o(.text.vTaskSuspendAll)
-    vTaskSwitchContext                       0x0800f1b1   Thumb Code   200  tasks.o(.text.vTaskSwitchContext)
-    xPortStartScheduler                      0x0800f279   Thumb Code   394  port.o(.text.xPortStartScheduler)
-    xPortSysTickHandler                      0x0800f409   Thumb Code    46  port.o(.text.xPortSysTickHandler)
-    xQueueCreateMutex                        0x0800f439   Thumb Code   112  queue.o(.text.xQueueCreateMutex)
-    xQueueGenericCreate                      0x0800f4a9   Thumb Code   130  queue.o(.text.xQueueGenericCreate)
-    xQueueGenericCreateStatic                0x0800f531   Thumb Code   218  queue.o(.text.xQueueGenericCreateStatic)
-    xQueueGenericSend                        0x0800f611   Thumb Code   704  queue.o(.text.xQueueGenericSend)
-    xQueueGenericSendFromISR                 0x0800f8d1   Thumb Code   328  queue.o(.text.xQueueGenericSendFromISR)
-    xQueueGiveFromISR                        0x0800fa19   Thumb Code   186  queue.o(.text.xQueueGiveFromISR)
-    xQueueReceive                            0x0800fad9   Thumb Code   574  queue.o(.text.xQueueReceive)
-    xQueueSemaphoreTake                      0x0800fd19   Thumb Code   650  queue.o(.text.xQueueSemaphoreTake)
-    xTaskCheckForTimeOut                     0x0800ffa9   Thumb Code   154  tasks.o(.text.xTaskCheckForTimeOut)
-    xTaskCreate                              0x08010049   Thumb Code    96  tasks.o(.text.xTaskCreate)
-    xTaskCreateStatic                        0x080100a9   Thumb Code   122  tasks.o(.text.xTaskCreateStatic)
-    xTaskGetSchedulerState                   0x08010129   Thumb Code    28  tasks.o(.text.xTaskGetSchedulerState)
-    xTaskGetTickCount                        0x08010149   Thumb Code    12  tasks.o(.text.xTaskGetTickCount)
-    xTaskIncrementTick                       0x08010159   Thumb Code   260  tasks.o(.text.xTaskIncrementTick)
-    xTaskPriorityDisinherit                  0x08010261   Thumb Code   142  tasks.o(.text.xTaskPriorityDisinherit)
-    xTaskPriorityInherit                     0x080102f1   Thumb Code   144  tasks.o(.text.xTaskPriorityInherit)
-    xTaskRemoveFromEventList                 0x08010381   Thumb Code   116  tasks.o(.text.xTaskRemoveFromEventList)
-    xTaskResumeAll                           0x080103f9   Thumb Code   238  tasks.o(.text.xTaskResumeAll)
-    xTimerCreateTimerTask                    0x080104e9   Thumb Code   172  timers.o(.text.xTimerCreateTimerTask)
-    _btod_d2e                                0x0801059d   Thumb Code    62  btod.o(CL$$btod_d2e)
-    _d2e_denorm_low                          0x080105db   Thumb Code    70  btod.o(CL$$btod_d2e_denorm_low)
-    _d2e_norm_op1                            0x08010621   Thumb Code    96  btod.o(CL$$btod_d2e_norm_op1)
-    __btod_div_common                        0x08010681   Thumb Code   696  btod.o(CL$$btod_div_common)
-    _e2e                                     0x080109b9   Thumb Code   220  btod.o(CL$$btod_e2e)
-    _btod_ediv                               0x08010a95   Thumb Code    42  btod.o(CL$$btod_ediv)
-    _btod_emul                               0x08010abf   Thumb Code    42  btod.o(CL$$btod_emul)
-    __btod_mult_common                       0x08010ae9   Thumb Code   580  btod.o(CL$$btod_mult_common)
-    __ARM_fpclassify                         0x08010d2d   Thumb Code    48  fpclassify.o(i.__ARM_fpclassify)
-    __hardfp_fmodf                           0x08010d5d   Thumb Code   176  fmodf.o(i.__hardfp_fmodf)
-    __mathlib_flt_invalid                    0x08010e0d   Thumb Code    10  funder.o(i.__mathlib_flt_invalid)
-    _is_digit                                0x08010e1d   Thumb Code    14  __printf_wp.o(i._is_digit)
-    _get_lc_numeric                          0x08010e2d   Thumb Code    44  lc_numeric_c.o(locale$$code)
-    _get_lc_ctype                            0x08010e59   Thumb Code    44  lc_ctype_c.o(locale$$code)
-    __fpl_dretinf                            0x08010e85   Thumb Code    12  dretinf.o(x$fpl$dretinf)
-    __aeabi_f2d                              0x08010e91   Thumb Code     0  f2d.o(x$fpl$f2d)
-    _f2d                                     0x08010e91   Thumb Code    86  f2d.o(x$fpl$f2d)
-    __aeabi_ul2f                             0x08010ee7   Thumb Code     0  ffltll_clz.o(x$fpl$ffltll)
-    _ll_uto_f                                0x08010ee7   Thumb Code     6  ffltll_clz.o(x$fpl$ffltll)
-    __aeabi_l2f                              0x08010eed   Thumb Code     0  ffltll_clz.o(x$fpl$ffltll)
-    _ll_sto_f                                0x08010eed   Thumb Code    90  ffltll_clz.o(x$fpl$ffltll)
-    __fpl_fnaninf                            0x08010f47   Thumb Code   140  fnaninf.o(x$fpl$fnaninf)
-    _fp_init                                 0x08010fd3   Thumb Code    26  fpinit.o(x$fpl$fpinit)
-    __fplib_config_fpu_vfp                   0x08010feb   Thumb Code     0  fpinit.o(x$fpl$fpinit)
-    __fplib_config_pureend_doubles           0x08010feb   Thumb Code     0  fpinit.o(x$fpl$fpinit)
-    _frem                                    0x08010fed   Thumb Code   240  frem_clz.o(x$fpl$frem)
-    _printf_fp_dec                           0x080110e1   Thumb Code     4  printf1.o(x$fpl$printf1)
-    _printf_fp_hex                           0x080110e5   Thumb Code     4  printf2.o(x$fpl$printf2)
-    __I$use$fp                               0x080110e8   Number         0  usenofp.o(x$fpl$usenofp)
-    D1CorePrescTable                         0x0801123c   Data          16  system_stm32h7xx.o(.rodata.D1CorePrescTable)
-    UARTPrescTable                           0x0801124c   Data          24  stm32h7xx_hal_uart.o(.rodata.UARTPrescTable)
-    vtable for DJI_MotorDemo                 0x08011264   Data          24  frame_demo.o(.rodata._ZTV13DJI_MotorDemo)
-    vtable for M3508                         0x0801127c   Data          72  motor_dji.o(.rodata._ZTV5M3508)
-    vtable for DJI_Group                     0x080112c4   Data          68  motor_dji.o(.rodata._ZTV9DJI_Group)
-    vtable for fdCANbus::RxTask              0x08011308   Data          24  bsp_fdcan_driver.o(.rodata._ZTVN8fdCANbus6RxTaskE)
-    vtable for fdCANbus::SchedTask           0x08011320   Data          24  bsp_fdcan_driver.o(.rodata._ZTVN8fdCANbus9SchedTaskE)
-    defaultTask_attributes                   0x08011358   Data          36  freertos.o(.rodata.defaultTask_attributes)
-    Region$$Table$$Base                      0x08011430   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x08011450   Number         0  anon$$obj.o(Region$$Table)
-    __ctype                                  0x08011479   Data           0  lc_ctype_c.o(locale$$data)
-    SHT$$INIT_ARRAY$$Base                    0x0801157c   Number         0  frame_demo.o(.init_array)
-    SHT$$INIT_ARRAY$$Limit                   0x08011580   Number         0  init_aeabi.o(.init_array)
+    PID_Incremental::pid_calc(float, float)  0x0800ce71   Thumb Code   320  app_pid.o(.text._ZN15PID_Incremental8pid_calcEff)
+    M3508::setTargetRPM(float)               0x0800cfb9   Thumb Code    12  motor_dji.o(.text._ZN5M350812setTargetRPMEf)
+    M3508::setTargetAngle(float)             0x0800cfc9   Thumb Code    18  motor_dji.o(.text._ZN5M350814setTargetAngleEf)
+    M3508::setTargetCurrent(float)           0x0800cfe1   Thumb Code    12  motor_dji.o(.text._ZN5M350816setTargetCurrentEf)
+    M3508::setTargetTotalAngle(float)        0x0800cff1   Thumb Code    18  motor_dji.o(.text._ZN5M350819setTargetTotalAngleEf)
+    M3508::update()                          0x0800d009   Thumb Code   164  motor_dji.o(.text._ZN5M35086updateEv)
+    M3508::pid_init(PID_Param_Config const&, float, PID_Param_Config const&, float) 0x0800d0b1   Thumb Code    42  motor_dji.o(.text._ZN5M35088pid_initERK16PID_Param_ConfigfS2_f)
+    M3508::M3508(unsigned int, fdCANbus*)    0x0800d0e1   Thumb Code   186  motor_dji.o(.text._ZN5M3508C2EjP8fdCANbus)
+    M3508::M3508__sub_object(unsigned int, fdCANbus*) 0x0800d0e1   Thumb Code   186  motor_dji.o(.text._ZN5M3508C2EjP8fdCANbus)
+    M3508::~M3508__deallocating()            0x0800d1a1   Thumb Code     8  motor_dji.o(.text._ZN5M3508D0Ev)
+    Encoder::update(unsigned short)          0x0800d1a9   Thumb Code   140  module_encoder.o(.text._ZN7Encoder6updateEt)
+    RtosTask::run()                          0x0800d239   Thumb Code    14  frame_demo.o(.text._ZN8RtosTask3runEv)
+    RtosTask::loop()                         0x0800d249   Thumb Code     2  bsp_fdcan_driver.o(.text._ZN8RtosTask4loopEv)
+    RtosTask::taskEntry(void*)               0x0800d251   Thumb Code    42  bsp_fdcan_driver.o(.text._ZN8RtosTask9taskEntryEPv)
+    RtosTask::~RtosTask__sub_object()        0x0800d281   Thumb Code     2  bsp_fdcan_driver.o(.text._ZN8RtosTaskD2Ev)
+    fdCANbus::rxTaskbody()                   0x0800d289   Thumb Code   246  bsp_fdcan_driver.o(.text._ZN8fdCANbus10rxTaskbodyEv)
+    fdCANbus::registerMotor(Motor_Base*)     0x0800d381   Thumb Code   134  bsp_fdcan_driver.o(.text._ZN8fdCANbus13registerMotorEP10Motor_Base)
+    fdCANbus::schedulerTaskbody()            0x0800d409   Thumb Code   418  bsp_fdcan_driver.o(.text._ZN8fdCANbus17schedulerTaskbodyEv)
+    fdCANbus::init()                         0x0800d5b1   Thumb Code   182  bsp_fdcan_driver.o(.text._ZN8fdCANbus4initEv)
+    fdCANbus::RxTask::run()                  0x0800d669   Thumb Code     6  bsp_fdcan_driver.o(.text._ZN8fdCANbus6RxTask3runEv)
+    fdCANbus::RxTask::RxTask(fdCANbus*)      0x0800d671   Thumb Code    28  bsp_fdcan_driver.o(.text._ZN8fdCANbus6RxTaskC2EPS_)
+    fdCANbus::RxTask::RxTask__sub_object(fdCANbus*) 0x0800d671   Thumb Code    28  bsp_fdcan_driver.o(.text._ZN8fdCANbus6RxTaskC2EPS_)
+    fdCANbus::RxTask::~RxTask__deallocating() 0x0800d699   Thumb Code     6  bsp_fdcan_driver.o(.text._ZN8fdCANbus6RxTaskD0Ev)
+    fdCANbus::SchedTask::run()               0x0800d6a1   Thumb Code     6  bsp_fdcan_driver.o(.text._ZN8fdCANbus9SchedTask3runEv)
+    fdCANbus::SchedTask::SchedTask(fdCANbus*) 0x0800d6a9   Thumb Code    28  bsp_fdcan_driver.o(.text._ZN8fdCANbus9SchedTaskC2EPS_)
+    fdCANbus::SchedTask::SchedTask__sub_object(fdCANbus*) 0x0800d6a9   Thumb Code    28  bsp_fdcan_driver.o(.text._ZN8fdCANbus9SchedTaskC2EPS_)
+    fdCANbus::SchedTask::~SchedTask__deallocating() 0x0800d6d1   Thumb Code     6  bsp_fdcan_driver.o(.text._ZN8fdCANbus9SchedTaskD0Ev)
+    fdCANbus::~fdCANbus__sub_object()        0x0800d6d9   Thumb Code    26  frame_demo.o(.text._ZN8fdCANbusD2Ev)
+    DJI_Group::packCommand(CanFrame*, unsigned int) 0x0800d6f9   Thumb Code   184  motor_dji.o(.text._ZN9DJI_Group11packCommandEP8CanFramej)
+    DJI_Group::updateFeedback(CanFrame const&) 0x0800d7c1   Thumb Code     2  motor_dji.o(.text._ZN9DJI_Group14updateFeedbackERK8CanFrame)
+    DJI_Group::update()                      0x0800d7c9   Thumb Code     2  motor_dji.o(.text._ZN9DJI_Group6updateEv)
+    DJI_Group::addMotor(DJI_Motor*)          0x0800d7d1   Thumb Code   168  motor_dji.o(.text._ZN9DJI_Group8addMotorEP9DJI_Motor)
+    DJI_Group::DJI_Group(unsigned int, fdCANbus*) 0x0800d879   Thumb Code    60  motor_dji.o(.text._ZN9DJI_GroupC2EjP8fdCANbus)
+    DJI_Group::DJI_Group__sub_object(unsigned int, fdCANbus*) 0x0800d879   Thumb Code    60  motor_dji.o(.text._ZN9DJI_GroupC2EjP8fdCANbus)
+    DJI_Group::~DJI_Group__deallocating()    0x0800d8b9   Thumb Code     6  motor_dji.o(.text._ZN9DJI_GroupD0Ev)
+    DJI_Motor::packCommand(CanFrame*, unsigned int) 0x0800d8c1   Thumb Code     4  motor_dji.o(.text._ZN9DJI_Motor11packCommandEP8CanFramej)
+    DJI_Motor::updateFeedback(CanFrame const&) 0x0800d8c9   Thumb Code   156  motor_dji.o(.text._ZN9DJI_Motor14updateFeedbackERK8CanFrame)
+    TimeStamp::getInstance()                 0x0800d969   Thumb Code    62  bsp_timestamp.o(.text._ZN9TimeStamp11getInstanceEv)
+    TimeStamp::overflowCallback()            0x0800d9a9   Thumb Code    58  bsp_timestamp.o(.text._ZN9TimeStamp16overflowCallbackEv)
+    TimeStamp::init(TIM_HandleTypeDef*)      0x0800d9e9   Thumb Code    30  bsp_timestamp.o(.text._ZN9TimeStamp4initEP17TIM_HandleTypeDef)
+    Motor_Base::getCurrent() const           0x0800da09   Thumb Code     0  motor_dji.o(.text._ZNK10Motor_Base10getCurrentEv)
+    Motor_Base::matchesFrame(CanFrame const&) const 0x0800da09   Thumb Code     0  motor_dji.o(.text._ZNK10Motor_Base12matchesFrameERK8CanFrame)
+    Motor_Base::getTotalAngle() const        0x0800da09   Thumb Code     0  motor_dji.o(.text._ZNK10Motor_Base13getTotalAngleEv)
+    Motor_Base::get_GearRatio() const        0x0800da09   Thumb Code     6  motor_dji.o(.text._ZNK10Motor_Base13get_GearRatioEv)
+    Motor_Base::getRPM() const               0x0800da11   Thumb Code     0  motor_dji.o(.text._ZNK10Motor_Base6getRPMEv)
+    Motor_Base::getAngle() const             0x0800da11   Thumb Code     0  motor_dji.o(.text._ZNK10Motor_Base8getAngleEv)
+    M3508::getTotalAngle() const             0x0800da11   Thumb Code     6  motor_dji.o(.text._ZNK5M350813getTotalAngleEv)
+    M3508::get_GearRatio() const             0x0800da19   Thumb Code     6  motor_dji.o(.text._ZNK5M350813get_GearRatioEv)
+    M3508::getRPM() const                    0x0800da21   Thumb Code     6  motor_dji.o(.text._ZNK5M35086getRPMEv)
+    M3508::getAngle() const                  0x0800da29   Thumb Code     6  motor_dji.o(.text._ZNK5M35088getAngleEv)
+    DJI_Motor::matchesFrame(CanFrame const&) const 0x0800da31   Thumb Code    74  motor_dji.o(.text._ZNK9DJI_Motor12matchesFrameERK8CanFrame)
+    DJI_Motor::recv_id() const               0x0800da81   Thumb Code     6  motor_dji.o(.text._ZNK9DJI_Motor7recv_idEv)
+    TimeStamp::getSeconds() const            0x0800da89   Thumb Code   104  bsp_timestamp.o(.text._ZNK9TimeStamp10getSecondsEv)
+    TimeStamp::getMicroseconds() const       0x0800daf9   Thumb Code    86  bsp_timestamp.o(.text._ZNK9TimeStamp15getMicrosecondsEv)
+    operator delete(void*)                   0x0800db4f   Thumb Code     4  new.cpp.o(.text._ZdlPv)
+    operator delete(void*, unsigned int)     0x0800db53   Thumb Code     4  new.cpp.o(.text._ZdlPvj)
+    fdcan_global_rx_isr                      0x0800db59   Thumb Code   150  bsp_fdcan_driver.o(.text.fdcan_global_rx_isr)
+    fdcan_global_scheduler_tick_isr          0x0800dbf1   Thumb Code    82  bsp_fdcan_driver.o(.text.fdcan_global_scheduler_tick_isr)
+    main                                     0x0800dc49   Thumb Code   110  main.o(.text.main)
+    osDelay                                  0x0800dcb9   Thumb Code    32  cmsis_os2.o(.text.osDelay)
+    osKernelInitialize                       0x0800dcd9   Thumb Code    42  cmsis_os2.o(.text.osKernelInitialize)
+    osKernelStart                            0x0800dd09   Thumb Code    62  cmsis_os2.o(.text.osKernelStart)
+    osThreadNew                              0x0800dd49   Thumb Code   148  cmsis_os2.o(.text.osThreadNew)
+    pvPortMalloc                             0x0800e669   Thumb Code   488  heap_4.o(.text.pvPortMalloc)
+    pvTaskIncrementMutexHeldCount            0x0800e851   Thumb Code    24  tasks.o(.text.pvTaskIncrementMutexHeldCount)
+    pxPortInitialiseStack                    0x0800e869   Thumb Code    44  port.o(.text.pxPortInitialiseStack)
+    __cxa_guard_acquire                      0x0800e895   Thumb Code    44  cxa_guard.cpp.o(.text.unlikely.__cxa_guard_acquire)
+    __cxa_guard_release                      0x0800e8c1   Thumb Code     8  cxa_guard.cpp.o(.text.unlikely.__cxa_guard_release)
+    abort_message                            0x0800e8c9   Thumb Code     4  abort_message.cpp.o(.text.unlikely.abort_message)
+    uxListRemove                             0x0800e8d1   Thumb Code    34  list.o(.text.uxListRemove)
+    vApplicationGetIdleTaskMemory            0x0800e8f9   Thumb Code    26  cmsis_os2.o(.text.vApplicationGetIdleTaskMemory)
+    vApplicationGetTimerTaskMemory           0x0800e919   Thumb Code    28  cmsis_os2.o(.text.vApplicationGetTimerTaskMemory)
+    vListInitialise                          0x0800e939   Thumb Code    22  list.o(.text.vListInitialise)
+    vListInitialiseItem                      0x0800e951   Thumb Code     6  list.o(.text.vListInitialiseItem)
+    vListInsert                              0x0800e959   Thumb Code    98  list.o(.text.vListInsert)
+    vListInsertEnd                           0x0800e9c1   Thumb Code    26  list.o(.text.vListInsertEnd)
+    vPortEnterCritical                       0x0800e9f9   Thumb Code    74  port.o(.text.vPortEnterCritical)
+    vPortExitCritical                        0x0800ea49   Thumb Code    46  port.o(.text.vPortExitCritical)
+    vPortFree                                0x0800ea79   Thumb Code   222  heap_4.o(.text.vPortFree)
+    vPortSetupTimerInterrupt                 0x0800eb59   Thumb Code    52  port.o(.text.vPortSetupTimerInterrupt)
+    vPortValidateInterruptPriority           0x0800eb91   Thumb Code    94  port.o(.text.vPortValidateInterruptPriority)
+    vQueueAddToRegistry                      0x0800ebf1   Thumb Code    88  queue.o(.text.vQueueAddToRegistry)
+    vQueueDelete                             0x0800ec49   Thumb Code   126  queue.o(.text.vQueueDelete)
+    vQueueWaitForMessageRestricted           0x0800ecc9   Thumb Code   100  queue.o(.text.vQueueWaitForMessageRestricted)
+    vTaskDelay                               0x0800ed31   Thumb Code   128  tasks.o(.text.vTaskDelay)
+    vTaskDelete                              0x0800edb1   Thumb Code   226  tasks.o(.text.vTaskDelete)
+    vTaskInternalSetTimeOutState             0x0800ee99   Thumb Code    18  tasks.o(.text.vTaskInternalSetTimeOutState)
+    vTaskMissedYield                         0x0800eeb1   Thumb Code    14  tasks.o(.text.vTaskMissedYield)
+    vTaskPlaceOnEventList                    0x0800eec1   Thumb Code   116  tasks.o(.text.vTaskPlaceOnEventList)
+    vTaskPlaceOnEventListRestricted          0x0800ef39   Thumb Code   122  tasks.o(.text.vTaskPlaceOnEventListRestricted)
+    vTaskPriorityDisinheritAfterTimeout      0x0800efb9   Thumb Code   164  tasks.o(.text.vTaskPriorityDisinheritAfterTimeout)
+    vTaskStartScheduler                      0x0800f061   Thumb Code   232  tasks.o(.text.vTaskStartScheduler)
+    vTaskSuspendAll                          0x0800f151   Thumb Code    16  tasks.o(.text.vTaskSuspendAll)
+    vTaskSwitchContext                       0x0800f161   Thumb Code   200  tasks.o(.text.vTaskSwitchContext)
+    xPortStartScheduler                      0x0800f229   Thumb Code   394  port.o(.text.xPortStartScheduler)
+    xPortSysTickHandler                      0x0800f3b9   Thumb Code    46  port.o(.text.xPortSysTickHandler)
+    xQueueCreateMutex                        0x0800f3e9   Thumb Code   112  queue.o(.text.xQueueCreateMutex)
+    xQueueGenericCreate                      0x0800f459   Thumb Code   130  queue.o(.text.xQueueGenericCreate)
+    xQueueGenericCreateStatic                0x0800f4e1   Thumb Code   218  queue.o(.text.xQueueGenericCreateStatic)
+    xQueueGenericSend                        0x0800f5c1   Thumb Code   704  queue.o(.text.xQueueGenericSend)
+    xQueueGenericSendFromISR                 0x0800f881   Thumb Code   328  queue.o(.text.xQueueGenericSendFromISR)
+    xQueueGiveFromISR                        0x0800f9c9   Thumb Code   186  queue.o(.text.xQueueGiveFromISR)
+    xQueueReceive                            0x0800fa89   Thumb Code   574  queue.o(.text.xQueueReceive)
+    xQueueSemaphoreTake                      0x0800fcc9   Thumb Code   650  queue.o(.text.xQueueSemaphoreTake)
+    xTaskCheckForTimeOut                     0x0800ff59   Thumb Code   154  tasks.o(.text.xTaskCheckForTimeOut)
+    xTaskCreate                              0x0800fff9   Thumb Code    96  tasks.o(.text.xTaskCreate)
+    xTaskCreateStatic                        0x08010059   Thumb Code   122  tasks.o(.text.xTaskCreateStatic)
+    xTaskGetSchedulerState                   0x080100d9   Thumb Code    28  tasks.o(.text.xTaskGetSchedulerState)
+    xTaskGetTickCount                        0x080100f9   Thumb Code    12  tasks.o(.text.xTaskGetTickCount)
+    xTaskIncrementTick                       0x08010109   Thumb Code   260  tasks.o(.text.xTaskIncrementTick)
+    xTaskPriorityDisinherit                  0x08010211   Thumb Code   142  tasks.o(.text.xTaskPriorityDisinherit)
+    xTaskPriorityInherit                     0x080102a1   Thumb Code   144  tasks.o(.text.xTaskPriorityInherit)
+    xTaskRemoveFromEventList                 0x08010331   Thumb Code   116  tasks.o(.text.xTaskRemoveFromEventList)
+    xTaskResumeAll                           0x080103a9   Thumb Code   238  tasks.o(.text.xTaskResumeAll)
+    xTimerCreateTimerTask                    0x08010499   Thumb Code   172  timers.o(.text.xTimerCreateTimerTask)
+    _btod_d2e                                0x0801054d   Thumb Code    62  btod.o(CL$$btod_d2e)
+    _d2e_denorm_low                          0x0801058b   Thumb Code    70  btod.o(CL$$btod_d2e_denorm_low)
+    _d2e_norm_op1                            0x080105d1   Thumb Code    96  btod.o(CL$$btod_d2e_norm_op1)
+    __btod_div_common                        0x08010631   Thumb Code   696  btod.o(CL$$btod_div_common)
+    _e2e                                     0x08010969   Thumb Code   220  btod.o(CL$$btod_e2e)
+    _btod_ediv                               0x08010a45   Thumb Code    42  btod.o(CL$$btod_ediv)
+    _btod_emul                               0x08010a6f   Thumb Code    42  btod.o(CL$$btod_emul)
+    __btod_mult_common                       0x08010a99   Thumb Code   580  btod.o(CL$$btod_mult_common)
+    __ARM_fpclassify                         0x08010cdd   Thumb Code    48  fpclassify.o(i.__ARM_fpclassify)
+    __hardfp_fmodf                           0x08010d0d   Thumb Code   176  fmodf.o(i.__hardfp_fmodf)
+    __mathlib_flt_invalid                    0x08010dbd   Thumb Code    10  funder.o(i.__mathlib_flt_invalid)
+    _is_digit                                0x08010dcd   Thumb Code    14  __printf_wp.o(i._is_digit)
+    _get_lc_numeric                          0x08010ddd   Thumb Code    44  lc_numeric_c.o(locale$$code)
+    _get_lc_ctype                            0x08010e09   Thumb Code    44  lc_ctype_c.o(locale$$code)
+    __fpl_dretinf                            0x08010e35   Thumb Code    12  dretinf.o(x$fpl$dretinf)
+    __aeabi_f2d                              0x08010e41   Thumb Code     0  f2d.o(x$fpl$f2d)
+    _f2d                                     0x08010e41   Thumb Code    86  f2d.o(x$fpl$f2d)
+    __aeabi_ul2f                             0x08010e97   Thumb Code     0  ffltll_clz.o(x$fpl$ffltll)
+    _ll_uto_f                                0x08010e97   Thumb Code     6  ffltll_clz.o(x$fpl$ffltll)
+    __aeabi_l2f                              0x08010e9d   Thumb Code     0  ffltll_clz.o(x$fpl$ffltll)
+    _ll_sto_f                                0x08010e9d   Thumb Code    90  ffltll_clz.o(x$fpl$ffltll)
+    __fpl_fnaninf                            0x08010ef7   Thumb Code   140  fnaninf.o(x$fpl$fnaninf)
+    _fp_init                                 0x08010f83   Thumb Code    26  fpinit.o(x$fpl$fpinit)
+    __fplib_config_fpu_vfp                   0x08010f9b   Thumb Code     0  fpinit.o(x$fpl$fpinit)
+    __fplib_config_pureend_doubles           0x08010f9b   Thumb Code     0  fpinit.o(x$fpl$fpinit)
+    _frem                                    0x08010f9d   Thumb Code   240  frem_clz.o(x$fpl$frem)
+    _printf_fp_dec                           0x08011091   Thumb Code     4  printf1.o(x$fpl$printf1)
+    _printf_fp_hex                           0x08011095   Thumb Code     4  printf2.o(x$fpl$printf2)
+    __I$use$fp                               0x08011098   Number         0  usenofp.o(x$fpl$usenofp)
+    D1CorePrescTable                         0x080111ec   Data          16  system_stm32h7xx.o(.rodata.D1CorePrescTable)
+    UARTPrescTable                           0x080111fc   Data          24  stm32h7xx_hal_uart.o(.rodata.UARTPrescTable)
+    vtable for DJI_MotorDemo                 0x08011214   Data          24  frame_demo.o(.rodata._ZTV13DJI_MotorDemo)
+    vtable for M3508                         0x0801122c   Data          72  motor_dji.o(.rodata._ZTV5M3508)
+    vtable for DJI_Group                     0x08011274   Data          68  motor_dji.o(.rodata._ZTV9DJI_Group)
+    vtable for fdCANbus::RxTask              0x080112b8   Data          24  bsp_fdcan_driver.o(.rodata._ZTVN8fdCANbus6RxTaskE)
+    vtable for fdCANbus::SchedTask           0x080112d0   Data          24  bsp_fdcan_driver.o(.rodata._ZTVN8fdCANbus9SchedTaskE)
+    defaultTask_attributes                   0x08011308   Data          36  freertos.o(.rodata.defaultTask_attributes)
+    Region$$Table$$Base                      0x080113e0   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x08011400   Number         0  anon$$obj.o(Region$$Table)
+    __ctype                                  0x08011429   Data           0  lc_ctype_c.o(locale$$data)
+    SHT$$INIT_ARRAY$$Base                    0x0801152c   Number         0  frame_demo.o(.init_array)
+    SHT$$INIT_ARRAY$$Limit                   0x08011530   Number         0  init_aeabi.o(.init_array)
     __cxa_finalize_instance                  0x24000000   Data           4  cxa_finalize.o(.data)
     _atexit_mutex                            0x24000004   Data           4  atexit_init.o(.data)
     uwTickFreq                               0x24000008   Data           1  stm32h7xx_hal.o(.data..L_MergedGlobals)
@@ -8120,9 +8120,9 @@ Memory Map of the image
 
   Image Entry point : 0x080002cd
 
-  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x00011740, Max: 0x00100000, ABSOLUTE, COMPRESSED[0x00011680])
+  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x000116f0, Max: 0x00100000, ABSOLUTE, COMPRESSED[0x00011638])
 
-    Execution Region ER_IROM1 (Exec base: 0x08000000, Load base: 0x08000000, Size: 0x00011580, Max: 0x00100000, ABSOLUTE)
+    Execution Region ER_IROM1 (Exec base: 0x08000000, Load base: 0x08000000, Size: 0x00011530, Max: 0x00100000, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
@@ -8760,273 +8760,271 @@ Memory Map of the image
     0x0800ce48   0x0800ce48   0x00000002   Code   RO         2796    .text._ZN13DJI_MotorDemoD2Ev  frame_demo.o
     0x0800ce4a   0x0800ce4a   0x00000006   PAD
     0x0800ce50   0x0800ce50   0x00000020   Code   RO         2817    .text._ZN15PID_Incremental10set_paramsERK16PID_Param_Configf  app_pid.o
-    0x0800ce70   0x0800ce70   0x00000194   Code   RO         2819    .text._ZN15PID_Incremental8pid_calcEff  app_pid.o
-    0x0800d004   0x0800d004   0x00000004   PAD
-    0x0800d008   0x0800d008   0x0000000c   Code   RO         2616    .text._ZN5M350812setTargetRPMEf  motor_dji.o
-    0x0800d014   0x0800d014   0x00000004   PAD
-    0x0800d018   0x0800d018   0x00000012   Code   RO         2618    .text._ZN5M350814setTargetAngleEf  motor_dji.o
-    0x0800d02a   0x0800d02a   0x00000006   PAD
-    0x0800d030   0x0800d030   0x0000000c   Code   RO         2614    .text._ZN5M350816setTargetCurrentEf  motor_dji.o
-    0x0800d03c   0x0800d03c   0x00000004   PAD
-    0x0800d040   0x0800d040   0x00000012   Code   RO         2620    .text._ZN5M350819setTargetTotalAngleEf  motor_dji.o
-    0x0800d052   0x0800d052   0x00000006   PAD
-    0x0800d058   0x0800d058   0x000000a4   Code   RO         2622    .text._ZN5M35086updateEv  motor_dji.o
-    0x0800d0fc   0x0800d0fc   0x00000004   PAD
-    0x0800d100   0x0800d100   0x0000002a   Code   RO         2612    .text._ZN5M35088pid_initERK16PID_Param_ConfigfS2_f  motor_dji.o
-    0x0800d12a   0x0800d12a   0x00000006   PAD
-    0x0800d130   0x0800d130   0x000000ba   Code   RO         2604    .text._ZN5M3508C2EjP8fdCANbus  motor_dji.o
-    0x0800d1ea   0x0800d1ea   0x00000006   PAD
-    0x0800d1f0   0x0800d1f0   0x00000008   Code   RO         2698    .text._ZN5M3508D0Ev  motor_dji.o
-    0x0800d1f8   0x0800d1f8   0x00000090   Code   RO         2887    .text._ZN7Encoder6updateEt  module_encoder.o
-    0x0800d288   0x0800d288   0x0000000e   Code   RO         2794    .text._ZN8RtosTask3runEv  frame_demo.o
-    0x0800d296   0x0800d296   0x00000002   PAD
-    0x0800d298   0x0800d298   0x00000002   Code   RO         2550    .text._ZN8RtosTask4loopEv  bsp_fdcan_driver.o
-    0x0800d29a   0x0800d29a   0x00000006   PAD
-    0x0800d2a0   0x0800d2a0   0x0000002a   Code   RO         2556    .text._ZN8RtosTask9taskEntryEPv  bsp_fdcan_driver.o
-    0x0800d2ca   0x0800d2ca   0x00000006   PAD
-    0x0800d2d0   0x0800d2d0   0x00000002   Code   RO         2552    .text._ZN8RtosTaskD2Ev  bsp_fdcan_driver.o
-    0x0800d2d2   0x0800d2d2   0x00000006   PAD
-    0x0800d2d8   0x0800d2d8   0x000000f6   Code   RO         2518    .text._ZN8fdCANbus10rxTaskbodyEv  bsp_fdcan_driver.o
-    0x0800d3ce   0x0800d3ce   0x00000002   PAD
-    0x0800d3d0   0x0800d3d0   0x00000086   Code   RO         2512    .text._ZN8fdCANbus13registerMotorEP10Motor_Base  bsp_fdcan_driver.o
-    0x0800d456   0x0800d456   0x00000002   PAD
-    0x0800d458   0x0800d458   0x000001a2   Code   RO         2520    .text._ZN8fdCANbus17schedulerTaskbodyEv  bsp_fdcan_driver.o
-    0x0800d5fa   0x0800d5fa   0x00000006   PAD
-    0x0800d600   0x0800d600   0x000000b6   Code   RO         2510    .text._ZN8fdCANbus4initEv  bsp_fdcan_driver.o
-    0x0800d6b6   0x0800d6b6   0x00000002   PAD
-    0x0800d6b8   0x0800d6b8   0x00000006   Code   RO         2528    .text._ZN8fdCANbus6RxTask3runEv  bsp_fdcan_driver.o
-    0x0800d6be   0x0800d6be   0x00000002   PAD
-    0x0800d6c0   0x0800d6c0   0x00000024   Code   RO         2524    .text._ZN8fdCANbus6RxTaskC2EPS_  bsp_fdcan_driver.o
-    0x0800d6e4   0x0800d6e4   0x00000004   PAD
-    0x0800d6e8   0x0800d6e8   0x00000006   Code   RO         2548    .text._ZN8fdCANbus6RxTaskD0Ev  bsp_fdcan_driver.o
-    0x0800d6ee   0x0800d6ee   0x00000002   PAD
-    0x0800d6f0   0x0800d6f0   0x00000006   Code   RO         2530    .text._ZN8fdCANbus9SchedTask3runEv  bsp_fdcan_driver.o
-    0x0800d6f6   0x0800d6f6   0x00000002   PAD
-    0x0800d6f8   0x0800d6f8   0x00000028   Code   RO         2526    .text._ZN8fdCANbus9SchedTaskC2EPS_  bsp_fdcan_driver.o
-    0x0800d720   0x0800d720   0x00000006   Code   RO         2554    .text._ZN8fdCANbus9SchedTaskD0Ev  bsp_fdcan_driver.o
-    0x0800d726   0x0800d726   0x00000002   PAD
-    0x0800d728   0x0800d728   0x0000001a   Code   RO         2788    .text._ZN8fdCANbusD2Ev  frame_demo.o
-    0x0800d742   0x0800d742   0x00000006   PAD
-    0x0800d748   0x0800d748   0x000000c4   Code   RO         2602    .text._ZN9DJI_Group11packCommandEP8CanFramej  motor_dji.o
-    0x0800d80c   0x0800d80c   0x00000004   PAD
-    0x0800d810   0x0800d810   0x00000002   Code   RO         2722    .text._ZN9DJI_Group14updateFeedbackERK8CanFrame  motor_dji.o
-    0x0800d812   0x0800d812   0x00000006   PAD
-    0x0800d818   0x0800d818   0x00000002   Code   RO         2720    .text._ZN9DJI_Group6updateEv  motor_dji.o
-    0x0800d81a   0x0800d81a   0x00000006   PAD
-    0x0800d820   0x0800d820   0x000000a8   Code   RO         2600    .text._ZN9DJI_Group8addMotorEP9DJI_Motor  motor_dji.o
-    0x0800d8c8   0x0800d8c8   0x0000003c   Code   RO         2598    .text._ZN9DJI_GroupC2EjP8fdCANbus  motor_dji.o
-    0x0800d904   0x0800d904   0x00000004   PAD
-    0x0800d908   0x0800d908   0x00000006   Code   RO         2716    .text._ZN9DJI_GroupD0Ev  motor_dji.o
-    0x0800d90e   0x0800d90e   0x00000002   PAD
-    0x0800d910   0x0800d910   0x00000004   Code   RO         2690    .text._ZN9DJI_Motor11packCommandEP8CanFramej  motor_dji.o
-    0x0800d914   0x0800d914   0x00000004   PAD
-    0x0800d918   0x0800d918   0x000000a0   Code   RO         2592    .text._ZN9DJI_Motor14updateFeedbackERK8CanFrame  motor_dji.o
-    0x0800d9b8   0x0800d9b8   0x0000003e   Code   RO         2561    .text._ZN9TimeStamp11getInstanceEv  bsp_timestamp.o
-    0x0800d9f6   0x0800d9f6   0x00000002   PAD
-    0x0800d9f8   0x0800d9f8   0x0000003a   Code   RO         2565    .text._ZN9TimeStamp16overflowCallbackEv  bsp_timestamp.o
-    0x0800da32   0x0800da32   0x00000006   PAD
-    0x0800da38   0x0800da38   0x0000001e   Code   RO         2563    .text._ZN9TimeStamp4initEP17TIM_HandleTypeDef  bsp_timestamp.o
-    0x0800da56   0x0800da56   0x00000002   PAD
-    0x0800da58   0x0800da58   0x00000000   Code   RO         2684    .text._ZNK10Motor_Base10getCurrentEv  motor_dji.o
-    0x0800da58   0x0800da58   0x00000000   Code   RO         2724    .text._ZNK10Motor_Base12matchesFrameERK8CanFrame  motor_dji.o
-    0x0800da58   0x0800da58   0x00000000   Code   RO         2688    .text._ZNK10Motor_Base13getTotalAngleEv  motor_dji.o
-    0x0800da58   0x0800da58   0x00000006   Code   RO         2694    .text._ZNK10Motor_Base13get_GearRatioEv  motor_dji.o
-    0x0800da5e   0x0800da5e   0x00000002   PAD
-    0x0800da60   0x0800da60   0x00000000   Code   RO         2682    .text._ZNK10Motor_Base6getRPMEv  motor_dji.o
-    0x0800da60   0x0800da60   0x00000000   Code   RO         2686    .text._ZNK10Motor_Base8getAngleEv  motor_dji.o
-    0x0800da60   0x0800da60   0x00000006   Code   RO         2608    .text._ZNK5M350813getTotalAngleEv  motor_dji.o
-    0x0800da66   0x0800da66   0x00000002   PAD
-    0x0800da68   0x0800da68   0x00000006   Code   RO         2700    .text._ZNK5M350813get_GearRatioEv  motor_dji.o
-    0x0800da6e   0x0800da6e   0x00000002   PAD
-    0x0800da70   0x0800da70   0x00000006   Code   RO         2610    .text._ZNK5M35086getRPMEv  motor_dji.o
-    0x0800da76   0x0800da76   0x00000002   PAD
-    0x0800da78   0x0800da78   0x00000006   Code   RO         2606    .text._ZNK5M35088getAngleEv  motor_dji.o
-    0x0800da7e   0x0800da7e   0x00000002   PAD
-    0x0800da80   0x0800da80   0x0000004a   Code   RO         2692    .text._ZNK9DJI_Motor12matchesFrameERK8CanFrame  motor_dji.o
-    0x0800daca   0x0800daca   0x00000006   PAD
-    0x0800dad0   0x0800dad0   0x00000006   Code   RO         2696    .text._ZNK9DJI_Motor7recv_idEv  motor_dji.o
-    0x0800dad6   0x0800dad6   0x00000002   PAD
-    0x0800dad8   0x0800dad8   0x00000070   Code   RO         2571    .text._ZNK9TimeStamp10getSecondsEv  bsp_timestamp.o
-    0x0800db48   0x0800db48   0x00000056   Code   RO         2567    .text._ZNK9TimeStamp15getMicrosecondsEv  bsp_timestamp.o
-    0x0800db9e   0x0800db9e   0x00000004   Code   RO         3346    .text._ZdlPv        libcpp_w.l(new.cpp.o)
-    0x0800dba2   0x0800dba2   0x00000004   Code   RO         3350    .text._ZdlPvj       libcpp_w.l(new.cpp.o)
-    0x0800dba6   0x0800dba6   0x00000002   PAD
-    0x0800dba8   0x0800dba8   0x00000096   Code   RO         2532    .text.fdcan_global_rx_isr  bsp_fdcan_driver.o
-    0x0800dc3e   0x0800dc3e   0x00000002   PAD
-    0x0800dc40   0x0800dc40   0x00000052   Code   RO         2534    .text.fdcan_global_scheduler_tick_isr  bsp_fdcan_driver.o
-    0x0800dc92   0x0800dc92   0x00000006   PAD
-    0x0800dc98   0x0800dc98   0x0000006e   Code   RO           11    .text.main          main.o
-    0x0800dd06   0x0800dd06   0x00000002   PAD
-    0x0800dd08   0x0800dd08   0x00000020   Code   RO         2347    .text.osDelay       cmsis_os2.o
-    0x0800dd28   0x0800dd28   0x0000002a   Code   RO         2289    .text.osKernelInitialize  cmsis_os2.o
-    0x0800dd52   0x0800dd52   0x00000006   PAD
-    0x0800dd58   0x0800dd58   0x0000003e   Code   RO         2295    .text.osKernelStart  cmsis_os2.o
-    0x0800dd96   0x0800dd96   0x00000002   PAD
-    0x0800dd98   0x0800dd98   0x00000094   Code   RO         2311    .text.osThreadNew   cmsis_os2.o
-    0x0800de2c   0x0800de2c   0x00000004   PAD
-    0x0800de30   0x0800de30   0x0000028a   Code   RO         2122    .text.prvAddNewTaskToReadyList  tasks.o
-    0x0800e0ba   0x0800e0ba   0x00000006   PAD
-    0x0800e0c0   0x0800e0c0   0x00000086   Code   RO         2154    .text.prvIdleTask   tasks.o
-    0x0800e146   0x0800e146   0x00000002   PAD
-    0x0800e148   0x0800e148   0x00000102   Code   RO         2120    .text.prvInitialiseNewTask  tasks.o
-    0x0800e24a   0x0800e24a   0x00000006   PAD
-    0x0800e250   0x0800e250   0x00000028   Code   RO         2484    .text.prvPortStartFirstTask  port.o
-    0x0800e278   0x0800e278   0x00000040   Code   RO         2474    .text.prvTaskExitError  port.o
-    0x0800e2b8   0x0800e2b8   0x0000037a   Code   RO         2239    .text.prvTimerTask  timers.o
-    0x0800e632   0x0800e632   0x00000006   PAD
-    0x0800e638   0x0800e638   0x0000007a   Code   RO         2021    .text.prvUnlockQueue  queue.o
-    0x0800e6b2   0x0800e6b2   0x00000006   PAD
-    0x0800e6b8   0x0800e6b8   0x000001e8   Code   RO         2450    .text.pvPortMalloc  heap_4.o
-    0x0800e8a0   0x0800e8a0   0x00000018   Code   RO         2210    .text.pvTaskIncrementMutexHeldCount  tasks.o
-    0x0800e8b8   0x0800e8b8   0x0000002c   Code   RO         2472    .text.pxPortInitialiseStack  port.o
-    0x0800e8e4   0x0800e8e4   0x0000002c   Code   RO         3378    .text.unlikely.__cxa_guard_acquire  libcppabi_w.l(cxa_guard.cpp.o)
-    0x0800e910   0x0800e910   0x00000008   Code   RO         3380    .text.unlikely.__cxa_guard_release  libcppabi_w.l(cxa_guard.cpp.o)
-    0x0800e918   0x0800e918   0x00000004   Code   RO         3636    .text.unlikely.abort_message  libcppabi_w.l(abort_message.cpp.o)
-    0x0800e91c   0x0800e91c   0x00000004   PAD
-    0x0800e920   0x0800e920   0x00000022   Code   RO         1985    .text.uxListRemove  list.o
-    0x0800e942   0x0800e942   0x00000006   PAD
-    0x0800e948   0x0800e948   0x0000001a   Code   RO         2433    .text.vApplicationGetIdleTaskMemory  cmsis_os2.o
-    0x0800e962   0x0800e962   0x00000006   PAD
-    0x0800e968   0x0800e968   0x0000001c   Code   RO         2435    .text.vApplicationGetTimerTaskMemory  cmsis_os2.o
-    0x0800e984   0x0800e984   0x00000004   PAD
-    0x0800e988   0x0800e988   0x00000016   Code   RO         1977    .text.vListInitialise  list.o
-    0x0800e99e   0x0800e99e   0x00000002   PAD
-    0x0800e9a0   0x0800e9a0   0x00000006   Code   RO         1979    .text.vListInitialiseItem  list.o
-    0x0800e9a6   0x0800e9a6   0x00000002   PAD
-    0x0800e9a8   0x0800e9a8   0x00000062   Code   RO         1983    .text.vListInsert   list.o
-    0x0800ea0a   0x0800ea0a   0x00000006   PAD
-    0x0800ea10   0x0800ea10   0x0000001a   Code   RO         1981    .text.vListInsertEnd  list.o
-    0x0800ea2a   0x0800ea2a   0x00000006   PAD
-    0x0800ea30   0x0800ea30   0x00000014   Code   RO         2482    .text.vPortEnableVFP  port.o
-    0x0800ea44   0x0800ea44   0x00000004   PAD
-    0x0800ea48   0x0800ea48   0x0000004a   Code   RO         2488    .text.vPortEnterCritical  port.o
-    0x0800ea92   0x0800ea92   0x00000006   PAD
-    0x0800ea98   0x0800ea98   0x0000002e   Code   RO         2490    .text.vPortExitCritical  port.o
-    0x0800eac6   0x0800eac6   0x00000002   PAD
-    0x0800eac8   0x0800eac8   0x000000de   Code   RO         2452    .text.vPortFree     heap_4.o
-    0x0800eba6   0x0800eba6   0x00000002   PAD
-    0x0800eba8   0x0800eba8   0x00000034   Code   RO         2480    .text.vPortSetupTimerInterrupt  port.o
-    0x0800ebdc   0x0800ebdc   0x00000004   PAD
-    0x0800ebe0   0x0800ebe0   0x0000005e   Code   RO         2496    .text.vPortValidateInterruptPriority  port.o
-    0x0800ec3e   0x0800ec3e   0x00000002   PAD
-    0x0800ec40   0x0800ec40   0x00000058   Code   RO         2055    .text.vQueueAddToRegistry  queue.o
-    0x0800ec98   0x0800ec98   0x0000007e   Code   RO         2041    .text.vQueueDelete  queue.o
-    0x0800ed16   0x0800ed16   0x00000002   PAD
-    0x0800ed18   0x0800ed18   0x00000064   Code   RO         2059    .text.vQueueWaitForMessageRestricted  queue.o
-    0x0800ed7c   0x0800ed7c   0x00000004   PAD
-    0x0800ed80   0x0800ed80   0x00000080   Code   RO         2134    .text.vTaskDelay    tasks.o
-    0x0800ee00   0x0800ee00   0x000000e2   Code   RO         2126    .text.vTaskDelete   tasks.o
-    0x0800eee2   0x0800eee2   0x00000006   PAD
-    0x0800eee8   0x0800eee8   0x00000012   Code   RO         2184    .text.vTaskInternalSetTimeOutState  tasks.o
-    0x0800eefa   0x0800eefa   0x00000006   PAD
-    0x0800ef00   0x0800ef00   0x0000000e   Code   RO         2188    .text.vTaskMissedYield  tasks.o
-    0x0800ef0e   0x0800ef0e   0x00000002   PAD
-    0x0800ef10   0x0800ef10   0x00000074   Code   RO         2172    .text.vTaskPlaceOnEventList  tasks.o
-    0x0800ef84   0x0800ef84   0x00000004   PAD
-    0x0800ef88   0x0800ef88   0x0000007a   Code   RO         2176    .text.vTaskPlaceOnEventListRestricted  tasks.o
-    0x0800f002   0x0800f002   0x00000006   PAD
-    0x0800f008   0x0800f008   0x000000a4   Code   RO         2206    .text.vTaskPriorityDisinheritAfterTimeout  tasks.o
-    0x0800f0ac   0x0800f0ac   0x00000004   PAD
-    0x0800f0b0   0x0800f0b0   0x000000f0   Code   RO         2152    .text.vTaskStartScheduler  tasks.o
-    0x0800f1a0   0x0800f1a0   0x00000010   Code   RO         2130    .text.vTaskSuspendAll  tasks.o
-    0x0800f1b0   0x0800f1b0   0x000000c8   Code   RO         2146    .text.vTaskSwitchContext  tasks.o
-    0x0800f278   0x0800f278   0x0000018a   Code   RO         2478    .text.xPortStartScheduler  port.o
-    0x0800f402   0x0800f402   0x00000006   PAD
-    0x0800f408   0x0800f408   0x0000002e   Code   RO         2494    .text.xPortSysTickHandler  port.o
-    0x0800f436   0x0800f436   0x00000002   PAD
-    0x0800f438   0x0800f438   0x00000070   Code   RO         2001    .text.xQueueCreateMutex  queue.o
-    0x0800f4a8   0x0800f4a8   0x00000082   Code   RO         1999    .text.xQueueGenericCreate  queue.o
-    0x0800f52a   0x0800f52a   0x00000006   PAD
-    0x0800f530   0x0800f530   0x000000da   Code   RO         1997    .text.xQueueGenericCreateStatic  queue.o
-    0x0800f60a   0x0800f60a   0x00000006   PAD
-    0x0800f610   0x0800f610   0x000002c0   Code   RO         2011    .text.xQueueGenericSend  queue.o
-    0x0800f8d0   0x0800f8d0   0x00000148   Code   RO         2023    .text.xQueueGenericSendFromISR  queue.o
-    0x0800fa18   0x0800fa18   0x000000ba   Code   RO         2025    .text.xQueueGiveFromISR  queue.o
-    0x0800fad2   0x0800fad2   0x00000006   PAD
-    0x0800fad8   0x0800fad8   0x0000023e   Code   RO         2027    .text.xQueueReceive  queue.o
-    0x0800fd16   0x0800fd16   0x00000002   PAD
-    0x0800fd18   0x0800fd18   0x0000028a   Code   RO         2015    .text.xQueueSemaphoreTake  queue.o
-    0x0800ffa2   0x0800ffa2   0x00000006   PAD
-    0x0800ffa8   0x0800ffa8   0x0000009a   Code   RO         2186    .text.xTaskCheckForTimeOut  tasks.o
-    0x08010042   0x08010042   0x00000006   PAD
-    0x08010048   0x08010048   0x00000060   Code   RO         2124    .text.xTaskCreate   tasks.o
-    0x080100a8   0x080100a8   0x0000007a   Code   RO         2118    .text.xTaskCreateStatic  tasks.o
-    0x08010122   0x08010122   0x00000006   PAD
-    0x08010128   0x08010128   0x0000001c   Code   RO         2200    .text.xTaskGetSchedulerState  tasks.o
-    0x08010144   0x08010144   0x00000004   PAD
-    0x08010148   0x08010148   0x0000000c   Code   RO         2160    .text.xTaskGetTickCount  tasks.o
-    0x08010154   0x08010154   0x00000004   PAD
-    0x08010158   0x08010158   0x00000104   Code   RO         2158    .text.xTaskIncrementTick  tasks.o
-    0x0801025c   0x0801025c   0x00000004   PAD
-    0x08010260   0x08010260   0x0000008e   Code   RO         2204    .text.xTaskPriorityDisinherit  tasks.o
-    0x080102ee   0x080102ee   0x00000002   PAD
-    0x080102f0   0x080102f0   0x00000090   Code   RO         2202    .text.xTaskPriorityInherit  tasks.o
-    0x08010380   0x08010380   0x00000074   Code   RO         2178    .text.xTaskRemoveFromEventList  tasks.o
-    0x080103f4   0x080103f4   0x00000004   PAD
-    0x080103f8   0x080103f8   0x000000ee   Code   RO         2132    .text.xTaskResumeAll  tasks.o
-    0x080104e6   0x080104e6   0x00000002   PAD
-    0x080104e8   0x080104e8   0x000000b4   Code   RO         2237    .text.xTimerCreateTimerTask  timers.o
-    0x0801059c   0x0801059c   0x0000003e   Code   RO         3806    CL$$btod_d2e        c_w.l(btod.o)
-    0x080105da   0x080105da   0x00000046   Code   RO         3808    CL$$btod_d2e_denorm_low  c_w.l(btod.o)
-    0x08010620   0x08010620   0x00000060   Code   RO         3807    CL$$btod_d2e_norm_op1  c_w.l(btod.o)
-    0x08010680   0x08010680   0x00000338   Code   RO         3816    CL$$btod_div_common  c_w.l(btod.o)
-    0x080109b8   0x080109b8   0x000000dc   Code   RO         3813    CL$$btod_e2e        c_w.l(btod.o)
-    0x08010a94   0x08010a94   0x0000002a   Code   RO         3810    CL$$btod_ediv       c_w.l(btod.o)
-    0x08010abe   0x08010abe   0x0000002a   Code   RO         3809    CL$$btod_emul       c_w.l(btod.o)
-    0x08010ae8   0x08010ae8   0x00000244   Code   RO         3815    CL$$btod_mult_common  c_w.l(btod.o)
-    0x08010d2c   0x08010d2c   0x00000030   Code   RO         3884    i.__ARM_fpclassify  m_wm.l(fpclassify.o)
-    0x08010d5c   0x08010d5c   0x000000b0   Code   RO         3386    i.__hardfp_fmodf    m_wm.l(fmodf.o)
-    0x08010e0c   0x08010e0c   0x00000010   Code   RO         3658    i.__mathlib_flt_invalid  m_wm.l(funder.o)
-    0x08010e1c   0x08010e1c   0x0000000e   Code   RO         3523    i._is_digit         c_w.l(__printf_wp.o)
-    0x08010e2a   0x08010e2a   0x00000002   PAD
-    0x08010e2c   0x08010e2c   0x0000002c   Code   RO         3837    locale$$code        c_w.l(lc_numeric_c.o)
-    0x08010e58   0x08010e58   0x0000002c   Code   RO         3904    locale$$code        c_w.l(lc_ctype_c.o)
-    0x08010e84   0x08010e84   0x0000000c   Code   RO         3615    x$fpl$dretinf       fz_wm.l(dretinf.o)
-    0x08010e90   0x08010e90   0x00000056   Code   RO         3333    x$fpl$f2d           fz_wm.l(f2d.o)
-    0x08010ee6   0x08010ee6   0x00000060   Code   RO         3335    x$fpl$ffltll        fz_wm.l(ffltll_clz.o)
-    0x08010f46   0x08010f46   0x0000008c   Code   RO         3617    x$fpl$fnaninf       fz_wm.l(fnaninf.o)
-    0x08010fd2   0x08010fd2   0x0000001a   Code   RO         3754    x$fpl$fpinit        fz_wm.l(fpinit.o)
-    0x08010fec   0x08010fec   0x000000f4   Code   RO         3619    x$fpl$frem          fz_wm.l(frem_clz.o)
-    0x080110e0   0x080110e0   0x00000004   Code   RO         3621    x$fpl$printf1       fz_wm.l(printf1.o)
-    0x080110e4   0x080110e4   0x00000004   Code   RO         3623    x$fpl$printf2       fz_wm.l(printf2.o)
-    0x080110e8   0x080110e8   0x00000000   Code   RO         3629    x$fpl$usenofp       fz_wm.l(usenofp.o)
-    0x080110e8   0x080110e8   0x00000008   Data   RO         3482    .constdata          c_w.l(_printf_wctomb.o)
-    0x080110f0   0x080110f0   0x00000028   Data   RO         3511    .constdata          c_w.l(_printf_hex_int_ll_ptr.o)
-    0x08011118   0x08011118   0x00000011   Data   RO         3531    .constdata          c_w.l(__printf_flags_ss_wp.o)
-    0x08011129   0x08011129   0x00000026   Data   RO         3730    .constdata          c_w.l(_printf_fp_hex.o)
-    0x0801114f   0x0801114f   0x00000001   PAD
-    0x08011150   0x08011150   0x00000094   Data   RO         3804    .constdata          c_w.l(bigflt0.o)
-    0x080111e4   0x080111e4   0x0000004c   Data   RO         1728    .rodata..L__const.HAL_FDCAN_Init.CvtEltSize  stm32h7xx_hal_fdcan.o
-    0x08011230   0x08011230   0x00000006   Data   RO         1873    .rodata..Lswitch.table.UART_SetConfig.7  stm32h7xx_hal_uart.o
-    0x08011236   0x08011236   0x00000006   Data   RO         1874    .rodata..Lswitch.table.UART_SetConfig.9  stm32h7xx_hal_uart.o
-    0x0801123c   0x0801123c   0x00000010   Data   RO         1930    .rodata.D1CorePrescTable  system_stm32h7xx.o
-    0x0801124c   0x0801124c   0x00000018   Data   RO         1872    .rodata.UARTPrescTable  stm32h7xx_hal_uart.o
-    0x08011264   0x08011264   0x00000018   Data   RO         2777    .rodata._ZTV13DJI_MotorDemo  frame_demo.o
-    0x0801127c   0x0801127c   0x00000048   Data   RO         2660    .rodata._ZTV5M3508  motor_dji.o
-    0x080112c4   0x080112c4   0x00000044   Data   RO         2659    .rodata._ZTV9DJI_Group  motor_dji.o
-    0x08011308   0x08011308   0x00000018   Data   RO         2539    .rodata._ZTVN8fdCANbus6RxTaskE  bsp_fdcan_driver.o
-    0x08011320   0x08011320   0x00000018   Data   RO         2540    .rodata._ZTVN8fdCANbus9SchedTaskE  bsp_fdcan_driver.o
-    0x08011338   0x08011338   0x00000010   Data   RO         1729    .rodata.cst16       stm32h7xx_hal_fdcan.o
-    0x08011348   0x08011348   0x00000010   Data   RO         1915    .rodata.cst8        stm32h7xx_hal_uart_ex.o
-    0x08011358   0x08011358   0x00000024   Data   RO           41    .rodata.defaultTask_attributes  freertos.o
-    0x0801137c   0x0801137c   0x0000000c   Data   RO           40    .rodata.str1.1      freertos.o
-    0x08011388   0x08011388   0x00000005   Data   RO         2277    .rodata.str1.1      timers.o
-    0x0801138d   0x0801138d   0x0000000e   Data   RO         2804    .rodata.str1.1      setup_configinit.o
-    0x0801139b   0x0801139b   0x00000093   Data   RO         3384    .rodata.str1.1      libcppabi_w.l(cxa_guard.cpp.o)
-    0x0801142e   0x0801142e   0x00000002   PAD
-    0x08011430   0x08011430   0x00000020   Data   RO         4012    Region$$Table       anon$$obj.o
-    0x08011450   0x08011450   0x0000001c   Data   RO         3836    locale$$data        c_w.l(lc_numeric_c.o)
-    0x0801146c   0x0801146c   0x00000110   Data   RO         3903    locale$$data        c_w.l(lc_ctype_c.o)
-    0x0801157c   0x0801157c   0x00000004   Data   RO         2778    .init_array         frame_demo.o
-    0x08011580   0x0801157c   0x00000000   Data   RO         3328    .init_array         c_w.l(init_aeabi.o)
+    0x0800ce70   0x0800ce70   0x00000148   Code   RO         2819    .text._ZN15PID_Incremental8pid_calcEff  app_pid.o
+    0x0800cfb8   0x0800cfb8   0x0000000c   Code   RO         2616    .text._ZN5M350812setTargetRPMEf  motor_dji.o
+    0x0800cfc4   0x0800cfc4   0x00000004   PAD
+    0x0800cfc8   0x0800cfc8   0x00000012   Code   RO         2618    .text._ZN5M350814setTargetAngleEf  motor_dji.o
+    0x0800cfda   0x0800cfda   0x00000006   PAD
+    0x0800cfe0   0x0800cfe0   0x0000000c   Code   RO         2614    .text._ZN5M350816setTargetCurrentEf  motor_dji.o
+    0x0800cfec   0x0800cfec   0x00000004   PAD
+    0x0800cff0   0x0800cff0   0x00000012   Code   RO         2620    .text._ZN5M350819setTargetTotalAngleEf  motor_dji.o
+    0x0800d002   0x0800d002   0x00000006   PAD
+    0x0800d008   0x0800d008   0x000000a4   Code   RO         2622    .text._ZN5M35086updateEv  motor_dji.o
+    0x0800d0ac   0x0800d0ac   0x00000004   PAD
+    0x0800d0b0   0x0800d0b0   0x0000002a   Code   RO         2612    .text._ZN5M35088pid_initERK16PID_Param_ConfigfS2_f  motor_dji.o
+    0x0800d0da   0x0800d0da   0x00000006   PAD
+    0x0800d0e0   0x0800d0e0   0x000000ba   Code   RO         2604    .text._ZN5M3508C2EjP8fdCANbus  motor_dji.o
+    0x0800d19a   0x0800d19a   0x00000006   PAD
+    0x0800d1a0   0x0800d1a0   0x00000008   Code   RO         2698    .text._ZN5M3508D0Ev  motor_dji.o
+    0x0800d1a8   0x0800d1a8   0x00000090   Code   RO         2887    .text._ZN7Encoder6updateEt  module_encoder.o
+    0x0800d238   0x0800d238   0x0000000e   Code   RO         2794    .text._ZN8RtosTask3runEv  frame_demo.o
+    0x0800d246   0x0800d246   0x00000002   PAD
+    0x0800d248   0x0800d248   0x00000002   Code   RO         2550    .text._ZN8RtosTask4loopEv  bsp_fdcan_driver.o
+    0x0800d24a   0x0800d24a   0x00000006   PAD
+    0x0800d250   0x0800d250   0x0000002a   Code   RO         2556    .text._ZN8RtosTask9taskEntryEPv  bsp_fdcan_driver.o
+    0x0800d27a   0x0800d27a   0x00000006   PAD
+    0x0800d280   0x0800d280   0x00000002   Code   RO         2552    .text._ZN8RtosTaskD2Ev  bsp_fdcan_driver.o
+    0x0800d282   0x0800d282   0x00000006   PAD
+    0x0800d288   0x0800d288   0x000000f6   Code   RO         2518    .text._ZN8fdCANbus10rxTaskbodyEv  bsp_fdcan_driver.o
+    0x0800d37e   0x0800d37e   0x00000002   PAD
+    0x0800d380   0x0800d380   0x00000086   Code   RO         2512    .text._ZN8fdCANbus13registerMotorEP10Motor_Base  bsp_fdcan_driver.o
+    0x0800d406   0x0800d406   0x00000002   PAD
+    0x0800d408   0x0800d408   0x000001a2   Code   RO         2520    .text._ZN8fdCANbus17schedulerTaskbodyEv  bsp_fdcan_driver.o
+    0x0800d5aa   0x0800d5aa   0x00000006   PAD
+    0x0800d5b0   0x0800d5b0   0x000000b6   Code   RO         2510    .text._ZN8fdCANbus4initEv  bsp_fdcan_driver.o
+    0x0800d666   0x0800d666   0x00000002   PAD
+    0x0800d668   0x0800d668   0x00000006   Code   RO         2528    .text._ZN8fdCANbus6RxTask3runEv  bsp_fdcan_driver.o
+    0x0800d66e   0x0800d66e   0x00000002   PAD
+    0x0800d670   0x0800d670   0x00000024   Code   RO         2524    .text._ZN8fdCANbus6RxTaskC2EPS_  bsp_fdcan_driver.o
+    0x0800d694   0x0800d694   0x00000004   PAD
+    0x0800d698   0x0800d698   0x00000006   Code   RO         2548    .text._ZN8fdCANbus6RxTaskD0Ev  bsp_fdcan_driver.o
+    0x0800d69e   0x0800d69e   0x00000002   PAD
+    0x0800d6a0   0x0800d6a0   0x00000006   Code   RO         2530    .text._ZN8fdCANbus9SchedTask3runEv  bsp_fdcan_driver.o
+    0x0800d6a6   0x0800d6a6   0x00000002   PAD
+    0x0800d6a8   0x0800d6a8   0x00000028   Code   RO         2526    .text._ZN8fdCANbus9SchedTaskC2EPS_  bsp_fdcan_driver.o
+    0x0800d6d0   0x0800d6d0   0x00000006   Code   RO         2554    .text._ZN8fdCANbus9SchedTaskD0Ev  bsp_fdcan_driver.o
+    0x0800d6d6   0x0800d6d6   0x00000002   PAD
+    0x0800d6d8   0x0800d6d8   0x0000001a   Code   RO         2788    .text._ZN8fdCANbusD2Ev  frame_demo.o
+    0x0800d6f2   0x0800d6f2   0x00000006   PAD
+    0x0800d6f8   0x0800d6f8   0x000000c8   Code   RO         2602    .text._ZN9DJI_Group11packCommandEP8CanFramej  motor_dji.o
+    0x0800d7c0   0x0800d7c0   0x00000002   Code   RO         2722    .text._ZN9DJI_Group14updateFeedbackERK8CanFrame  motor_dji.o
+    0x0800d7c2   0x0800d7c2   0x00000006   PAD
+    0x0800d7c8   0x0800d7c8   0x00000002   Code   RO         2720    .text._ZN9DJI_Group6updateEv  motor_dji.o
+    0x0800d7ca   0x0800d7ca   0x00000006   PAD
+    0x0800d7d0   0x0800d7d0   0x000000a8   Code   RO         2600    .text._ZN9DJI_Group8addMotorEP9DJI_Motor  motor_dji.o
+    0x0800d878   0x0800d878   0x0000003c   Code   RO         2598    .text._ZN9DJI_GroupC2EjP8fdCANbus  motor_dji.o
+    0x0800d8b4   0x0800d8b4   0x00000004   PAD
+    0x0800d8b8   0x0800d8b8   0x00000006   Code   RO         2716    .text._ZN9DJI_GroupD0Ev  motor_dji.o
+    0x0800d8be   0x0800d8be   0x00000002   PAD
+    0x0800d8c0   0x0800d8c0   0x00000004   Code   RO         2690    .text._ZN9DJI_Motor11packCommandEP8CanFramej  motor_dji.o
+    0x0800d8c4   0x0800d8c4   0x00000004   PAD
+    0x0800d8c8   0x0800d8c8   0x000000a0   Code   RO         2592    .text._ZN9DJI_Motor14updateFeedbackERK8CanFrame  motor_dji.o
+    0x0800d968   0x0800d968   0x0000003e   Code   RO         2561    .text._ZN9TimeStamp11getInstanceEv  bsp_timestamp.o
+    0x0800d9a6   0x0800d9a6   0x00000002   PAD
+    0x0800d9a8   0x0800d9a8   0x0000003a   Code   RO         2565    .text._ZN9TimeStamp16overflowCallbackEv  bsp_timestamp.o
+    0x0800d9e2   0x0800d9e2   0x00000006   PAD
+    0x0800d9e8   0x0800d9e8   0x0000001e   Code   RO         2563    .text._ZN9TimeStamp4initEP17TIM_HandleTypeDef  bsp_timestamp.o
+    0x0800da06   0x0800da06   0x00000002   PAD
+    0x0800da08   0x0800da08   0x00000000   Code   RO         2684    .text._ZNK10Motor_Base10getCurrentEv  motor_dji.o
+    0x0800da08   0x0800da08   0x00000000   Code   RO         2724    .text._ZNK10Motor_Base12matchesFrameERK8CanFrame  motor_dji.o
+    0x0800da08   0x0800da08   0x00000000   Code   RO         2688    .text._ZNK10Motor_Base13getTotalAngleEv  motor_dji.o
+    0x0800da08   0x0800da08   0x00000006   Code   RO         2694    .text._ZNK10Motor_Base13get_GearRatioEv  motor_dji.o
+    0x0800da0e   0x0800da0e   0x00000002   PAD
+    0x0800da10   0x0800da10   0x00000000   Code   RO         2682    .text._ZNK10Motor_Base6getRPMEv  motor_dji.o
+    0x0800da10   0x0800da10   0x00000000   Code   RO         2686    .text._ZNK10Motor_Base8getAngleEv  motor_dji.o
+    0x0800da10   0x0800da10   0x00000006   Code   RO         2608    .text._ZNK5M350813getTotalAngleEv  motor_dji.o
+    0x0800da16   0x0800da16   0x00000002   PAD
+    0x0800da18   0x0800da18   0x00000006   Code   RO         2700    .text._ZNK5M350813get_GearRatioEv  motor_dji.o
+    0x0800da1e   0x0800da1e   0x00000002   PAD
+    0x0800da20   0x0800da20   0x00000006   Code   RO         2610    .text._ZNK5M35086getRPMEv  motor_dji.o
+    0x0800da26   0x0800da26   0x00000002   PAD
+    0x0800da28   0x0800da28   0x00000006   Code   RO         2606    .text._ZNK5M35088getAngleEv  motor_dji.o
+    0x0800da2e   0x0800da2e   0x00000002   PAD
+    0x0800da30   0x0800da30   0x0000004a   Code   RO         2692    .text._ZNK9DJI_Motor12matchesFrameERK8CanFrame  motor_dji.o
+    0x0800da7a   0x0800da7a   0x00000006   PAD
+    0x0800da80   0x0800da80   0x00000006   Code   RO         2696    .text._ZNK9DJI_Motor7recv_idEv  motor_dji.o
+    0x0800da86   0x0800da86   0x00000002   PAD
+    0x0800da88   0x0800da88   0x00000070   Code   RO         2571    .text._ZNK9TimeStamp10getSecondsEv  bsp_timestamp.o
+    0x0800daf8   0x0800daf8   0x00000056   Code   RO         2567    .text._ZNK9TimeStamp15getMicrosecondsEv  bsp_timestamp.o
+    0x0800db4e   0x0800db4e   0x00000004   Code   RO         3346    .text._ZdlPv        libcpp_w.l(new.cpp.o)
+    0x0800db52   0x0800db52   0x00000004   Code   RO         3350    .text._ZdlPvj       libcpp_w.l(new.cpp.o)
+    0x0800db56   0x0800db56   0x00000002   PAD
+    0x0800db58   0x0800db58   0x00000096   Code   RO         2532    .text.fdcan_global_rx_isr  bsp_fdcan_driver.o
+    0x0800dbee   0x0800dbee   0x00000002   PAD
+    0x0800dbf0   0x0800dbf0   0x00000052   Code   RO         2534    .text.fdcan_global_scheduler_tick_isr  bsp_fdcan_driver.o
+    0x0800dc42   0x0800dc42   0x00000006   PAD
+    0x0800dc48   0x0800dc48   0x0000006e   Code   RO           11    .text.main          main.o
+    0x0800dcb6   0x0800dcb6   0x00000002   PAD
+    0x0800dcb8   0x0800dcb8   0x00000020   Code   RO         2347    .text.osDelay       cmsis_os2.o
+    0x0800dcd8   0x0800dcd8   0x0000002a   Code   RO         2289    .text.osKernelInitialize  cmsis_os2.o
+    0x0800dd02   0x0800dd02   0x00000006   PAD
+    0x0800dd08   0x0800dd08   0x0000003e   Code   RO         2295    .text.osKernelStart  cmsis_os2.o
+    0x0800dd46   0x0800dd46   0x00000002   PAD
+    0x0800dd48   0x0800dd48   0x00000094   Code   RO         2311    .text.osThreadNew   cmsis_os2.o
+    0x0800dddc   0x0800dddc   0x00000004   PAD
+    0x0800dde0   0x0800dde0   0x0000028a   Code   RO         2122    .text.prvAddNewTaskToReadyList  tasks.o
+    0x0800e06a   0x0800e06a   0x00000006   PAD
+    0x0800e070   0x0800e070   0x00000086   Code   RO         2154    .text.prvIdleTask   tasks.o
+    0x0800e0f6   0x0800e0f6   0x00000002   PAD
+    0x0800e0f8   0x0800e0f8   0x00000102   Code   RO         2120    .text.prvInitialiseNewTask  tasks.o
+    0x0800e1fa   0x0800e1fa   0x00000006   PAD
+    0x0800e200   0x0800e200   0x00000028   Code   RO         2484    .text.prvPortStartFirstTask  port.o
+    0x0800e228   0x0800e228   0x00000040   Code   RO         2474    .text.prvTaskExitError  port.o
+    0x0800e268   0x0800e268   0x0000037a   Code   RO         2239    .text.prvTimerTask  timers.o
+    0x0800e5e2   0x0800e5e2   0x00000006   PAD
+    0x0800e5e8   0x0800e5e8   0x0000007a   Code   RO         2021    .text.prvUnlockQueue  queue.o
+    0x0800e662   0x0800e662   0x00000006   PAD
+    0x0800e668   0x0800e668   0x000001e8   Code   RO         2450    .text.pvPortMalloc  heap_4.o
+    0x0800e850   0x0800e850   0x00000018   Code   RO         2210    .text.pvTaskIncrementMutexHeldCount  tasks.o
+    0x0800e868   0x0800e868   0x0000002c   Code   RO         2472    .text.pxPortInitialiseStack  port.o
+    0x0800e894   0x0800e894   0x0000002c   Code   RO         3378    .text.unlikely.__cxa_guard_acquire  libcppabi_w.l(cxa_guard.cpp.o)
+    0x0800e8c0   0x0800e8c0   0x00000008   Code   RO         3380    .text.unlikely.__cxa_guard_release  libcppabi_w.l(cxa_guard.cpp.o)
+    0x0800e8c8   0x0800e8c8   0x00000004   Code   RO         3636    .text.unlikely.abort_message  libcppabi_w.l(abort_message.cpp.o)
+    0x0800e8cc   0x0800e8cc   0x00000004   PAD
+    0x0800e8d0   0x0800e8d0   0x00000022   Code   RO         1985    .text.uxListRemove  list.o
+    0x0800e8f2   0x0800e8f2   0x00000006   PAD
+    0x0800e8f8   0x0800e8f8   0x0000001a   Code   RO         2433    .text.vApplicationGetIdleTaskMemory  cmsis_os2.o
+    0x0800e912   0x0800e912   0x00000006   PAD
+    0x0800e918   0x0800e918   0x0000001c   Code   RO         2435    .text.vApplicationGetTimerTaskMemory  cmsis_os2.o
+    0x0800e934   0x0800e934   0x00000004   PAD
+    0x0800e938   0x0800e938   0x00000016   Code   RO         1977    .text.vListInitialise  list.o
+    0x0800e94e   0x0800e94e   0x00000002   PAD
+    0x0800e950   0x0800e950   0x00000006   Code   RO         1979    .text.vListInitialiseItem  list.o
+    0x0800e956   0x0800e956   0x00000002   PAD
+    0x0800e958   0x0800e958   0x00000062   Code   RO         1983    .text.vListInsert   list.o
+    0x0800e9ba   0x0800e9ba   0x00000006   PAD
+    0x0800e9c0   0x0800e9c0   0x0000001a   Code   RO         1981    .text.vListInsertEnd  list.o
+    0x0800e9da   0x0800e9da   0x00000006   PAD
+    0x0800e9e0   0x0800e9e0   0x00000014   Code   RO         2482    .text.vPortEnableVFP  port.o
+    0x0800e9f4   0x0800e9f4   0x00000004   PAD
+    0x0800e9f8   0x0800e9f8   0x0000004a   Code   RO         2488    .text.vPortEnterCritical  port.o
+    0x0800ea42   0x0800ea42   0x00000006   PAD
+    0x0800ea48   0x0800ea48   0x0000002e   Code   RO         2490    .text.vPortExitCritical  port.o
+    0x0800ea76   0x0800ea76   0x00000002   PAD
+    0x0800ea78   0x0800ea78   0x000000de   Code   RO         2452    .text.vPortFree     heap_4.o
+    0x0800eb56   0x0800eb56   0x00000002   PAD
+    0x0800eb58   0x0800eb58   0x00000034   Code   RO         2480    .text.vPortSetupTimerInterrupt  port.o
+    0x0800eb8c   0x0800eb8c   0x00000004   PAD
+    0x0800eb90   0x0800eb90   0x0000005e   Code   RO         2496    .text.vPortValidateInterruptPriority  port.o
+    0x0800ebee   0x0800ebee   0x00000002   PAD
+    0x0800ebf0   0x0800ebf0   0x00000058   Code   RO         2055    .text.vQueueAddToRegistry  queue.o
+    0x0800ec48   0x0800ec48   0x0000007e   Code   RO         2041    .text.vQueueDelete  queue.o
+    0x0800ecc6   0x0800ecc6   0x00000002   PAD
+    0x0800ecc8   0x0800ecc8   0x00000064   Code   RO         2059    .text.vQueueWaitForMessageRestricted  queue.o
+    0x0800ed2c   0x0800ed2c   0x00000004   PAD
+    0x0800ed30   0x0800ed30   0x00000080   Code   RO         2134    .text.vTaskDelay    tasks.o
+    0x0800edb0   0x0800edb0   0x000000e2   Code   RO         2126    .text.vTaskDelete   tasks.o
+    0x0800ee92   0x0800ee92   0x00000006   PAD
+    0x0800ee98   0x0800ee98   0x00000012   Code   RO         2184    .text.vTaskInternalSetTimeOutState  tasks.o
+    0x0800eeaa   0x0800eeaa   0x00000006   PAD
+    0x0800eeb0   0x0800eeb0   0x0000000e   Code   RO         2188    .text.vTaskMissedYield  tasks.o
+    0x0800eebe   0x0800eebe   0x00000002   PAD
+    0x0800eec0   0x0800eec0   0x00000074   Code   RO         2172    .text.vTaskPlaceOnEventList  tasks.o
+    0x0800ef34   0x0800ef34   0x00000004   PAD
+    0x0800ef38   0x0800ef38   0x0000007a   Code   RO         2176    .text.vTaskPlaceOnEventListRestricted  tasks.o
+    0x0800efb2   0x0800efb2   0x00000006   PAD
+    0x0800efb8   0x0800efb8   0x000000a4   Code   RO         2206    .text.vTaskPriorityDisinheritAfterTimeout  tasks.o
+    0x0800f05c   0x0800f05c   0x00000004   PAD
+    0x0800f060   0x0800f060   0x000000f0   Code   RO         2152    .text.vTaskStartScheduler  tasks.o
+    0x0800f150   0x0800f150   0x00000010   Code   RO         2130    .text.vTaskSuspendAll  tasks.o
+    0x0800f160   0x0800f160   0x000000c8   Code   RO         2146    .text.vTaskSwitchContext  tasks.o
+    0x0800f228   0x0800f228   0x0000018a   Code   RO         2478    .text.xPortStartScheduler  port.o
+    0x0800f3b2   0x0800f3b2   0x00000006   PAD
+    0x0800f3b8   0x0800f3b8   0x0000002e   Code   RO         2494    .text.xPortSysTickHandler  port.o
+    0x0800f3e6   0x0800f3e6   0x00000002   PAD
+    0x0800f3e8   0x0800f3e8   0x00000070   Code   RO         2001    .text.xQueueCreateMutex  queue.o
+    0x0800f458   0x0800f458   0x00000082   Code   RO         1999    .text.xQueueGenericCreate  queue.o
+    0x0800f4da   0x0800f4da   0x00000006   PAD
+    0x0800f4e0   0x0800f4e0   0x000000da   Code   RO         1997    .text.xQueueGenericCreateStatic  queue.o
+    0x0800f5ba   0x0800f5ba   0x00000006   PAD
+    0x0800f5c0   0x0800f5c0   0x000002c0   Code   RO         2011    .text.xQueueGenericSend  queue.o
+    0x0800f880   0x0800f880   0x00000148   Code   RO         2023    .text.xQueueGenericSendFromISR  queue.o
+    0x0800f9c8   0x0800f9c8   0x000000ba   Code   RO         2025    .text.xQueueGiveFromISR  queue.o
+    0x0800fa82   0x0800fa82   0x00000006   PAD
+    0x0800fa88   0x0800fa88   0x0000023e   Code   RO         2027    .text.xQueueReceive  queue.o
+    0x0800fcc6   0x0800fcc6   0x00000002   PAD
+    0x0800fcc8   0x0800fcc8   0x0000028a   Code   RO         2015    .text.xQueueSemaphoreTake  queue.o
+    0x0800ff52   0x0800ff52   0x00000006   PAD
+    0x0800ff58   0x0800ff58   0x0000009a   Code   RO         2186    .text.xTaskCheckForTimeOut  tasks.o
+    0x0800fff2   0x0800fff2   0x00000006   PAD
+    0x0800fff8   0x0800fff8   0x00000060   Code   RO         2124    .text.xTaskCreate   tasks.o
+    0x08010058   0x08010058   0x0000007a   Code   RO         2118    .text.xTaskCreateStatic  tasks.o
+    0x080100d2   0x080100d2   0x00000006   PAD
+    0x080100d8   0x080100d8   0x0000001c   Code   RO         2200    .text.xTaskGetSchedulerState  tasks.o
+    0x080100f4   0x080100f4   0x00000004   PAD
+    0x080100f8   0x080100f8   0x0000000c   Code   RO         2160    .text.xTaskGetTickCount  tasks.o
+    0x08010104   0x08010104   0x00000004   PAD
+    0x08010108   0x08010108   0x00000104   Code   RO         2158    .text.xTaskIncrementTick  tasks.o
+    0x0801020c   0x0801020c   0x00000004   PAD
+    0x08010210   0x08010210   0x0000008e   Code   RO         2204    .text.xTaskPriorityDisinherit  tasks.o
+    0x0801029e   0x0801029e   0x00000002   PAD
+    0x080102a0   0x080102a0   0x00000090   Code   RO         2202    .text.xTaskPriorityInherit  tasks.o
+    0x08010330   0x08010330   0x00000074   Code   RO         2178    .text.xTaskRemoveFromEventList  tasks.o
+    0x080103a4   0x080103a4   0x00000004   PAD
+    0x080103a8   0x080103a8   0x000000ee   Code   RO         2132    .text.xTaskResumeAll  tasks.o
+    0x08010496   0x08010496   0x00000002   PAD
+    0x08010498   0x08010498   0x000000b4   Code   RO         2237    .text.xTimerCreateTimerTask  timers.o
+    0x0801054c   0x0801054c   0x0000003e   Code   RO         3806    CL$$btod_d2e        c_w.l(btod.o)
+    0x0801058a   0x0801058a   0x00000046   Code   RO         3808    CL$$btod_d2e_denorm_low  c_w.l(btod.o)
+    0x080105d0   0x080105d0   0x00000060   Code   RO         3807    CL$$btod_d2e_norm_op1  c_w.l(btod.o)
+    0x08010630   0x08010630   0x00000338   Code   RO         3816    CL$$btod_div_common  c_w.l(btod.o)
+    0x08010968   0x08010968   0x000000dc   Code   RO         3813    CL$$btod_e2e        c_w.l(btod.o)
+    0x08010a44   0x08010a44   0x0000002a   Code   RO         3810    CL$$btod_ediv       c_w.l(btod.o)
+    0x08010a6e   0x08010a6e   0x0000002a   Code   RO         3809    CL$$btod_emul       c_w.l(btod.o)
+    0x08010a98   0x08010a98   0x00000244   Code   RO         3815    CL$$btod_mult_common  c_w.l(btod.o)
+    0x08010cdc   0x08010cdc   0x00000030   Code   RO         3884    i.__ARM_fpclassify  m_wm.l(fpclassify.o)
+    0x08010d0c   0x08010d0c   0x000000b0   Code   RO         3386    i.__hardfp_fmodf    m_wm.l(fmodf.o)
+    0x08010dbc   0x08010dbc   0x00000010   Code   RO         3658    i.__mathlib_flt_invalid  m_wm.l(funder.o)
+    0x08010dcc   0x08010dcc   0x0000000e   Code   RO         3523    i._is_digit         c_w.l(__printf_wp.o)
+    0x08010dda   0x08010dda   0x00000002   PAD
+    0x08010ddc   0x08010ddc   0x0000002c   Code   RO         3837    locale$$code        c_w.l(lc_numeric_c.o)
+    0x08010e08   0x08010e08   0x0000002c   Code   RO         3904    locale$$code        c_w.l(lc_ctype_c.o)
+    0x08010e34   0x08010e34   0x0000000c   Code   RO         3615    x$fpl$dretinf       fz_wm.l(dretinf.o)
+    0x08010e40   0x08010e40   0x00000056   Code   RO         3333    x$fpl$f2d           fz_wm.l(f2d.o)
+    0x08010e96   0x08010e96   0x00000060   Code   RO         3335    x$fpl$ffltll        fz_wm.l(ffltll_clz.o)
+    0x08010ef6   0x08010ef6   0x0000008c   Code   RO         3617    x$fpl$fnaninf       fz_wm.l(fnaninf.o)
+    0x08010f82   0x08010f82   0x0000001a   Code   RO         3754    x$fpl$fpinit        fz_wm.l(fpinit.o)
+    0x08010f9c   0x08010f9c   0x000000f4   Code   RO         3619    x$fpl$frem          fz_wm.l(frem_clz.o)
+    0x08011090   0x08011090   0x00000004   Code   RO         3621    x$fpl$printf1       fz_wm.l(printf1.o)
+    0x08011094   0x08011094   0x00000004   Code   RO         3623    x$fpl$printf2       fz_wm.l(printf2.o)
+    0x08011098   0x08011098   0x00000000   Code   RO         3629    x$fpl$usenofp       fz_wm.l(usenofp.o)
+    0x08011098   0x08011098   0x00000008   Data   RO         3482    .constdata          c_w.l(_printf_wctomb.o)
+    0x080110a0   0x080110a0   0x00000028   Data   RO         3511    .constdata          c_w.l(_printf_hex_int_ll_ptr.o)
+    0x080110c8   0x080110c8   0x00000011   Data   RO         3531    .constdata          c_w.l(__printf_flags_ss_wp.o)
+    0x080110d9   0x080110d9   0x00000026   Data   RO         3730    .constdata          c_w.l(_printf_fp_hex.o)
+    0x080110ff   0x080110ff   0x00000001   PAD
+    0x08011100   0x08011100   0x00000094   Data   RO         3804    .constdata          c_w.l(bigflt0.o)
+    0x08011194   0x08011194   0x0000004c   Data   RO         1728    .rodata..L__const.HAL_FDCAN_Init.CvtEltSize  stm32h7xx_hal_fdcan.o
+    0x080111e0   0x080111e0   0x00000006   Data   RO         1873    .rodata..Lswitch.table.UART_SetConfig.7  stm32h7xx_hal_uart.o
+    0x080111e6   0x080111e6   0x00000006   Data   RO         1874    .rodata..Lswitch.table.UART_SetConfig.9  stm32h7xx_hal_uart.o
+    0x080111ec   0x080111ec   0x00000010   Data   RO         1930    .rodata.D1CorePrescTable  system_stm32h7xx.o
+    0x080111fc   0x080111fc   0x00000018   Data   RO         1872    .rodata.UARTPrescTable  stm32h7xx_hal_uart.o
+    0x08011214   0x08011214   0x00000018   Data   RO         2777    .rodata._ZTV13DJI_MotorDemo  frame_demo.o
+    0x0801122c   0x0801122c   0x00000048   Data   RO         2660    .rodata._ZTV5M3508  motor_dji.o
+    0x08011274   0x08011274   0x00000044   Data   RO         2659    .rodata._ZTV9DJI_Group  motor_dji.o
+    0x080112b8   0x080112b8   0x00000018   Data   RO         2539    .rodata._ZTVN8fdCANbus6RxTaskE  bsp_fdcan_driver.o
+    0x080112d0   0x080112d0   0x00000018   Data   RO         2540    .rodata._ZTVN8fdCANbus9SchedTaskE  bsp_fdcan_driver.o
+    0x080112e8   0x080112e8   0x00000010   Data   RO         1729    .rodata.cst16       stm32h7xx_hal_fdcan.o
+    0x080112f8   0x080112f8   0x00000010   Data   RO         1915    .rodata.cst8        stm32h7xx_hal_uart_ex.o
+    0x08011308   0x08011308   0x00000024   Data   RO           41    .rodata.defaultTask_attributes  freertos.o
+    0x0801132c   0x0801132c   0x0000000c   Data   RO           40    .rodata.str1.1      freertos.o
+    0x08011338   0x08011338   0x00000005   Data   RO         2277    .rodata.str1.1      timers.o
+    0x0801133d   0x0801133d   0x0000000e   Data   RO         2804    .rodata.str1.1      setup_configinit.o
+    0x0801134b   0x0801134b   0x00000093   Data   RO         3384    .rodata.str1.1      libcppabi_w.l(cxa_guard.cpp.o)
+    0x080113de   0x080113de   0x00000002   PAD
+    0x080113e0   0x080113e0   0x00000020   Data   RO         4012    Region$$Table       anon$$obj.o
+    0x08011400   0x08011400   0x0000001c   Data   RO         3836    locale$$data        c_w.l(lc_numeric_c.o)
+    0x0801141c   0x0801141c   0x00000110   Data   RO         3903    locale$$data        c_w.l(lc_ctype_c.o)
+    0x0801152c   0x0801152c   0x00000004   Data   RO         2778    .init_array         frame_demo.o
+    0x08011530   0x0801152c   0x00000000   Data   RO         3328    .init_array         c_w.l(init_aeabi.o)
 
 
-    Execution Region RW_IRAM1 (Exec base: 0x20000000, Load base: 0x08011580, Size: 0x00000000, Max: 0x00020000, ABSOLUTE)
+    Execution Region RW_IRAM1 (Exec base: 0x20000000, Load base: 0x08011530, Size: 0x00000000, Max: 0x00020000, ABSOLUTE)
 
     **** No section assigned to this execution region ****
 
 
-    Execution Region RW_IRAM2 (Exec base: 0x24000000, Load base: 0x08011580, Size: 0x00007320, Max: 0x00050000, ABSOLUTE, COMPRESSED[0x00000100])
+    Execution Region RW_IRAM2 (Exec base: 0x24000000, Load base: 0x08011530, Size: 0x00007320, Max: 0x00050000, ABSOLUTE, COMPRESSED[0x00000108])
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
@@ -9102,7 +9100,7 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
 
-      1008         28          0          0          0      19187   app_pid.o
+       932         24          0          0          0      19065   app_pid.o
       1368         20         48          0         12      28685   bsp_fdcan_driver.o
        348          8          0          0         24      17820   bsp_timestamp.o
        368          0          0          0       1724      45707   cmsis_os2.o
@@ -9115,7 +9113,7 @@ Image component sizes
        186          0          0          0          0       2337   list.o
        390          0          0          0          0      23693   main.o
        144          4          0          0          0      15777   module_encoder.o
-      1184         12        140          0          0      40704   motor_dji.o
+      1188         20        140          0          0      40705   motor_dji.o
       1010         16          0          4          8       4334   port.o
       3338          0          0          0         64      30984   queue.o
         34          0         14        124          0      20185   setup_configinit.o
@@ -9153,9 +9151,9 @@ Image component sizes
        132          0          0          0          0       4730   usbd_ioreq.o
 
     ----------------------------------------------------------------------
-     59830        984       1191        440      28928     866035   Object Totals
+     59750        980       1191        440      28928     865914   Object Totals
          0          0         32          0          0          0   (incl. Generated)
-      1298         48          0          7         11          0   (incl. Padding)
+      1290         40          0          7         11          0   (incl. Padding)
 
     ----------------------------------------------------------------------
 
@@ -9305,15 +9303,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-     69148       1404       1892        448      29024     868807   Grand Totals
-     69148       1404       1892        256      29024     868807   ELF Image Totals (compressed)
-     69148       1404       1892        256          0          0   ROM Totals
+     69068       1400       1892        448      29024     868686   Grand Totals
+     69068       1400       1892        264      29024     868686   ELF Image Totals (compressed)
+     69068       1400       1892        264          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                71040 (  69.38kB)
+    Total RO  Size (Code + RO Data)                70960 (  69.30kB)
     Total RW  Size (RW Data + ZI Data)             29472 (  28.78kB)
-    Total ROM Size (Code + RO Data + RW Data)      71296 (  69.62kB)
+    Total ROM Size (Code + RO Data + RW Data)      71224 (  69.55kB)
 
 ==============================================================================
 

@@ -62,11 +62,11 @@ int16_t DJI_Motor::realCurrent_to_virtualCurrent(float realCurrent)
     switch(type_)
     {
         case M3508_Type:
-            return static_cast<int16_t>(realCurrent / 20.0f * 16384.0f); // 20A满量程
+            return static_cast<int16_t>(realCurrent / 20000.0f * 16384.0f); // 20A满量程
         case M2006_Type:
-            return static_cast<int16_t>(realCurrent / 10.0f * 10000.0f); // 10A满量程
+            return static_cast<int16_t>(realCurrent / 10000.0f * 10000.0f); // 10A满量程
         case GM6020_Type:
-            return static_cast<int16_t>(realCurrent / 3.0f * 16384.0f);  //3A满量程
+            return static_cast<int16_t>(realCurrent / 3000.0f * 16384.0f);  //3A满量程
         default:
             return 0;
     }

@@ -5,8 +5,8 @@ DJI_Group DJI_Group_1(send_idLow(), &CAN1_Bus); // µÍÆ¬ 0x200
 M3508 m3508_1(1, &CAN1_Bus);
 
 PID_Param_Config m3508_speed_pid_params = {
-    .kp = 32.0f,
-    .ki = 0.0f,
+    .kp = 1.0f,
+    .ki = 0.76f,
     .kd = 0.0f,
     .I_Outlimit = 0.0f, 
     .isIOutlimit = true, 
