@@ -4,24 +4,25 @@ fdCANbus CAN1_Bus(&hfdcan1, 1); // CAN1
 DJI_Group DJI_Group_1(send_idLow(), &CAN1_Bus); // 低片 0x200
 M3508 m3508_1(1, &CAN1_Bus);
 
+//目前不错的参数 by XieFField
 PID_Param_Config m3508_speed_pid_params = {
-    .kp = 1.0f,
-    .ki = 0.76f,
+    .kp = 18.0f,
+    .ki = 0.015f,
     .kd = 0.0f,
-    .I_Outlimit = 0.0f, 
+    .I_Outlimit = 8000.0f, 
     .isIOutlimit = true, 
-    .output_limit = 20000.0f,   
+    .output_limit = 15000.0f,   
     .deadband = 5.0f 
 };
 
 PID_Param_Config m3508_angle_pid_params = {
-    .kp = 100.0f,
+    .kp = 30.0f,
     .ki = 0.0f,
-    .kd = 0.005f,
-    .I_Outlimit = 8000.0f, 
+    .kd = 1.1f,
+    .I_Outlimit = 0.0f, 
     .isIOutlimit = true, 
-    .output_limit = 20000.0f,   
-    .deadband = 5.0f // 
+    .output_limit = 400.0f,   
+    .deadband = 0.8f // 
 };
 
 
@@ -49,7 +50,7 @@ void DJI_MotorDemo::loop()
         // 可以在这里使用 delta_time 进行其他计算
     }
     last_time = time_now;
-    debug_uart.printf_DMA("%f,%f\r\n",m3508_1.getRPM(), m3508_1.getTargetRPM());
+    debug_uart.printf_DMA("%f,%f\r\n",m3508_1.getTotalAngle(), m3508_1.getTargetTotalAngle());
     //HAL_UART_Transmit(&huart1, (uint8_t*)"Tick\r\n", 6, HAL_MAX_DELAY);
     if(start_signal == 1)
     {
@@ -86,12 +87,16 @@ void DJI_MotorDemo::loop()
     else if (start_signal == 7)
     {
         /* code */
-        m3508_1.setTargetAngle(720.0f);
+        m3508_1.setTargetTotalAngle(720.0f);
     }
     else if (start_signal == 8)
     {
         /* code */
-        m3508_1.setTargetAngle(-720.0f);
+        m3508_1.setTargetTotalAngle(-720.0f);
+    }
+    else if(start_signal == 9)
+    {
+        m3508_1.setTargetRPM(0.0f);
     }
     else
     {

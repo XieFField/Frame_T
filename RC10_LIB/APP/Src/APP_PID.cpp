@@ -11,7 +11,7 @@ float PID_Position::pid_calc(float target, float feedback)
     {
         isFirst_ = false;
         // 在第一次计算时，dt 可能非常大或不确定，使用默认值
-        dt_ = 0.001f; 
+        dt_ = 0.01f; 
         error_last_ = target - feedback; // 初始化上次误差
         feedback_last_ = feedback;
     }
@@ -19,7 +19,7 @@ float PID_Position::pid_calc(float target, float feedback)
     // 对dt进行异常值处理
     if (dt_ <= 0.0f || dt_ > 0.1f) // 如果dt小于等于0或大于100ms，则认为异常
     {
-        dt_ = 0.001f;
+        dt_ = 0.01f;
     }
 
     // calc error
@@ -82,7 +82,7 @@ float PID_Position::pid_calc(float target, float feedback)
 
     // calc D (微分先行)
     if (dt_ > 0.0f)
-        D_Term = -params_.kd * (feedback - feedback_last_) / dt_;
+        D_Term = params_.kd * (feedback - feedback_last_) / dt_;
     else
         D_Term = 0.0f;
     
@@ -92,7 +92,7 @@ float PID_Position::pid_calc(float target, float feedback)
     feedback_last_ = feedback;
     last_time_s_ = current_time_s;
 
-    float output = P_Term + I_Term + D_Term;
+    float output = P_Term + I_Term - D_Term;
     output = constrain(output, -params_.output_limit, params_.output_limit);
 
     output_ = output;

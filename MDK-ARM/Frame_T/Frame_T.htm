@@ -3,7 +3,7 @@
 <title>Static Call Graph - [Frame_T\Frame_T.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image Frame_T\Frame_T.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6230001: Last Updated: Wed Sep 24 19:33:19 2025
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6230001: Last Updated: Wed Sep 24 21:04:28 2025
 <BR><P>
 <H3>Maximum Stack Usage =        400 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -3365,14 +3365,15 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[15a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ALL_Setup_ConfigInit
 </UL>
 
-<P><STRONG><a name="[bc]"></a>DJI_MotorDemo::loop()</STRONG> (Thumb, 400 bytes, Stack size 32 bytes, frame_demo.o(.text._ZN13DJI_MotorDemo4loopEv))
+<P><STRONG><a name="[bc]"></a>DJI_MotorDemo::loop()</STRONG> (Thumb, 432 bytes, Stack size 32 bytes, frame_demo.o(.text._ZN13DJI_MotorDemo4loopEv))
 <BR><BR>[Stack]<UL><LI>Max Depth = 192 + Unknown Stack Size
 <LI>Call Chain = DJI_MotorDemo::loop() &rArr; Debug_Printf::printf_DMA(char*, ...) &rArr; vsnprintf &rArr; _printf_char_common &rArr; __printf
 </UL>
-<BR>[Calls]<UL><LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;M3508::setTargetAngle(float)
+<BR>[Calls]<UL><LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;M3508::setTargetTotalAngle(float)
+<LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;M3508::setTargetAngle(float)
 <LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;M3508::setTargetRPM(float)
 <LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;M3508::setTargetCurrent(float)
-<LI><a href="#[c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;M3508::getRPM() const
+<LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;M3508::getTotalAngle() const
 <LI><a href="#[241]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TimeStamp::getMicroseconds() const
 <LI><a href="#[15c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TimeStamp::getInstance()
 <LI><a href="#[242]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ul2f
@@ -3423,9 +3424,11 @@ Global Symbols
 <BR>[Address Reference Count : 1]<UL><LI> motor_dji.o(.rodata._ZTV5M3508)
 </UL>
 <P><STRONG><a name="[c2]"></a>M3508::setTargetTotalAngle(float)</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, motor_dji.o(.text._ZN5M350819setTargetTotalAngleEf))
+<BR><BR>[Called By]<UL><LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DJI_MotorDemo::loop()
+</UL>
 <BR>[Address Reference Count : 1]<UL><LI> motor_dji.o(.rodata._ZTV5M3508)
 </UL>
-<P><STRONG><a name="[c3]"></a>M3508::update()</STRONG> (Thumb, 164 bytes, Stack size 24 bytes, motor_dji.o(.text._ZN5M35086updateEv))
+<P><STRONG><a name="[c3]"></a>M3508::update()</STRONG> (Thumb, 144 bytes, Stack size 24 bytes, motor_dji.o(.text._ZN5M35086updateEv))
 <BR><BR>[Stack]<UL><LI>Max Depth = 112 + Unknown Stack Size
 <LI>Call Chain = M3508::update() &rArr; PID_Incremental::pid_calc(float, float) &rArr; TimeStamp::getInstance() &rArr; __cxa_guard_acquire &rArr; abort_message &rArr; abort &rArr; __rt_SIGABRT &rArr; __rt_SIGABRT_inner &rArr; __default_signal_display &rArr; _ttywrch
 </UL>
@@ -3657,14 +3660,14 @@ Global Symbols
 <BR>[Address Reference Count : 1]<UL><LI> motor_dji.o(.rodata._ZTV9DJI_Group)
 </UL>
 <P><STRONG><a name="[c7]"></a>M3508::getTotalAngle() const</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, motor_dji.o(.text._ZNK5M350813getTotalAngleEv))
+<BR><BR>[Called By]<UL><LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DJI_MotorDemo::loop()
+</UL>
 <BR>[Address Reference Count : 1]<UL><LI> motor_dji.o(.rodata._ZTV5M3508)
 </UL>
 <P><STRONG><a name="[cb]"></a>M3508::get_GearRatio() const</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, motor_dji.o(.text._ZNK5M350813get_GearRatioEv))
 <BR>[Address Reference Count : 1]<UL><LI> motor_dji.o(.rodata._ZTV5M3508)
 </UL>
 <P><STRONG><a name="[c4]"></a>M3508::getRPM() const</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, motor_dji.o(.text._ZNK5M35086getRPMEv))
-<BR><BR>[Called By]<UL><LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DJI_MotorDemo::loop()
-</UL>
 <BR>[Address Reference Count : 1]<UL><LI> motor_dji.o(.rodata._ZTV5M3508)
 </UL>
 <P><STRONG><a name="[c6]"></a>M3508::getAngle() const</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, motor_dji.o(.text._ZNK5M35088getAngleEv))

@@ -242,7 +242,9 @@ void M3508::update()
                 target_rpm_ = expected_rpm;
                 anglePid_timeCnt = 0;
             }
-            //自动掉入速度环
+            target_current_ = speed_pid_.pid_calc(target_rpm_, this->rpm_);
+            //cur = target_current_;
+            break;
         }
         //注意：此处不break，继续执行速度环计算
         case SPEED_CONTROL:
@@ -347,6 +349,9 @@ void M2006::update()
                 target_rpm_ = expected_rpm;
                 anglePid_timeCnt = 0;
             }
+            target_current_ = speed_pid_.pid_calc(target_rpm_, this->rpm_);
+            //cur = target_current_;
+            break;
             // Fallthrough to speed control
         }
 
@@ -435,6 +440,9 @@ void GM6020::update()
                 target_rpm_ = expected_rpm;
                 anglePid_timeCnt = 0;
             }
+            target_current_ = speed_pid_.pid_calc(target_rpm_, this->rpm_);
+            //cur = target_current_;
+            break;
             // Fallthrough to speed control
         }
 
