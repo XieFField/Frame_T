@@ -2,7 +2,7 @@
  * @file    Module_ChassisBase.h
  * @author  XieFField
  * @brief   底盘模块基类
- *          这是一个纯粹的运动学模型，负责速度的分解（逆解）和合成（正解）。
+ *          这是一个纯粹的运动学模型
  *          - 注册动力电机，应用速度到电机
  *          - 坐标系：遵循右手定则，yaw逆时针为正。
  * @version 1.0
