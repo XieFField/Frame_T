@@ -57,7 +57,7 @@ extern void fdcan_global_scheduler_tick_isr(void);
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 static void MPU_Config(void);
-void MX_FREERTOS_Init(void);
+
 /* USER CODE BEGIN PFP */
 #ifdef __cplusplus
 extern "C"{

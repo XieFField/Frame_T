@@ -396,11 +396,6 @@
           <GroupName>Application/User/Core</GroupName>
           <Files>
             <File>
-              <FileName>main.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>..\Core\Src\main.cpp</FilePath>
-            </File>
-            <File>
               <FileName>gpio.c</FileName>
               <FileType>1</FileType>
               <FilePath>../Core/Src/gpio.c</FilePath>
@@ -546,6 +541,11 @@
               <FileName>stm32h7xx_hal_timebase_tim.c</FileName>
               <FileType>1</FileType>
               <FilePath>../Core/Src/stm32h7xx_hal_timebase_tim.c</FilePath>
+            </File>
+            <File>
+              <FileName>main.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\Core\Src\main.cpp</FilePath>
             </File>
           </Files>
         </Group>
