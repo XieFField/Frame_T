@@ -1,5 +1,6 @@
 --cpu Cortex-M7.fp.sp
 "frame_t\startup_stm32h723xx.o"
+"frame_t\main.o"
 "frame_t\gpio.o"
 "frame_t\freertos.o"
 "frame_t\dma.o"
@@ -9,7 +10,6 @@
 "frame_t\stm32h7xx_it.o"
 "frame_t\stm32h7xx_hal_msp.o"
 "frame_t\stm32h7xx_hal_timebase_tim.o"
-"frame_t\main.o"
 "frame_t\stm32h7xx_hal_tim.o"
 "frame_t\stm32h7xx_hal_tim_ex.o"
 "frame_t\stm32h7xx_hal_pcd.o"

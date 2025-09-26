@@ -19,13 +19,11 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "cmsis_os.h"
-#include "dma.h"
 #include "fdcan.h"
 #include "tim.h"
 #include "usart.h"
-#include "usb_device.h"
 #include "gpio.h"
-#include "freertos.h"
+
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
@@ -59,12 +57,13 @@ extern void fdcan_global_scheduler_tick_isr(void);
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 static void MPU_Config(void);
-void MX_FREERTOS_Init(void);
+
 /* USER CODE BEGIN PFP */
 #ifdef __cplusplus
 extern "C"{
 #endif
-
+void MX_FREERTOS_Init(void);
+    
 #ifdef __cplusplus
 }
 #endif
@@ -95,7 +94,7 @@ int main(void)
   HAL_Init();
 
   /* USER CODE BEGIN Init */
-
+  MX_DMA_Init();
   /* USER CODE END Init */
 
   /* Configure the system clock */
@@ -107,7 +106,6 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
-  MX_DMA_Init();
   MX_FDCAN1_Init();
   MX_FDCAN2_Init();
   MX_FDCAN3_Init();

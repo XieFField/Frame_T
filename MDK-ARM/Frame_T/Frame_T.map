@@ -33,6 +33,36 @@ Section Cross References
     startup_stm32h723xx.o(.text) refers to __main.o(!!!main) for __main
     startup_stm32h723xx.o(.text) refers to startup_stm32h723xx.o(HEAP) for Heap_Mem
     startup_stm32h723xx.o(.text) refers to startup_stm32h723xx.o(STACK) for Stack_Mem
+    main.o(.text.main) refers to stm32h7xx_hal_cortex.o(.text.HAL_MPU_Disable) for HAL_MPU_Disable
+    main.o(.text.main) refers to stm32h7xx_hal_cortex.o(.text.HAL_MPU_ConfigRegion) for HAL_MPU_ConfigRegion
+    main.o(.text.main) refers to stm32h7xx_hal_cortex.o(.text.HAL_MPU_Enable) for HAL_MPU_Enable
+    main.o(.text.main) refers to stm32h7xx_hal.o(.text.HAL_Init) for HAL_Init
+    main.o(.text.main) refers to dma.o(.text.MX_DMA_Init) for MX_DMA_Init
+    main.o(.text.main) refers to main.o(.text._Z18SystemClock_Configv) for SystemClock_Config()
+    main.o(.text.main) refers to gpio.o(.text.MX_GPIO_Init) for MX_GPIO_Init
+    main.o(.text.main) refers to fdcan.o(.text.MX_FDCAN1_Init) for MX_FDCAN1_Init
+    main.o(.text.main) refers to fdcan.o(.text.MX_FDCAN2_Init) for MX_FDCAN2_Init
+    main.o(.text.main) refers to fdcan.o(.text.MX_FDCAN3_Init) for MX_FDCAN3_Init
+    main.o(.text.main) refers to usart.o(.text.MX_USART1_UART_Init) for MX_USART1_UART_Init
+    main.o(.text.main) refers to tim.o(.text.MX_TIM6_Init) for MX_TIM6_Init
+    main.o(.text.main) refers to tim.o(.text.MX_TIM4_Init) for MX_TIM4_Init
+    main.o(.text.main) refers to tim.o(.bss.htim6) for htim6
+    main.o(.text.main) refers to stm32h7xx_hal_tim.o(.text.HAL_TIM_Base_Start_IT) for HAL_TIM_Base_Start_IT
+    main.o(.text.main) refers to setup_configinit.o(.text.ALL_Setup_ConfigInit) for ALL_Setup_ConfigInit
+    main.o(.text.main) refers to cmsis_os2.o(.text.osKernelInitialize) for osKernelInitialize
+    main.o(.text.main) refers to freertos.o(.text.MX_FREERTOS_Init) for MX_FREERTOS_Init
+    main.o(.text.main) refers to cmsis_os2.o(.text.osKernelStart) for osKernelStart
+    main.o(.ARM.exidx.text.main) refers to main.o(.text.main) for [Anonymous Symbol]
+    main.o(.text._Z18SystemClock_Configv) refers to rt_memclr_w.o(.text) for __aeabi_memclr4
+    main.o(.text._Z18SystemClock_Configv) refers to stm32h7xx_hal_pwr_ex.o(.text.HAL_PWREx_ConfigSupply) for HAL_PWREx_ConfigSupply
+    main.o(.text._Z18SystemClock_Configv) refers to stm32h7xx_hal_rcc.o(.text.HAL_RCC_OscConfig) for HAL_RCC_OscConfig
+    main.o(.text._Z18SystemClock_Configv) refers to stm32h7xx_hal_rcc.o(.text.HAL_RCC_ClockConfig) for HAL_RCC_ClockConfig
+    main.o(.ARM.exidx.text._Z18SystemClock_Configv) refers to main.o(.text._Z18SystemClock_Configv) for [Anonymous Symbol]
+    main.o(.ARM.exidx.text.Error_Handler) refers to main.o(.text.Error_Handler) for [Anonymous Symbol]
+    main.o(.text.HAL_TIM_PeriodElapsedCallback) refers to bsp_timestamp.o(.text._ZN9TimeStamp16overflowCallbackEv) for TimeStamp::overflowCallback()
+    main.o(.text.HAL_TIM_PeriodElapsedCallback) refers to stm32h7xx_hal.o(.text.HAL_IncTick) for HAL_IncTick
+    main.o(.text.HAL_TIM_PeriodElapsedCallback) refers to bsp_fdcan_driver.o(.text.fdcan_global_scheduler_tick_isr) for fdcan_global_scheduler_tick_isr
+    main.o(.ARM.exidx.text.HAL_TIM_PeriodElapsedCallback) refers to main.o(.text.HAL_TIM_PeriodElapsedCallback) for [Anonymous Symbol]
     gpio.o(.ARM.exidx.text.MX_GPIO_Init) refers to gpio.o(.text.MX_GPIO_Init) for [Anonymous Symbol]
     freertos.o(.text.MX_FREERTOS_Init) refers to freertos.o(.text.StartDefaultTask) for StartDefaultTask
     freertos.o(.text.MX_FREERTOS_Init) refers to freertos.o(.rodata.defaultTask_attributes) for defaultTask_attributes
@@ -154,36 +184,6 @@ Section Cross References
     stm32h7xx_hal_timebase_tim.o(.ARM.exidx.text.HAL_SuspendTick) refers to stm32h7xx_hal_timebase_tim.o(.text.HAL_SuspendTick) for [Anonymous Symbol]
     stm32h7xx_hal_timebase_tim.o(.text.HAL_ResumeTick) refers to stm32h7xx_hal_timebase_tim.o(.bss.htim8) for htim8
     stm32h7xx_hal_timebase_tim.o(.ARM.exidx.text.HAL_ResumeTick) refers to stm32h7xx_hal_timebase_tim.o(.text.HAL_ResumeTick) for [Anonymous Symbol]
-    main.o(.text.main) refers to stm32h7xx_hal_cortex.o(.text.HAL_MPU_Disable) for HAL_MPU_Disable
-    main.o(.text.main) refers to stm32h7xx_hal_cortex.o(.text.HAL_MPU_ConfigRegion) for HAL_MPU_ConfigRegion
-    main.o(.text.main) refers to stm32h7xx_hal_cortex.o(.text.HAL_MPU_Enable) for HAL_MPU_Enable
-    main.o(.text.main) refers to stm32h7xx_hal.o(.text.HAL_Init) for HAL_Init
-    main.o(.text.main) refers to dma.o(.text.MX_DMA_Init) for MX_DMA_Init
-    main.o(.text.main) refers to main.o(.text._Z18SystemClock_Configv) for SystemClock_Config()
-    main.o(.text.main) refers to gpio.o(.text.MX_GPIO_Init) for MX_GPIO_Init
-    main.o(.text.main) refers to fdcan.o(.text.MX_FDCAN1_Init) for MX_FDCAN1_Init
-    main.o(.text.main) refers to fdcan.o(.text.MX_FDCAN2_Init) for MX_FDCAN2_Init
-    main.o(.text.main) refers to fdcan.o(.text.MX_FDCAN3_Init) for MX_FDCAN3_Init
-    main.o(.text.main) refers to usart.o(.text.MX_USART1_UART_Init) for MX_USART1_UART_Init
-    main.o(.text.main) refers to tim.o(.text.MX_TIM6_Init) for MX_TIM6_Init
-    main.o(.text.main) refers to tim.o(.text.MX_TIM4_Init) for MX_TIM4_Init
-    main.o(.text.main) refers to tim.o(.bss.htim6) for htim6
-    main.o(.text.main) refers to stm32h7xx_hal_tim.o(.text.HAL_TIM_Base_Start_IT) for HAL_TIM_Base_Start_IT
-    main.o(.text.main) refers to setup_configinit.o(.text.ALL_Setup_ConfigInit) for ALL_Setup_ConfigInit
-    main.o(.text.main) refers to cmsis_os2.o(.text.osKernelInitialize) for osKernelInitialize
-    main.o(.text.main) refers to freertos.o(.text.MX_FREERTOS_Init) for MX_FREERTOS_Init
-    main.o(.text.main) refers to cmsis_os2.o(.text.osKernelStart) for osKernelStart
-    main.o(.ARM.exidx.text.main) refers to main.o(.text.main) for [Anonymous Symbol]
-    main.o(.text._Z18SystemClock_Configv) refers to rt_memclr_w.o(.text) for __aeabi_memclr4
-    main.o(.text._Z18SystemClock_Configv) refers to stm32h7xx_hal_pwr_ex.o(.text.HAL_PWREx_ConfigSupply) for HAL_PWREx_ConfigSupply
-    main.o(.text._Z18SystemClock_Configv) refers to stm32h7xx_hal_rcc.o(.text.HAL_RCC_OscConfig) for HAL_RCC_OscConfig
-    main.o(.text._Z18SystemClock_Configv) refers to stm32h7xx_hal_rcc.o(.text.HAL_RCC_ClockConfig) for HAL_RCC_ClockConfig
-    main.o(.ARM.exidx.text._Z18SystemClock_Configv) refers to main.o(.text._Z18SystemClock_Configv) for [Anonymous Symbol]
-    main.o(.ARM.exidx.text.Error_Handler) refers to main.o(.text.Error_Handler) for [Anonymous Symbol]
-    main.o(.text.HAL_TIM_PeriodElapsedCallback) refers to bsp_timestamp.o(.text._ZN9TimeStamp16overflowCallbackEv) for TimeStamp::overflowCallback()
-    main.o(.text.HAL_TIM_PeriodElapsedCallback) refers to stm32h7xx_hal.o(.text.HAL_IncTick) for HAL_IncTick
-    main.o(.text.HAL_TIM_PeriodElapsedCallback) refers to bsp_fdcan_driver.o(.text.fdcan_global_scheduler_tick_isr) for fdcan_global_scheduler_tick_isr
-    main.o(.ARM.exidx.text.HAL_TIM_PeriodElapsedCallback) refers to main.o(.text.HAL_TIM_PeriodElapsedCallback) for [Anonymous Symbol]
     stm32h7xx_hal_tim.o(.text.HAL_TIM_Base_Init) refers to tim.o(.text.HAL_TIM_Base_MspInit) for HAL_TIM_Base_MspInit
     stm32h7xx_hal_tim.o(.text.HAL_TIM_Base_Init) refers to stm32h7xx_hal_tim.o(.text.TIM_Base_SetConfig) for TIM_Base_SetConfig
     stm32h7xx_hal_tim.o(.ARM.exidx.text.HAL_TIM_Base_Init) refers to stm32h7xx_hal_tim.o(.text.HAL_TIM_Base_Init) for [Anonymous Symbol]
@@ -3798,6 +3798,12 @@ Section Cross References
 
 Removing Unused input sections from the image.
 
+    Removing main.o(.text), (0 bytes).
+    Removing main.o(.ARM.exidx.text.main), (8 bytes).
+    Removing main.o(.ARM.exidx.text._Z18SystemClock_Configv), (8 bytes).
+    Removing main.o(.ARM.exidx.text.Error_Handler), (8 bytes).
+    Removing main.o(.ARM.exidx.text.HAL_TIM_PeriodElapsedCallback), (8 bytes).
+    Removing main.o(.ARM.use_no_argv), (4 bytes).
     Removing gpio.o(.text), (0 bytes).
     Removing gpio.o(.ARM.exidx.text.MX_GPIO_Init), (8 bytes).
     Removing freertos.o(.text), (0 bytes).
@@ -3847,12 +3853,6 @@ Removing Unused input sections from the image.
     Removing stm32h7xx_hal_timebase_tim.o(.ARM.exidx.text.HAL_SuspendTick), (8 bytes).
     Removing stm32h7xx_hal_timebase_tim.o(.text.HAL_ResumeTick), (20 bytes).
     Removing stm32h7xx_hal_timebase_tim.o(.ARM.exidx.text.HAL_ResumeTick), (8 bytes).
-    Removing main.o(.text), (0 bytes).
-    Removing main.o(.ARM.exidx.text.main), (8 bytes).
-    Removing main.o(.ARM.exidx.text._Z18SystemClock_Configv), (8 bytes).
-    Removing main.o(.ARM.exidx.text.Error_Handler), (8 bytes).
-    Removing main.o(.ARM.exidx.text.HAL_TIM_PeriodElapsedCallback), (8 bytes).
-    Removing main.o(.ARM.use_no_argv), (4 bytes).
     Removing stm32h7xx_hal_tim.o(.text), (0 bytes).
     Removing stm32h7xx_hal_tim.o(.ARM.exidx.text.HAL_TIM_Base_Init), (8 bytes).
     Removing stm32h7xx_hal_tim.o(.text.HAL_TIM_Base_MspInit), (2 bytes).
@@ -8281,7 +8281,7 @@ Memory Map of the image
     0x08001be4   0x08001be4   0x00000004   PAD
     0x08001be8   0x08001be8   0x00000022   Code   RO         2801    .text.ALL_Setup_ConfigInit  setup_configinit.o
     0x08001c0a   0x08001c0a   0x00000006   PAD
-    0x08001c10   0x08001c10   0x00000002   Code   RO          104    .text.BusFault_Handler  stm32h7xx_it.o
+    0x08001c10   0x08001c10   0x00000002   Code   RO          121    .text.BusFault_Handler  stm32h7xx_it.o
     0x08001c12   0x08001c12   0x00000006   PAD
     0x08001c18   0x08001c18   0x00000004   Code   RO         2944    .text.CDC_Control_HS  usbd_cdc_if.o
     0x08001c1c   0x08001c1c   0x00000004   PAD
@@ -8293,21 +8293,21 @@ Memory Map of the image
     0x08001c74   0x08001c74   0x00000004   PAD
     0x08001c78   0x08001c78   0x00000004   Code   RO         2948    .text.CDC_TransmitCplt_HS  usbd_cdc_if.o
     0x08001c7c   0x08001c7c   0x00000004   PAD
-    0x08001c80   0x08001c80   0x0000000c   Code   RO          110    .text.DMA1_Stream0_IRQHandler  stm32h7xx_it.o
+    0x08001c80   0x08001c80   0x0000000c   Code   RO          127    .text.DMA1_Stream0_IRQHandler  stm32h7xx_it.o
     0x08001c8c   0x08001c8c   0x00000004   PAD
     0x08001c90   0x08001c90   0x00000128   Code   RO          930    .text.DMA_CalcBaseAndBitshift  stm32h7xx_hal_dma.o
     0x08001db8   0x08001db8   0x00000308   Code   RO          936    .text.DMA_SetConfig  stm32h7xx_hal_dma.o
-    0x080020c0   0x080020c0   0x00000002   Code   RO          108    .text.DebugMon_Handler  stm32h7xx_it.o
+    0x080020c0   0x080020c0   0x00000002   Code   RO          125    .text.DebugMon_Handler  stm32h7xx_it.o
     0x080020c2   0x080020c2   0x00000006   PAD
-    0x080020c8   0x080020c8   0x0000000a   Code   RO          163    .text.Error_Handler  main.o
+    0x080020c8   0x080020c8   0x0000000a   Code   RO           15    .text.Error_Handler  main.o
     0x080020d2   0x080020d2   0x00000006   PAD
     0x080020d8   0x080020d8   0x0000002c   Code   RO         1928    .text.ExitRun0Mode  system_stm32h7xx.o
     0x08002104   0x08002104   0x00000004   PAD
-    0x08002108   0x08002108   0x0000000c   Code   RO          112    .text.FDCAN1_IT0_IRQHandler  stm32h7xx_it.o
+    0x08002108   0x08002108   0x0000000c   Code   RO          129    .text.FDCAN1_IT0_IRQHandler  stm32h7xx_it.o
     0x08002114   0x08002114   0x00000004   PAD
-    0x08002118   0x08002118   0x0000000c   Code   RO          114    .text.FDCAN2_IT0_IRQHandler  stm32h7xx_it.o
+    0x08002118   0x08002118   0x0000000c   Code   RO          131    .text.FDCAN2_IT0_IRQHandler  stm32h7xx_it.o
     0x08002124   0x08002124   0x00000004   PAD
-    0x08002128   0x08002128   0x0000000c   Code   RO          126    .text.FDCAN3_IT0_IRQHandler  stm32h7xx_it.o
+    0x08002128   0x08002128   0x0000000c   Code   RO          143    .text.FDCAN3_IT0_IRQHandler  stm32h7xx_it.o
     0x08002134   0x08002134   0x00000004   PAD
     0x08002138   0x08002138   0x00000526   Code   RO          940    .text.HAL_DMA_Abort  stm32h7xx_hal_dma.o
     0x0800265e   0x0800265e   0x00000002   PAD
@@ -8339,7 +8339,7 @@ Memory Map of the image
     0x080042f4   0x080042f4   0x00000004   PAD
     0x080042f8   0x080042f8   0x000003fc   Code   RO         1532    .text.HAL_FDCAN_Init  stm32h7xx_hal_fdcan.o
     0x080046f4   0x080046f4   0x00000004   PAD
-    0x080046f8   0x080046f8   0x000001ea   Code   RO           48    .text.HAL_FDCAN_MspInit  fdcan.o
+    0x080046f8   0x080046f8   0x000001ea   Code   RO           65    .text.HAL_FDCAN_MspInit  fdcan.o
     0x080048e2   0x080048e2   0x00000006   PAD
     0x080048e8   0x080048e8   0x00000002   Code   RO         1706    .text.HAL_FDCAN_RxBufferNewMessageCallback  stm32h7xx_hal_fdcan.o
     0x080048ea   0x080048ea   0x00000006   PAD
@@ -8377,13 +8377,13 @@ Memory Map of the image
     0x08004b62   0x08004b62   0x00000006   PAD
     0x08004b68   0x08004b68   0x00000064   Code   RO         1214    .text.HAL_Init      stm32h7xx_hal.o
     0x08004bcc   0x08004bcc   0x00000004   PAD
-    0x08004bd0   0x08004bd0   0x000000a0   Code   RO          144    .text.HAL_InitTick  stm32h7xx_hal_timebase_tim.o
+    0x08004bd0   0x08004bd0   0x000000a0   Code   RO          161    .text.HAL_InitTick  stm32h7xx_hal_timebase_tim.o
     0x08004c70   0x08004c70   0x0000005e   Code   RO         1184    .text.HAL_MPU_ConfigRegion  stm32h7xx_hal_cortex.o
     0x08004cce   0x08004cce   0x00000002   PAD
     0x08004cd0   0x08004cd0   0x0000001a   Code   RO         1176    .text.HAL_MPU_Disable  stm32h7xx_hal_cortex.o
     0x08004cea   0x08004cea   0x00000006   PAD
     0x08004cf0   0x08004cf0   0x00000020   Code   RO         1178    .text.HAL_MPU_Enable  stm32h7xx_hal_cortex.o
-    0x08004d10   0x08004d10   0x0000002a   Code   RO          135    .text.HAL_MspInit   stm32h7xx_hal_msp.o
+    0x08004d10   0x08004d10   0x0000002a   Code   RO          152    .text.HAL_MspInit   stm32h7xx_hal_msp.o
     0x08004d3a   0x08004d3a   0x00000006   PAD
     0x08004d40   0x08004d40   0x00000022   Code   RO         1166    .text.HAL_NVIC_EnableIRQ  stm32h7xx_hal_cortex.o
     0x08004d62   0x08004d62   0x00000006   PAD
@@ -8463,7 +8463,7 @@ Memory Map of the image
     0x08007660   0x08007660   0x000000de   Code   RO          471    .text.HAL_TIMEx_MasterConfigSynchronization  stm32h7xx_hal_tim_ex.o
     0x0800773e   0x0800773e   0x00000002   PAD
     0x08007740   0x08007740   0x00000060   Code   RO          176    .text.HAL_TIM_Base_Init  stm32h7xx_hal_tim.o
-    0x080077a0   0x080077a0   0x0000007c   Code   RO           68    .text.HAL_TIM_Base_MspInit  tim.o
+    0x080077a0   0x080077a0   0x0000007c   Code   RO           85    .text.HAL_TIM_Base_MspInit  tim.o
     0x0800781c   0x0800781c   0x00000004   PAD
     0x08007820   0x08007820   0x000000dc   Code   RO          190    .text.HAL_TIM_Base_Start_IT  stm32h7xx_hal_tim.o
     0x080078fc   0x080078fc   0x00000004   PAD
@@ -8476,7 +8476,7 @@ Memory Map of the image
     0x08007c7a   0x08007c7a   0x00000006   PAD
     0x08007c80   0x08007c80   0x00000002   Code   RO          316    .text.HAL_TIM_PWM_PulseFinishedCallback  stm32h7xx_hal_tim.o
     0x08007c82   0x08007c82   0x00000006   PAD
-    0x08007c88   0x08007c88   0x00000042   Code   RO          165    .text.HAL_TIM_PeriodElapsedCallback  main.o
+    0x08007c88   0x08007c88   0x00000042   Code   RO           17    .text.HAL_TIM_PeriodElapsedCallback  main.o
     0x08007cca   0x08007cca   0x00000006   PAD
     0x08007cd0   0x08007cd0   0x00000002   Code   RO          320    .text.HAL_TIM_TriggerCallback  stm32h7xx_hal_tim.o
     0x08007cd2   0x08007cd2   0x00000006   PAD
@@ -8500,7 +8500,7 @@ Memory Map of the image
     0x080084e2   0x080084e2   0x00000006   PAD
     0x080084e8   0x080084e8   0x00000064   Code   RO         1738    .text.HAL_UART_Init  stm32h7xx_hal_uart.o
     0x0800854c   0x0800854c   0x00000004   PAD
-    0x08008550   0x08008550   0x000000e0   Code   RO           84    .text.HAL_UART_MspInit  usart.o
+    0x08008550   0x08008550   0x000000e0   Code   RO          101    .text.HAL_UART_MspInit  usart.o
     0x08008630   0x08008630   0x000001aa   Code   RO         1758    .text.HAL_UART_Transmit  stm32h7xx_hal_uart.o
     0x080087da   0x080087da   0x00000006   PAD
     0x080087e0   0x080087e0   0x000000ec   Code   RO         1778    .text.HAL_UART_Transmit_DMA  stm32h7xx_hal_uart.o
@@ -8509,32 +8509,32 @@ Memory Map of the image
     0x080088d2   0x080088d2   0x00000006   PAD
     0x080088d8   0x080088d8   0x00000002   Code   RO         1832    .text.HAL_UART_TxHalfCpltCallback  stm32h7xx_hal_uart.o
     0x080088da   0x080088da   0x00000006   PAD
-    0x080088e0   0x080088e0   0x00000002   Code   RO          100    .text.HardFault_Handler  stm32h7xx_it.o
+    0x080088e0   0x080088e0   0x00000002   Code   RO          117    .text.HardFault_Handler  stm32h7xx_it.o
     0x080088e2   0x080088e2   0x00000006   PAD
-    0x080088e8   0x080088e8   0x00000034   Code   RO           33    .text.MX_DMA_Init   dma.o
+    0x080088e8   0x080088e8   0x00000034   Code   RO           50    .text.MX_DMA_Init   dma.o
     0x0800891c   0x0800891c   0x00000004   PAD
-    0x08008920   0x08008920   0x0000006e   Code   RO           42    .text.MX_FDCAN1_Init  fdcan.o
+    0x08008920   0x08008920   0x0000006e   Code   RO           59    .text.MX_FDCAN1_Init  fdcan.o
     0x0800898e   0x0800898e   0x00000002   PAD
-    0x08008990   0x08008990   0x0000006e   Code   RO           44    .text.MX_FDCAN2_Init  fdcan.o
+    0x08008990   0x08008990   0x0000006e   Code   RO           61    .text.MX_FDCAN2_Init  fdcan.o
     0x080089fe   0x080089fe   0x00000002   PAD
-    0x08008a00   0x08008a00   0x0000006e   Code   RO           46    .text.MX_FDCAN3_Init  fdcan.o
+    0x08008a00   0x08008a00   0x0000006e   Code   RO           63    .text.MX_FDCAN3_Init  fdcan.o
     0x08008a6e   0x08008a6e   0x00000002   PAD
-    0x08008a70   0x08008a70   0x00000024   Code   RO           19    .text.MX_FREERTOS_Init  freertos.o
+    0x08008a70   0x08008a70   0x00000024   Code   RO           36    .text.MX_FREERTOS_Init  freertos.o
     0x08008a94   0x08008a94   0x00000004   PAD
-    0x08008a98   0x08008a98   0x00000068   Code   RO           11    .text.MX_GPIO_Init  gpio.o
-    0x08008b00   0x08008b00   0x00000072   Code   RO           64    .text.MX_TIM4_Init  tim.o
+    0x08008a98   0x08008a98   0x00000068   Code   RO           28    .text.MX_GPIO_Init  gpio.o
+    0x08008b00   0x08008b00   0x00000072   Code   RO           81    .text.MX_TIM4_Init  tim.o
     0x08008b72   0x08008b72   0x00000006   PAD
-    0x08008b78   0x08008b78   0x0000004e   Code   RO           66    .text.MX_TIM6_Init  tim.o
+    0x08008b78   0x08008b78   0x0000004e   Code   RO           83    .text.MX_TIM6_Init  tim.o
     0x08008bc6   0x08008bc6   0x00000002   PAD
-    0x08008bc8   0x08008bc8   0x0000007c   Code   RO           82    .text.MX_USART1_UART_Init  usart.o
+    0x08008bc8   0x08008bc8   0x0000007c   Code   RO           99    .text.MX_USART1_UART_Init  usart.o
     0x08008c44   0x08008c44   0x00000004   PAD
     0x08008c48   0x08008c48   0x0000006c   Code   RO         2901    .text.MX_USB_DEVICE_Init  usb_device.o
     0x08008cb4   0x08008cb4   0x00000004   PAD
-    0x08008cb8   0x08008cb8   0x00000002   Code   RO          102    .text.MemManage_Handler  stm32h7xx_it.o
+    0x08008cb8   0x08008cb8   0x00000002   Code   RO          119    .text.MemManage_Handler  stm32h7xx_it.o
     0x08008cba   0x08008cba   0x00000006   PAD
-    0x08008cc0   0x08008cc0   0x00000002   Code   RO           98    .text.NMI_Handler   stm32h7xx_it.o
+    0x08008cc0   0x08008cc0   0x00000002   Code   RO          115    .text.NMI_Handler   stm32h7xx_it.o
     0x08008cc2   0x08008cc2   0x00000006   PAD
-    0x08008cc8   0x08008cc8   0x0000000c   Code   RO          124    .text.OTG_HS_IRQHandler  stm32h7xx_it.o
+    0x08008cc8   0x08008cc8   0x0000000c   Code   RO          141    .text.OTG_HS_IRQHandler  stm32h7xx_it.o
     0x08008cd4   0x08008cd4   0x0000000c   PAD
     0x08008ce0   0x08008ce0   0x00000064   Code   RO         2492    .text.PendSV_Handler  port.o
     0x08008d44   0x08008d44   0x00000004   PAD
@@ -8544,17 +8544,17 @@ Memory Map of the image
     0x08008f92   0x08008f92   0x0000000e   PAD
     0x08008fa0   0x08008fa0   0x00000024   Code   RO         2476    .text.SVC_Handler   port.o
     0x08008fc4   0x08008fc4   0x00000004   PAD
-    0x08008fc8   0x08008fc8   0x0000000c   Code   RO           21    .text.StartDefaultTask  freertos.o
+    0x08008fc8   0x08008fc8   0x0000000c   Code   RO           38    .text.StartDefaultTask  freertos.o
     0x08008fd4   0x08008fd4   0x00000004   PAD
     0x08008fd8   0x08008fd8   0x0000001e   Code   RO         2287    .text.SysTick_Handler  cmsis_os2.o
     0x08008ff6   0x08008ff6   0x00000002   PAD
     0x08008ff8   0x08008ff8   0x000000d2   Code   RO         1924    .text.SystemInit    system_stm32h7xx.o
     0x080090ca   0x080090ca   0x00000006   PAD
-    0x080090d0   0x080090d0   0x0000000c   Code   RO          116    .text.TIM4_IRQHandler  stm32h7xx_it.o
+    0x080090d0   0x080090d0   0x0000000c   Code   RO          133    .text.TIM4_IRQHandler  stm32h7xx_it.o
     0x080090dc   0x080090dc   0x00000004   PAD
-    0x080090e0   0x080090e0   0x0000000c   Code   RO          122    .text.TIM6_DAC_IRQHandler  stm32h7xx_it.o
+    0x080090e0   0x080090e0   0x0000000c   Code   RO          139    .text.TIM6_DAC_IRQHandler  stm32h7xx_it.o
     0x080090ec   0x080090ec   0x00000004   PAD
-    0x080090f0   0x080090f0   0x0000000c   Code   RO          120    .text.TIM8_UP_TIM13_IRQHandler  stm32h7xx_it.o
+    0x080090f0   0x080090f0   0x0000000c   Code   RO          137    .text.TIM8_UP_TIM13_IRQHandler  stm32h7xx_it.o
     0x080090fc   0x080090fc   0x00000004   PAD
     0x08009100   0x08009100   0x00000178   Code   RO          180    .text.TIM_Base_SetConfig  stm32h7xx_hal_tim.o
     0x08009278   0x08009278   0x000000e0   Code   RO         1742    .text.UART_AdvFeatureConfig  stm32h7xx_hal_uart.o
@@ -8570,7 +8570,7 @@ Memory Map of the image
     0x08009796   0x08009796   0x00000002   PAD
     0x08009798   0x08009798   0x000004a0   Code   RO         1744    .text.UART_SetConfig  stm32h7xx_hal_uart.o
     0x08009c38   0x08009c38   0x00000358   Code   RO         1760    .text.UART_WaitOnFlagUntilTimeout  stm32h7xx_hal_uart.o
-    0x08009f90   0x08009f90   0x0000000c   Code   RO          118    .text.USART1_IRQHandler  stm32h7xx_it.o
+    0x08009f90   0x08009f90   0x0000000c   Code   RO          135    .text.USART1_IRQHandler  stm32h7xx_it.o
     0x08009f9c   0x08009f9c   0x00000004   PAD
     0x08009fa0   0x08009fa0   0x00000074   Code   RO         3142    .text.USBD_CDC_DataIn  usbd_cdc.o
     0x0800a014   0x0800a014   0x00000004   PAD
@@ -8730,13 +8730,13 @@ Memory Map of the image
     0x0800c5fa   0x0800c5fa   0x00000006   PAD
     0x0800c600   0x0800c600   0x00000118   Code   RO          611    .text.USB_SetTurnaroundTime  stm32h7xx_ll_usb.o
     0x0800c718   0x0800c718   0x00000078   Code   RO          641    .text.USB_WritePacket  stm32h7xx_ll_usb.o
-    0x0800c790   0x0800c790   0x00000002   Code   RO          106    .text.UsageFault_Handler  stm32h7xx_it.o
+    0x0800c790   0x0800c790   0x00000002   Code   RO          123    .text.UsageFault_Handler  stm32h7xx_it.o
     0x0800c792   0x0800c792   0x00000006   PAD
     0x0800c798   0x0800c798   0x000000a2   Code   RO         2771    .text._GLOBAL__sub_I_frame_demo.cpp  frame_demo.o
     0x0800c83a   0x0800c83a   0x00000006   PAD
     0x0800c840   0x0800c840   0x00000006   Code   RO         2582    .text._Z10send_idLowv  motor_dji.o
     0x0800c846   0x0800c846   0x00000002   PAD
-    0x0800c848   0x0800c848   0x000000cc   Code   RO          161    .text._Z18SystemClock_Configv  main.o
+    0x0800c848   0x0800c848   0x000000cc   Code   RO           13    .text._Z18SystemClock_Configv  main.o
     0x0800c914   0x0800c914   0x00000004   PAD
     0x0800c918   0x0800c918   0x00000002   Code   RO         2672    .text._ZN10Motor_Base12setTargetRPMEf  motor_dji.o
     0x0800c91a   0x0800c91a   0x00000006   PAD
@@ -8853,7 +8853,7 @@ Memory Map of the image
     0x0800dbf6   0x0800dbf6   0x00000002   PAD
     0x0800dbf8   0x0800dbf8   0x00000052   Code   RO         2534    .text.fdcan_global_scheduler_tick_isr  bsp_fdcan_driver.o
     0x0800dc4a   0x0800dc4a   0x00000006   PAD
-    0x0800dc50   0x0800dc50   0x0000006e   Code   RO          159    .text.main          main.o
+    0x0800dc50   0x0800dc50   0x0000006e   Code   RO           11    .text.main          main.o
     0x0800dcbe   0x0800dcbe   0x00000002   PAD
     0x0800dcc0   0x0800dcc0   0x00000020   Code   RO         2347    .text.osDelay       cmsis_os2.o
     0x0800dce0   0x0800dce0   0x0000002a   Code   RO         2289    .text.osKernelInitialize  cmsis_os2.o
@@ -9006,8 +9006,8 @@ Memory Map of the image
     0x080112d8   0x080112d8   0x00000018   Data   RO         2540    .rodata._ZTVN8fdCANbus9SchedTaskE  bsp_fdcan_driver.o
     0x080112f0   0x080112f0   0x00000010   Data   RO         1729    .rodata.cst16       stm32h7xx_hal_fdcan.o
     0x08011300   0x08011300   0x00000010   Data   RO         1915    .rodata.cst8        stm32h7xx_hal_uart_ex.o
-    0x08011310   0x08011310   0x00000024   Data   RO           24    .rodata.defaultTask_attributes  freertos.o
-    0x08011334   0x08011334   0x0000000c   Data   RO           23    .rodata.str1.1      freertos.o
+    0x08011310   0x08011310   0x00000024   Data   RO           41    .rodata.defaultTask_attributes  freertos.o
+    0x08011334   0x08011334   0x0000000c   Data   RO           40    .rodata.str1.1      freertos.o
     0x08011340   0x08011340   0x00000005   Data   RO         2277    .rodata.str1.1      timers.o
     0x08011345   0x08011345   0x0000000e   Data   RO         2804    .rodata.str1.1      setup_configinit.o
     0x08011353   0x08011353   0x00000093   Data   RO         3384    .rodata.str1.1      libcppabi_w.l(cxa_guard.cpp.o)
@@ -9057,7 +9057,7 @@ Memory Map of the image
     0x24000318        -       0x00000028   Zero   RW         2228    .bss..L_MergedGlobals.2  tasks.o
     0x24000340        -       0x00000060   Zero   RW         2780    .bss..L_MergedGlobals.4  frame_demo.o
     0x240003a0        -       0x00000060   Zero   RW         2773    .bss.CAN1_Bus       frame_demo.o
-    0x24000400        -       0x00000004   Zero   RW           55    .bss.HAL_RCC_FDCAN_CLK_ENABLED  fdcan.o
+    0x24000400        -       0x00000004   Zero   RW           72    .bss.HAL_RCC_FDCAN_CLK_ENABLED  fdcan.o
     0x24000404        -       0x00000004   Zero   RW         2437    .bss.KernelState    cmsis_os2.o
     0x24000408        -       0x00000001   Zero   RW         3103    .bss.USBD_SetConfig.cfgidx  usbd_ctlreq.o
     0x24000409   COMPRESSED   0x00000003   PAD
@@ -9066,17 +9066,17 @@ Memory Map of the image
     0x2400082c        -       0x00000800   Zero   RW         2953    .bss.UserRxBufferHS  usbd_cdc_if.o
     0x2400102c        -       0x00000800   Zero   RW         2954    .bss.UserTxBufferHS  usbd_cdc_if.o
     0x2400182c        -       0x0000000c   Zero   RW         2538    .bss._ZL15g_fdcan_bus_map  bsp_fdcan_driver.o
-    0x24001838        -       0x00000004   Zero   RW           25    .bss.defaultTaskHandle  freertos.o
+    0x24001838        -       0x00000004   Zero   RW           42    .bss.defaultTaskHandle  freertos.o
     0x2400183c        -       0x000002dc   Zero   RW         2903    .bss.hUsbDeviceHS   usb_device.o
-    0x24001b18        -       0x00000078   Zero   RW           89    .bss.hdma_usart1_tx  usart.o
-    0x24001b90        -       0x000000a0   Zero   RW           52    .bss.hfdcan1        fdcan.o
-    0x24001c30        -       0x000000a0   Zero   RW           53    .bss.hfdcan2        fdcan.o
-    0x24001cd0        -       0x000000a0   Zero   RW           54    .bss.hfdcan3        fdcan.o
+    0x24001b18        -       0x00000078   Zero   RW          106    .bss.hdma_usart1_tx  usart.o
+    0x24001b90        -       0x000000a0   Zero   RW           69    .bss.hfdcan1        fdcan.o
+    0x24001c30        -       0x000000a0   Zero   RW           70    .bss.hfdcan2        fdcan.o
+    0x24001cd0        -       0x000000a0   Zero   RW           71    .bss.hfdcan3        fdcan.o
     0x24001d70        -       0x000004e4   Zero   RW         3025    .bss.hpcd_USB_OTG_HS  usbd_conf.o
-    0x24002254        -       0x0000004c   Zero   RW           72    .bss.htim4          tim.o
-    0x240022a0        -       0x0000004c   Zero   RW           73    .bss.htim6          tim.o
-    0x240022ec        -       0x0000004c   Zero   RW          150    .bss.htim8          stm32h7xx_hal_timebase_tim.o
-    0x24002338        -       0x00000094   Zero   RW           88    .bss.huart1         usart.o
+    0x24002254        -       0x0000004c   Zero   RW           89    .bss.htim4          tim.o
+    0x240022a0        -       0x0000004c   Zero   RW           90    .bss.htim6          tim.o
+    0x240022ec        -       0x0000004c   Zero   RW          167    .bss.htim8          stm32h7xx_hal_timebase_tim.o
+    0x24002338        -       0x00000094   Zero   RW          105    .bss.huart1         usart.o
     0x240023cc        -       0x00000104   Zero   RW         2774    .bss.m3508_1        frame_demo.o
     0x240024d0        -       0x000000a0   Zero   RW         2276    .bss.prvCheckForValidListAndQueue.ucStaticTimerQueueStorage  timers.o
     0x24002570        -       0x00000050   Zero   RW         2275    .bss.prvCheckForValidListAndQueue.xStaticTimerQueue  timers.o
