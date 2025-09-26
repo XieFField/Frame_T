@@ -163,9 +163,9 @@ protected:
     RxTask rxTask_;
     SchedTask schedulerTask_;
 
-    bool HAL_FDCAN_Start_ERROR = false; // 记录 HAL_FDCAN_Start 是否成功
+    int HAL_FDCAN_Start_ERROR = 0; // 记录 HAL_FDCAN_Start 是否成功
 
-    bool HAL_FDCAN_ActivateNotification_ERROR = false; // 记录 HAL_FDCAN_ActivateNotification 是否成功
+    int HAL_FDCAN_ActivateNotification_ERROR = 0; // 记录 HAL_FDCAN_ActivateNotification 是否成功
 };
 
 

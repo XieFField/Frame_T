@@ -44,12 +44,14 @@ void fdCANbus::init()
     {
         // 错误处理
         HAL_FDCAN_Start_ERROR = true;
+        Error_Handler();
     }
 
     // 激活FIFO0新消息中断
     if (HAL_FDCAN_ActivateNotification(hfdcan_, FDCAN_IT_RX_FIFO0_NEW_MESSAGE, 0) != HAL_OK) {
         // 错误处理
         HAL_FDCAN_ActivateNotification_ERROR = true;
+        Error_Handler();
     }
 
     // 注册自身到全局映射表
@@ -57,7 +59,7 @@ void fdCANbus::init()
 
     //任务启动
     rxTask_.start(tskIDLE_PRIORITY + 3, 256);
-    schedulerTask_.start(tskIDLE_PRIORITY + 4, 256);
+    schedulerTask_.start(tskIDLE_PRIORITY + 4, 1024);
 }
 
 // --- registerMotor ---
@@ -73,23 +75,31 @@ bool fdCANbus::registerMotor(Motor_Base* m)
     }
     return false;
 }
-
+volatile HAL_StatusTypeDef success ; 
+volatile int add_before = 0;
+volatile int add_after = 0;
 // --- sendFrame: 调用 HAL 发送 ---
 bool fdCANbus::sendFrame(const CanFrame& cf) 
 {
     // 使用互斥锁保护硬件访问，设置1ms的超时等待
-    if (xSemaphoreTake(tx_mutex_, pdMS_TO_TICKS(1)) != pdTRUE) 
-        return false; // 获取锁失败，直接返回，不阻塞调度任务
+     if (xSemaphoreTake(tx_mutex_, pdMS_TO_TICKS(1)) != pdTRUE) 
+         return false; // 获取锁失败，直接返回，不阻塞调度任务
     
 
-    if (!hfdcan_) 
-    {
-        xSemaphoreGive(tx_mutex_);
-        return false;
-    }
+     if (!hfdcan_) 
+     {
+         xSemaphoreGive(tx_mutex_);
+         return false;
+     }
 
-    FDCAN_TxHeaderTypeDef tx_header;
-    std::memset(&tx_header, 0, sizeof(tx_header));
+    static FDCAN_TxHeaderTypeDef tx_header;
+
+    // 确保发送数据 4 字节对齐
+    alignas(4) static uint8_t aligned_buf[8];
+    std::memcpy(aligned_buf, cf.data, 8);
+
+    //std::memset(&tx_header, 0, sizeof(tx_header));
+
     tx_header.Identifier = cf.ID;
     tx_header.IdType = (cf.isextended ? FDCAN_EXTENDED_ID : FDCAN_STANDARD_ID);
     tx_header.TxFrameType = FDCAN_DATA_FRAME;
@@ -99,11 +109,13 @@ bool fdCANbus::sendFrame(const CanFrame& cf)
     tx_header.FDFormat = FDCAN_CLASSIC_CAN;
     tx_header.TxEventFifoControl = FDCAN_NO_TX_EVENTS;
     tx_header.MessageMarker = 0;
+    
+    //HAL_StatusTypeDef status = HAL_FDCAN_AddMessageToTxFifoQ(hfdcan_, &tx_header, const_cast<uint8_t*>(cf.data));
 
-    HAL_StatusTypeDef status = HAL_FDCAN_AddMessageToTxFifoQ(hfdcan_, &tx_header, const_cast<uint8_t*>(cf.data));
-
+    HAL_StatusTypeDef status = HAL_FDCAN_AddMessageToTxFifoQ(hfdcan_, &tx_header, aligned_buf);
+    success = status;
     xSemaphoreGive(tx_mutex_); // 释放锁
-
+    
     return status == HAL_OK;
 }
 
@@ -137,7 +149,7 @@ void fdCANbus::rxTaskbody()
 // --- schedulerTaskBody ---
 void fdCANbus::schedulerTaskbody() 
 {
-    CanFrame frames_to_send[MAX_MOTORS * 2];
+    static CanFrame frames_to_send[MAX_MOTORS * 2];
     for (;;) 
     {
         // 永久阻塞等待，直到被TIM中断的ISR唤醒

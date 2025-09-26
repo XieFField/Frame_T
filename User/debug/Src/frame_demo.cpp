@@ -1,8 +1,8 @@
 #include "frame_demo.h"
 
-fdCANbus CAN1_Bus(&hfdcan1, 1); // CAN1
-DJI_Group DJI_Group_1(send_idLow(), &CAN1_Bus); // 低片 0x200
-M3508 m3508_1(1, &CAN1_Bus);
+fdCANbus CAN1_Bus(&hfdcan2, 1); // CAN1
+DJI_Group DJI_Group_1(send_idHigh(), &CAN1_Bus); // 低片 0x200
+M3508 m3508_1(7, &CAN1_Bus);
 
 //目前不错的参数 by XieFField
 PID_Param_Config m3508_speed_pid_params = {

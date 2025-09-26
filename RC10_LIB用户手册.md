@@ -79,6 +79,7 @@ RC10_LIB将提供大量预制菜，旨在让对底层驱动不熟悉的用户也
         protected:
             void run() override 
             {
+                init(); //会被执行
                 for(;;) 
                 {
                     // 等待信号量或其他事件
