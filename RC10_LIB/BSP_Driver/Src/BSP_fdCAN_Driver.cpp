@@ -166,12 +166,14 @@ void fdCANbus::schedulerTaskbody()
 
         // 2. 打包所有电机的指令
 
-        std::size_t frameCnt = 0;
+        std::size_t frameCnt = 0; //计数值，记录打包了多少帧
         for (std::size_t i = 0; i < MAX_MOTORS; ++i) 
         {
             Motor_Base* m = motorList_[i];
-            if (!m) 
+            if (!m) // 如果电机不存在，则跳过
                 continue;
+                
+            // 调用电机的打包函数,并累加返回的帧数
             frameCnt += m->packCommand(&frames_to_send[frameCnt], (sizeof(frames_to_send)/sizeof(frames_to_send[0])) - frameCnt);
 
             if (frameCnt >= (sizeof(frames_to_send)/sizeof(frames_to_send[0]))) 
