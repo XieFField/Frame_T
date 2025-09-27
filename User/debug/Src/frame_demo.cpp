@@ -38,7 +38,7 @@ void FrameDemo::init()
 {
     start(osPriorityNormal, 256);
 }
-
+volatile int a = 0;
 volatile float delta_time = 0.0f; //目前使用的单位是微秒
 volatile uint64_t last_time = 0;
 void DJI_MotorDemo::loop()
@@ -103,6 +103,14 @@ void DJI_MotorDemo::loop()
         m3508_1.setTargetCurrent(0.0f);
     }
 
+    if(air_joy.LEFT_X >= 1000 && air_joy.LEFT_X < 1400)
+    {
+        a = 1;
+    }
+    else if(air_joy.LEFT_X >= 1450 && air_joy.LEFT_X < 1550)
+    {
+        a = 100;
+    }
 }
 
 void DJI_MotorDemo::init()

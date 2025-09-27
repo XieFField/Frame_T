@@ -6,6 +6,8 @@ uint16_t AirJoy::last_valid[8] = {1500, 1500, 1500, 1500, 1500, 1500, 1500, 1500
 
 AirJoy air_joy;
 
+volatile int cnt_ = 0;
+
 void AirJoy::data_update(uint16_t GPIO_Pin, uint16_t GPIO_EXTI_USED_PIN)
 {
     
@@ -55,6 +57,7 @@ void AirJoy::data_update(uint16_t GPIO_Pin, uint16_t GPIO_EXTI_USED_PIN)
                 PPM_buf[ppm_sample_cnt] = new_val;
                 last_valid[ppm_sample_cnt] = new_val;
                 ppm_sample_cnt++;
+                cnt_ = ppm_sample_cnt;
             }
             
             // 边界检查
@@ -94,7 +97,7 @@ void AirJoy::data_update(uint16_t GPIO_Pin, uint16_t GPIO_EXTI_USED_PIN)
  * 
  * @param GPIO_Pin 触发的IO口
  */
-void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
+extern "C" void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 {
-    air_joy.data_update(GPIO_Pin, GPIO_PIN_14);
+    air_joy.data_update(GPIO_Pin, GPIO_PIN_8);
 }

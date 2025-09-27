@@ -41,9 +41,12 @@ private:
     static uint16_t last_valid[8];
 };
 
+
+
+
 extern "C" {
 #endif
-
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin);
 #ifdef __cplusplus
 }
 extern AirJoy air_joy;

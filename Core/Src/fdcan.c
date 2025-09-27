@@ -74,12 +74,12 @@ void MX_FDCAN1_Init(void)
   /* USER CODE BEGIN FDCAN1_Init 2 */
 //  if (HAL_FDCAN_Start(&hfdcan1) != HAL_OK)
 //  {
-//    Error_Handler(); // Æô¶¯Ê§°ÜÖ±½Ó½ø´íÎó´¦Àí
+//    Error_Handler(); // ï¿½ï¿½ï¿½ï¿½Ê§ï¿½ï¿½Ö±ï¿½Ó½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 //  }
 
-//  // ¼¤»îFIFO0ÐÂÏûÏ¢ÖÐ¶Ï
+//  // ï¿½ï¿½ï¿½ï¿½FIFO0ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½Ð¶ï¿½
 //  if (HAL_FDCAN_ActivateNotification(&hfdcan1, FDCAN_IT_RX_FIFO0_NEW_MESSAGE, 0) != HAL_OK) {
-//    Error_Handler(); // ¼¤»îÖÐ¶ÏÊ§°ÜÖ±½Ó½ø´íÎó´¦Àí
+//    Error_Handler(); // ï¿½ï¿½ï¿½ï¿½ï¿½Ð¶ï¿½Ê§ï¿½ï¿½Ö±ï¿½Ó½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 //  }
   /* USER CODE END FDCAN1_Init 2 */
 
@@ -130,12 +130,12 @@ void MX_FDCAN2_Init(void)
   /* USER CODE BEGIN FDCAN2_Init 2 */
 //  if (HAL_FDCAN_Start(&hfdcan2) != HAL_OK)
 //  {
-//    Error_Handler(); // Æô¶¯Ê§°ÜÖ±½Ó½ø´íÎó´¦Àí
+//    Error_Handler(); // ï¿½ï¿½ï¿½ï¿½Ê§ï¿½ï¿½Ö±ï¿½Ó½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 //  }
 
-//  // ¼¤»îFIFO0ÐÂÏûÏ¢ÖÐ¶Ï
+//  // ï¿½ï¿½ï¿½ï¿½FIFO0ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½Ð¶ï¿½
 //  if (HAL_FDCAN_ActivateNotification(&hfdcan2, FDCAN_IT_RX_FIFO0_NEW_MESSAGE, 0) != HAL_OK) {
-//    Error_Handler(); // ¼¤»îÖÐ¶ÏÊ§°ÜÖ±½Ó½ø´íÎó´¦Àí
+//    Error_Handler(); // ï¿½ï¿½ï¿½ï¿½ï¿½Ð¶ï¿½Ê§ï¿½ï¿½Ö±ï¿½Ó½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 //  }
   /* USER CODE END FDCAN2_Init 2 */
 
@@ -186,12 +186,12 @@ void MX_FDCAN3_Init(void)
   /* USER CODE BEGIN FDCAN3_Init 2 */
 //  if (HAL_FDCAN_Start(&hfdcan3) != HAL_OK)
 //  {
-//    Error_Handler(); // Æô¶¯Ê§°ÜÖ±½Ó½ø´íÎó´¦Àí
+//    Error_Handler(); // ï¿½ï¿½ï¿½ï¿½Ê§ï¿½ï¿½Ö±ï¿½Ó½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 //  }
 
-//  // ¼¤»îFIFO0ÐÂÏûÏ¢ÖÐ¶Ï
+//  // ï¿½ï¿½ï¿½ï¿½FIFO0ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½Ð¶ï¿½
 //  if (HAL_FDCAN_ActivateNotification(&hfdcan3, FDCAN_IT_RX_FIFO0_NEW_MESSAGE, 0) != HAL_OK) {
-//    Error_Handler(); // ¼¤»îÖÐ¶ÏÊ§°ÜÖ±½Ó½ø´íÎó´¦Àí
+//    Error_Handler(); // ï¿½ï¿½ï¿½ï¿½ï¿½Ð¶ï¿½Ê§ï¿½ï¿½Ö±ï¿½Ó½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 //  }
   /* USER CODE END FDCAN3_Init 2 */
 

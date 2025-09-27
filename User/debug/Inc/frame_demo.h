@@ -31,7 +31,7 @@ extern "C"
 #include "Motor_VESC.h"
 #include "BSP_TimeStamp.h"
 #include "Module_ChassisBase.h"
-
+#include "Module_Air_joy.h"
 class FrameDemo : public RtosTask
 {
 public:
