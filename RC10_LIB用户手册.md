@@ -405,7 +405,7 @@ protected:
         2.  该ISR释放（Give）一个名为 `schedSem_` 的信号量，然后立即退出。
         3.  `schedulerTask_` 在启动后就一直阻塞等待（Take）这个信号量。一旦获取到信号量，它就会被唤醒。
         4.  **更新**: 任务首先遍历所有注册的电机（或电机组），并调用它们的 `update()` 方法。这会触发PID计算等控制逻辑。
-        5.  **打包**: 接着，任务再次遍历所有对象，调用 `packCommand()` 方法来收集需要发送的CAN指令帧。
+        5.  **打包**: 接着，任务再次遍历所有对象，调用 `packCommand()` 方法来收集需要发送的CAN指令帧,此处利用`packCommand()`的返回值记录需要发送几帧CAN。
         6.  **发送**: 最后，任务将所有收集到的指令帧通过 `sendFrame()` 方法发送出去。`sendFrame` 内部使用互斥锁 `tx_mutex_` 来确保多任务访问CAN硬件的线程安全。
         7.  完成一轮调度后，`schedulerTask_` 返回循环的开始，再次阻塞等待下一次的信号量，从而实现精确的1ms周期。
 
@@ -518,6 +518,7 @@ public:
 
     // 2. 【必须】覆盖 packCommand
     //    根据 target_current_ 等目标值，打包成该电机的CAN帧
+    //    此处的返回值务必实现，否则会让fdCANbus检测总线上CAN帧数量异常，导致发送丢包。
     std::size_t packCommand(CanFrame outFrames[], std::size_t maxFrames) override;
 
     // 3. 【必须】覆盖 updateFeedback

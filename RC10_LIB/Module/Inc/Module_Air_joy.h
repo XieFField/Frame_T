@@ -1,6 +1,6 @@
 /**
  * @file   Module_Air_joy.h
- * @author Zheng huo
+ * @author Zhan HongLi
  * @brief  遥控器PPM解码
  * @version 1.0
  */
