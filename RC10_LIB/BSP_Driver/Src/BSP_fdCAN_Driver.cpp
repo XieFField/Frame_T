@@ -59,7 +59,7 @@ void fdCANbus::init()
 
     //»ŒŒÒ∆Ù∂Ø
     rxTask_.start(tskIDLE_PRIORITY + 3, 256);
-    schedulerTask_.start(tskIDLE_PRIORITY + 4, 1024);
+    schedulerTask_.start(tskIDLE_PRIORITY + 4, 256);
 }
 
 // --- registerMotor ---
